@@ -1,0 +1,236 @@
+% import re
+% floatsRE = 'Double|Float|Float80'
+/*
+    AtomicTests.swift
+
+    Copyright (c) 2017 Stephen Whittle  All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom
+    the Software is furnished to do so, subject to the following conditions:
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+    IN THE SOFTWARE.
+*/
+import XCTest
+
+@testable import Atomic
+% for type in ['Int', 'Int8', 'Int16', 'Int32', 'Int64', 'UInt', 'UInt8', 'UInt16', 'UInt32', 'UInt64', 'Double', 'Float', 'Float80']:
+
+// Atomic tests for '${type}'
+class ${type}Tests: XCTestCase {
+    func testAtomic${type}() {
+    % for operator in ['+', '-', '*', '/', '%', '<<', '>>', '^', '|', '&', '&+', '&-', '&*']:
+        % if not (re.search(floatsRE, type) and re.search('%|<<|>>|\^|\||&|&\+|&-|&\*', operator)):
+        do {
+            var (atomic1, atomic2) = (A${type}(42), A${type}(42))
+
+            atomic1 = atomic1 ${operator} 2
+            atomic2 = atomic2 ${operator} 2
+
+            XCTAssert(atomic1 == atomic2, "A${type} A${type} with ${operator}")
+        }
+        do {
+            var (type, atomic) = (${type}(42), A${type}(42))
+
+            type = type ${operator} 2
+            atomic = atomic ${operator} 2
+
+            XCTAssert(type == atomic, "${type} A${type} with ${operator}")
+        }
+        do {
+            var (atomic, type) = (A${type}(42), ${type}(42))
+
+            atomic = atomic ${operator} 2
+            type = type ${operator} 2
+
+            XCTAssert(atomic == type, "A${type} ${type} with ${operator}")
+        }
+        % end
+    % end
+    % for operator in ['+=', '-=', '*=', '/=', '%=', '<<=', '>>=', '^=', '|=', '&=']:
+        % if not (re.search(floatsRE, type) and re.search('%=|<<=|>>=|\^=|\|=|\&=', operator)):
+        do {
+            var (atomic1, atomic2) = (A${type}(42), A${type}(42))
+
+            atomic1 ${operator} 2
+            atomic2 ${operator} 2
+
+            XCTAssert(atomic1 == atomic2, "A${type} A${type} with ${operator}")
+        }
+        do {
+            var (type, atomic) = (${type}(42), A${type}(42))
+
+            type ${operator} 2
+            atomic ${operator} 2
+
+            XCTAssert(type == atomic, "${type} A${type} with ${operator}")
+        }
+        do {
+            var (atomic, type) = (A${type}(42), ${type}(42))
+
+            atomic ${operator} 2
+            type ${operator} 2
+
+            XCTAssert(atomic == type, "A${type} ${type} with ${operator}")
+        }
+        % end
+    % end
+    % if not (re.search('UInt*', type)):
+        % for prefix in ['+', '-', '~']:
+            % if not (re.search(floatsRE, type) and prefix == '~'):
+        do {
+            var (atomic1, atomic2) = (A${type}(42), A${type}(42))
+
+            atomic1 = ${prefix}atomic1
+            atomic2 = ${prefix}atomic2
+
+            XCTAssert(atomic1 == atomic2, "A${type} A${type} with ${prefix}")
+        }
+        do {
+            var (type, atomic) = (${type}(42), A${type}(42))
+
+            type = ${prefix}type
+            atomic = ${prefix}atomic
+
+            XCTAssert(type == atomic, "${type} A${type} with ${prefix}")
+        }
+        do {
+            var (atomic, type) = (A${type}(42), ${type}(42))
+
+            atomic = ${prefix}atomic
+            type = ${prefix}type
+
+            XCTAssert(atomic == type, "A${type} ${type} with ${prefix}")
+        }
+            % end
+        % end
+    % end
+    }
+
+#if !os(OSX)
+    static let allTests = [
+        ("testAtomic${type}", testAtomic${type})
+    ]
+#endif
+}
+% end
+
+// Atomic tests for 'String'
+class StringTests: XCTestCase {
+    func testAtomicString() {
+        do {
+            var (atomic1, atomic2) = (AString("42"), AString("42"))
+
+            atomic1 = atomic1 + "2"
+            atomic2 = atomic2 + "2"
+
+            XCTAssert(atomic1 == atomic2, "AString AString with +")
+        }
+        do {
+            var (type, atomic) = (String("42")!, AString("42"))
+
+            type = type + "2"
+            atomic = atomic + "2"
+
+            XCTAssert(type == atomic, "String AString with +")
+        }
+        do {
+            var (atomic, type) = (AString("42"), String("42")!)
+
+            atomic = atomic + "2"
+            type = type + "2"
+
+            XCTAssert(atomic == type, "AString String with +")
+        }
+        do {
+            var (atomic1, atomic2) = (AString("42"), AString("42"))
+
+            atomic1 += "2"
+            atomic2 += "2"
+
+            XCTAssert(atomic1 == atomic2, "AString AString with +=")
+        }
+        do {
+            var (type, atomic) = (String("42")!, AString("42"))
+
+            type += "2"
+            atomic += "2"
+
+            XCTAssert(type == atomic, "String AString with +=")
+        }
+        do {
+            var (atomic, type) = (AString("42"), String("42")!)
+
+            atomic += "2"
+            type += "2"
+
+            XCTAssert(atomic == type, "AString String with +=")
+        }
+    }
+
+#if !os(OSX)
+    static let allTests = [
+        ("testAtomicString", testAtomicString)
+    ]
+#endif
+}
+
+// Atomic tests for 'Bool'
+class BoolTests: XCTestCase {
+    func testAtomicBool() {
+        do {
+            var (atomic1, atomic2) = (ABool(false), ABool(false))
+
+            atomic1 = !atomic1
+            atomic2 = !atomic2
+
+            XCTAssert(atomic1 == atomic2, "ABool ABool with !")
+        }
+        do {
+            var (type, atomic) = (Bool(false), ABool(false))
+
+            type = !type
+            atomic = !atomic
+
+            XCTAssert(type == atomic, "Bool ABool with !")
+        }
+        do {
+            var (atomic, type) = (ABool(false), Bool(false))
+
+            atomic = !atomic
+            type = !type
+
+            XCTAssert(atomic == type, "ABool Bool with !")
+        }
+        do {
+            var (atomic1, atomic2) = (ABool(true), ABool(true))
+
+            let bool = atomic1 && atomic2
+
+            XCTAssertTrue(bool, "ABool ABool with &&")
+        }
+        do {
+            var (atomic1, atomic2) = (ABool(true), ABool(false))
+
+            let bool = atomic1 || atomic2
+
+            XCTAssertTrue(bool, "ABool ABool with ||")
+        }
+    }
+
+#if !os(OSX)
+    static let allTests = [
+        ("testAtomicBool", testAtomicBool)
+    ]
+#endif
+}

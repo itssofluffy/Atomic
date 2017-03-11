@@ -5699,6 +5699,22 @@ public func +=(lhs: AString, rhs: String) {
 // Atomic typealias for 'Bool'
 public typealias ABool = Atomic<Bool>
 
+public func &&(lhs: Atomic<Bool>, rhs: Atomic<Bool>) -> Bool {
+    lock(lhs, rhs)
+    let result = (lhs.value && rhs.value)
+    unlock(lhs, rhs)
+
+    return result
+}
+
+public func ||(lhs: Atomic<Bool>, rhs: Atomic<Bool>) -> Bool {
+    lock(lhs, rhs)
+    let result = (lhs.value || rhs.value)
+    unlock(lhs, rhs)
+
+    return result
+}
+
 public prefix func !(x: Atomic<Bool>) -> Atomic<Bool> {
     lock(x)
     let result = !x.value

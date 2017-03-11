@@ -1,5 +1,5 @@
 /*
-    LinuxMain.swift
+    XCTestManifests.swift
 
     Copyright (c) 2017 Stephen Whittle  All rights reserved.
 
@@ -22,10 +22,24 @@
 
 import XCTest
 
-@testable import AtomicTests
+@testable import Atomic
 
-var tests = [XCTestCaseEntry]()
-
-tests += AtomicTests.allTests
-
-XCTMain(tests)
+#if !os(OSX)
+public let allTests = [
+    testCase(IntTests.allTests),
+    testCase(Int8Tests.allTests),
+    testCase(Int16Tests.allTests),
+    testCase(Int32Tests.allTests),
+    testCase(Int64Tests.allTests),
+    testCase(UIntTests.allTests),
+    testCase(UInt8Tests.allTests),
+    testCase(UInt16Tests.allTests),
+    testCase(UInt32Tests.allTests),
+    testCase(UInt64Tests.allTests),
+    testCase(DoubleTests.allTests),
+    testCase(FloatTests.allTests),
+    testCase(Float80Tests.allTests),
+    testCase(StringTests.allTests),
+    testCase(BoolTests.allTests)
+]
+#endif

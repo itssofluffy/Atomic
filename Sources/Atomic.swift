@@ -79,21 +79,3 @@ extension Atomic: CustomStringConvertible {
                        })!
     }
 }
-
-extension Atomic {
-    public static func &&(lhs: Atomic<Bool>, rhs: Atomic<Bool>) -> Bool {
-        lock(lhs, rhs)
-        let result = (lhs.value && rhs.value)
-        unlock(lhs, rhs)
-
-        return result
-    }
-
-    public static func ||(lhs: Atomic<Bool>, rhs: Atomic<Bool>) -> Bool {
-        lock(lhs, rhs)
-        let result = (lhs.value || rhs.value)
-        unlock(lhs, rhs)
-
-        return result
-    }
-}

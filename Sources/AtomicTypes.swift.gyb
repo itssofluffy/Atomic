@@ -1,0 +1,158 @@
+% import re
+% floatsRE = 'Double|Float|Float80'
+/*
+    AtomicTypes.swift
+
+    Copyright (c) 2017 Stephen Whittle  All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom
+    the Software is furnished to do so, subject to the following conditions:
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+    IN THE SOFTWARE.
+*/
+% for type in ['Int', 'Int8', 'Int16', 'Int32', 'Int64', 'UInt', 'UInt8', 'UInt16', 'UInt32', 'UInt64', 'Double', 'Float', 'Float80']:
+
+// Atomic typealias for '${type}'
+public typealias A${type} = Atomic<${type}>
+    % for operator in ['+', '-', '*', '/', '%', '<<', '>>', '^', '|', '&', '&+', '&-', '&*']:
+        % if not (re.search(floatsRE, type) and re.search('%|<<|>>|\^|\||&|&\+|&-|&\*', operator)):
+
+public func ${operator}(lhs: A${type}, rhs: A${type}) -> A${type} {
+    lock(lhs, rhs)
+    let result = lhs.value ${operator} rhs.value
+    unlock(lhs, rhs)
+
+    return Atomic(result)
+}
+
+public func ${operator}(lhs: ${type}, rhs: A${type}) -> A${type} {
+    lock(rhs)
+    let result = lhs ${operator} rhs.value
+    unlock(rhs)
+
+    return Atomic(result)
+}
+
+public func ${operator}(lhs: A${type}, rhs: ${type}) -> A${type} {
+    lock(lhs)
+    let result = lhs.value ${operator} rhs
+    unlock(lhs)
+
+    return Atomic(result)
+}
+        % end
+    % end
+    % for operator in ['+=', '-=', '*=', '/=', '%=', '<<=', '>>=', '^=', '|=', '&=']:
+        % if not (re.search(floatsRE, type) and re.search('%=|<<=|>>=|\^=|\|=|\&=', operator)):
+
+public func ${operator}(lhs: A${type}, rhs: A${type}) {
+    lock(lhs, rhs)
+    lhs.value ${operator} rhs.value
+    unlock(lhs, rhs)
+}
+
+public func ${operator}(lhs: inout ${type}, rhs: A${type}) {
+    lock(rhs)
+    lhs ${operator} rhs.value
+    unlock(rhs)
+}
+
+public func ${operator}(lhs: A${type}, rhs: ${type}) {
+    lock(lhs)
+    lhs.value ${operator} rhs
+    unlock(lhs)
+}
+        % end
+    % end
+    % if not (re.search('UInt*', type)):
+        % for prefix in ['+', '-', '~']:
+            % if not (re.search(floatsRE, type) and prefix == '~'):
+
+public prefix func ${prefix}(x: A${type}) -> A${type} {
+    lock(x)
+    let result = ${prefix}x.value
+    unlock(x)
+
+    return Atomic(result)
+}
+            % end
+        % end
+    % end
+% end
+
+// Atomic typealias for 'String'
+public typealias AString = Atomic<String>
+
+public func +(lhs: AString, rhs: AString) -> AString {
+    lock(lhs, rhs)
+    let result = lhs.value + rhs.value
+    unlock(lhs, rhs)
+
+    return Atomic(result)
+}
+
+public func +(lhs: String, rhs: AString) -> AString {
+    lock(rhs)
+    let result = lhs + rhs.value
+    unlock(rhs)
+
+    return Atomic(result)
+}
+
+public func +(lhs: AString, rhs: String) -> AString {
+    lock(lhs)
+    let result = lhs.value + rhs
+    unlock(lhs)
+
+    return Atomic(result)
+}
+
+public func +=(lhs: AString, rhs: AString) {
+    lock(lhs, rhs)
+    lhs.value += rhs.value
+    unlock(lhs, rhs)
+}
+
+public func +=(lhs: inout String, rhs: AString) {
+    lock(rhs)
+    lhs += rhs.value
+    unlock(rhs)
+}
+
+public func +=(lhs: AString, rhs: String) {
+    lock(lhs)
+    lhs.value += rhs
+    unlock(lhs)
+}
+
+// Atomic typealias for 'Bool'
+public typealias ABool = Atomic<Bool>
+
+public prefix func !(x: Atomic<Bool>) -> Atomic<Bool> {
+    lock(x)
+    let result = !x.value
+    unlock(x)
+
+    return Atomic(result)
+}
+% for type in ['Character', 'UnicodeScalar']:
+
+// Atomic typealias for '${type}'
+public typealias A${type} = Atomic<${type}>
+% end
+
+// Atomic typealias for 'C' types
+% for ctype in ['CBool', 'CChar', 'CChar16', 'CChar32', 'CDouble', 'CFloat', 'CInt', 'CLong', 'CLongLong', 'CShort', 'CSignedChar', 'CUnsignedChar', 'CUnsignedInt', 'CUnsignedLong', 'CUnsignedLongLong', 'CUnsignedShort', 'CWideChar']:
+public typealias A${ctype} = Atomic<${ctype}>
+% end

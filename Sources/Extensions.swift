@@ -25,729 +25,729 @@ import ISFLibrary
 // Extension for '<type 'type'>'
 public extension Int {
     public init(_ atomic: AInt) throws {
-        self = try Int(atomic.load())
+        self = try Int(atomic.get())
     }
 
     public init(_ atomic: AInt8) throws {
-        self = try Int(atomic.load())
+        self = try Int(atomic.get())
     }
 
     public init(_ atomic: AInt16) throws {
-        self = try Int(atomic.load())
+        self = try Int(atomic.get())
     }
 
     public init(_ atomic: AInt32) throws {
-        self = try Int(atomic.load())
+        self = try Int(atomic.get())
     }
 
     public init(_ atomic: AInt64) throws {
-        self = try Int(atomic.load())
+        self = try Int(atomic.get())
     }
 
     public init(_ atomic: AUInt) throws {
-        self = try Int(atomic.load())
+        self = try Int(atomic.get())
     }
 
     public init(_ atomic: AUInt8) throws {
-        self = try Int(atomic.load())
+        self = try Int(atomic.get())
     }
 
     public init(_ atomic: AUInt16) throws {
-        self = try Int(atomic.load())
+        self = try Int(atomic.get())
     }
 
     public init(_ atomic: AUInt32) throws {
-        self = try Int(atomic.load())
+        self = try Int(atomic.get())
     }
 
     public init(_ atomic: AUInt64) throws {
-        self = try Int(atomic.load())
+        self = try Int(atomic.get())
     }
 
     public init(_ atomic: ADouble) throws {
-        self = try Int(atomic.load())
+        self = try Int(atomic.get())
     }
 
     public init(_ atomic: AFloat) throws {
-        self = try Int(atomic.load())
+        self = try Int(atomic.get())
     }
 
     public init(_ atomic: AFloat80) throws {
-        self = try Int(atomic.load())
+        self = try Int(atomic.get())
     }
 }
 
 // Extension for 'Float80'
 public extension Int8 {
     public init(_ atomic: AInt) throws {
-        self = try Int8(atomic.load())
+        self = try Int8(atomic.get())
     }
 
     public init(_ atomic: AInt8) throws {
-        self = try Int8(atomic.load())
+        self = try Int8(atomic.get())
     }
 
     public init(_ atomic: AInt16) throws {
-        self = try Int8(atomic.load())
+        self = try Int8(atomic.get())
     }
 
     public init(_ atomic: AInt32) throws {
-        self = try Int8(atomic.load())
+        self = try Int8(atomic.get())
     }
 
     public init(_ atomic: AInt64) throws {
-        self = try Int8(atomic.load())
+        self = try Int8(atomic.get())
     }
 
     public init(_ atomic: AUInt) throws {
-        self = try Int8(atomic.load())
+        self = try Int8(atomic.get())
     }
 
     public init(_ atomic: AUInt8) throws {
-        self = try Int8(atomic.load())
+        self = try Int8(atomic.get())
     }
 
     public init(_ atomic: AUInt16) throws {
-        self = try Int8(atomic.load())
+        self = try Int8(atomic.get())
     }
 
     public init(_ atomic: AUInt32) throws {
-        self = try Int8(atomic.load())
+        self = try Int8(atomic.get())
     }
 
     public init(_ atomic: AUInt64) throws {
-        self = try Int8(atomic.load())
+        self = try Int8(atomic.get())
     }
 
     public init(_ atomic: ADouble) throws {
-        self = try Int8(atomic.load())
+        self = try Int8(atomic.get())
     }
 
     public init(_ atomic: AFloat) throws {
-        self = try Int8(atomic.load())
+        self = try Int8(atomic.get())
     }
 
     public init(_ atomic: AFloat80) throws {
-        self = try Int8(atomic.load())
+        self = try Int8(atomic.get())
     }
 }
 
 // Extension for 'Float80'
 public extension Int16 {
     public init(_ atomic: AInt) throws {
-        self = try Int16(atomic.load())
+        self = try Int16(atomic.get())
     }
 
     public init(_ atomic: AInt8) throws {
-        self = try Int16(atomic.load())
+        self = try Int16(atomic.get())
     }
 
     public init(_ atomic: AInt16) throws {
-        self = try Int16(atomic.load())
+        self = try Int16(atomic.get())
     }
 
     public init(_ atomic: AInt32) throws {
-        self = try Int16(atomic.load())
+        self = try Int16(atomic.get())
     }
 
     public init(_ atomic: AInt64) throws {
-        self = try Int16(atomic.load())
+        self = try Int16(atomic.get())
     }
 
     public init(_ atomic: AUInt) throws {
-        self = try Int16(atomic.load())
+        self = try Int16(atomic.get())
     }
 
     public init(_ atomic: AUInt8) throws {
-        self = try Int16(atomic.load())
+        self = try Int16(atomic.get())
     }
 
     public init(_ atomic: AUInt16) throws {
-        self = try Int16(atomic.load())
+        self = try Int16(atomic.get())
     }
 
     public init(_ atomic: AUInt32) throws {
-        self = try Int16(atomic.load())
+        self = try Int16(atomic.get())
     }
 
     public init(_ atomic: AUInt64) throws {
-        self = try Int16(atomic.load())
+        self = try Int16(atomic.get())
     }
 
     public init(_ atomic: ADouble) throws {
-        self = try Int16(atomic.load())
+        self = try Int16(atomic.get())
     }
 
     public init(_ atomic: AFloat) throws {
-        self = try Int16(atomic.load())
+        self = try Int16(atomic.get())
     }
 
     public init(_ atomic: AFloat80) throws {
-        self = try Int16(atomic.load())
+        self = try Int16(atomic.get())
     }
 }
 
 // Extension for 'Float80'
 public extension Int32 {
     public init(_ atomic: AInt) throws {
-        self = try Int32(atomic.load())
+        self = try Int32(atomic.get())
     }
 
     public init(_ atomic: AInt8) throws {
-        self = try Int32(atomic.load())
+        self = try Int32(atomic.get())
     }
 
     public init(_ atomic: AInt16) throws {
-        self = try Int32(atomic.load())
+        self = try Int32(atomic.get())
     }
 
     public init(_ atomic: AInt32) throws {
-        self = try Int32(atomic.load())
+        self = try Int32(atomic.get())
     }
 
     public init(_ atomic: AInt64) throws {
-        self = try Int32(atomic.load())
+        self = try Int32(atomic.get())
     }
 
     public init(_ atomic: AUInt) throws {
-        self = try Int32(atomic.load())
+        self = try Int32(atomic.get())
     }
 
     public init(_ atomic: AUInt8) throws {
-        self = try Int32(atomic.load())
+        self = try Int32(atomic.get())
     }
 
     public init(_ atomic: AUInt16) throws {
-        self = try Int32(atomic.load())
+        self = try Int32(atomic.get())
     }
 
     public init(_ atomic: AUInt32) throws {
-        self = try Int32(atomic.load())
+        self = try Int32(atomic.get())
     }
 
     public init(_ atomic: AUInt64) throws {
-        self = try Int32(atomic.load())
+        self = try Int32(atomic.get())
     }
 
     public init(_ atomic: ADouble) throws {
-        self = try Int32(atomic.load())
+        self = try Int32(atomic.get())
     }
 
     public init(_ atomic: AFloat) throws {
-        self = try Int32(atomic.load())
+        self = try Int32(atomic.get())
     }
 
     public init(_ atomic: AFloat80) throws {
-        self = try Int32(atomic.load())
+        self = try Int32(atomic.get())
     }
 }
 
 // Extension for 'Float80'
 public extension Int64 {
     public init(_ atomic: AInt) throws {
-        self = try Int64(atomic.load())
+        self = try Int64(atomic.get())
     }
 
     public init(_ atomic: AInt8) throws {
-        self = try Int64(atomic.load())
+        self = try Int64(atomic.get())
     }
 
     public init(_ atomic: AInt16) throws {
-        self = try Int64(atomic.load())
+        self = try Int64(atomic.get())
     }
 
     public init(_ atomic: AInt32) throws {
-        self = try Int64(atomic.load())
+        self = try Int64(atomic.get())
     }
 
     public init(_ atomic: AInt64) throws {
-        self = try Int64(atomic.load())
+        self = try Int64(atomic.get())
     }
 
     public init(_ atomic: AUInt) throws {
-        self = try Int64(atomic.load())
+        self = try Int64(atomic.get())
     }
 
     public init(_ atomic: AUInt8) throws {
-        self = try Int64(atomic.load())
+        self = try Int64(atomic.get())
     }
 
     public init(_ atomic: AUInt16) throws {
-        self = try Int64(atomic.load())
+        self = try Int64(atomic.get())
     }
 
     public init(_ atomic: AUInt32) throws {
-        self = try Int64(atomic.load())
+        self = try Int64(atomic.get())
     }
 
     public init(_ atomic: AUInt64) throws {
-        self = try Int64(atomic.load())
+        self = try Int64(atomic.get())
     }
 
     public init(_ atomic: ADouble) throws {
-        self = try Int64(atomic.load())
+        self = try Int64(atomic.get())
     }
 
     public init(_ atomic: AFloat) throws {
-        self = try Int64(atomic.load())
+        self = try Int64(atomic.get())
     }
 
     public init(_ atomic: AFloat80) throws {
-        self = try Int64(atomic.load())
+        self = try Int64(atomic.get())
     }
 }
 
 // Extension for 'Float80'
 public extension UInt {
     public init(_ atomic: AInt) throws {
-        self = try UInt(atomic.load())
+        self = try UInt(atomic.get())
     }
 
     public init(_ atomic: AInt8) throws {
-        self = try UInt(atomic.load())
+        self = try UInt(atomic.get())
     }
 
     public init(_ atomic: AInt16) throws {
-        self = try UInt(atomic.load())
+        self = try UInt(atomic.get())
     }
 
     public init(_ atomic: AInt32) throws {
-        self = try UInt(atomic.load())
+        self = try UInt(atomic.get())
     }
 
     public init(_ atomic: AInt64) throws {
-        self = try UInt(atomic.load())
+        self = try UInt(atomic.get())
     }
 
     public init(_ atomic: AUInt) throws {
-        self = try UInt(atomic.load())
+        self = try UInt(atomic.get())
     }
 
     public init(_ atomic: AUInt8) throws {
-        self = try UInt(atomic.load())
+        self = try UInt(atomic.get())
     }
 
     public init(_ atomic: AUInt16) throws {
-        self = try UInt(atomic.load())
+        self = try UInt(atomic.get())
     }
 
     public init(_ atomic: AUInt32) throws {
-        self = try UInt(atomic.load())
+        self = try UInt(atomic.get())
     }
 
     public init(_ atomic: AUInt64) throws {
-        self = try UInt(atomic.load())
+        self = try UInt(atomic.get())
     }
 
     public init(_ atomic: ADouble) throws {
-        self = try UInt(atomic.load())
+        self = try UInt(atomic.get())
     }
 
     public init(_ atomic: AFloat) throws {
-        self = try UInt(atomic.load())
+        self = try UInt(atomic.get())
     }
 
     public init(_ atomic: AFloat80) throws {
-        self = try UInt(atomic.load())
+        self = try UInt(atomic.get())
     }
 }
 
 // Extension for 'Float80'
 public extension UInt8 {
     public init(_ atomic: AInt) throws {
-        self = try UInt8(atomic.load())
+        self = try UInt8(atomic.get())
     }
 
     public init(_ atomic: AInt8) throws {
-        self = try UInt8(atomic.load())
+        self = try UInt8(atomic.get())
     }
 
     public init(_ atomic: AInt16) throws {
-        self = try UInt8(atomic.load())
+        self = try UInt8(atomic.get())
     }
 
     public init(_ atomic: AInt32) throws {
-        self = try UInt8(atomic.load())
+        self = try UInt8(atomic.get())
     }
 
     public init(_ atomic: AInt64) throws {
-        self = try UInt8(atomic.load())
+        self = try UInt8(atomic.get())
     }
 
     public init(_ atomic: AUInt) throws {
-        self = try UInt8(atomic.load())
+        self = try UInt8(atomic.get())
     }
 
     public init(_ atomic: AUInt8) throws {
-        self = try UInt8(atomic.load())
+        self = try UInt8(atomic.get())
     }
 
     public init(_ atomic: AUInt16) throws {
-        self = try UInt8(atomic.load())
+        self = try UInt8(atomic.get())
     }
 
     public init(_ atomic: AUInt32) throws {
-        self = try UInt8(atomic.load())
+        self = try UInt8(atomic.get())
     }
 
     public init(_ atomic: AUInt64) throws {
-        self = try UInt8(atomic.load())
+        self = try UInt8(atomic.get())
     }
 
     public init(_ atomic: ADouble) throws {
-        self = try UInt8(atomic.load())
+        self = try UInt8(atomic.get())
     }
 
     public init(_ atomic: AFloat) throws {
-        self = try UInt8(atomic.load())
+        self = try UInt8(atomic.get())
     }
 
     public init(_ atomic: AFloat80) throws {
-        self = try UInt8(atomic.load())
+        self = try UInt8(atomic.get())
     }
 }
 
 // Extension for 'Float80'
 public extension UInt16 {
     public init(_ atomic: AInt) throws {
-        self = try UInt16(atomic.load())
+        self = try UInt16(atomic.get())
     }
 
     public init(_ atomic: AInt8) throws {
-        self = try UInt16(atomic.load())
+        self = try UInt16(atomic.get())
     }
 
     public init(_ atomic: AInt16) throws {
-        self = try UInt16(atomic.load())
+        self = try UInt16(atomic.get())
     }
 
     public init(_ atomic: AInt32) throws {
-        self = try UInt16(atomic.load())
+        self = try UInt16(atomic.get())
     }
 
     public init(_ atomic: AInt64) throws {
-        self = try UInt16(atomic.load())
+        self = try UInt16(atomic.get())
     }
 
     public init(_ atomic: AUInt) throws {
-        self = try UInt16(atomic.load())
+        self = try UInt16(atomic.get())
     }
 
     public init(_ atomic: AUInt8) throws {
-        self = try UInt16(atomic.load())
+        self = try UInt16(atomic.get())
     }
 
     public init(_ atomic: AUInt16) throws {
-        self = try UInt16(atomic.load())
+        self = try UInt16(atomic.get())
     }
 
     public init(_ atomic: AUInt32) throws {
-        self = try UInt16(atomic.load())
+        self = try UInt16(atomic.get())
     }
 
     public init(_ atomic: AUInt64) throws {
-        self = try UInt16(atomic.load())
+        self = try UInt16(atomic.get())
     }
 
     public init(_ atomic: ADouble) throws {
-        self = try UInt16(atomic.load())
+        self = try UInt16(atomic.get())
     }
 
     public init(_ atomic: AFloat) throws {
-        self = try UInt16(atomic.load())
+        self = try UInt16(atomic.get())
     }
 
     public init(_ atomic: AFloat80) throws {
-        self = try UInt16(atomic.load())
+        self = try UInt16(atomic.get())
     }
 }
 
 // Extension for 'Float80'
 public extension UInt32 {
     public init(_ atomic: AInt) throws {
-        self = try UInt32(atomic.load())
+        self = try UInt32(atomic.get())
     }
 
     public init(_ atomic: AInt8) throws {
-        self = try UInt32(atomic.load())
+        self = try UInt32(atomic.get())
     }
 
     public init(_ atomic: AInt16) throws {
-        self = try UInt32(atomic.load())
+        self = try UInt32(atomic.get())
     }
 
     public init(_ atomic: AInt32) throws {
-        self = try UInt32(atomic.load())
+        self = try UInt32(atomic.get())
     }
 
     public init(_ atomic: AInt64) throws {
-        self = try UInt32(atomic.load())
+        self = try UInt32(atomic.get())
     }
 
     public init(_ atomic: AUInt) throws {
-        self = try UInt32(atomic.load())
+        self = try UInt32(atomic.get())
     }
 
     public init(_ atomic: AUInt8) throws {
-        self = try UInt32(atomic.load())
+        self = try UInt32(atomic.get())
     }
 
     public init(_ atomic: AUInt16) throws {
-        self = try UInt32(atomic.load())
+        self = try UInt32(atomic.get())
     }
 
     public init(_ atomic: AUInt32) throws {
-        self = try UInt32(atomic.load())
+        self = try UInt32(atomic.get())
     }
 
     public init(_ atomic: AUInt64) throws {
-        self = try UInt32(atomic.load())
+        self = try UInt32(atomic.get())
     }
 
     public init(_ atomic: ADouble) throws {
-        self = try UInt32(atomic.load())
+        self = try UInt32(atomic.get())
     }
 
     public init(_ atomic: AFloat) throws {
-        self = try UInt32(atomic.load())
+        self = try UInt32(atomic.get())
     }
 
     public init(_ atomic: AFloat80) throws {
-        self = try UInt32(atomic.load())
+        self = try UInt32(atomic.get())
     }
 }
 
 // Extension for 'Float80'
 public extension UInt64 {
     public init(_ atomic: AInt) throws {
-        self = try UInt64(atomic.load())
+        self = try UInt64(atomic.get())
     }
 
     public init(_ atomic: AInt8) throws {
-        self = try UInt64(atomic.load())
+        self = try UInt64(atomic.get())
     }
 
     public init(_ atomic: AInt16) throws {
-        self = try UInt64(atomic.load())
+        self = try UInt64(atomic.get())
     }
 
     public init(_ atomic: AInt32) throws {
-        self = try UInt64(atomic.load())
+        self = try UInt64(atomic.get())
     }
 
     public init(_ atomic: AInt64) throws {
-        self = try UInt64(atomic.load())
+        self = try UInt64(atomic.get())
     }
 
     public init(_ atomic: AUInt) throws {
-        self = try UInt64(atomic.load())
+        self = try UInt64(atomic.get())
     }
 
     public init(_ atomic: AUInt8) throws {
-        self = try UInt64(atomic.load())
+        self = try UInt64(atomic.get())
     }
 
     public init(_ atomic: AUInt16) throws {
-        self = try UInt64(atomic.load())
+        self = try UInt64(atomic.get())
     }
 
     public init(_ atomic: AUInt32) throws {
-        self = try UInt64(atomic.load())
+        self = try UInt64(atomic.get())
     }
 
     public init(_ atomic: AUInt64) throws {
-        self = try UInt64(atomic.load())
+        self = try UInt64(atomic.get())
     }
 
     public init(_ atomic: ADouble) throws {
-        self = try UInt64(atomic.load())
+        self = try UInt64(atomic.get())
     }
 
     public init(_ atomic: AFloat) throws {
-        self = try UInt64(atomic.load())
+        self = try UInt64(atomic.get())
     }
 
     public init(_ atomic: AFloat80) throws {
-        self = try UInt64(atomic.load())
+        self = try UInt64(atomic.get())
     }
 }
 
 // Extension for 'Float80'
 public extension Double {
     public init(_ atomic: AInt) throws {
-        self = try Double(atomic.load())
+        self = try Double(atomic.get())
     }
 
     public init(_ atomic: AInt8) throws {
-        self = try Double(atomic.load())
+        self = try Double(atomic.get())
     }
 
     public init(_ atomic: AInt16) throws {
-        self = try Double(atomic.load())
+        self = try Double(atomic.get())
     }
 
     public init(_ atomic: AInt32) throws {
-        self = try Double(atomic.load())
+        self = try Double(atomic.get())
     }
 
     public init(_ atomic: AInt64) throws {
-        self = try Double(atomic.load())
+        self = try Double(atomic.get())
     }
 
     public init(_ atomic: AUInt) throws {
-        self = try Double(atomic.load())
+        self = try Double(atomic.get())
     }
 
     public init(_ atomic: AUInt8) throws {
-        self = try Double(atomic.load())
+        self = try Double(atomic.get())
     }
 
     public init(_ atomic: AUInt16) throws {
-        self = try Double(atomic.load())
+        self = try Double(atomic.get())
     }
 
     public init(_ atomic: AUInt32) throws {
-        self = try Double(atomic.load())
+        self = try Double(atomic.get())
     }
 
     public init(_ atomic: AUInt64) throws {
-        self = try Double(atomic.load())
+        self = try Double(atomic.get())
     }
 
     public init(_ atomic: ADouble) throws {
-        self = try Double(atomic.load())
+        self = try Double(atomic.get())
     }
 
     public init(_ atomic: AFloat) throws {
-        self = try Double(atomic.load())
+        self = try Double(atomic.get())
     }
 
     public init(_ atomic: AFloat80) throws {
-        self = try Double(atomic.load())
+        self = try Double(atomic.get())
     }
 }
 
 // Extension for 'Float80'
 public extension Float {
     public init(_ atomic: AInt) throws {
-        self = try Float(atomic.load())
+        self = try Float(atomic.get())
     }
 
     public init(_ atomic: AInt8) throws {
-        self = try Float(atomic.load())
+        self = try Float(atomic.get())
     }
 
     public init(_ atomic: AInt16) throws {
-        self = try Float(atomic.load())
+        self = try Float(atomic.get())
     }
 
     public init(_ atomic: AInt32) throws {
-        self = try Float(atomic.load())
+        self = try Float(atomic.get())
     }
 
     public init(_ atomic: AInt64) throws {
-        self = try Float(atomic.load())
+        self = try Float(atomic.get())
     }
 
     public init(_ atomic: AUInt) throws {
-        self = try Float(atomic.load())
+        self = try Float(atomic.get())
     }
 
     public init(_ atomic: AUInt8) throws {
-        self = try Float(atomic.load())
+        self = try Float(atomic.get())
     }
 
     public init(_ atomic: AUInt16) throws {
-        self = try Float(atomic.load())
+        self = try Float(atomic.get())
     }
 
     public init(_ atomic: AUInt32) throws {
-        self = try Float(atomic.load())
+        self = try Float(atomic.get())
     }
 
     public init(_ atomic: AUInt64) throws {
-        self = try Float(atomic.load())
+        self = try Float(atomic.get())
     }
 
     public init(_ atomic: ADouble) throws {
-        self = try Float(atomic.load())
+        self = try Float(atomic.get())
     }
 
     public init(_ atomic: AFloat) throws {
-        self = try Float(atomic.load())
+        self = try Float(atomic.get())
     }
 
     public init(_ atomic: AFloat80) throws {
-        self = try Float(atomic.load())
+        self = try Float(atomic.get())
     }
 }
 
 // Extension for 'Float80'
 public extension Float80 {
     public init(_ atomic: AInt) throws {
-        self = try Float80(atomic.load())
+        self = try Float80(atomic.get())
     }
 
     public init(_ atomic: AInt8) throws {
-        self = try Float80(atomic.load())
+        self = try Float80(atomic.get())
     }
 
     public init(_ atomic: AInt16) throws {
-        self = try Float80(atomic.load())
+        self = try Float80(atomic.get())
     }
 
     public init(_ atomic: AInt32) throws {
-        self = try Float80(atomic.load())
+        self = try Float80(atomic.get())
     }
 
     public init(_ atomic: AInt64) throws {
-        self = try Float80(atomic.load())
+        self = try Float80(atomic.get())
     }
 
     public init(_ atomic: AUInt) throws {
-        self = try Float80(atomic.load())
+        self = try Float80(atomic.get())
     }
 
     public init(_ atomic: AUInt8) throws {
-        self = try Float80(atomic.load())
+        self = try Float80(atomic.get())
     }
 
     public init(_ atomic: AUInt16) throws {
-        self = try Float80(atomic.load())
+        self = try Float80(atomic.get())
     }
 
     public init(_ atomic: AUInt32) throws {
-        self = try Float80(atomic.load())
+        self = try Float80(atomic.get())
     }
 
     public init(_ atomic: AUInt64) throws {
-        self = try Float80(atomic.load())
+        self = try Float80(atomic.get())
     }
 
     public init(_ atomic: ADouble) throws {
-        self = try Float80(atomic.load())
+        self = try Float80(atomic.get())
     }
 
     public init(_ atomic: AFloat) throws {
-        self = try Float80(atomic.load())
+        self = try Float80(atomic.get())
     }
 
     public init(_ atomic: AFloat80) throws {
-        self = try Float80(atomic.load())
+        self = try Float80(atomic.get())
     }
 }
 
 // Extension for 'String'
 public extension String {
     public init(_ atomic: AString) throws {
-        self = try String(atomic.load())
+        self = try String(atomic.get())
     }
 }
 
 // Extension for 'Bool'
 public extension Bool {
     public init(_ atomic: ABool) throws {
-        self = try Bool(atomic.load())
+        self = try Bool(atomic.get())
     }
 }
 
@@ -789,37 +789,37 @@ public extension Bool {
 // Extension for 'Character'
 public extension Character {
     public init(_ atomic: AString) throws {
-        self = try Character(atomic.load())
+        self = try Character(atomic.get())
     }
 
     public init(_ atomic: AUnicodeScalar) throws {
-        self = try Character(atomic.load())
+        self = try Character(atomic.get())
     }
 }
 
 // Extension for 'UnicodeScalar'
 public extension UnicodeScalar {
     public init(_ atomic: AUInt8) throws {
-        self = try UnicodeScalar(atomic.load())
+        self = try UnicodeScalar(atomic.get())
     }
 
     public init(_ atomic: AUnicodeScalar) throws {
-        self = try UnicodeScalar(atomic.load())
+        self = try UnicodeScalar(atomic.get())
     }
 
     public init?(_ atomic: AInt) throws {
-        self = try UnicodeScalar(atomic.load())!
+        self = try UnicodeScalar(atomic.get())!
     }
 
     public init?(_ atomic: AString) throws {
-        self = try UnicodeScalar(atomic.load())!
+        self = try UnicodeScalar(atomic.get())!
     }
 
     public init?(_ atomic: AUInt16) throws {
-        self = try UnicodeScalar(atomic.load())!
+        self = try UnicodeScalar(atomic.get())!
     }
 
     public init?(_ atomic: AUInt32) throws {
-        self = try UnicodeScalar(atomic.load())!
+        self = try UnicodeScalar(atomic.get())!
     }
 }

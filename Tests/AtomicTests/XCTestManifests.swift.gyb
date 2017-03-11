@@ -27,11 +27,8 @@ import XCTest
 #if !os(OSX)
 public let allTests = [
 % for type in ['Int', 'Int8', 'Int16', 'Int32', 'Int64', 'UInt', 'UInt8', 'UInt16', 'UInt32', 'UInt64', 'Double', 'Float', 'Float80', 'String', 'Bool']:
-    % if (type != 'Bool'):
     testCase(${type}Tests.allTests),
-    % else:
-    testCase(${type}Tests.allTests)
-    % end
 % end
+    testCase(AtomicTypeTests.allTests)
 ]
 #endif

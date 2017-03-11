@@ -215,22 +215,52 @@ class BoolTests: XCTestCase {
         do {
             var (atomic1, atomic2) = (ABool(true), ABool(true))
 
-            let bool = atomic1 && atomic2
-
-            XCTAssertTrue(bool, "ABool ABool with &&")
+            XCTAssertTrue(atomic1 && atomic2, "ABool ABool with &&")
         }
         do {
             var (atomic1, atomic2) = (ABool(true), ABool(false))
 
-            let bool = atomic1 || atomic2
-
-            XCTAssertTrue(bool, "ABool ABool with ||")
+            XCTAssertTrue(atomic1 || atomic2, "ABool ABool with ||")
         }
     }
 
 #if !os(OSX)
     static let allTests = [
         ("testAtomicBool", testAtomicBool)
+    ]
+#endif
+}
+
+// Atomic tests
+class AtomicTypeTests: XCTestCase {
+    func testAtomicType() {
+        var (atomic1, atomic2) = (AInt(1), AInt(2))
+
+        var completed = false
+
+        do {
+            try XCTAssert(atomic1.get() == 1 && atomic2.get() == 2, "values not initialised correctly")
+
+            try atomic1.swap(atomic2)
+
+            try XCTAssert(atomic1.get() == 2 && atomic2.get() == 1, "atomic.swap value not swapped")
+
+            try atomic1.set(1)
+            try atomic2.set(2)
+
+            try XCTAssert(atomic1.get() == 1 && atomic2.get() == 2, "atomic.set value not swapped")
+
+            completed = true
+        } catch {
+            XCTAssert(false, "\(error)")
+        }
+
+        XCTAssert(completed, "test not completed")
+    }
+
+#if !os(OSX)
+    static let allTests = [
+        ("testAtomicType", testAtomicType)
     ]
 #endif
 }

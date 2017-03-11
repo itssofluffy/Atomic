@@ -40,6 +40,7 @@ public let allTests = [
     testCase(FloatTests.allTests),
     testCase(Float80Tests.allTests),
     testCase(StringTests.allTests),
-    testCase(BoolTests.allTests)
+    testCase(BoolTests.allTests),
+    testCase(AtomicTypeTests.allTests)
 ]
 #endif

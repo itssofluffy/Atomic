@@ -40,22 +40,22 @@ public class Atomic<T> {
 }
 
 extension Atomic {
-    /// Loads the value atomically.
-    public func load() throws -> T {
+    /// Get the value atomically.
+    public func get() throws -> T {
         return try mutex.lock {
             return self.value
         }!
     }
 
-    /// Stores a value atomically.
-    public func store(value: T) throws {
+    /// Sets a value atomically.
+    public func set(_ value: T) throws {
         try mutex.lock {
             self.value = value
         }
     }
 
     /// Swaps values atomically.
-    public func swap(atomic: Atomic<T>) throws {
+    public func swap(_ atomic: Atomic<T>) throws {
         try atomic.mutex.lock {
             try self.mutex.lock {
                 let temp = self.value

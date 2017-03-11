@@ -31,7 +31,7 @@ public extension ${extension} {
 
         % end
     public init(_ atomic: A${type}) throws {
-        self = try ${extension}(atomic.load())
+        self = try ${extension}(atomic.get())
     }
     % end
 }
@@ -41,7 +41,7 @@ public extension ${extension} {
 // Extension for '${type}'
 public extension ${type} {
     public init(_ atomic: A${type}) throws {
-        self = try ${type}(atomic.load())
+        self = try ${type}(atomic.get())
     }
 }
 % end
@@ -84,37 +84,37 @@ public extension Bool {
 // Extension for 'Character'
 public extension Character {
     public init(_ atomic: AString) throws {
-        self = try Character(atomic.load())
+        self = try Character(atomic.get())
     }
 
     public init(_ atomic: AUnicodeScalar) throws {
-        self = try Character(atomic.load())
+        self = try Character(atomic.get())
     }
 }
 
 // Extension for 'UnicodeScalar'
 public extension UnicodeScalar {
     public init(_ atomic: AUInt8) throws {
-        self = try UnicodeScalar(atomic.load())
+        self = try UnicodeScalar(atomic.get())
     }
 
     public init(_ atomic: AUnicodeScalar) throws {
-        self = try UnicodeScalar(atomic.load())
+        self = try UnicodeScalar(atomic.get())
     }
 
     public init?(_ atomic: AInt) throws {
-        self = try UnicodeScalar(atomic.load())!
+        self = try UnicodeScalar(atomic.get())!
     }
 
     public init?(_ atomic: AString) throws {
-        self = try UnicodeScalar(atomic.load())!
+        self = try UnicodeScalar(atomic.get())!
     }
 
     public init?(_ atomic: AUInt16) throws {
-        self = try UnicodeScalar(atomic.load())!
+        self = try UnicodeScalar(atomic.get())!
     }
 
     public init?(_ atomic: AUInt32) throws {
-        self = try UnicodeScalar(atomic.load())!
+        self = try UnicodeScalar(atomic.get())!
     }
 }

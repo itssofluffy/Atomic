@@ -22,7 +22,7 @@
 
 import ISFLibrary
 
-// Extension for '<type 'type'>'
+// Extension for 'Int'
 public extension Int {
     public init(_ atomic: AInt) throws {
         self = try Int(atomic.get())
@@ -77,7 +77,7 @@ public extension Int {
     }
 }
 
-// Extension for 'Float80'
+// Extension for 'Int8'
 public extension Int8 {
     public init(_ atomic: AInt) throws {
         self = try Int8(atomic.get())
@@ -132,7 +132,7 @@ public extension Int8 {
     }
 }
 
-// Extension for 'Float80'
+// Extension for 'Int16'
 public extension Int16 {
     public init(_ atomic: AInt) throws {
         self = try Int16(atomic.get())
@@ -187,7 +187,7 @@ public extension Int16 {
     }
 }
 
-// Extension for 'Float80'
+// Extension for 'Int32'
 public extension Int32 {
     public init(_ atomic: AInt) throws {
         self = try Int32(atomic.get())
@@ -242,7 +242,7 @@ public extension Int32 {
     }
 }
 
-// Extension for 'Float80'
+// Extension for 'Int64'
 public extension Int64 {
     public init(_ atomic: AInt) throws {
         self = try Int64(atomic.get())
@@ -297,7 +297,7 @@ public extension Int64 {
     }
 }
 
-// Extension for 'Float80'
+// Extension for 'UInt'
 public extension UInt {
     public init(_ atomic: AInt) throws {
         self = try UInt(atomic.get())
@@ -352,7 +352,7 @@ public extension UInt {
     }
 }
 
-// Extension for 'Float80'
+// Extension for 'UInt8'
 public extension UInt8 {
     public init(_ atomic: AInt) throws {
         self = try UInt8(atomic.get())
@@ -407,7 +407,7 @@ public extension UInt8 {
     }
 }
 
-// Extension for 'Float80'
+// Extension for 'UInt16'
 public extension UInt16 {
     public init(_ atomic: AInt) throws {
         self = try UInt16(atomic.get())
@@ -462,7 +462,7 @@ public extension UInt16 {
     }
 }
 
-// Extension for 'Float80'
+// Extension for 'UInt32'
 public extension UInt32 {
     public init(_ atomic: AInt) throws {
         self = try UInt32(atomic.get())
@@ -517,7 +517,7 @@ public extension UInt32 {
     }
 }
 
-// Extension for 'Float80'
+// Extension for 'UInt64'
 public extension UInt64 {
     public init(_ atomic: AInt) throws {
         self = try UInt64(atomic.get())
@@ -572,7 +572,7 @@ public extension UInt64 {
     }
 }
 
-// Extension for 'Float80'
+// Extension for 'Double'
 public extension Double {
     public init(_ atomic: AInt) throws {
         self = try Double(atomic.get())
@@ -627,7 +627,7 @@ public extension Double {
     }
 }
 
-// Extension for 'Float80'
+// Extension for 'Float'
 public extension Float {
     public init(_ atomic: AInt) throws {
         self = try Float(atomic.get())

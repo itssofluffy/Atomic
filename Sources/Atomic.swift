@@ -63,8 +63,8 @@ extension Atomic {
 
     /// Swaps values atomically.
     public func swap(_ atomic: Atomic<T>) throws {
-        try atomic.mutex.lock {
-            try self.mutex.lock {
+        try mutex.lock {
+            try atomic.mutex.lock {
                 let temp = self.value
 
                 self.value = atomic.value

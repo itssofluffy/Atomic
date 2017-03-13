@@ -4973,12 +4973,17 @@ class AtomicTypeTests: XCTestCase {
             var value2: Int
         }
 
-        let atomic = Atomic<TestStruct>(TestStruct(value1: 1, value2: 2))
+        let testStruct = TestStruct(value1: 1, value2: 2)
+        let atomic = Atomic<TestStruct>(testStruct)
 
         var completed = false
 
         do {
             try XCTAssert(atomic.get().value1 == 1 && atomic.get().value2 == 2, "not initialised correctly")
+
+            try atomic.set(testStruct)
+
+            try XCTAssert(atomic.get().value1 == 1 && atomic.get().value2 == 2, "set() not initialised correctly")
 
             try atomic.set { object in
                 var tempObject = object
@@ -4990,7 +4995,7 @@ class AtomicTypeTests: XCTestCase {
                 return tempObject
             }
 
-            try atomic.access { object in
+            try atomic.get { object in
                 XCTAssert(object.value1 == 2 && object.value2 == 1, "values not swapped")
             }
 

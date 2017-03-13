@@ -47,6 +47,13 @@ extension Atomic {
         }!
     }
 
+    /// Get a value atomically using a closure.
+    public func get(_ closure: @escaping (T) throws -> Void) throws {
+        try mutex.lock {
+            try closure(self.value)
+        }
+    }
+
     /// Sets a value atomically.
     public func set(_ value: T) throws {
         try mutex.lock {
@@ -70,13 +77,6 @@ extension Atomic {
                 self.value = atomic.value
                 atomic.value = temp
             }
-        }
-    }
-
-    /// Access a value atomically using a closure.
-    public func access(_ closure: @escaping (T) throws -> Void) throws {
-        try mutex.lock {
-            try closure(self.value)
         }
     }
 }

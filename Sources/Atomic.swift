@@ -44,13 +44,16 @@ extension Atomic {
     public func get() throws -> T {
         return try mutex.lock {
             return self.value
-        }!
+        }
     }
 
     /// Get a value atomically using a closure.
-    public func get(_ closure: @escaping (T) throws -> Void) throws {
-        try mutex.lock {
+    @discardableResult
+    public func get(_ closure: @escaping (T) throws -> Void) throws -> T {
+        return try mutex.lock {
             try closure(self.value)
+
+            return self.value
         }
     }
 

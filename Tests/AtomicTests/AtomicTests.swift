@@ -4995,9 +4995,11 @@ class AtomicTypeTests: XCTestCase {
                 return tempObject
             }
 
-            try atomic.get { object in
+            let tempStruct = try atomic.get { object in
                 XCTAssert(object.value1 == 2 && object.value2 == 1, "values not swapped")
             }
+
+            try XCTAssert(tempStruct.value1 == atomic.get().value1 && tempStruct.value2 == atomic.get().value2, "tempStruct not the same as atomic")
 
             completed = true
         } catch {

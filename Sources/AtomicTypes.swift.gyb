@@ -56,7 +56,7 @@ public func ${operator}(lhs: A${type}, rhs: ${type}) -> A${type} {
     % for operator in ['+=', '-=', '*=', '/=', '%=', '<<=', '>>=', '^=', '|=', '&=']:
         % if not (re.search(floatsRE, type) and re.search('%=|<<=|>>=|\^=|\|=|\&=', operator)):
 
-public func ${operator}(lhs: A${type}, rhs: A${type}) {
+public func ${operator}(lhs: inout A${type}, rhs: A${type}) {
     lock(lhs, rhs)
     lhs.value ${operator} rhs.value
     unlock(lhs, rhs)
@@ -68,7 +68,7 @@ public func ${operator}(lhs: inout ${type}, rhs: A${type}) {
     unlock(rhs)
 }
 
-public func ${operator}(lhs: A${type}, rhs: ${type}) {
+public func ${operator}(lhs: inout A${type}, rhs: ${type}) {
     lock(lhs)
     lhs.value ${operator} rhs
     unlock(lhs)
@@ -118,7 +118,7 @@ public func +(lhs: AString, rhs: String) -> AString {
     return Atomic(result)
 }
 
-public func +=(lhs: AString, rhs: AString) {
+public func +=(lhs: inout AString, rhs: AString) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -130,7 +130,7 @@ public func +=(lhs: inout String, rhs: AString) {
     unlock(rhs)
 }
 
-public func +=(lhs: AString, rhs: String) {
+public func +=(lhs: inout AString, rhs: String) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)

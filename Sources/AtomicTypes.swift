@@ -335,7 +335,7 @@ public func &*(lhs: AInt, rhs: Int) -> AInt {
     return Atomic(result)
 }
 
-public func +=(lhs: AInt, rhs: AInt) {
+public func +=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -347,13 +347,13 @@ public func +=(lhs: inout Int, rhs: AInt) {
     unlock(rhs)
 }
 
-public func +=(lhs: AInt, rhs: Int) {
+public func +=(lhs: inout AInt, rhs: Int) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)
 }
 
-public func -=(lhs: AInt, rhs: AInt) {
+public func -=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
     unlock(lhs, rhs)
@@ -365,13 +365,13 @@ public func -=(lhs: inout Int, rhs: AInt) {
     unlock(rhs)
 }
 
-public func -=(lhs: AInt, rhs: Int) {
+public func -=(lhs: inout AInt, rhs: Int) {
     lock(lhs)
     lhs.value -= rhs
     unlock(lhs)
 }
 
-public func *=(lhs: AInt, rhs: AInt) {
+public func *=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
     unlock(lhs, rhs)
@@ -383,13 +383,13 @@ public func *=(lhs: inout Int, rhs: AInt) {
     unlock(rhs)
 }
 
-public func *=(lhs: AInt, rhs: Int) {
+public func *=(lhs: inout AInt, rhs: Int) {
     lock(lhs)
     lhs.value *= rhs
     unlock(lhs)
 }
 
-public func /=(lhs: AInt, rhs: AInt) {
+public func /=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
     unlock(lhs, rhs)
@@ -401,13 +401,13 @@ public func /=(lhs: inout Int, rhs: AInt) {
     unlock(rhs)
 }
 
-public func /=(lhs: AInt, rhs: Int) {
+public func /=(lhs: inout AInt, rhs: Int) {
     lock(lhs)
     lhs.value /= rhs
     unlock(lhs)
 }
 
-public func %=(lhs: AInt, rhs: AInt) {
+public func %=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
     unlock(lhs, rhs)
@@ -419,13 +419,13 @@ public func %=(lhs: inout Int, rhs: AInt) {
     unlock(rhs)
 }
 
-public func %=(lhs: AInt, rhs: Int) {
+public func %=(lhs: inout AInt, rhs: Int) {
     lock(lhs)
     lhs.value %= rhs
     unlock(lhs)
 }
 
-public func <<=(lhs: AInt, rhs: AInt) {
+public func <<=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
     unlock(lhs, rhs)
@@ -437,13 +437,13 @@ public func <<=(lhs: inout Int, rhs: AInt) {
     unlock(rhs)
 }
 
-public func <<=(lhs: AInt, rhs: Int) {
+public func <<=(lhs: inout AInt, rhs: Int) {
     lock(lhs)
     lhs.value <<= rhs
     unlock(lhs)
 }
 
-public func >>=(lhs: AInt, rhs: AInt) {
+public func >>=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
     unlock(lhs, rhs)
@@ -455,13 +455,13 @@ public func >>=(lhs: inout Int, rhs: AInt) {
     unlock(rhs)
 }
 
-public func >>=(lhs: AInt, rhs: Int) {
+public func >>=(lhs: inout AInt, rhs: Int) {
     lock(lhs)
     lhs.value >>= rhs
     unlock(lhs)
 }
 
-public func ^=(lhs: AInt, rhs: AInt) {
+public func ^=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
     unlock(lhs, rhs)
@@ -473,13 +473,13 @@ public func ^=(lhs: inout Int, rhs: AInt) {
     unlock(rhs)
 }
 
-public func ^=(lhs: AInt, rhs: Int) {
+public func ^=(lhs: inout AInt, rhs: Int) {
     lock(lhs)
     lhs.value ^= rhs
     unlock(lhs)
 }
 
-public func |=(lhs: AInt, rhs: AInt) {
+public func |=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
     unlock(lhs, rhs)
@@ -491,13 +491,13 @@ public func |=(lhs: inout Int, rhs: AInt) {
     unlock(rhs)
 }
 
-public func |=(lhs: AInt, rhs: Int) {
+public func |=(lhs: inout AInt, rhs: Int) {
     lock(lhs)
     lhs.value |= rhs
     unlock(lhs)
 }
 
-public func &=(lhs: AInt, rhs: AInt) {
+public func &=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
     unlock(lhs, rhs)
@@ -509,7 +509,7 @@ public func &=(lhs: inout Int, rhs: AInt) {
     unlock(rhs)
 }
 
-public func &=(lhs: AInt, rhs: Int) {
+public func &=(lhs: inout AInt, rhs: Int) {
     lock(lhs)
     lhs.value &= rhs
     unlock(lhs)
@@ -854,7 +854,7 @@ public func &*(lhs: AInt8, rhs: Int8) -> AInt8 {
     return Atomic(result)
 }
 
-public func +=(lhs: AInt8, rhs: AInt8) {
+public func +=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -866,13 +866,13 @@ public func +=(lhs: inout Int8, rhs: AInt8) {
     unlock(rhs)
 }
 
-public func +=(lhs: AInt8, rhs: Int8) {
+public func +=(lhs: inout AInt8, rhs: Int8) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)
 }
 
-public func -=(lhs: AInt8, rhs: AInt8) {
+public func -=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
     unlock(lhs, rhs)
@@ -884,13 +884,13 @@ public func -=(lhs: inout Int8, rhs: AInt8) {
     unlock(rhs)
 }
 
-public func -=(lhs: AInt8, rhs: Int8) {
+public func -=(lhs: inout AInt8, rhs: Int8) {
     lock(lhs)
     lhs.value -= rhs
     unlock(lhs)
 }
 
-public func *=(lhs: AInt8, rhs: AInt8) {
+public func *=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
     unlock(lhs, rhs)
@@ -902,13 +902,13 @@ public func *=(lhs: inout Int8, rhs: AInt8) {
     unlock(rhs)
 }
 
-public func *=(lhs: AInt8, rhs: Int8) {
+public func *=(lhs: inout AInt8, rhs: Int8) {
     lock(lhs)
     lhs.value *= rhs
     unlock(lhs)
 }
 
-public func /=(lhs: AInt8, rhs: AInt8) {
+public func /=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
     unlock(lhs, rhs)
@@ -920,13 +920,13 @@ public func /=(lhs: inout Int8, rhs: AInt8) {
     unlock(rhs)
 }
 
-public func /=(lhs: AInt8, rhs: Int8) {
+public func /=(lhs: inout AInt8, rhs: Int8) {
     lock(lhs)
     lhs.value /= rhs
     unlock(lhs)
 }
 
-public func %=(lhs: AInt8, rhs: AInt8) {
+public func %=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
     unlock(lhs, rhs)
@@ -938,13 +938,13 @@ public func %=(lhs: inout Int8, rhs: AInt8) {
     unlock(rhs)
 }
 
-public func %=(lhs: AInt8, rhs: Int8) {
+public func %=(lhs: inout AInt8, rhs: Int8) {
     lock(lhs)
     lhs.value %= rhs
     unlock(lhs)
 }
 
-public func <<=(lhs: AInt8, rhs: AInt8) {
+public func <<=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
     unlock(lhs, rhs)
@@ -956,13 +956,13 @@ public func <<=(lhs: inout Int8, rhs: AInt8) {
     unlock(rhs)
 }
 
-public func <<=(lhs: AInt8, rhs: Int8) {
+public func <<=(lhs: inout AInt8, rhs: Int8) {
     lock(lhs)
     lhs.value <<= rhs
     unlock(lhs)
 }
 
-public func >>=(lhs: AInt8, rhs: AInt8) {
+public func >>=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
     unlock(lhs, rhs)
@@ -974,13 +974,13 @@ public func >>=(lhs: inout Int8, rhs: AInt8) {
     unlock(rhs)
 }
 
-public func >>=(lhs: AInt8, rhs: Int8) {
+public func >>=(lhs: inout AInt8, rhs: Int8) {
     lock(lhs)
     lhs.value >>= rhs
     unlock(lhs)
 }
 
-public func ^=(lhs: AInt8, rhs: AInt8) {
+public func ^=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
     unlock(lhs, rhs)
@@ -992,13 +992,13 @@ public func ^=(lhs: inout Int8, rhs: AInt8) {
     unlock(rhs)
 }
 
-public func ^=(lhs: AInt8, rhs: Int8) {
+public func ^=(lhs: inout AInt8, rhs: Int8) {
     lock(lhs)
     lhs.value ^= rhs
     unlock(lhs)
 }
 
-public func |=(lhs: AInt8, rhs: AInt8) {
+public func |=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
     unlock(lhs, rhs)
@@ -1010,13 +1010,13 @@ public func |=(lhs: inout Int8, rhs: AInt8) {
     unlock(rhs)
 }
 
-public func |=(lhs: AInt8, rhs: Int8) {
+public func |=(lhs: inout AInt8, rhs: Int8) {
     lock(lhs)
     lhs.value |= rhs
     unlock(lhs)
 }
 
-public func &=(lhs: AInt8, rhs: AInt8) {
+public func &=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
     unlock(lhs, rhs)
@@ -1028,7 +1028,7 @@ public func &=(lhs: inout Int8, rhs: AInt8) {
     unlock(rhs)
 }
 
-public func &=(lhs: AInt8, rhs: Int8) {
+public func &=(lhs: inout AInt8, rhs: Int8) {
     lock(lhs)
     lhs.value &= rhs
     unlock(lhs)
@@ -1373,7 +1373,7 @@ public func &*(lhs: AInt16, rhs: Int16) -> AInt16 {
     return Atomic(result)
 }
 
-public func +=(lhs: AInt16, rhs: AInt16) {
+public func +=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -1385,13 +1385,13 @@ public func +=(lhs: inout Int16, rhs: AInt16) {
     unlock(rhs)
 }
 
-public func +=(lhs: AInt16, rhs: Int16) {
+public func +=(lhs: inout AInt16, rhs: Int16) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)
 }
 
-public func -=(lhs: AInt16, rhs: AInt16) {
+public func -=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
     unlock(lhs, rhs)
@@ -1403,13 +1403,13 @@ public func -=(lhs: inout Int16, rhs: AInt16) {
     unlock(rhs)
 }
 
-public func -=(lhs: AInt16, rhs: Int16) {
+public func -=(lhs: inout AInt16, rhs: Int16) {
     lock(lhs)
     lhs.value -= rhs
     unlock(lhs)
 }
 
-public func *=(lhs: AInt16, rhs: AInt16) {
+public func *=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
     unlock(lhs, rhs)
@@ -1421,13 +1421,13 @@ public func *=(lhs: inout Int16, rhs: AInt16) {
     unlock(rhs)
 }
 
-public func *=(lhs: AInt16, rhs: Int16) {
+public func *=(lhs: inout AInt16, rhs: Int16) {
     lock(lhs)
     lhs.value *= rhs
     unlock(lhs)
 }
 
-public func /=(lhs: AInt16, rhs: AInt16) {
+public func /=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
     unlock(lhs, rhs)
@@ -1439,13 +1439,13 @@ public func /=(lhs: inout Int16, rhs: AInt16) {
     unlock(rhs)
 }
 
-public func /=(lhs: AInt16, rhs: Int16) {
+public func /=(lhs: inout AInt16, rhs: Int16) {
     lock(lhs)
     lhs.value /= rhs
     unlock(lhs)
 }
 
-public func %=(lhs: AInt16, rhs: AInt16) {
+public func %=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
     unlock(lhs, rhs)
@@ -1457,13 +1457,13 @@ public func %=(lhs: inout Int16, rhs: AInt16) {
     unlock(rhs)
 }
 
-public func %=(lhs: AInt16, rhs: Int16) {
+public func %=(lhs: inout AInt16, rhs: Int16) {
     lock(lhs)
     lhs.value %= rhs
     unlock(lhs)
 }
 
-public func <<=(lhs: AInt16, rhs: AInt16) {
+public func <<=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
     unlock(lhs, rhs)
@@ -1475,13 +1475,13 @@ public func <<=(lhs: inout Int16, rhs: AInt16) {
     unlock(rhs)
 }
 
-public func <<=(lhs: AInt16, rhs: Int16) {
+public func <<=(lhs: inout AInt16, rhs: Int16) {
     lock(lhs)
     lhs.value <<= rhs
     unlock(lhs)
 }
 
-public func >>=(lhs: AInt16, rhs: AInt16) {
+public func >>=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
     unlock(lhs, rhs)
@@ -1493,13 +1493,13 @@ public func >>=(lhs: inout Int16, rhs: AInt16) {
     unlock(rhs)
 }
 
-public func >>=(lhs: AInt16, rhs: Int16) {
+public func >>=(lhs: inout AInt16, rhs: Int16) {
     lock(lhs)
     lhs.value >>= rhs
     unlock(lhs)
 }
 
-public func ^=(lhs: AInt16, rhs: AInt16) {
+public func ^=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
     unlock(lhs, rhs)
@@ -1511,13 +1511,13 @@ public func ^=(lhs: inout Int16, rhs: AInt16) {
     unlock(rhs)
 }
 
-public func ^=(lhs: AInt16, rhs: Int16) {
+public func ^=(lhs: inout AInt16, rhs: Int16) {
     lock(lhs)
     lhs.value ^= rhs
     unlock(lhs)
 }
 
-public func |=(lhs: AInt16, rhs: AInt16) {
+public func |=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
     unlock(lhs, rhs)
@@ -1529,13 +1529,13 @@ public func |=(lhs: inout Int16, rhs: AInt16) {
     unlock(rhs)
 }
 
-public func |=(lhs: AInt16, rhs: Int16) {
+public func |=(lhs: inout AInt16, rhs: Int16) {
     lock(lhs)
     lhs.value |= rhs
     unlock(lhs)
 }
 
-public func &=(lhs: AInt16, rhs: AInt16) {
+public func &=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
     unlock(lhs, rhs)
@@ -1547,7 +1547,7 @@ public func &=(lhs: inout Int16, rhs: AInt16) {
     unlock(rhs)
 }
 
-public func &=(lhs: AInt16, rhs: Int16) {
+public func &=(lhs: inout AInt16, rhs: Int16) {
     lock(lhs)
     lhs.value &= rhs
     unlock(lhs)
@@ -1892,7 +1892,7 @@ public func &*(lhs: AInt32, rhs: Int32) -> AInt32 {
     return Atomic(result)
 }
 
-public func +=(lhs: AInt32, rhs: AInt32) {
+public func +=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -1904,13 +1904,13 @@ public func +=(lhs: inout Int32, rhs: AInt32) {
     unlock(rhs)
 }
 
-public func +=(lhs: AInt32, rhs: Int32) {
+public func +=(lhs: inout AInt32, rhs: Int32) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)
 }
 
-public func -=(lhs: AInt32, rhs: AInt32) {
+public func -=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
     unlock(lhs, rhs)
@@ -1922,13 +1922,13 @@ public func -=(lhs: inout Int32, rhs: AInt32) {
     unlock(rhs)
 }
 
-public func -=(lhs: AInt32, rhs: Int32) {
+public func -=(lhs: inout AInt32, rhs: Int32) {
     lock(lhs)
     lhs.value -= rhs
     unlock(lhs)
 }
 
-public func *=(lhs: AInt32, rhs: AInt32) {
+public func *=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
     unlock(lhs, rhs)
@@ -1940,13 +1940,13 @@ public func *=(lhs: inout Int32, rhs: AInt32) {
     unlock(rhs)
 }
 
-public func *=(lhs: AInt32, rhs: Int32) {
+public func *=(lhs: inout AInt32, rhs: Int32) {
     lock(lhs)
     lhs.value *= rhs
     unlock(lhs)
 }
 
-public func /=(lhs: AInt32, rhs: AInt32) {
+public func /=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
     unlock(lhs, rhs)
@@ -1958,13 +1958,13 @@ public func /=(lhs: inout Int32, rhs: AInt32) {
     unlock(rhs)
 }
 
-public func /=(lhs: AInt32, rhs: Int32) {
+public func /=(lhs: inout AInt32, rhs: Int32) {
     lock(lhs)
     lhs.value /= rhs
     unlock(lhs)
 }
 
-public func %=(lhs: AInt32, rhs: AInt32) {
+public func %=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
     unlock(lhs, rhs)
@@ -1976,13 +1976,13 @@ public func %=(lhs: inout Int32, rhs: AInt32) {
     unlock(rhs)
 }
 
-public func %=(lhs: AInt32, rhs: Int32) {
+public func %=(lhs: inout AInt32, rhs: Int32) {
     lock(lhs)
     lhs.value %= rhs
     unlock(lhs)
 }
 
-public func <<=(lhs: AInt32, rhs: AInt32) {
+public func <<=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
     unlock(lhs, rhs)
@@ -1994,13 +1994,13 @@ public func <<=(lhs: inout Int32, rhs: AInt32) {
     unlock(rhs)
 }
 
-public func <<=(lhs: AInt32, rhs: Int32) {
+public func <<=(lhs: inout AInt32, rhs: Int32) {
     lock(lhs)
     lhs.value <<= rhs
     unlock(lhs)
 }
 
-public func >>=(lhs: AInt32, rhs: AInt32) {
+public func >>=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
     unlock(lhs, rhs)
@@ -2012,13 +2012,13 @@ public func >>=(lhs: inout Int32, rhs: AInt32) {
     unlock(rhs)
 }
 
-public func >>=(lhs: AInt32, rhs: Int32) {
+public func >>=(lhs: inout AInt32, rhs: Int32) {
     lock(lhs)
     lhs.value >>= rhs
     unlock(lhs)
 }
 
-public func ^=(lhs: AInt32, rhs: AInt32) {
+public func ^=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
     unlock(lhs, rhs)
@@ -2030,13 +2030,13 @@ public func ^=(lhs: inout Int32, rhs: AInt32) {
     unlock(rhs)
 }
 
-public func ^=(lhs: AInt32, rhs: Int32) {
+public func ^=(lhs: inout AInt32, rhs: Int32) {
     lock(lhs)
     lhs.value ^= rhs
     unlock(lhs)
 }
 
-public func |=(lhs: AInt32, rhs: AInt32) {
+public func |=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
     unlock(lhs, rhs)
@@ -2048,13 +2048,13 @@ public func |=(lhs: inout Int32, rhs: AInt32) {
     unlock(rhs)
 }
 
-public func |=(lhs: AInt32, rhs: Int32) {
+public func |=(lhs: inout AInt32, rhs: Int32) {
     lock(lhs)
     lhs.value |= rhs
     unlock(lhs)
 }
 
-public func &=(lhs: AInt32, rhs: AInt32) {
+public func &=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
     unlock(lhs, rhs)
@@ -2066,7 +2066,7 @@ public func &=(lhs: inout Int32, rhs: AInt32) {
     unlock(rhs)
 }
 
-public func &=(lhs: AInt32, rhs: Int32) {
+public func &=(lhs: inout AInt32, rhs: Int32) {
     lock(lhs)
     lhs.value &= rhs
     unlock(lhs)
@@ -2411,7 +2411,7 @@ public func &*(lhs: AInt64, rhs: Int64) -> AInt64 {
     return Atomic(result)
 }
 
-public func +=(lhs: AInt64, rhs: AInt64) {
+public func +=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -2423,13 +2423,13 @@ public func +=(lhs: inout Int64, rhs: AInt64) {
     unlock(rhs)
 }
 
-public func +=(lhs: AInt64, rhs: Int64) {
+public func +=(lhs: inout AInt64, rhs: Int64) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)
 }
 
-public func -=(lhs: AInt64, rhs: AInt64) {
+public func -=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
     unlock(lhs, rhs)
@@ -2441,13 +2441,13 @@ public func -=(lhs: inout Int64, rhs: AInt64) {
     unlock(rhs)
 }
 
-public func -=(lhs: AInt64, rhs: Int64) {
+public func -=(lhs: inout AInt64, rhs: Int64) {
     lock(lhs)
     lhs.value -= rhs
     unlock(lhs)
 }
 
-public func *=(lhs: AInt64, rhs: AInt64) {
+public func *=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
     unlock(lhs, rhs)
@@ -2459,13 +2459,13 @@ public func *=(lhs: inout Int64, rhs: AInt64) {
     unlock(rhs)
 }
 
-public func *=(lhs: AInt64, rhs: Int64) {
+public func *=(lhs: inout AInt64, rhs: Int64) {
     lock(lhs)
     lhs.value *= rhs
     unlock(lhs)
 }
 
-public func /=(lhs: AInt64, rhs: AInt64) {
+public func /=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
     unlock(lhs, rhs)
@@ -2477,13 +2477,13 @@ public func /=(lhs: inout Int64, rhs: AInt64) {
     unlock(rhs)
 }
 
-public func /=(lhs: AInt64, rhs: Int64) {
+public func /=(lhs: inout AInt64, rhs: Int64) {
     lock(lhs)
     lhs.value /= rhs
     unlock(lhs)
 }
 
-public func %=(lhs: AInt64, rhs: AInt64) {
+public func %=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
     unlock(lhs, rhs)
@@ -2495,13 +2495,13 @@ public func %=(lhs: inout Int64, rhs: AInt64) {
     unlock(rhs)
 }
 
-public func %=(lhs: AInt64, rhs: Int64) {
+public func %=(lhs: inout AInt64, rhs: Int64) {
     lock(lhs)
     lhs.value %= rhs
     unlock(lhs)
 }
 
-public func <<=(lhs: AInt64, rhs: AInt64) {
+public func <<=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
     unlock(lhs, rhs)
@@ -2513,13 +2513,13 @@ public func <<=(lhs: inout Int64, rhs: AInt64) {
     unlock(rhs)
 }
 
-public func <<=(lhs: AInt64, rhs: Int64) {
+public func <<=(lhs: inout AInt64, rhs: Int64) {
     lock(lhs)
     lhs.value <<= rhs
     unlock(lhs)
 }
 
-public func >>=(lhs: AInt64, rhs: AInt64) {
+public func >>=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
     unlock(lhs, rhs)
@@ -2531,13 +2531,13 @@ public func >>=(lhs: inout Int64, rhs: AInt64) {
     unlock(rhs)
 }
 
-public func >>=(lhs: AInt64, rhs: Int64) {
+public func >>=(lhs: inout AInt64, rhs: Int64) {
     lock(lhs)
     lhs.value >>= rhs
     unlock(lhs)
 }
 
-public func ^=(lhs: AInt64, rhs: AInt64) {
+public func ^=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
     unlock(lhs, rhs)
@@ -2549,13 +2549,13 @@ public func ^=(lhs: inout Int64, rhs: AInt64) {
     unlock(rhs)
 }
 
-public func ^=(lhs: AInt64, rhs: Int64) {
+public func ^=(lhs: inout AInt64, rhs: Int64) {
     lock(lhs)
     lhs.value ^= rhs
     unlock(lhs)
 }
 
-public func |=(lhs: AInt64, rhs: AInt64) {
+public func |=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
     unlock(lhs, rhs)
@@ -2567,13 +2567,13 @@ public func |=(lhs: inout Int64, rhs: AInt64) {
     unlock(rhs)
 }
 
-public func |=(lhs: AInt64, rhs: Int64) {
+public func |=(lhs: inout AInt64, rhs: Int64) {
     lock(lhs)
     lhs.value |= rhs
     unlock(lhs)
 }
 
-public func &=(lhs: AInt64, rhs: AInt64) {
+public func &=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
     unlock(lhs, rhs)
@@ -2585,7 +2585,7 @@ public func &=(lhs: inout Int64, rhs: AInt64) {
     unlock(rhs)
 }
 
-public func &=(lhs: AInt64, rhs: Int64) {
+public func &=(lhs: inout AInt64, rhs: Int64) {
     lock(lhs)
     lhs.value &= rhs
     unlock(lhs)
@@ -2930,7 +2930,7 @@ public func &*(lhs: AUInt, rhs: UInt) -> AUInt {
     return Atomic(result)
 }
 
-public func +=(lhs: AUInt, rhs: AUInt) {
+public func +=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -2942,13 +2942,13 @@ public func +=(lhs: inout UInt, rhs: AUInt) {
     unlock(rhs)
 }
 
-public func +=(lhs: AUInt, rhs: UInt) {
+public func +=(lhs: inout AUInt, rhs: UInt) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)
 }
 
-public func -=(lhs: AUInt, rhs: AUInt) {
+public func -=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
     unlock(lhs, rhs)
@@ -2960,13 +2960,13 @@ public func -=(lhs: inout UInt, rhs: AUInt) {
     unlock(rhs)
 }
 
-public func -=(lhs: AUInt, rhs: UInt) {
+public func -=(lhs: inout AUInt, rhs: UInt) {
     lock(lhs)
     lhs.value -= rhs
     unlock(lhs)
 }
 
-public func *=(lhs: AUInt, rhs: AUInt) {
+public func *=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
     unlock(lhs, rhs)
@@ -2978,13 +2978,13 @@ public func *=(lhs: inout UInt, rhs: AUInt) {
     unlock(rhs)
 }
 
-public func *=(lhs: AUInt, rhs: UInt) {
+public func *=(lhs: inout AUInt, rhs: UInt) {
     lock(lhs)
     lhs.value *= rhs
     unlock(lhs)
 }
 
-public func /=(lhs: AUInt, rhs: AUInt) {
+public func /=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
     unlock(lhs, rhs)
@@ -2996,13 +2996,13 @@ public func /=(lhs: inout UInt, rhs: AUInt) {
     unlock(rhs)
 }
 
-public func /=(lhs: AUInt, rhs: UInt) {
+public func /=(lhs: inout AUInt, rhs: UInt) {
     lock(lhs)
     lhs.value /= rhs
     unlock(lhs)
 }
 
-public func %=(lhs: AUInt, rhs: AUInt) {
+public func %=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
     unlock(lhs, rhs)
@@ -3014,13 +3014,13 @@ public func %=(lhs: inout UInt, rhs: AUInt) {
     unlock(rhs)
 }
 
-public func %=(lhs: AUInt, rhs: UInt) {
+public func %=(lhs: inout AUInt, rhs: UInt) {
     lock(lhs)
     lhs.value %= rhs
     unlock(lhs)
 }
 
-public func <<=(lhs: AUInt, rhs: AUInt) {
+public func <<=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
     unlock(lhs, rhs)
@@ -3032,13 +3032,13 @@ public func <<=(lhs: inout UInt, rhs: AUInt) {
     unlock(rhs)
 }
 
-public func <<=(lhs: AUInt, rhs: UInt) {
+public func <<=(lhs: inout AUInt, rhs: UInt) {
     lock(lhs)
     lhs.value <<= rhs
     unlock(lhs)
 }
 
-public func >>=(lhs: AUInt, rhs: AUInt) {
+public func >>=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
     unlock(lhs, rhs)
@@ -3050,13 +3050,13 @@ public func >>=(lhs: inout UInt, rhs: AUInt) {
     unlock(rhs)
 }
 
-public func >>=(lhs: AUInt, rhs: UInt) {
+public func >>=(lhs: inout AUInt, rhs: UInt) {
     lock(lhs)
     lhs.value >>= rhs
     unlock(lhs)
 }
 
-public func ^=(lhs: AUInt, rhs: AUInt) {
+public func ^=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
     unlock(lhs, rhs)
@@ -3068,13 +3068,13 @@ public func ^=(lhs: inout UInt, rhs: AUInt) {
     unlock(rhs)
 }
 
-public func ^=(lhs: AUInt, rhs: UInt) {
+public func ^=(lhs: inout AUInt, rhs: UInt) {
     lock(lhs)
     lhs.value ^= rhs
     unlock(lhs)
 }
 
-public func |=(lhs: AUInt, rhs: AUInt) {
+public func |=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
     unlock(lhs, rhs)
@@ -3086,13 +3086,13 @@ public func |=(lhs: inout UInt, rhs: AUInt) {
     unlock(rhs)
 }
 
-public func |=(lhs: AUInt, rhs: UInt) {
+public func |=(lhs: inout AUInt, rhs: UInt) {
     lock(lhs)
     lhs.value |= rhs
     unlock(lhs)
 }
 
-public func &=(lhs: AUInt, rhs: AUInt) {
+public func &=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
     unlock(lhs, rhs)
@@ -3104,7 +3104,7 @@ public func &=(lhs: inout UInt, rhs: AUInt) {
     unlock(rhs)
 }
 
-public func &=(lhs: AUInt, rhs: UInt) {
+public func &=(lhs: inout AUInt, rhs: UInt) {
     lock(lhs)
     lhs.value &= rhs
     unlock(lhs)
@@ -3425,7 +3425,7 @@ public func &*(lhs: AUInt8, rhs: UInt8) -> AUInt8 {
     return Atomic(result)
 }
 
-public func +=(lhs: AUInt8, rhs: AUInt8) {
+public func +=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -3437,13 +3437,13 @@ public func +=(lhs: inout UInt8, rhs: AUInt8) {
     unlock(rhs)
 }
 
-public func +=(lhs: AUInt8, rhs: UInt8) {
+public func +=(lhs: inout AUInt8, rhs: UInt8) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)
 }
 
-public func -=(lhs: AUInt8, rhs: AUInt8) {
+public func -=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
     unlock(lhs, rhs)
@@ -3455,13 +3455,13 @@ public func -=(lhs: inout UInt8, rhs: AUInt8) {
     unlock(rhs)
 }
 
-public func -=(lhs: AUInt8, rhs: UInt8) {
+public func -=(lhs: inout AUInt8, rhs: UInt8) {
     lock(lhs)
     lhs.value -= rhs
     unlock(lhs)
 }
 
-public func *=(lhs: AUInt8, rhs: AUInt8) {
+public func *=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
     unlock(lhs, rhs)
@@ -3473,13 +3473,13 @@ public func *=(lhs: inout UInt8, rhs: AUInt8) {
     unlock(rhs)
 }
 
-public func *=(lhs: AUInt8, rhs: UInt8) {
+public func *=(lhs: inout AUInt8, rhs: UInt8) {
     lock(lhs)
     lhs.value *= rhs
     unlock(lhs)
 }
 
-public func /=(lhs: AUInt8, rhs: AUInt8) {
+public func /=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
     unlock(lhs, rhs)
@@ -3491,13 +3491,13 @@ public func /=(lhs: inout UInt8, rhs: AUInt8) {
     unlock(rhs)
 }
 
-public func /=(lhs: AUInt8, rhs: UInt8) {
+public func /=(lhs: inout AUInt8, rhs: UInt8) {
     lock(lhs)
     lhs.value /= rhs
     unlock(lhs)
 }
 
-public func %=(lhs: AUInt8, rhs: AUInt8) {
+public func %=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
     unlock(lhs, rhs)
@@ -3509,13 +3509,13 @@ public func %=(lhs: inout UInt8, rhs: AUInt8) {
     unlock(rhs)
 }
 
-public func %=(lhs: AUInt8, rhs: UInt8) {
+public func %=(lhs: inout AUInt8, rhs: UInt8) {
     lock(lhs)
     lhs.value %= rhs
     unlock(lhs)
 }
 
-public func <<=(lhs: AUInt8, rhs: AUInt8) {
+public func <<=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
     unlock(lhs, rhs)
@@ -3527,13 +3527,13 @@ public func <<=(lhs: inout UInt8, rhs: AUInt8) {
     unlock(rhs)
 }
 
-public func <<=(lhs: AUInt8, rhs: UInt8) {
+public func <<=(lhs: inout AUInt8, rhs: UInt8) {
     lock(lhs)
     lhs.value <<= rhs
     unlock(lhs)
 }
 
-public func >>=(lhs: AUInt8, rhs: AUInt8) {
+public func >>=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
     unlock(lhs, rhs)
@@ -3545,13 +3545,13 @@ public func >>=(lhs: inout UInt8, rhs: AUInt8) {
     unlock(rhs)
 }
 
-public func >>=(lhs: AUInt8, rhs: UInt8) {
+public func >>=(lhs: inout AUInt8, rhs: UInt8) {
     lock(lhs)
     lhs.value >>= rhs
     unlock(lhs)
 }
 
-public func ^=(lhs: AUInt8, rhs: AUInt8) {
+public func ^=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
     unlock(lhs, rhs)
@@ -3563,13 +3563,13 @@ public func ^=(lhs: inout UInt8, rhs: AUInt8) {
     unlock(rhs)
 }
 
-public func ^=(lhs: AUInt8, rhs: UInt8) {
+public func ^=(lhs: inout AUInt8, rhs: UInt8) {
     lock(lhs)
     lhs.value ^= rhs
     unlock(lhs)
 }
 
-public func |=(lhs: AUInt8, rhs: AUInt8) {
+public func |=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
     unlock(lhs, rhs)
@@ -3581,13 +3581,13 @@ public func |=(lhs: inout UInt8, rhs: AUInt8) {
     unlock(rhs)
 }
 
-public func |=(lhs: AUInt8, rhs: UInt8) {
+public func |=(lhs: inout AUInt8, rhs: UInt8) {
     lock(lhs)
     lhs.value |= rhs
     unlock(lhs)
 }
 
-public func &=(lhs: AUInt8, rhs: AUInt8) {
+public func &=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
     unlock(lhs, rhs)
@@ -3599,7 +3599,7 @@ public func &=(lhs: inout UInt8, rhs: AUInt8) {
     unlock(rhs)
 }
 
-public func &=(lhs: AUInt8, rhs: UInt8) {
+public func &=(lhs: inout AUInt8, rhs: UInt8) {
     lock(lhs)
     lhs.value &= rhs
     unlock(lhs)
@@ -3920,7 +3920,7 @@ public func &*(lhs: AUInt16, rhs: UInt16) -> AUInt16 {
     return Atomic(result)
 }
 
-public func +=(lhs: AUInt16, rhs: AUInt16) {
+public func +=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -3932,13 +3932,13 @@ public func +=(lhs: inout UInt16, rhs: AUInt16) {
     unlock(rhs)
 }
 
-public func +=(lhs: AUInt16, rhs: UInt16) {
+public func +=(lhs: inout AUInt16, rhs: UInt16) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)
 }
 
-public func -=(lhs: AUInt16, rhs: AUInt16) {
+public func -=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
     unlock(lhs, rhs)
@@ -3950,13 +3950,13 @@ public func -=(lhs: inout UInt16, rhs: AUInt16) {
     unlock(rhs)
 }
 
-public func -=(lhs: AUInt16, rhs: UInt16) {
+public func -=(lhs: inout AUInt16, rhs: UInt16) {
     lock(lhs)
     lhs.value -= rhs
     unlock(lhs)
 }
 
-public func *=(lhs: AUInt16, rhs: AUInt16) {
+public func *=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
     unlock(lhs, rhs)
@@ -3968,13 +3968,13 @@ public func *=(lhs: inout UInt16, rhs: AUInt16) {
     unlock(rhs)
 }
 
-public func *=(lhs: AUInt16, rhs: UInt16) {
+public func *=(lhs: inout AUInt16, rhs: UInt16) {
     lock(lhs)
     lhs.value *= rhs
     unlock(lhs)
 }
 
-public func /=(lhs: AUInt16, rhs: AUInt16) {
+public func /=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
     unlock(lhs, rhs)
@@ -3986,13 +3986,13 @@ public func /=(lhs: inout UInt16, rhs: AUInt16) {
     unlock(rhs)
 }
 
-public func /=(lhs: AUInt16, rhs: UInt16) {
+public func /=(lhs: inout AUInt16, rhs: UInt16) {
     lock(lhs)
     lhs.value /= rhs
     unlock(lhs)
 }
 
-public func %=(lhs: AUInt16, rhs: AUInt16) {
+public func %=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
     unlock(lhs, rhs)
@@ -4004,13 +4004,13 @@ public func %=(lhs: inout UInt16, rhs: AUInt16) {
     unlock(rhs)
 }
 
-public func %=(lhs: AUInt16, rhs: UInt16) {
+public func %=(lhs: inout AUInt16, rhs: UInt16) {
     lock(lhs)
     lhs.value %= rhs
     unlock(lhs)
 }
 
-public func <<=(lhs: AUInt16, rhs: AUInt16) {
+public func <<=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
     unlock(lhs, rhs)
@@ -4022,13 +4022,13 @@ public func <<=(lhs: inout UInt16, rhs: AUInt16) {
     unlock(rhs)
 }
 
-public func <<=(lhs: AUInt16, rhs: UInt16) {
+public func <<=(lhs: inout AUInt16, rhs: UInt16) {
     lock(lhs)
     lhs.value <<= rhs
     unlock(lhs)
 }
 
-public func >>=(lhs: AUInt16, rhs: AUInt16) {
+public func >>=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
     unlock(lhs, rhs)
@@ -4040,13 +4040,13 @@ public func >>=(lhs: inout UInt16, rhs: AUInt16) {
     unlock(rhs)
 }
 
-public func >>=(lhs: AUInt16, rhs: UInt16) {
+public func >>=(lhs: inout AUInt16, rhs: UInt16) {
     lock(lhs)
     lhs.value >>= rhs
     unlock(lhs)
 }
 
-public func ^=(lhs: AUInt16, rhs: AUInt16) {
+public func ^=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
     unlock(lhs, rhs)
@@ -4058,13 +4058,13 @@ public func ^=(lhs: inout UInt16, rhs: AUInt16) {
     unlock(rhs)
 }
 
-public func ^=(lhs: AUInt16, rhs: UInt16) {
+public func ^=(lhs: inout AUInt16, rhs: UInt16) {
     lock(lhs)
     lhs.value ^= rhs
     unlock(lhs)
 }
 
-public func |=(lhs: AUInt16, rhs: AUInt16) {
+public func |=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
     unlock(lhs, rhs)
@@ -4076,13 +4076,13 @@ public func |=(lhs: inout UInt16, rhs: AUInt16) {
     unlock(rhs)
 }
 
-public func |=(lhs: AUInt16, rhs: UInt16) {
+public func |=(lhs: inout AUInt16, rhs: UInt16) {
     lock(lhs)
     lhs.value |= rhs
     unlock(lhs)
 }
 
-public func &=(lhs: AUInt16, rhs: AUInt16) {
+public func &=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
     unlock(lhs, rhs)
@@ -4094,7 +4094,7 @@ public func &=(lhs: inout UInt16, rhs: AUInt16) {
     unlock(rhs)
 }
 
-public func &=(lhs: AUInt16, rhs: UInt16) {
+public func &=(lhs: inout AUInt16, rhs: UInt16) {
     lock(lhs)
     lhs.value &= rhs
     unlock(lhs)
@@ -4415,7 +4415,7 @@ public func &*(lhs: AUInt32, rhs: UInt32) -> AUInt32 {
     return Atomic(result)
 }
 
-public func +=(lhs: AUInt32, rhs: AUInt32) {
+public func +=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -4427,13 +4427,13 @@ public func +=(lhs: inout UInt32, rhs: AUInt32) {
     unlock(rhs)
 }
 
-public func +=(lhs: AUInt32, rhs: UInt32) {
+public func +=(lhs: inout AUInt32, rhs: UInt32) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)
 }
 
-public func -=(lhs: AUInt32, rhs: AUInt32) {
+public func -=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
     unlock(lhs, rhs)
@@ -4445,13 +4445,13 @@ public func -=(lhs: inout UInt32, rhs: AUInt32) {
     unlock(rhs)
 }
 
-public func -=(lhs: AUInt32, rhs: UInt32) {
+public func -=(lhs: inout AUInt32, rhs: UInt32) {
     lock(lhs)
     lhs.value -= rhs
     unlock(lhs)
 }
 
-public func *=(lhs: AUInt32, rhs: AUInt32) {
+public func *=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
     unlock(lhs, rhs)
@@ -4463,13 +4463,13 @@ public func *=(lhs: inout UInt32, rhs: AUInt32) {
     unlock(rhs)
 }
 
-public func *=(lhs: AUInt32, rhs: UInt32) {
+public func *=(lhs: inout AUInt32, rhs: UInt32) {
     lock(lhs)
     lhs.value *= rhs
     unlock(lhs)
 }
 
-public func /=(lhs: AUInt32, rhs: AUInt32) {
+public func /=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
     unlock(lhs, rhs)
@@ -4481,13 +4481,13 @@ public func /=(lhs: inout UInt32, rhs: AUInt32) {
     unlock(rhs)
 }
 
-public func /=(lhs: AUInt32, rhs: UInt32) {
+public func /=(lhs: inout AUInt32, rhs: UInt32) {
     lock(lhs)
     lhs.value /= rhs
     unlock(lhs)
 }
 
-public func %=(lhs: AUInt32, rhs: AUInt32) {
+public func %=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
     unlock(lhs, rhs)
@@ -4499,13 +4499,13 @@ public func %=(lhs: inout UInt32, rhs: AUInt32) {
     unlock(rhs)
 }
 
-public func %=(lhs: AUInt32, rhs: UInt32) {
+public func %=(lhs: inout AUInt32, rhs: UInt32) {
     lock(lhs)
     lhs.value %= rhs
     unlock(lhs)
 }
 
-public func <<=(lhs: AUInt32, rhs: AUInt32) {
+public func <<=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
     unlock(lhs, rhs)
@@ -4517,13 +4517,13 @@ public func <<=(lhs: inout UInt32, rhs: AUInt32) {
     unlock(rhs)
 }
 
-public func <<=(lhs: AUInt32, rhs: UInt32) {
+public func <<=(lhs: inout AUInt32, rhs: UInt32) {
     lock(lhs)
     lhs.value <<= rhs
     unlock(lhs)
 }
 
-public func >>=(lhs: AUInt32, rhs: AUInt32) {
+public func >>=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
     unlock(lhs, rhs)
@@ -4535,13 +4535,13 @@ public func >>=(lhs: inout UInt32, rhs: AUInt32) {
     unlock(rhs)
 }
 
-public func >>=(lhs: AUInt32, rhs: UInt32) {
+public func >>=(lhs: inout AUInt32, rhs: UInt32) {
     lock(lhs)
     lhs.value >>= rhs
     unlock(lhs)
 }
 
-public func ^=(lhs: AUInt32, rhs: AUInt32) {
+public func ^=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
     unlock(lhs, rhs)
@@ -4553,13 +4553,13 @@ public func ^=(lhs: inout UInt32, rhs: AUInt32) {
     unlock(rhs)
 }
 
-public func ^=(lhs: AUInt32, rhs: UInt32) {
+public func ^=(lhs: inout AUInt32, rhs: UInt32) {
     lock(lhs)
     lhs.value ^= rhs
     unlock(lhs)
 }
 
-public func |=(lhs: AUInt32, rhs: AUInt32) {
+public func |=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
     unlock(lhs, rhs)
@@ -4571,13 +4571,13 @@ public func |=(lhs: inout UInt32, rhs: AUInt32) {
     unlock(rhs)
 }
 
-public func |=(lhs: AUInt32, rhs: UInt32) {
+public func |=(lhs: inout AUInt32, rhs: UInt32) {
     lock(lhs)
     lhs.value |= rhs
     unlock(lhs)
 }
 
-public func &=(lhs: AUInt32, rhs: AUInt32) {
+public func &=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
     unlock(lhs, rhs)
@@ -4589,7 +4589,7 @@ public func &=(lhs: inout UInt32, rhs: AUInt32) {
     unlock(rhs)
 }
 
-public func &=(lhs: AUInt32, rhs: UInt32) {
+public func &=(lhs: inout AUInt32, rhs: UInt32) {
     lock(lhs)
     lhs.value &= rhs
     unlock(lhs)
@@ -4910,7 +4910,7 @@ public func &*(lhs: AUInt64, rhs: UInt64) -> AUInt64 {
     return Atomic(result)
 }
 
-public func +=(lhs: AUInt64, rhs: AUInt64) {
+public func +=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -4922,13 +4922,13 @@ public func +=(lhs: inout UInt64, rhs: AUInt64) {
     unlock(rhs)
 }
 
-public func +=(lhs: AUInt64, rhs: UInt64) {
+public func +=(lhs: inout AUInt64, rhs: UInt64) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)
 }
 
-public func -=(lhs: AUInt64, rhs: AUInt64) {
+public func -=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
     unlock(lhs, rhs)
@@ -4940,13 +4940,13 @@ public func -=(lhs: inout UInt64, rhs: AUInt64) {
     unlock(rhs)
 }
 
-public func -=(lhs: AUInt64, rhs: UInt64) {
+public func -=(lhs: inout AUInt64, rhs: UInt64) {
     lock(lhs)
     lhs.value -= rhs
     unlock(lhs)
 }
 
-public func *=(lhs: AUInt64, rhs: AUInt64) {
+public func *=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
     unlock(lhs, rhs)
@@ -4958,13 +4958,13 @@ public func *=(lhs: inout UInt64, rhs: AUInt64) {
     unlock(rhs)
 }
 
-public func *=(lhs: AUInt64, rhs: UInt64) {
+public func *=(lhs: inout AUInt64, rhs: UInt64) {
     lock(lhs)
     lhs.value *= rhs
     unlock(lhs)
 }
 
-public func /=(lhs: AUInt64, rhs: AUInt64) {
+public func /=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
     unlock(lhs, rhs)
@@ -4976,13 +4976,13 @@ public func /=(lhs: inout UInt64, rhs: AUInt64) {
     unlock(rhs)
 }
 
-public func /=(lhs: AUInt64, rhs: UInt64) {
+public func /=(lhs: inout AUInt64, rhs: UInt64) {
     lock(lhs)
     lhs.value /= rhs
     unlock(lhs)
 }
 
-public func %=(lhs: AUInt64, rhs: AUInt64) {
+public func %=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
     unlock(lhs, rhs)
@@ -4994,13 +4994,13 @@ public func %=(lhs: inout UInt64, rhs: AUInt64) {
     unlock(rhs)
 }
 
-public func %=(lhs: AUInt64, rhs: UInt64) {
+public func %=(lhs: inout AUInt64, rhs: UInt64) {
     lock(lhs)
     lhs.value %= rhs
     unlock(lhs)
 }
 
-public func <<=(lhs: AUInt64, rhs: AUInt64) {
+public func <<=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
     unlock(lhs, rhs)
@@ -5012,13 +5012,13 @@ public func <<=(lhs: inout UInt64, rhs: AUInt64) {
     unlock(rhs)
 }
 
-public func <<=(lhs: AUInt64, rhs: UInt64) {
+public func <<=(lhs: inout AUInt64, rhs: UInt64) {
     lock(lhs)
     lhs.value <<= rhs
     unlock(lhs)
 }
 
-public func >>=(lhs: AUInt64, rhs: AUInt64) {
+public func >>=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
     unlock(lhs, rhs)
@@ -5030,13 +5030,13 @@ public func >>=(lhs: inout UInt64, rhs: AUInt64) {
     unlock(rhs)
 }
 
-public func >>=(lhs: AUInt64, rhs: UInt64) {
+public func >>=(lhs: inout AUInt64, rhs: UInt64) {
     lock(lhs)
     lhs.value >>= rhs
     unlock(lhs)
 }
 
-public func ^=(lhs: AUInt64, rhs: AUInt64) {
+public func ^=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
     unlock(lhs, rhs)
@@ -5048,13 +5048,13 @@ public func ^=(lhs: inout UInt64, rhs: AUInt64) {
     unlock(rhs)
 }
 
-public func ^=(lhs: AUInt64, rhs: UInt64) {
+public func ^=(lhs: inout AUInt64, rhs: UInt64) {
     lock(lhs)
     lhs.value ^= rhs
     unlock(lhs)
 }
 
-public func |=(lhs: AUInt64, rhs: AUInt64) {
+public func |=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
     unlock(lhs, rhs)
@@ -5066,13 +5066,13 @@ public func |=(lhs: inout UInt64, rhs: AUInt64) {
     unlock(rhs)
 }
 
-public func |=(lhs: AUInt64, rhs: UInt64) {
+public func |=(lhs: inout AUInt64, rhs: UInt64) {
     lock(lhs)
     lhs.value |= rhs
     unlock(lhs)
 }
 
-public func &=(lhs: AUInt64, rhs: AUInt64) {
+public func &=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
     unlock(lhs, rhs)
@@ -5084,7 +5084,7 @@ public func &=(lhs: inout UInt64, rhs: AUInt64) {
     unlock(rhs)
 }
 
-public func &=(lhs: AUInt64, rhs: UInt64) {
+public func &=(lhs: inout AUInt64, rhs: UInt64) {
     lock(lhs)
     lhs.value &= rhs
     unlock(lhs)
@@ -5189,7 +5189,7 @@ public func /(lhs: ADouble, rhs: Double) -> ADouble {
     return Atomic(result)
 }
 
-public func +=(lhs: ADouble, rhs: ADouble) {
+public func +=(lhs: inout ADouble, rhs: ADouble) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -5201,13 +5201,13 @@ public func +=(lhs: inout Double, rhs: ADouble) {
     unlock(rhs)
 }
 
-public func +=(lhs: ADouble, rhs: Double) {
+public func +=(lhs: inout ADouble, rhs: Double) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)
 }
 
-public func -=(lhs: ADouble, rhs: ADouble) {
+public func -=(lhs: inout ADouble, rhs: ADouble) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
     unlock(lhs, rhs)
@@ -5219,13 +5219,13 @@ public func -=(lhs: inout Double, rhs: ADouble) {
     unlock(rhs)
 }
 
-public func -=(lhs: ADouble, rhs: Double) {
+public func -=(lhs: inout ADouble, rhs: Double) {
     lock(lhs)
     lhs.value -= rhs
     unlock(lhs)
 }
 
-public func *=(lhs: ADouble, rhs: ADouble) {
+public func *=(lhs: inout ADouble, rhs: ADouble) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
     unlock(lhs, rhs)
@@ -5237,13 +5237,13 @@ public func *=(lhs: inout Double, rhs: ADouble) {
     unlock(rhs)
 }
 
-public func *=(lhs: ADouble, rhs: Double) {
+public func *=(lhs: inout ADouble, rhs: Double) {
     lock(lhs)
     lhs.value *= rhs
     unlock(lhs)
 }
 
-public func /=(lhs: ADouble, rhs: ADouble) {
+public func /=(lhs: inout ADouble, rhs: ADouble) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
     unlock(lhs, rhs)
@@ -5255,7 +5255,7 @@ public func /=(lhs: inout Double, rhs: ADouble) {
     unlock(rhs)
 }
 
-public func /=(lhs: ADouble, rhs: Double) {
+public func /=(lhs: inout ADouble, rhs: Double) {
     lock(lhs)
     lhs.value /= rhs
     unlock(lhs)
@@ -5376,7 +5376,7 @@ public func /(lhs: AFloat, rhs: Float) -> AFloat {
     return Atomic(result)
 }
 
-public func +=(lhs: AFloat, rhs: AFloat) {
+public func +=(lhs: inout AFloat, rhs: AFloat) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -5388,13 +5388,13 @@ public func +=(lhs: inout Float, rhs: AFloat) {
     unlock(rhs)
 }
 
-public func +=(lhs: AFloat, rhs: Float) {
+public func +=(lhs: inout AFloat, rhs: Float) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)
 }
 
-public func -=(lhs: AFloat, rhs: AFloat) {
+public func -=(lhs: inout AFloat, rhs: AFloat) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
     unlock(lhs, rhs)
@@ -5406,13 +5406,13 @@ public func -=(lhs: inout Float, rhs: AFloat) {
     unlock(rhs)
 }
 
-public func -=(lhs: AFloat, rhs: Float) {
+public func -=(lhs: inout AFloat, rhs: Float) {
     lock(lhs)
     lhs.value -= rhs
     unlock(lhs)
 }
 
-public func *=(lhs: AFloat, rhs: AFloat) {
+public func *=(lhs: inout AFloat, rhs: AFloat) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
     unlock(lhs, rhs)
@@ -5424,13 +5424,13 @@ public func *=(lhs: inout Float, rhs: AFloat) {
     unlock(rhs)
 }
 
-public func *=(lhs: AFloat, rhs: Float) {
+public func *=(lhs: inout AFloat, rhs: Float) {
     lock(lhs)
     lhs.value *= rhs
     unlock(lhs)
 }
 
-public func /=(lhs: AFloat, rhs: AFloat) {
+public func /=(lhs: inout AFloat, rhs: AFloat) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
     unlock(lhs, rhs)
@@ -5442,7 +5442,7 @@ public func /=(lhs: inout Float, rhs: AFloat) {
     unlock(rhs)
 }
 
-public func /=(lhs: AFloat, rhs: Float) {
+public func /=(lhs: inout AFloat, rhs: Float) {
     lock(lhs)
     lhs.value /= rhs
     unlock(lhs)
@@ -5563,7 +5563,7 @@ public func /(lhs: AFloat80, rhs: Float80) -> AFloat80 {
     return Atomic(result)
 }
 
-public func +=(lhs: AFloat80, rhs: AFloat80) {
+public func +=(lhs: inout AFloat80, rhs: AFloat80) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -5575,13 +5575,13 @@ public func +=(lhs: inout Float80, rhs: AFloat80) {
     unlock(rhs)
 }
 
-public func +=(lhs: AFloat80, rhs: Float80) {
+public func +=(lhs: inout AFloat80, rhs: Float80) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)
 }
 
-public func -=(lhs: AFloat80, rhs: AFloat80) {
+public func -=(lhs: inout AFloat80, rhs: AFloat80) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
     unlock(lhs, rhs)
@@ -5593,13 +5593,13 @@ public func -=(lhs: inout Float80, rhs: AFloat80) {
     unlock(rhs)
 }
 
-public func -=(lhs: AFloat80, rhs: Float80) {
+public func -=(lhs: inout AFloat80, rhs: Float80) {
     lock(lhs)
     lhs.value -= rhs
     unlock(lhs)
 }
 
-public func *=(lhs: AFloat80, rhs: AFloat80) {
+public func *=(lhs: inout AFloat80, rhs: AFloat80) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
     unlock(lhs, rhs)
@@ -5611,13 +5611,13 @@ public func *=(lhs: inout Float80, rhs: AFloat80) {
     unlock(rhs)
 }
 
-public func *=(lhs: AFloat80, rhs: Float80) {
+public func *=(lhs: inout AFloat80, rhs: Float80) {
     lock(lhs)
     lhs.value *= rhs
     unlock(lhs)
 }
 
-public func /=(lhs: AFloat80, rhs: AFloat80) {
+public func /=(lhs: inout AFloat80, rhs: AFloat80) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
     unlock(lhs, rhs)
@@ -5629,7 +5629,7 @@ public func /=(lhs: inout Float80, rhs: AFloat80) {
     unlock(rhs)
 }
 
-public func /=(lhs: AFloat80, rhs: Float80) {
+public func /=(lhs: inout AFloat80, rhs: Float80) {
     lock(lhs)
     lhs.value /= rhs
     unlock(lhs)
@@ -5678,7 +5678,7 @@ public func +(lhs: AString, rhs: String) -> AString {
     return Atomic(result)
 }
 
-public func +=(lhs: AString, rhs: AString) {
+public func +=(lhs: inout AString, rhs: AString) {
     lock(lhs, rhs)
     lhs.value += rhs.value
     unlock(lhs, rhs)
@@ -5690,7 +5690,7 @@ public func +=(lhs: inout String, rhs: AString) {
     unlock(rhs)
 }
 
-public func +=(lhs: AString, rhs: String) {
+public func +=(lhs: inout AString, rhs: String) {
     lock(lhs)
     lhs.value += rhs
     unlock(lhs)

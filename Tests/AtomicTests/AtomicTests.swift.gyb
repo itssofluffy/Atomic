@@ -29,6 +29,16 @@ import XCTest
 
 // Atomic tests for '${type}'
 class ${type}Tests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomic${type}() {
     % for operator in ['+', '-', '*', '/', '%', '<<', '>>', '^', '|', '&', '&+', '&-', '&*']:
         % if not (re.search(floatsRE, type) and re.search('%|<<|>>|\^|\||&|&\+|&-|&\*', operator)):
@@ -54,7 +64,7 @@ class ${type}Tests: XCTestCase {
     % for operator in ['+=', '-=', '*=', '/=', '%=', '<<=', '>>=', '^=', '|=', '&=']:
         % if not (re.search(floatsRE, type) and re.search('%=|<<=|>>=|\^=|\|=|\&=', operator)):
         do {
-            let (atomic1, atomic2) = (A${type}(42), A${type}(42))
+            var (atomic1, atomic2) = (A${type}(42), A${type}(42))
 
             atomic1 ${operator} 2
             atomic2 ${operator} 2
@@ -107,6 +117,16 @@ class ${type}Tests: XCTestCase {
 
 // Atomic tests for 'String'
 class StringTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicString() {
         do {
             var (atomic1, atomic2) = (AString("42"), AString("42"))
@@ -126,7 +146,7 @@ class StringTests: XCTestCase {
             XCTAssert(type == atomic, "String AString with +")
         }
         do {
-            let (atomic1, atomic2) = (AString("42"), AString("42"))
+            var (atomic1, atomic2) = (AString("42"), AString("42"))
 
             atomic1 += "2"
             atomic2 += "2"
@@ -153,6 +173,16 @@ class StringTests: XCTestCase {
 
 // Atomic tests for 'Bool'
 class BoolTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicBool() {
         do {
             var (atomic1, atomic2) = (ABool(false), ABool(false))
@@ -192,6 +222,16 @@ class BoolTests: XCTestCase {
 
 // Atomic tests
 class AtomicTypeTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicType() {
         let (atomic1, atomic2) = (AInt(1), AInt(2))
 

@@ -26,6 +26,16 @@ import XCTest
 
 // Atomic tests for 'Int'
 class IntTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicInt() {
         do {
             var (atomic1, atomic2) = (AInt(42), AInt(42))
@@ -249,7 +259,7 @@ class IntTests: XCTestCase {
             XCTAssert(type == atomic, "Int AInt with &*")
         }
         do {
-            let (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AInt(42), AInt(42))
 
             atomic1 += 2
             atomic2 += 2
@@ -266,7 +276,7 @@ class IntTests: XCTestCase {
             XCTAssert(type == atomic, "Int AInt with +=")
         }
         do {
-            let (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AInt(42), AInt(42))
 
             atomic1 -= 2
             atomic2 -= 2
@@ -283,7 +293,7 @@ class IntTests: XCTestCase {
             XCTAssert(type == atomic, "Int AInt with -=")
         }
         do {
-            let (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AInt(42), AInt(42))
 
             atomic1 *= 2
             atomic2 *= 2
@@ -300,7 +310,7 @@ class IntTests: XCTestCase {
             XCTAssert(type == atomic, "Int AInt with *=")
         }
         do {
-            let (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AInt(42), AInt(42))
 
             atomic1 /= 2
             atomic2 /= 2
@@ -317,7 +327,7 @@ class IntTests: XCTestCase {
             XCTAssert(type == atomic, "Int AInt with /=")
         }
         do {
-            let (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AInt(42), AInt(42))
 
             atomic1 %= 2
             atomic2 %= 2
@@ -334,7 +344,7 @@ class IntTests: XCTestCase {
             XCTAssert(type == atomic, "Int AInt with %=")
         }
         do {
-            let (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AInt(42), AInt(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
@@ -351,7 +361,7 @@ class IntTests: XCTestCase {
             XCTAssert(type == atomic, "Int AInt with <<=")
         }
         do {
-            let (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AInt(42), AInt(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
@@ -368,7 +378,7 @@ class IntTests: XCTestCase {
             XCTAssert(type == atomic, "Int AInt with >>=")
         }
         do {
-            let (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AInt(42), AInt(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
@@ -385,7 +395,7 @@ class IntTests: XCTestCase {
             XCTAssert(type == atomic, "Int AInt with ^=")
         }
         do {
-            let (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AInt(42), AInt(42))
 
             atomic1 |= 2
             atomic2 |= 2
@@ -402,7 +412,7 @@ class IntTests: XCTestCase {
             XCTAssert(type == atomic, "Int AInt with |=")
         }
         do {
-            let (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AInt(42), AInt(42))
 
             atomic1 &= 2
             atomic2 &= 2
@@ -480,6 +490,16 @@ class IntTests: XCTestCase {
 
 // Atomic tests for 'Int8'
 class Int8Tests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicInt8() {
         do {
             var (atomic1, atomic2) = (AInt8(42), AInt8(42))
@@ -703,7 +723,7 @@ class Int8Tests: XCTestCase {
             XCTAssert(type == atomic, "Int8 AInt8 with &*")
         }
         do {
-            let (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
 
             atomic1 += 2
             atomic2 += 2
@@ -720,7 +740,7 @@ class Int8Tests: XCTestCase {
             XCTAssert(type == atomic, "Int8 AInt8 with +=")
         }
         do {
-            let (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
 
             atomic1 -= 2
             atomic2 -= 2
@@ -737,7 +757,7 @@ class Int8Tests: XCTestCase {
             XCTAssert(type == atomic, "Int8 AInt8 with -=")
         }
         do {
-            let (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
 
             atomic1 *= 2
             atomic2 *= 2
@@ -754,7 +774,7 @@ class Int8Tests: XCTestCase {
             XCTAssert(type == atomic, "Int8 AInt8 with *=")
         }
         do {
-            let (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
 
             atomic1 /= 2
             atomic2 /= 2
@@ -771,7 +791,7 @@ class Int8Tests: XCTestCase {
             XCTAssert(type == atomic, "Int8 AInt8 with /=")
         }
         do {
-            let (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
 
             atomic1 %= 2
             atomic2 %= 2
@@ -788,7 +808,7 @@ class Int8Tests: XCTestCase {
             XCTAssert(type == atomic, "Int8 AInt8 with %=")
         }
         do {
-            let (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
@@ -805,7 +825,7 @@ class Int8Tests: XCTestCase {
             XCTAssert(type == atomic, "Int8 AInt8 with <<=")
         }
         do {
-            let (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
@@ -822,7 +842,7 @@ class Int8Tests: XCTestCase {
             XCTAssert(type == atomic, "Int8 AInt8 with >>=")
         }
         do {
-            let (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
@@ -839,7 +859,7 @@ class Int8Tests: XCTestCase {
             XCTAssert(type == atomic, "Int8 AInt8 with ^=")
         }
         do {
-            let (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
 
             atomic1 |= 2
             atomic2 |= 2
@@ -856,7 +876,7 @@ class Int8Tests: XCTestCase {
             XCTAssert(type == atomic, "Int8 AInt8 with |=")
         }
         do {
-            let (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
 
             atomic1 &= 2
             atomic2 &= 2
@@ -934,6 +954,16 @@ class Int8Tests: XCTestCase {
 
 // Atomic tests for 'Int16'
 class Int16Tests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicInt16() {
         do {
             var (atomic1, atomic2) = (AInt16(42), AInt16(42))
@@ -1157,7 +1187,7 @@ class Int16Tests: XCTestCase {
             XCTAssert(type == atomic, "Int16 AInt16 with &*")
         }
         do {
-            let (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
 
             atomic1 += 2
             atomic2 += 2
@@ -1174,7 +1204,7 @@ class Int16Tests: XCTestCase {
             XCTAssert(type == atomic, "Int16 AInt16 with +=")
         }
         do {
-            let (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
 
             atomic1 -= 2
             atomic2 -= 2
@@ -1191,7 +1221,7 @@ class Int16Tests: XCTestCase {
             XCTAssert(type == atomic, "Int16 AInt16 with -=")
         }
         do {
-            let (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
 
             atomic1 *= 2
             atomic2 *= 2
@@ -1208,7 +1238,7 @@ class Int16Tests: XCTestCase {
             XCTAssert(type == atomic, "Int16 AInt16 with *=")
         }
         do {
-            let (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
 
             atomic1 /= 2
             atomic2 /= 2
@@ -1225,7 +1255,7 @@ class Int16Tests: XCTestCase {
             XCTAssert(type == atomic, "Int16 AInt16 with /=")
         }
         do {
-            let (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
 
             atomic1 %= 2
             atomic2 %= 2
@@ -1242,7 +1272,7 @@ class Int16Tests: XCTestCase {
             XCTAssert(type == atomic, "Int16 AInt16 with %=")
         }
         do {
-            let (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
@@ -1259,7 +1289,7 @@ class Int16Tests: XCTestCase {
             XCTAssert(type == atomic, "Int16 AInt16 with <<=")
         }
         do {
-            let (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
@@ -1276,7 +1306,7 @@ class Int16Tests: XCTestCase {
             XCTAssert(type == atomic, "Int16 AInt16 with >>=")
         }
         do {
-            let (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
@@ -1293,7 +1323,7 @@ class Int16Tests: XCTestCase {
             XCTAssert(type == atomic, "Int16 AInt16 with ^=")
         }
         do {
-            let (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
 
             atomic1 |= 2
             atomic2 |= 2
@@ -1310,7 +1340,7 @@ class Int16Tests: XCTestCase {
             XCTAssert(type == atomic, "Int16 AInt16 with |=")
         }
         do {
-            let (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
 
             atomic1 &= 2
             atomic2 &= 2
@@ -1388,6 +1418,16 @@ class Int16Tests: XCTestCase {
 
 // Atomic tests for 'Int32'
 class Int32Tests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicInt32() {
         do {
             var (atomic1, atomic2) = (AInt32(42), AInt32(42))
@@ -1611,7 +1651,7 @@ class Int32Tests: XCTestCase {
             XCTAssert(type == atomic, "Int32 AInt32 with &*")
         }
         do {
-            let (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
 
             atomic1 += 2
             atomic2 += 2
@@ -1628,7 +1668,7 @@ class Int32Tests: XCTestCase {
             XCTAssert(type == atomic, "Int32 AInt32 with +=")
         }
         do {
-            let (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
 
             atomic1 -= 2
             atomic2 -= 2
@@ -1645,7 +1685,7 @@ class Int32Tests: XCTestCase {
             XCTAssert(type == atomic, "Int32 AInt32 with -=")
         }
         do {
-            let (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
 
             atomic1 *= 2
             atomic2 *= 2
@@ -1662,7 +1702,7 @@ class Int32Tests: XCTestCase {
             XCTAssert(type == atomic, "Int32 AInt32 with *=")
         }
         do {
-            let (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
 
             atomic1 /= 2
             atomic2 /= 2
@@ -1679,7 +1719,7 @@ class Int32Tests: XCTestCase {
             XCTAssert(type == atomic, "Int32 AInt32 with /=")
         }
         do {
-            let (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
 
             atomic1 %= 2
             atomic2 %= 2
@@ -1696,7 +1736,7 @@ class Int32Tests: XCTestCase {
             XCTAssert(type == atomic, "Int32 AInt32 with %=")
         }
         do {
-            let (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
@@ -1713,7 +1753,7 @@ class Int32Tests: XCTestCase {
             XCTAssert(type == atomic, "Int32 AInt32 with <<=")
         }
         do {
-            let (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
@@ -1730,7 +1770,7 @@ class Int32Tests: XCTestCase {
             XCTAssert(type == atomic, "Int32 AInt32 with >>=")
         }
         do {
-            let (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
@@ -1747,7 +1787,7 @@ class Int32Tests: XCTestCase {
             XCTAssert(type == atomic, "Int32 AInt32 with ^=")
         }
         do {
-            let (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
 
             atomic1 |= 2
             atomic2 |= 2
@@ -1764,7 +1804,7 @@ class Int32Tests: XCTestCase {
             XCTAssert(type == atomic, "Int32 AInt32 with |=")
         }
         do {
-            let (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
 
             atomic1 &= 2
             atomic2 &= 2
@@ -1842,6 +1882,16 @@ class Int32Tests: XCTestCase {
 
 // Atomic tests for 'Int64'
 class Int64Tests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicInt64() {
         do {
             var (atomic1, atomic2) = (AInt64(42), AInt64(42))
@@ -2065,7 +2115,7 @@ class Int64Tests: XCTestCase {
             XCTAssert(type == atomic, "Int64 AInt64 with &*")
         }
         do {
-            let (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
 
             atomic1 += 2
             atomic2 += 2
@@ -2082,7 +2132,7 @@ class Int64Tests: XCTestCase {
             XCTAssert(type == atomic, "Int64 AInt64 with +=")
         }
         do {
-            let (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
 
             atomic1 -= 2
             atomic2 -= 2
@@ -2099,7 +2149,7 @@ class Int64Tests: XCTestCase {
             XCTAssert(type == atomic, "Int64 AInt64 with -=")
         }
         do {
-            let (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
 
             atomic1 *= 2
             atomic2 *= 2
@@ -2116,7 +2166,7 @@ class Int64Tests: XCTestCase {
             XCTAssert(type == atomic, "Int64 AInt64 with *=")
         }
         do {
-            let (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
 
             atomic1 /= 2
             atomic2 /= 2
@@ -2133,7 +2183,7 @@ class Int64Tests: XCTestCase {
             XCTAssert(type == atomic, "Int64 AInt64 with /=")
         }
         do {
-            let (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
 
             atomic1 %= 2
             atomic2 %= 2
@@ -2150,7 +2200,7 @@ class Int64Tests: XCTestCase {
             XCTAssert(type == atomic, "Int64 AInt64 with %=")
         }
         do {
-            let (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
@@ -2167,7 +2217,7 @@ class Int64Tests: XCTestCase {
             XCTAssert(type == atomic, "Int64 AInt64 with <<=")
         }
         do {
-            let (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
@@ -2184,7 +2234,7 @@ class Int64Tests: XCTestCase {
             XCTAssert(type == atomic, "Int64 AInt64 with >>=")
         }
         do {
-            let (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
@@ -2201,7 +2251,7 @@ class Int64Tests: XCTestCase {
             XCTAssert(type == atomic, "Int64 AInt64 with ^=")
         }
         do {
-            let (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
 
             atomic1 |= 2
             atomic2 |= 2
@@ -2218,7 +2268,7 @@ class Int64Tests: XCTestCase {
             XCTAssert(type == atomic, "Int64 AInt64 with |=")
         }
         do {
-            let (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
 
             atomic1 &= 2
             atomic2 &= 2
@@ -2296,6 +2346,16 @@ class Int64Tests: XCTestCase {
 
 // Atomic tests for 'UInt'
 class UIntTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicUInt() {
         do {
             var (atomic1, atomic2) = (AUInt(42), AUInt(42))
@@ -2519,7 +2579,7 @@ class UIntTests: XCTestCase {
             XCTAssert(type == atomic, "UInt AUInt with &*")
         }
         do {
-            let (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
 
             atomic1 += 2
             atomic2 += 2
@@ -2536,7 +2596,7 @@ class UIntTests: XCTestCase {
             XCTAssert(type == atomic, "UInt AUInt with +=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
 
             atomic1 -= 2
             atomic2 -= 2
@@ -2553,7 +2613,7 @@ class UIntTests: XCTestCase {
             XCTAssert(type == atomic, "UInt AUInt with -=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
 
             atomic1 *= 2
             atomic2 *= 2
@@ -2570,7 +2630,7 @@ class UIntTests: XCTestCase {
             XCTAssert(type == atomic, "UInt AUInt with *=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
 
             atomic1 /= 2
             atomic2 /= 2
@@ -2587,7 +2647,7 @@ class UIntTests: XCTestCase {
             XCTAssert(type == atomic, "UInt AUInt with /=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
 
             atomic1 %= 2
             atomic2 %= 2
@@ -2604,7 +2664,7 @@ class UIntTests: XCTestCase {
             XCTAssert(type == atomic, "UInt AUInt with %=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
@@ -2621,7 +2681,7 @@ class UIntTests: XCTestCase {
             XCTAssert(type == atomic, "UInt AUInt with <<=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
@@ -2638,7 +2698,7 @@ class UIntTests: XCTestCase {
             XCTAssert(type == atomic, "UInt AUInt with >>=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
@@ -2655,7 +2715,7 @@ class UIntTests: XCTestCase {
             XCTAssert(type == atomic, "UInt AUInt with ^=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
 
             atomic1 |= 2
             atomic2 |= 2
@@ -2672,7 +2732,7 @@ class UIntTests: XCTestCase {
             XCTAssert(type == atomic, "UInt AUInt with |=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
 
             atomic1 &= 2
             atomic2 &= 2
@@ -2699,6 +2759,16 @@ class UIntTests: XCTestCase {
 
 // Atomic tests for 'UInt8'
 class UInt8Tests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicUInt8() {
         do {
             var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
@@ -2922,7 +2992,7 @@ class UInt8Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt8 AUInt8 with &*")
         }
         do {
-            let (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
 
             atomic1 += 2
             atomic2 += 2
@@ -2939,7 +3009,7 @@ class UInt8Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt8 AUInt8 with +=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
 
             atomic1 -= 2
             atomic2 -= 2
@@ -2956,7 +3026,7 @@ class UInt8Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt8 AUInt8 with -=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
 
             atomic1 *= 2
             atomic2 *= 2
@@ -2973,7 +3043,7 @@ class UInt8Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt8 AUInt8 with *=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
 
             atomic1 /= 2
             atomic2 /= 2
@@ -2990,7 +3060,7 @@ class UInt8Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt8 AUInt8 with /=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
 
             atomic1 %= 2
             atomic2 %= 2
@@ -3007,7 +3077,7 @@ class UInt8Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt8 AUInt8 with %=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
@@ -3024,7 +3094,7 @@ class UInt8Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt8 AUInt8 with <<=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
@@ -3041,7 +3111,7 @@ class UInt8Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt8 AUInt8 with >>=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
@@ -3058,7 +3128,7 @@ class UInt8Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt8 AUInt8 with ^=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
 
             atomic1 |= 2
             atomic2 |= 2
@@ -3075,7 +3145,7 @@ class UInt8Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt8 AUInt8 with |=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
 
             atomic1 &= 2
             atomic2 &= 2
@@ -3102,6 +3172,16 @@ class UInt8Tests: XCTestCase {
 
 // Atomic tests for 'UInt16'
 class UInt16Tests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicUInt16() {
         do {
             var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
@@ -3325,7 +3405,7 @@ class UInt16Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt16 AUInt16 with &*")
         }
         do {
-            let (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
 
             atomic1 += 2
             atomic2 += 2
@@ -3342,7 +3422,7 @@ class UInt16Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt16 AUInt16 with +=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
 
             atomic1 -= 2
             atomic2 -= 2
@@ -3359,7 +3439,7 @@ class UInt16Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt16 AUInt16 with -=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
 
             atomic1 *= 2
             atomic2 *= 2
@@ -3376,7 +3456,7 @@ class UInt16Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt16 AUInt16 with *=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
 
             atomic1 /= 2
             atomic2 /= 2
@@ -3393,7 +3473,7 @@ class UInt16Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt16 AUInt16 with /=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
 
             atomic1 %= 2
             atomic2 %= 2
@@ -3410,7 +3490,7 @@ class UInt16Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt16 AUInt16 with %=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
@@ -3427,7 +3507,7 @@ class UInt16Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt16 AUInt16 with <<=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
@@ -3444,7 +3524,7 @@ class UInt16Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt16 AUInt16 with >>=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
@@ -3461,7 +3541,7 @@ class UInt16Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt16 AUInt16 with ^=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
 
             atomic1 |= 2
             atomic2 |= 2
@@ -3478,7 +3558,7 @@ class UInt16Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt16 AUInt16 with |=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
 
             atomic1 &= 2
             atomic2 &= 2
@@ -3505,6 +3585,16 @@ class UInt16Tests: XCTestCase {
 
 // Atomic tests for 'UInt32'
 class UInt32Tests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicUInt32() {
         do {
             var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
@@ -3728,7 +3818,7 @@ class UInt32Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt32 AUInt32 with &*")
         }
         do {
-            let (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
 
             atomic1 += 2
             atomic2 += 2
@@ -3745,7 +3835,7 @@ class UInt32Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt32 AUInt32 with +=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
 
             atomic1 -= 2
             atomic2 -= 2
@@ -3762,7 +3852,7 @@ class UInt32Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt32 AUInt32 with -=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
 
             atomic1 *= 2
             atomic2 *= 2
@@ -3779,7 +3869,7 @@ class UInt32Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt32 AUInt32 with *=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
 
             atomic1 /= 2
             atomic2 /= 2
@@ -3796,7 +3886,7 @@ class UInt32Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt32 AUInt32 with /=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
 
             atomic1 %= 2
             atomic2 %= 2
@@ -3813,7 +3903,7 @@ class UInt32Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt32 AUInt32 with %=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
@@ -3830,7 +3920,7 @@ class UInt32Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt32 AUInt32 with <<=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
@@ -3847,7 +3937,7 @@ class UInt32Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt32 AUInt32 with >>=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
@@ -3864,7 +3954,7 @@ class UInt32Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt32 AUInt32 with ^=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
 
             atomic1 |= 2
             atomic2 |= 2
@@ -3881,7 +3971,7 @@ class UInt32Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt32 AUInt32 with |=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
 
             atomic1 &= 2
             atomic2 &= 2
@@ -3908,6 +3998,16 @@ class UInt32Tests: XCTestCase {
 
 // Atomic tests for 'UInt64'
 class UInt64Tests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicUInt64() {
         do {
             var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
@@ -4131,7 +4231,7 @@ class UInt64Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt64 AUInt64 with &*")
         }
         do {
-            let (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
 
             atomic1 += 2
             atomic2 += 2
@@ -4148,7 +4248,7 @@ class UInt64Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt64 AUInt64 with +=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
 
             atomic1 -= 2
             atomic2 -= 2
@@ -4165,7 +4265,7 @@ class UInt64Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt64 AUInt64 with -=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
 
             atomic1 *= 2
             atomic2 *= 2
@@ -4182,7 +4282,7 @@ class UInt64Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt64 AUInt64 with *=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
 
             atomic1 /= 2
             atomic2 /= 2
@@ -4199,7 +4299,7 @@ class UInt64Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt64 AUInt64 with /=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
 
             atomic1 %= 2
             atomic2 %= 2
@@ -4216,7 +4316,7 @@ class UInt64Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt64 AUInt64 with %=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
@@ -4233,7 +4333,7 @@ class UInt64Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt64 AUInt64 with <<=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
@@ -4250,7 +4350,7 @@ class UInt64Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt64 AUInt64 with >>=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
@@ -4267,7 +4367,7 @@ class UInt64Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt64 AUInt64 with ^=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
 
             atomic1 |= 2
             atomic2 |= 2
@@ -4284,7 +4384,7 @@ class UInt64Tests: XCTestCase {
             XCTAssert(type == atomic, "UInt64 AUInt64 with |=")
         }
         do {
-            let (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
 
             atomic1 &= 2
             atomic2 &= 2
@@ -4311,6 +4411,16 @@ class UInt64Tests: XCTestCase {
 
 // Atomic tests for 'Double'
 class DoubleTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicDouble() {
         do {
             var (atomic1, atomic2) = (ADouble(42), ADouble(42))
@@ -4381,7 +4491,7 @@ class DoubleTests: XCTestCase {
             XCTAssert(type == atomic, "Double ADouble with /")
         }
         do {
-            let (atomic1, atomic2) = (ADouble(42), ADouble(42))
+            var (atomic1, atomic2) = (ADouble(42), ADouble(42))
 
             atomic1 += 2
             atomic2 += 2
@@ -4398,7 +4508,7 @@ class DoubleTests: XCTestCase {
             XCTAssert(type == atomic, "Double ADouble with +=")
         }
         do {
-            let (atomic1, atomic2) = (ADouble(42), ADouble(42))
+            var (atomic1, atomic2) = (ADouble(42), ADouble(42))
 
             atomic1 -= 2
             atomic2 -= 2
@@ -4415,7 +4525,7 @@ class DoubleTests: XCTestCase {
             XCTAssert(type == atomic, "Double ADouble with -=")
         }
         do {
-            let (atomic1, atomic2) = (ADouble(42), ADouble(42))
+            var (atomic1, atomic2) = (ADouble(42), ADouble(42))
 
             atomic1 *= 2
             atomic2 *= 2
@@ -4432,7 +4542,7 @@ class DoubleTests: XCTestCase {
             XCTAssert(type == atomic, "Double ADouble with *=")
         }
         do {
-            let (atomic1, atomic2) = (ADouble(42), ADouble(42))
+            var (atomic1, atomic2) = (ADouble(42), ADouble(42))
 
             atomic1 /= 2
             atomic2 /= 2
@@ -4493,6 +4603,16 @@ class DoubleTests: XCTestCase {
 
 // Atomic tests for 'Float'
 class FloatTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicFloat() {
         do {
             var (atomic1, atomic2) = (AFloat(42), AFloat(42))
@@ -4563,7 +4683,7 @@ class FloatTests: XCTestCase {
             XCTAssert(type == atomic, "Float AFloat with /")
         }
         do {
-            let (atomic1, atomic2) = (AFloat(42), AFloat(42))
+            var (atomic1, atomic2) = (AFloat(42), AFloat(42))
 
             atomic1 += 2
             atomic2 += 2
@@ -4580,7 +4700,7 @@ class FloatTests: XCTestCase {
             XCTAssert(type == atomic, "Float AFloat with +=")
         }
         do {
-            let (atomic1, atomic2) = (AFloat(42), AFloat(42))
+            var (atomic1, atomic2) = (AFloat(42), AFloat(42))
 
             atomic1 -= 2
             atomic2 -= 2
@@ -4597,7 +4717,7 @@ class FloatTests: XCTestCase {
             XCTAssert(type == atomic, "Float AFloat with -=")
         }
         do {
-            let (atomic1, atomic2) = (AFloat(42), AFloat(42))
+            var (atomic1, atomic2) = (AFloat(42), AFloat(42))
 
             atomic1 *= 2
             atomic2 *= 2
@@ -4614,7 +4734,7 @@ class FloatTests: XCTestCase {
             XCTAssert(type == atomic, "Float AFloat with *=")
         }
         do {
-            let (atomic1, atomic2) = (AFloat(42), AFloat(42))
+            var (atomic1, atomic2) = (AFloat(42), AFloat(42))
 
             atomic1 /= 2
             atomic2 /= 2
@@ -4675,6 +4795,16 @@ class FloatTests: XCTestCase {
 
 // Atomic tests for 'Float80'
 class Float80Tests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicFloat80() {
         do {
             var (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
@@ -4745,7 +4875,7 @@ class Float80Tests: XCTestCase {
             XCTAssert(type == atomic, "Float80 AFloat80 with /")
         }
         do {
-            let (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
+            var (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
 
             atomic1 += 2
             atomic2 += 2
@@ -4762,7 +4892,7 @@ class Float80Tests: XCTestCase {
             XCTAssert(type == atomic, "Float80 AFloat80 with +=")
         }
         do {
-            let (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
+            var (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
 
             atomic1 -= 2
             atomic2 -= 2
@@ -4779,7 +4909,7 @@ class Float80Tests: XCTestCase {
             XCTAssert(type == atomic, "Float80 AFloat80 with -=")
         }
         do {
-            let (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
+            var (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
 
             atomic1 *= 2
             atomic2 *= 2
@@ -4796,7 +4926,7 @@ class Float80Tests: XCTestCase {
             XCTAssert(type == atomic, "Float80 AFloat80 with *=")
         }
         do {
-            let (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
+            var (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
 
             atomic1 /= 2
             atomic2 /= 2
@@ -4857,6 +4987,16 @@ class Float80Tests: XCTestCase {
 
 // Atomic tests for 'String'
 class StringTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicString() {
         do {
             var (atomic1, atomic2) = (AString("42"), AString("42"))
@@ -4876,7 +5016,7 @@ class StringTests: XCTestCase {
             XCTAssert(type == atomic, "String AString with +")
         }
         do {
-            let (atomic1, atomic2) = (AString("42"), AString("42"))
+            var (atomic1, atomic2) = (AString("42"), AString("42"))
 
             atomic1 += "2"
             atomic2 += "2"
@@ -4903,6 +5043,16 @@ class StringTests: XCTestCase {
 
 // Atomic tests for 'Bool'
 class BoolTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicBool() {
         do {
             var (atomic1, atomic2) = (ABool(false), ABool(false))
@@ -4942,6 +5092,16 @@ class BoolTests: XCTestCase {
 
 // Atomic tests
 class AtomicTypeTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
     func testAtomicType() {
         let (atomic1, atomic2) = (AInt(1), AInt(2))
 

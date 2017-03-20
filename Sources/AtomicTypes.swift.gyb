@@ -31,7 +31,7 @@ public typealias A${type} = Atomic<${type}>
 public func ${operator}(lhs: A${type}, rhs: A${type}) -> A${type} {
     lock(lhs, rhs)
     let result = lhs.value ${operator} rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -59,7 +59,7 @@ public func ${operator}(lhs: A${type}, rhs: ${type}) -> A${type} {
 public func ${operator}(lhs: inout A${type}, rhs: A${type}) {
     lock(lhs, rhs)
     lhs.value ${operator} rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func ${operator}(lhs: inout ${type}, rhs: A${type}) {
@@ -97,7 +97,7 @@ public typealias AString = Atomic<String>
 public func +(lhs: AString, rhs: AString) -> AString {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -121,7 +121,7 @@ public func +(lhs: AString, rhs: String) -> AString {
 public func +=(lhs: inout AString, rhs: AString) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout String, rhs: AString) {
@@ -143,7 +143,7 @@ public typealias ABool = Atomic<Bool>
 public func ${operator}(lhs: Atomic<Bool>, rhs: Atomic<Bool>) -> Bool {
     lock(lhs, rhs)
     let result = (lhs.value ${operator} rhs.value)
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return result
 }

@@ -43,12 +43,18 @@ class ${type}Tests: XCTestCase {
     % for operator in ['+', '-', '*', '/', '%', '<<', '>>', '^', '|', '&', '&+', '&-', '&*']:
         % if not (re.search(floatsRE, type) and re.search('%|<<|>>|\^|\||&|&\+|&-|&\*', operator)):
         do {
-            var (atomic1, atomic2) = (A${type}(42), A${type}(42))
+            var atomic1 = A${type}(42)
+            let atomic2 = A${type}(2)
+            var type = try atomic1.get()
 
-            atomic1 = atomic1 ${operator} 2
-            atomic2 = atomic2 ${operator} 2
+            atomic1 = atomic1 ${operator} atomic2
+            type = type ${operator} 2
 
-            XCTAssert(atomic1 == atomic2, "A${type} A${type} with ${operator}")
+            XCTAssert(atomic1 == atomic1, "A${type} A${type} with ${operator}")
+            XCTAssert(atomic1 == type, "A${type} ${type} with ${operator}")
+            XCTAssert(type == atomic1, "${type} A${type} with ${operator}")
+        } catch {
+            XCTAssert(false, "\(error)")
         }
         do {
             var (atomic, type) = (A${type}(42), ${type}(42))
@@ -129,12 +135,18 @@ class StringTests: XCTestCase {
 
     func testAtomicString() {
         do {
-            var (atomic1, atomic2) = (AString("42"), AString("42"))
+            var atomic1 = AString("42")
+            let atomic2 = AString("2")
+            var type = try atomic1.get()
 
-            atomic1 = atomic1 + "2"
-            atomic2 = atomic2 + "2"
+            atomic1 = atomic1 + atomic2
+            type = type + "2"
 
-            XCTAssert(atomic1 == atomic2, "AString AString with +")
+            XCTAssert(atomic1 == atomic1, "AString AString with +")
+            XCTAssert(atomic1 == type, "AString String with +")
+            XCTAssert(type == atomic1, "String AString with +")
+        } catch {
+            XCTAssert(false, "\(error)")
         }
         do {
             var (atomic, type) = (AString("42"), String("42")!)
@@ -233,14 +245,14 @@ class AtomicTypeTests: XCTestCase {
     }
 
     func testAtomicType() {
-        let (atomic1, atomic2) = (AInt(1), AInt(2))
+        var (atomic1, atomic2) = (AInt(1), AInt(2))
 
         var completed = false
 
         do {
             try XCTAssert(atomic1.get() == 1 && atomic2.get() == 2, "values not initialised correctly")
 
-            try atomic1.swap(atomic2)
+            try atomic1.swap(&atomic2)
 
             try XCTAssert(atomic1.get() == 2 && atomic2.get() == 1, "atomic.swap value not swapped")
 
@@ -278,9 +290,7 @@ class AtomicTypeTests: XCTestCase {
             try atomic.set { object in
                 var tempObject = object
 
-                let temp = tempObject.value1
-                tempObject.value1 = tempObject.value2
-                tempObject.value2 = temp
+                swap(&tempObject.value1, &tempObject.value2)
 
                 return tempObject
             }

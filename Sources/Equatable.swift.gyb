@@ -24,7 +24,7 @@
 public func ${operator}<T: Equatable>(lhs: Atomic<T>, rhs: Atomic<T>) -> Bool {
     lock(lhs, rhs)
     let result = (lhs.value ${operator} rhs.value)
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return result
 }

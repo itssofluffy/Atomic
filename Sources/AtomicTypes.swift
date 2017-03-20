@@ -26,7 +26,7 @@ public typealias AInt = Atomic<Int>
 public func +(lhs: AInt, rhs: AInt) -> AInt {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -50,7 +50,7 @@ public func +(lhs: AInt, rhs: Int) -> AInt {
 public func -(lhs: AInt, rhs: AInt) -> AInt {
     lock(lhs, rhs)
     let result = lhs.value - rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -74,7 +74,7 @@ public func -(lhs: AInt, rhs: Int) -> AInt {
 public func *(lhs: AInt, rhs: AInt) -> AInt {
     lock(lhs, rhs)
     let result = lhs.value * rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -98,7 +98,7 @@ public func *(lhs: AInt, rhs: Int) -> AInt {
 public func /(lhs: AInt, rhs: AInt) -> AInt {
     lock(lhs, rhs)
     let result = lhs.value / rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -122,7 +122,7 @@ public func /(lhs: AInt, rhs: Int) -> AInt {
 public func %(lhs: AInt, rhs: AInt) -> AInt {
     lock(lhs, rhs)
     let result = lhs.value % rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -146,7 +146,7 @@ public func %(lhs: AInt, rhs: Int) -> AInt {
 public func <<(lhs: AInt, rhs: AInt) -> AInt {
     lock(lhs, rhs)
     let result = lhs.value << rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -170,7 +170,7 @@ public func <<(lhs: AInt, rhs: Int) -> AInt {
 public func >>(lhs: AInt, rhs: AInt) -> AInt {
     lock(lhs, rhs)
     let result = lhs.value >> rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -194,7 +194,7 @@ public func >>(lhs: AInt, rhs: Int) -> AInt {
 public func ^(lhs: AInt, rhs: AInt) -> AInt {
     lock(lhs, rhs)
     let result = lhs.value ^ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -218,7 +218,7 @@ public func ^(lhs: AInt, rhs: Int) -> AInt {
 public func |(lhs: AInt, rhs: AInt) -> AInt {
     lock(lhs, rhs)
     let result = lhs.value | rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -242,7 +242,7 @@ public func |(lhs: AInt, rhs: Int) -> AInt {
 public func &(lhs: AInt, rhs: AInt) -> AInt {
     lock(lhs, rhs)
     let result = lhs.value & rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -266,7 +266,7 @@ public func &(lhs: AInt, rhs: Int) -> AInt {
 public func &+(lhs: AInt, rhs: AInt) -> AInt {
     lock(lhs, rhs)
     let result = lhs.value &+ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -290,7 +290,7 @@ public func &+(lhs: AInt, rhs: Int) -> AInt {
 public func &-(lhs: AInt, rhs: AInt) -> AInt {
     lock(lhs, rhs)
     let result = lhs.value &- rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -314,7 +314,7 @@ public func &-(lhs: AInt, rhs: Int) -> AInt {
 public func &*(lhs: AInt, rhs: AInt) -> AInt {
     lock(lhs, rhs)
     let result = lhs.value &* rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -338,7 +338,7 @@ public func &*(lhs: AInt, rhs: Int) -> AInt {
 public func +=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout Int, rhs: AInt) {
@@ -356,7 +356,7 @@ public func +=(lhs: inout AInt, rhs: Int) {
 public func -=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func -=(lhs: inout Int, rhs: AInt) {
@@ -374,7 +374,7 @@ public func -=(lhs: inout AInt, rhs: Int) {
 public func *=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func *=(lhs: inout Int, rhs: AInt) {
@@ -392,7 +392,7 @@ public func *=(lhs: inout AInt, rhs: Int) {
 public func /=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func /=(lhs: inout Int, rhs: AInt) {
@@ -410,7 +410,7 @@ public func /=(lhs: inout AInt, rhs: Int) {
 public func %=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func %=(lhs: inout Int, rhs: AInt) {
@@ -428,7 +428,7 @@ public func %=(lhs: inout AInt, rhs: Int) {
 public func <<=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func <<=(lhs: inout Int, rhs: AInt) {
@@ -446,7 +446,7 @@ public func <<=(lhs: inout AInt, rhs: Int) {
 public func >>=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func >>=(lhs: inout Int, rhs: AInt) {
@@ -464,7 +464,7 @@ public func >>=(lhs: inout AInt, rhs: Int) {
 public func ^=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func ^=(lhs: inout Int, rhs: AInt) {
@@ -482,7 +482,7 @@ public func ^=(lhs: inout AInt, rhs: Int) {
 public func |=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func |=(lhs: inout Int, rhs: AInt) {
@@ -500,7 +500,7 @@ public func |=(lhs: inout AInt, rhs: Int) {
 public func &=(lhs: inout AInt, rhs: AInt) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func &=(lhs: inout Int, rhs: AInt) {
@@ -545,7 +545,7 @@ public typealias AInt8 = Atomic<Int8>
 public func +(lhs: AInt8, rhs: AInt8) -> AInt8 {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -569,7 +569,7 @@ public func +(lhs: AInt8, rhs: Int8) -> AInt8 {
 public func -(lhs: AInt8, rhs: AInt8) -> AInt8 {
     lock(lhs, rhs)
     let result = lhs.value - rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -593,7 +593,7 @@ public func -(lhs: AInt8, rhs: Int8) -> AInt8 {
 public func *(lhs: AInt8, rhs: AInt8) -> AInt8 {
     lock(lhs, rhs)
     let result = lhs.value * rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -617,7 +617,7 @@ public func *(lhs: AInt8, rhs: Int8) -> AInt8 {
 public func /(lhs: AInt8, rhs: AInt8) -> AInt8 {
     lock(lhs, rhs)
     let result = lhs.value / rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -641,7 +641,7 @@ public func /(lhs: AInt8, rhs: Int8) -> AInt8 {
 public func %(lhs: AInt8, rhs: AInt8) -> AInt8 {
     lock(lhs, rhs)
     let result = lhs.value % rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -665,7 +665,7 @@ public func %(lhs: AInt8, rhs: Int8) -> AInt8 {
 public func <<(lhs: AInt8, rhs: AInt8) -> AInt8 {
     lock(lhs, rhs)
     let result = lhs.value << rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -689,7 +689,7 @@ public func <<(lhs: AInt8, rhs: Int8) -> AInt8 {
 public func >>(lhs: AInt8, rhs: AInt8) -> AInt8 {
     lock(lhs, rhs)
     let result = lhs.value >> rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -713,7 +713,7 @@ public func >>(lhs: AInt8, rhs: Int8) -> AInt8 {
 public func ^(lhs: AInt8, rhs: AInt8) -> AInt8 {
     lock(lhs, rhs)
     let result = lhs.value ^ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -737,7 +737,7 @@ public func ^(lhs: AInt8, rhs: Int8) -> AInt8 {
 public func |(lhs: AInt8, rhs: AInt8) -> AInt8 {
     lock(lhs, rhs)
     let result = lhs.value | rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -761,7 +761,7 @@ public func |(lhs: AInt8, rhs: Int8) -> AInt8 {
 public func &(lhs: AInt8, rhs: AInt8) -> AInt8 {
     lock(lhs, rhs)
     let result = lhs.value & rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -785,7 +785,7 @@ public func &(lhs: AInt8, rhs: Int8) -> AInt8 {
 public func &+(lhs: AInt8, rhs: AInt8) -> AInt8 {
     lock(lhs, rhs)
     let result = lhs.value &+ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -809,7 +809,7 @@ public func &+(lhs: AInt8, rhs: Int8) -> AInt8 {
 public func &-(lhs: AInt8, rhs: AInt8) -> AInt8 {
     lock(lhs, rhs)
     let result = lhs.value &- rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -833,7 +833,7 @@ public func &-(lhs: AInt8, rhs: Int8) -> AInt8 {
 public func &*(lhs: AInt8, rhs: AInt8) -> AInt8 {
     lock(lhs, rhs)
     let result = lhs.value &* rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -857,7 +857,7 @@ public func &*(lhs: AInt8, rhs: Int8) -> AInt8 {
 public func +=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout Int8, rhs: AInt8) {
@@ -875,7 +875,7 @@ public func +=(lhs: inout AInt8, rhs: Int8) {
 public func -=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func -=(lhs: inout Int8, rhs: AInt8) {
@@ -893,7 +893,7 @@ public func -=(lhs: inout AInt8, rhs: Int8) {
 public func *=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func *=(lhs: inout Int8, rhs: AInt8) {
@@ -911,7 +911,7 @@ public func *=(lhs: inout AInt8, rhs: Int8) {
 public func /=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func /=(lhs: inout Int8, rhs: AInt8) {
@@ -929,7 +929,7 @@ public func /=(lhs: inout AInt8, rhs: Int8) {
 public func %=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func %=(lhs: inout Int8, rhs: AInt8) {
@@ -947,7 +947,7 @@ public func %=(lhs: inout AInt8, rhs: Int8) {
 public func <<=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func <<=(lhs: inout Int8, rhs: AInt8) {
@@ -965,7 +965,7 @@ public func <<=(lhs: inout AInt8, rhs: Int8) {
 public func >>=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func >>=(lhs: inout Int8, rhs: AInt8) {
@@ -983,7 +983,7 @@ public func >>=(lhs: inout AInt8, rhs: Int8) {
 public func ^=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func ^=(lhs: inout Int8, rhs: AInt8) {
@@ -1001,7 +1001,7 @@ public func ^=(lhs: inout AInt8, rhs: Int8) {
 public func |=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func |=(lhs: inout Int8, rhs: AInt8) {
@@ -1019,7 +1019,7 @@ public func |=(lhs: inout AInt8, rhs: Int8) {
 public func &=(lhs: inout AInt8, rhs: AInt8) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func &=(lhs: inout Int8, rhs: AInt8) {
@@ -1064,7 +1064,7 @@ public typealias AInt16 = Atomic<Int16>
 public func +(lhs: AInt16, rhs: AInt16) -> AInt16 {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1088,7 +1088,7 @@ public func +(lhs: AInt16, rhs: Int16) -> AInt16 {
 public func -(lhs: AInt16, rhs: AInt16) -> AInt16 {
     lock(lhs, rhs)
     let result = lhs.value - rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1112,7 +1112,7 @@ public func -(lhs: AInt16, rhs: Int16) -> AInt16 {
 public func *(lhs: AInt16, rhs: AInt16) -> AInt16 {
     lock(lhs, rhs)
     let result = lhs.value * rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1136,7 +1136,7 @@ public func *(lhs: AInt16, rhs: Int16) -> AInt16 {
 public func /(lhs: AInt16, rhs: AInt16) -> AInt16 {
     lock(lhs, rhs)
     let result = lhs.value / rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1160,7 +1160,7 @@ public func /(lhs: AInt16, rhs: Int16) -> AInt16 {
 public func %(lhs: AInt16, rhs: AInt16) -> AInt16 {
     lock(lhs, rhs)
     let result = lhs.value % rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1184,7 +1184,7 @@ public func %(lhs: AInt16, rhs: Int16) -> AInt16 {
 public func <<(lhs: AInt16, rhs: AInt16) -> AInt16 {
     lock(lhs, rhs)
     let result = lhs.value << rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1208,7 +1208,7 @@ public func <<(lhs: AInt16, rhs: Int16) -> AInt16 {
 public func >>(lhs: AInt16, rhs: AInt16) -> AInt16 {
     lock(lhs, rhs)
     let result = lhs.value >> rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1232,7 +1232,7 @@ public func >>(lhs: AInt16, rhs: Int16) -> AInt16 {
 public func ^(lhs: AInt16, rhs: AInt16) -> AInt16 {
     lock(lhs, rhs)
     let result = lhs.value ^ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1256,7 +1256,7 @@ public func ^(lhs: AInt16, rhs: Int16) -> AInt16 {
 public func |(lhs: AInt16, rhs: AInt16) -> AInt16 {
     lock(lhs, rhs)
     let result = lhs.value | rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1280,7 +1280,7 @@ public func |(lhs: AInt16, rhs: Int16) -> AInt16 {
 public func &(lhs: AInt16, rhs: AInt16) -> AInt16 {
     lock(lhs, rhs)
     let result = lhs.value & rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1304,7 +1304,7 @@ public func &(lhs: AInt16, rhs: Int16) -> AInt16 {
 public func &+(lhs: AInt16, rhs: AInt16) -> AInt16 {
     lock(lhs, rhs)
     let result = lhs.value &+ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1328,7 +1328,7 @@ public func &+(lhs: AInt16, rhs: Int16) -> AInt16 {
 public func &-(lhs: AInt16, rhs: AInt16) -> AInt16 {
     lock(lhs, rhs)
     let result = lhs.value &- rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1352,7 +1352,7 @@ public func &-(lhs: AInt16, rhs: Int16) -> AInt16 {
 public func &*(lhs: AInt16, rhs: AInt16) -> AInt16 {
     lock(lhs, rhs)
     let result = lhs.value &* rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1376,7 +1376,7 @@ public func &*(lhs: AInt16, rhs: Int16) -> AInt16 {
 public func +=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout Int16, rhs: AInt16) {
@@ -1394,7 +1394,7 @@ public func +=(lhs: inout AInt16, rhs: Int16) {
 public func -=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func -=(lhs: inout Int16, rhs: AInt16) {
@@ -1412,7 +1412,7 @@ public func -=(lhs: inout AInt16, rhs: Int16) {
 public func *=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func *=(lhs: inout Int16, rhs: AInt16) {
@@ -1430,7 +1430,7 @@ public func *=(lhs: inout AInt16, rhs: Int16) {
 public func /=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func /=(lhs: inout Int16, rhs: AInt16) {
@@ -1448,7 +1448,7 @@ public func /=(lhs: inout AInt16, rhs: Int16) {
 public func %=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func %=(lhs: inout Int16, rhs: AInt16) {
@@ -1466,7 +1466,7 @@ public func %=(lhs: inout AInt16, rhs: Int16) {
 public func <<=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func <<=(lhs: inout Int16, rhs: AInt16) {
@@ -1484,7 +1484,7 @@ public func <<=(lhs: inout AInt16, rhs: Int16) {
 public func >>=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func >>=(lhs: inout Int16, rhs: AInt16) {
@@ -1502,7 +1502,7 @@ public func >>=(lhs: inout AInt16, rhs: Int16) {
 public func ^=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func ^=(lhs: inout Int16, rhs: AInt16) {
@@ -1520,7 +1520,7 @@ public func ^=(lhs: inout AInt16, rhs: Int16) {
 public func |=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func |=(lhs: inout Int16, rhs: AInt16) {
@@ -1538,7 +1538,7 @@ public func |=(lhs: inout AInt16, rhs: Int16) {
 public func &=(lhs: inout AInt16, rhs: AInt16) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func &=(lhs: inout Int16, rhs: AInt16) {
@@ -1583,7 +1583,7 @@ public typealias AInt32 = Atomic<Int32>
 public func +(lhs: AInt32, rhs: AInt32) -> AInt32 {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1607,7 +1607,7 @@ public func +(lhs: AInt32, rhs: Int32) -> AInt32 {
 public func -(lhs: AInt32, rhs: AInt32) -> AInt32 {
     lock(lhs, rhs)
     let result = lhs.value - rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1631,7 +1631,7 @@ public func -(lhs: AInt32, rhs: Int32) -> AInt32 {
 public func *(lhs: AInt32, rhs: AInt32) -> AInt32 {
     lock(lhs, rhs)
     let result = lhs.value * rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1655,7 +1655,7 @@ public func *(lhs: AInt32, rhs: Int32) -> AInt32 {
 public func /(lhs: AInt32, rhs: AInt32) -> AInt32 {
     lock(lhs, rhs)
     let result = lhs.value / rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1679,7 +1679,7 @@ public func /(lhs: AInt32, rhs: Int32) -> AInt32 {
 public func %(lhs: AInt32, rhs: AInt32) -> AInt32 {
     lock(lhs, rhs)
     let result = lhs.value % rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1703,7 +1703,7 @@ public func %(lhs: AInt32, rhs: Int32) -> AInt32 {
 public func <<(lhs: AInt32, rhs: AInt32) -> AInt32 {
     lock(lhs, rhs)
     let result = lhs.value << rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1727,7 +1727,7 @@ public func <<(lhs: AInt32, rhs: Int32) -> AInt32 {
 public func >>(lhs: AInt32, rhs: AInt32) -> AInt32 {
     lock(lhs, rhs)
     let result = lhs.value >> rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1751,7 +1751,7 @@ public func >>(lhs: AInt32, rhs: Int32) -> AInt32 {
 public func ^(lhs: AInt32, rhs: AInt32) -> AInt32 {
     lock(lhs, rhs)
     let result = lhs.value ^ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1775,7 +1775,7 @@ public func ^(lhs: AInt32, rhs: Int32) -> AInt32 {
 public func |(lhs: AInt32, rhs: AInt32) -> AInt32 {
     lock(lhs, rhs)
     let result = lhs.value | rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1799,7 +1799,7 @@ public func |(lhs: AInt32, rhs: Int32) -> AInt32 {
 public func &(lhs: AInt32, rhs: AInt32) -> AInt32 {
     lock(lhs, rhs)
     let result = lhs.value & rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1823,7 +1823,7 @@ public func &(lhs: AInt32, rhs: Int32) -> AInt32 {
 public func &+(lhs: AInt32, rhs: AInt32) -> AInt32 {
     lock(lhs, rhs)
     let result = lhs.value &+ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1847,7 +1847,7 @@ public func &+(lhs: AInt32, rhs: Int32) -> AInt32 {
 public func &-(lhs: AInt32, rhs: AInt32) -> AInt32 {
     lock(lhs, rhs)
     let result = lhs.value &- rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1871,7 +1871,7 @@ public func &-(lhs: AInt32, rhs: Int32) -> AInt32 {
 public func &*(lhs: AInt32, rhs: AInt32) -> AInt32 {
     lock(lhs, rhs)
     let result = lhs.value &* rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -1895,7 +1895,7 @@ public func &*(lhs: AInt32, rhs: Int32) -> AInt32 {
 public func +=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout Int32, rhs: AInt32) {
@@ -1913,7 +1913,7 @@ public func +=(lhs: inout AInt32, rhs: Int32) {
 public func -=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func -=(lhs: inout Int32, rhs: AInt32) {
@@ -1931,7 +1931,7 @@ public func -=(lhs: inout AInt32, rhs: Int32) {
 public func *=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func *=(lhs: inout Int32, rhs: AInt32) {
@@ -1949,7 +1949,7 @@ public func *=(lhs: inout AInt32, rhs: Int32) {
 public func /=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func /=(lhs: inout Int32, rhs: AInt32) {
@@ -1967,7 +1967,7 @@ public func /=(lhs: inout AInt32, rhs: Int32) {
 public func %=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func %=(lhs: inout Int32, rhs: AInt32) {
@@ -1985,7 +1985,7 @@ public func %=(lhs: inout AInt32, rhs: Int32) {
 public func <<=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func <<=(lhs: inout Int32, rhs: AInt32) {
@@ -2003,7 +2003,7 @@ public func <<=(lhs: inout AInt32, rhs: Int32) {
 public func >>=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func >>=(lhs: inout Int32, rhs: AInt32) {
@@ -2021,7 +2021,7 @@ public func >>=(lhs: inout AInt32, rhs: Int32) {
 public func ^=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func ^=(lhs: inout Int32, rhs: AInt32) {
@@ -2039,7 +2039,7 @@ public func ^=(lhs: inout AInt32, rhs: Int32) {
 public func |=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func |=(lhs: inout Int32, rhs: AInt32) {
@@ -2057,7 +2057,7 @@ public func |=(lhs: inout AInt32, rhs: Int32) {
 public func &=(lhs: inout AInt32, rhs: AInt32) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func &=(lhs: inout Int32, rhs: AInt32) {
@@ -2102,7 +2102,7 @@ public typealias AInt64 = Atomic<Int64>
 public func +(lhs: AInt64, rhs: AInt64) -> AInt64 {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2126,7 +2126,7 @@ public func +(lhs: AInt64, rhs: Int64) -> AInt64 {
 public func -(lhs: AInt64, rhs: AInt64) -> AInt64 {
     lock(lhs, rhs)
     let result = lhs.value - rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2150,7 +2150,7 @@ public func -(lhs: AInt64, rhs: Int64) -> AInt64 {
 public func *(lhs: AInt64, rhs: AInt64) -> AInt64 {
     lock(lhs, rhs)
     let result = lhs.value * rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2174,7 +2174,7 @@ public func *(lhs: AInt64, rhs: Int64) -> AInt64 {
 public func /(lhs: AInt64, rhs: AInt64) -> AInt64 {
     lock(lhs, rhs)
     let result = lhs.value / rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2198,7 +2198,7 @@ public func /(lhs: AInt64, rhs: Int64) -> AInt64 {
 public func %(lhs: AInt64, rhs: AInt64) -> AInt64 {
     lock(lhs, rhs)
     let result = lhs.value % rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2222,7 +2222,7 @@ public func %(lhs: AInt64, rhs: Int64) -> AInt64 {
 public func <<(lhs: AInt64, rhs: AInt64) -> AInt64 {
     lock(lhs, rhs)
     let result = lhs.value << rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2246,7 +2246,7 @@ public func <<(lhs: AInt64, rhs: Int64) -> AInt64 {
 public func >>(lhs: AInt64, rhs: AInt64) -> AInt64 {
     lock(lhs, rhs)
     let result = lhs.value >> rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2270,7 +2270,7 @@ public func >>(lhs: AInt64, rhs: Int64) -> AInt64 {
 public func ^(lhs: AInt64, rhs: AInt64) -> AInt64 {
     lock(lhs, rhs)
     let result = lhs.value ^ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2294,7 +2294,7 @@ public func ^(lhs: AInt64, rhs: Int64) -> AInt64 {
 public func |(lhs: AInt64, rhs: AInt64) -> AInt64 {
     lock(lhs, rhs)
     let result = lhs.value | rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2318,7 +2318,7 @@ public func |(lhs: AInt64, rhs: Int64) -> AInt64 {
 public func &(lhs: AInt64, rhs: AInt64) -> AInt64 {
     lock(lhs, rhs)
     let result = lhs.value & rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2342,7 +2342,7 @@ public func &(lhs: AInt64, rhs: Int64) -> AInt64 {
 public func &+(lhs: AInt64, rhs: AInt64) -> AInt64 {
     lock(lhs, rhs)
     let result = lhs.value &+ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2366,7 +2366,7 @@ public func &+(lhs: AInt64, rhs: Int64) -> AInt64 {
 public func &-(lhs: AInt64, rhs: AInt64) -> AInt64 {
     lock(lhs, rhs)
     let result = lhs.value &- rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2390,7 +2390,7 @@ public func &-(lhs: AInt64, rhs: Int64) -> AInt64 {
 public func &*(lhs: AInt64, rhs: AInt64) -> AInt64 {
     lock(lhs, rhs)
     let result = lhs.value &* rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2414,7 +2414,7 @@ public func &*(lhs: AInt64, rhs: Int64) -> AInt64 {
 public func +=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout Int64, rhs: AInt64) {
@@ -2432,7 +2432,7 @@ public func +=(lhs: inout AInt64, rhs: Int64) {
 public func -=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func -=(lhs: inout Int64, rhs: AInt64) {
@@ -2450,7 +2450,7 @@ public func -=(lhs: inout AInt64, rhs: Int64) {
 public func *=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func *=(lhs: inout Int64, rhs: AInt64) {
@@ -2468,7 +2468,7 @@ public func *=(lhs: inout AInt64, rhs: Int64) {
 public func /=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func /=(lhs: inout Int64, rhs: AInt64) {
@@ -2486,7 +2486,7 @@ public func /=(lhs: inout AInt64, rhs: Int64) {
 public func %=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func %=(lhs: inout Int64, rhs: AInt64) {
@@ -2504,7 +2504,7 @@ public func %=(lhs: inout AInt64, rhs: Int64) {
 public func <<=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func <<=(lhs: inout Int64, rhs: AInt64) {
@@ -2522,7 +2522,7 @@ public func <<=(lhs: inout AInt64, rhs: Int64) {
 public func >>=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func >>=(lhs: inout Int64, rhs: AInt64) {
@@ -2540,7 +2540,7 @@ public func >>=(lhs: inout AInt64, rhs: Int64) {
 public func ^=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func ^=(lhs: inout Int64, rhs: AInt64) {
@@ -2558,7 +2558,7 @@ public func ^=(lhs: inout AInt64, rhs: Int64) {
 public func |=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func |=(lhs: inout Int64, rhs: AInt64) {
@@ -2576,7 +2576,7 @@ public func |=(lhs: inout AInt64, rhs: Int64) {
 public func &=(lhs: inout AInt64, rhs: AInt64) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func &=(lhs: inout Int64, rhs: AInt64) {
@@ -2621,7 +2621,7 @@ public typealias AUInt = Atomic<UInt>
 public func +(lhs: AUInt, rhs: AUInt) -> AUInt {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2645,7 +2645,7 @@ public func +(lhs: AUInt, rhs: UInt) -> AUInt {
 public func -(lhs: AUInt, rhs: AUInt) -> AUInt {
     lock(lhs, rhs)
     let result = lhs.value - rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2669,7 +2669,7 @@ public func -(lhs: AUInt, rhs: UInt) -> AUInt {
 public func *(lhs: AUInt, rhs: AUInt) -> AUInt {
     lock(lhs, rhs)
     let result = lhs.value * rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2693,7 +2693,7 @@ public func *(lhs: AUInt, rhs: UInt) -> AUInt {
 public func /(lhs: AUInt, rhs: AUInt) -> AUInt {
     lock(lhs, rhs)
     let result = lhs.value / rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2717,7 +2717,7 @@ public func /(lhs: AUInt, rhs: UInt) -> AUInt {
 public func %(lhs: AUInt, rhs: AUInt) -> AUInt {
     lock(lhs, rhs)
     let result = lhs.value % rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2741,7 +2741,7 @@ public func %(lhs: AUInt, rhs: UInt) -> AUInt {
 public func <<(lhs: AUInt, rhs: AUInt) -> AUInt {
     lock(lhs, rhs)
     let result = lhs.value << rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2765,7 +2765,7 @@ public func <<(lhs: AUInt, rhs: UInt) -> AUInt {
 public func >>(lhs: AUInt, rhs: AUInt) -> AUInt {
     lock(lhs, rhs)
     let result = lhs.value >> rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2789,7 +2789,7 @@ public func >>(lhs: AUInt, rhs: UInt) -> AUInt {
 public func ^(lhs: AUInt, rhs: AUInt) -> AUInt {
     lock(lhs, rhs)
     let result = lhs.value ^ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2813,7 +2813,7 @@ public func ^(lhs: AUInt, rhs: UInt) -> AUInt {
 public func |(lhs: AUInt, rhs: AUInt) -> AUInt {
     lock(lhs, rhs)
     let result = lhs.value | rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2837,7 +2837,7 @@ public func |(lhs: AUInt, rhs: UInt) -> AUInt {
 public func &(lhs: AUInt, rhs: AUInt) -> AUInt {
     lock(lhs, rhs)
     let result = lhs.value & rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2861,7 +2861,7 @@ public func &(lhs: AUInt, rhs: UInt) -> AUInt {
 public func &+(lhs: AUInt, rhs: AUInt) -> AUInt {
     lock(lhs, rhs)
     let result = lhs.value &+ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2885,7 +2885,7 @@ public func &+(lhs: AUInt, rhs: UInt) -> AUInt {
 public func &-(lhs: AUInt, rhs: AUInt) -> AUInt {
     lock(lhs, rhs)
     let result = lhs.value &- rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2909,7 +2909,7 @@ public func &-(lhs: AUInt, rhs: UInt) -> AUInt {
 public func &*(lhs: AUInt, rhs: AUInt) -> AUInt {
     lock(lhs, rhs)
     let result = lhs.value &* rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -2933,7 +2933,7 @@ public func &*(lhs: AUInt, rhs: UInt) -> AUInt {
 public func +=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout UInt, rhs: AUInt) {
@@ -2951,7 +2951,7 @@ public func +=(lhs: inout AUInt, rhs: UInt) {
 public func -=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func -=(lhs: inout UInt, rhs: AUInt) {
@@ -2969,7 +2969,7 @@ public func -=(lhs: inout AUInt, rhs: UInt) {
 public func *=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func *=(lhs: inout UInt, rhs: AUInt) {
@@ -2987,7 +2987,7 @@ public func *=(lhs: inout AUInt, rhs: UInt) {
 public func /=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func /=(lhs: inout UInt, rhs: AUInt) {
@@ -3005,7 +3005,7 @@ public func /=(lhs: inout AUInt, rhs: UInt) {
 public func %=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func %=(lhs: inout UInt, rhs: AUInt) {
@@ -3023,7 +3023,7 @@ public func %=(lhs: inout AUInt, rhs: UInt) {
 public func <<=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func <<=(lhs: inout UInt, rhs: AUInt) {
@@ -3041,7 +3041,7 @@ public func <<=(lhs: inout AUInt, rhs: UInt) {
 public func >>=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func >>=(lhs: inout UInt, rhs: AUInt) {
@@ -3059,7 +3059,7 @@ public func >>=(lhs: inout AUInt, rhs: UInt) {
 public func ^=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func ^=(lhs: inout UInt, rhs: AUInt) {
@@ -3077,7 +3077,7 @@ public func ^=(lhs: inout AUInt, rhs: UInt) {
 public func |=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func |=(lhs: inout UInt, rhs: AUInt) {
@@ -3095,7 +3095,7 @@ public func |=(lhs: inout AUInt, rhs: UInt) {
 public func &=(lhs: inout AUInt, rhs: AUInt) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func &=(lhs: inout UInt, rhs: AUInt) {
@@ -3116,7 +3116,7 @@ public typealias AUInt8 = Atomic<UInt8>
 public func +(lhs: AUInt8, rhs: AUInt8) -> AUInt8 {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3140,7 +3140,7 @@ public func +(lhs: AUInt8, rhs: UInt8) -> AUInt8 {
 public func -(lhs: AUInt8, rhs: AUInt8) -> AUInt8 {
     lock(lhs, rhs)
     let result = lhs.value - rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3164,7 +3164,7 @@ public func -(lhs: AUInt8, rhs: UInt8) -> AUInt8 {
 public func *(lhs: AUInt8, rhs: AUInt8) -> AUInt8 {
     lock(lhs, rhs)
     let result = lhs.value * rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3188,7 +3188,7 @@ public func *(lhs: AUInt8, rhs: UInt8) -> AUInt8 {
 public func /(lhs: AUInt8, rhs: AUInt8) -> AUInt8 {
     lock(lhs, rhs)
     let result = lhs.value / rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3212,7 +3212,7 @@ public func /(lhs: AUInt8, rhs: UInt8) -> AUInt8 {
 public func %(lhs: AUInt8, rhs: AUInt8) -> AUInt8 {
     lock(lhs, rhs)
     let result = lhs.value % rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3236,7 +3236,7 @@ public func %(lhs: AUInt8, rhs: UInt8) -> AUInt8 {
 public func <<(lhs: AUInt8, rhs: AUInt8) -> AUInt8 {
     lock(lhs, rhs)
     let result = lhs.value << rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3260,7 +3260,7 @@ public func <<(lhs: AUInt8, rhs: UInt8) -> AUInt8 {
 public func >>(lhs: AUInt8, rhs: AUInt8) -> AUInt8 {
     lock(lhs, rhs)
     let result = lhs.value >> rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3284,7 +3284,7 @@ public func >>(lhs: AUInt8, rhs: UInt8) -> AUInt8 {
 public func ^(lhs: AUInt8, rhs: AUInt8) -> AUInt8 {
     lock(lhs, rhs)
     let result = lhs.value ^ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3308,7 +3308,7 @@ public func ^(lhs: AUInt8, rhs: UInt8) -> AUInt8 {
 public func |(lhs: AUInt8, rhs: AUInt8) -> AUInt8 {
     lock(lhs, rhs)
     let result = lhs.value | rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3332,7 +3332,7 @@ public func |(lhs: AUInt8, rhs: UInt8) -> AUInt8 {
 public func &(lhs: AUInt8, rhs: AUInt8) -> AUInt8 {
     lock(lhs, rhs)
     let result = lhs.value & rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3356,7 +3356,7 @@ public func &(lhs: AUInt8, rhs: UInt8) -> AUInt8 {
 public func &+(lhs: AUInt8, rhs: AUInt8) -> AUInt8 {
     lock(lhs, rhs)
     let result = lhs.value &+ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3380,7 +3380,7 @@ public func &+(lhs: AUInt8, rhs: UInt8) -> AUInt8 {
 public func &-(lhs: AUInt8, rhs: AUInt8) -> AUInt8 {
     lock(lhs, rhs)
     let result = lhs.value &- rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3404,7 +3404,7 @@ public func &-(lhs: AUInt8, rhs: UInt8) -> AUInt8 {
 public func &*(lhs: AUInt8, rhs: AUInt8) -> AUInt8 {
     lock(lhs, rhs)
     let result = lhs.value &* rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3428,7 +3428,7 @@ public func &*(lhs: AUInt8, rhs: UInt8) -> AUInt8 {
 public func +=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout UInt8, rhs: AUInt8) {
@@ -3446,7 +3446,7 @@ public func +=(lhs: inout AUInt8, rhs: UInt8) {
 public func -=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func -=(lhs: inout UInt8, rhs: AUInt8) {
@@ -3464,7 +3464,7 @@ public func -=(lhs: inout AUInt8, rhs: UInt8) {
 public func *=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func *=(lhs: inout UInt8, rhs: AUInt8) {
@@ -3482,7 +3482,7 @@ public func *=(lhs: inout AUInt8, rhs: UInt8) {
 public func /=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func /=(lhs: inout UInt8, rhs: AUInt8) {
@@ -3500,7 +3500,7 @@ public func /=(lhs: inout AUInt8, rhs: UInt8) {
 public func %=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func %=(lhs: inout UInt8, rhs: AUInt8) {
@@ -3518,7 +3518,7 @@ public func %=(lhs: inout AUInt8, rhs: UInt8) {
 public func <<=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func <<=(lhs: inout UInt8, rhs: AUInt8) {
@@ -3536,7 +3536,7 @@ public func <<=(lhs: inout AUInt8, rhs: UInt8) {
 public func >>=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func >>=(lhs: inout UInt8, rhs: AUInt8) {
@@ -3554,7 +3554,7 @@ public func >>=(lhs: inout AUInt8, rhs: UInt8) {
 public func ^=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func ^=(lhs: inout UInt8, rhs: AUInt8) {
@@ -3572,7 +3572,7 @@ public func ^=(lhs: inout AUInt8, rhs: UInt8) {
 public func |=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func |=(lhs: inout UInt8, rhs: AUInt8) {
@@ -3590,7 +3590,7 @@ public func |=(lhs: inout AUInt8, rhs: UInt8) {
 public func &=(lhs: inout AUInt8, rhs: AUInt8) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func &=(lhs: inout UInt8, rhs: AUInt8) {
@@ -3611,7 +3611,7 @@ public typealias AUInt16 = Atomic<UInt16>
 public func +(lhs: AUInt16, rhs: AUInt16) -> AUInt16 {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3635,7 +3635,7 @@ public func +(lhs: AUInt16, rhs: UInt16) -> AUInt16 {
 public func -(lhs: AUInt16, rhs: AUInt16) -> AUInt16 {
     lock(lhs, rhs)
     let result = lhs.value - rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3659,7 +3659,7 @@ public func -(lhs: AUInt16, rhs: UInt16) -> AUInt16 {
 public func *(lhs: AUInt16, rhs: AUInt16) -> AUInt16 {
     lock(lhs, rhs)
     let result = lhs.value * rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3683,7 +3683,7 @@ public func *(lhs: AUInt16, rhs: UInt16) -> AUInt16 {
 public func /(lhs: AUInt16, rhs: AUInt16) -> AUInt16 {
     lock(lhs, rhs)
     let result = lhs.value / rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3707,7 +3707,7 @@ public func /(lhs: AUInt16, rhs: UInt16) -> AUInt16 {
 public func %(lhs: AUInt16, rhs: AUInt16) -> AUInt16 {
     lock(lhs, rhs)
     let result = lhs.value % rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3731,7 +3731,7 @@ public func %(lhs: AUInt16, rhs: UInt16) -> AUInt16 {
 public func <<(lhs: AUInt16, rhs: AUInt16) -> AUInt16 {
     lock(lhs, rhs)
     let result = lhs.value << rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3755,7 +3755,7 @@ public func <<(lhs: AUInt16, rhs: UInt16) -> AUInt16 {
 public func >>(lhs: AUInt16, rhs: AUInt16) -> AUInt16 {
     lock(lhs, rhs)
     let result = lhs.value >> rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3779,7 +3779,7 @@ public func >>(lhs: AUInt16, rhs: UInt16) -> AUInt16 {
 public func ^(lhs: AUInt16, rhs: AUInt16) -> AUInt16 {
     lock(lhs, rhs)
     let result = lhs.value ^ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3803,7 +3803,7 @@ public func ^(lhs: AUInt16, rhs: UInt16) -> AUInt16 {
 public func |(lhs: AUInt16, rhs: AUInt16) -> AUInt16 {
     lock(lhs, rhs)
     let result = lhs.value | rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3827,7 +3827,7 @@ public func |(lhs: AUInt16, rhs: UInt16) -> AUInt16 {
 public func &(lhs: AUInt16, rhs: AUInt16) -> AUInt16 {
     lock(lhs, rhs)
     let result = lhs.value & rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3851,7 +3851,7 @@ public func &(lhs: AUInt16, rhs: UInt16) -> AUInt16 {
 public func &+(lhs: AUInt16, rhs: AUInt16) -> AUInt16 {
     lock(lhs, rhs)
     let result = lhs.value &+ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3875,7 +3875,7 @@ public func &+(lhs: AUInt16, rhs: UInt16) -> AUInt16 {
 public func &-(lhs: AUInt16, rhs: AUInt16) -> AUInt16 {
     lock(lhs, rhs)
     let result = lhs.value &- rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3899,7 +3899,7 @@ public func &-(lhs: AUInt16, rhs: UInt16) -> AUInt16 {
 public func &*(lhs: AUInt16, rhs: AUInt16) -> AUInt16 {
     lock(lhs, rhs)
     let result = lhs.value &* rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -3923,7 +3923,7 @@ public func &*(lhs: AUInt16, rhs: UInt16) -> AUInt16 {
 public func +=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout UInt16, rhs: AUInt16) {
@@ -3941,7 +3941,7 @@ public func +=(lhs: inout AUInt16, rhs: UInt16) {
 public func -=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func -=(lhs: inout UInt16, rhs: AUInt16) {
@@ -3959,7 +3959,7 @@ public func -=(lhs: inout AUInt16, rhs: UInt16) {
 public func *=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func *=(lhs: inout UInt16, rhs: AUInt16) {
@@ -3977,7 +3977,7 @@ public func *=(lhs: inout AUInt16, rhs: UInt16) {
 public func /=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func /=(lhs: inout UInt16, rhs: AUInt16) {
@@ -3995,7 +3995,7 @@ public func /=(lhs: inout AUInt16, rhs: UInt16) {
 public func %=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func %=(lhs: inout UInt16, rhs: AUInt16) {
@@ -4013,7 +4013,7 @@ public func %=(lhs: inout AUInt16, rhs: UInt16) {
 public func <<=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func <<=(lhs: inout UInt16, rhs: AUInt16) {
@@ -4031,7 +4031,7 @@ public func <<=(lhs: inout AUInt16, rhs: UInt16) {
 public func >>=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func >>=(lhs: inout UInt16, rhs: AUInt16) {
@@ -4049,7 +4049,7 @@ public func >>=(lhs: inout AUInt16, rhs: UInt16) {
 public func ^=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func ^=(lhs: inout UInt16, rhs: AUInt16) {
@@ -4067,7 +4067,7 @@ public func ^=(lhs: inout AUInt16, rhs: UInt16) {
 public func |=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func |=(lhs: inout UInt16, rhs: AUInt16) {
@@ -4085,7 +4085,7 @@ public func |=(lhs: inout AUInt16, rhs: UInt16) {
 public func &=(lhs: inout AUInt16, rhs: AUInt16) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func &=(lhs: inout UInt16, rhs: AUInt16) {
@@ -4106,7 +4106,7 @@ public typealias AUInt32 = Atomic<UInt32>
 public func +(lhs: AUInt32, rhs: AUInt32) -> AUInt32 {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4130,7 +4130,7 @@ public func +(lhs: AUInt32, rhs: UInt32) -> AUInt32 {
 public func -(lhs: AUInt32, rhs: AUInt32) -> AUInt32 {
     lock(lhs, rhs)
     let result = lhs.value - rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4154,7 +4154,7 @@ public func -(lhs: AUInt32, rhs: UInt32) -> AUInt32 {
 public func *(lhs: AUInt32, rhs: AUInt32) -> AUInt32 {
     lock(lhs, rhs)
     let result = lhs.value * rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4178,7 +4178,7 @@ public func *(lhs: AUInt32, rhs: UInt32) -> AUInt32 {
 public func /(lhs: AUInt32, rhs: AUInt32) -> AUInt32 {
     lock(lhs, rhs)
     let result = lhs.value / rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4202,7 +4202,7 @@ public func /(lhs: AUInt32, rhs: UInt32) -> AUInt32 {
 public func %(lhs: AUInt32, rhs: AUInt32) -> AUInt32 {
     lock(lhs, rhs)
     let result = lhs.value % rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4226,7 +4226,7 @@ public func %(lhs: AUInt32, rhs: UInt32) -> AUInt32 {
 public func <<(lhs: AUInt32, rhs: AUInt32) -> AUInt32 {
     lock(lhs, rhs)
     let result = lhs.value << rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4250,7 +4250,7 @@ public func <<(lhs: AUInt32, rhs: UInt32) -> AUInt32 {
 public func >>(lhs: AUInt32, rhs: AUInt32) -> AUInt32 {
     lock(lhs, rhs)
     let result = lhs.value >> rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4274,7 +4274,7 @@ public func >>(lhs: AUInt32, rhs: UInt32) -> AUInt32 {
 public func ^(lhs: AUInt32, rhs: AUInt32) -> AUInt32 {
     lock(lhs, rhs)
     let result = lhs.value ^ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4298,7 +4298,7 @@ public func ^(lhs: AUInt32, rhs: UInt32) -> AUInt32 {
 public func |(lhs: AUInt32, rhs: AUInt32) -> AUInt32 {
     lock(lhs, rhs)
     let result = lhs.value | rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4322,7 +4322,7 @@ public func |(lhs: AUInt32, rhs: UInt32) -> AUInt32 {
 public func &(lhs: AUInt32, rhs: AUInt32) -> AUInt32 {
     lock(lhs, rhs)
     let result = lhs.value & rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4346,7 +4346,7 @@ public func &(lhs: AUInt32, rhs: UInt32) -> AUInt32 {
 public func &+(lhs: AUInt32, rhs: AUInt32) -> AUInt32 {
     lock(lhs, rhs)
     let result = lhs.value &+ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4370,7 +4370,7 @@ public func &+(lhs: AUInt32, rhs: UInt32) -> AUInt32 {
 public func &-(lhs: AUInt32, rhs: AUInt32) -> AUInt32 {
     lock(lhs, rhs)
     let result = lhs.value &- rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4394,7 +4394,7 @@ public func &-(lhs: AUInt32, rhs: UInt32) -> AUInt32 {
 public func &*(lhs: AUInt32, rhs: AUInt32) -> AUInt32 {
     lock(lhs, rhs)
     let result = lhs.value &* rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4418,7 +4418,7 @@ public func &*(lhs: AUInt32, rhs: UInt32) -> AUInt32 {
 public func +=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout UInt32, rhs: AUInt32) {
@@ -4436,7 +4436,7 @@ public func +=(lhs: inout AUInt32, rhs: UInt32) {
 public func -=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func -=(lhs: inout UInt32, rhs: AUInt32) {
@@ -4454,7 +4454,7 @@ public func -=(lhs: inout AUInt32, rhs: UInt32) {
 public func *=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func *=(lhs: inout UInt32, rhs: AUInt32) {
@@ -4472,7 +4472,7 @@ public func *=(lhs: inout AUInt32, rhs: UInt32) {
 public func /=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func /=(lhs: inout UInt32, rhs: AUInt32) {
@@ -4490,7 +4490,7 @@ public func /=(lhs: inout AUInt32, rhs: UInt32) {
 public func %=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func %=(lhs: inout UInt32, rhs: AUInt32) {
@@ -4508,7 +4508,7 @@ public func %=(lhs: inout AUInt32, rhs: UInt32) {
 public func <<=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func <<=(lhs: inout UInt32, rhs: AUInt32) {
@@ -4526,7 +4526,7 @@ public func <<=(lhs: inout AUInt32, rhs: UInt32) {
 public func >>=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func >>=(lhs: inout UInt32, rhs: AUInt32) {
@@ -4544,7 +4544,7 @@ public func >>=(lhs: inout AUInt32, rhs: UInt32) {
 public func ^=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func ^=(lhs: inout UInt32, rhs: AUInt32) {
@@ -4562,7 +4562,7 @@ public func ^=(lhs: inout AUInt32, rhs: UInt32) {
 public func |=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func |=(lhs: inout UInt32, rhs: AUInt32) {
@@ -4580,7 +4580,7 @@ public func |=(lhs: inout AUInt32, rhs: UInt32) {
 public func &=(lhs: inout AUInt32, rhs: AUInt32) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func &=(lhs: inout UInt32, rhs: AUInt32) {
@@ -4601,7 +4601,7 @@ public typealias AUInt64 = Atomic<UInt64>
 public func +(lhs: AUInt64, rhs: AUInt64) -> AUInt64 {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4625,7 +4625,7 @@ public func +(lhs: AUInt64, rhs: UInt64) -> AUInt64 {
 public func -(lhs: AUInt64, rhs: AUInt64) -> AUInt64 {
     lock(lhs, rhs)
     let result = lhs.value - rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4649,7 +4649,7 @@ public func -(lhs: AUInt64, rhs: UInt64) -> AUInt64 {
 public func *(lhs: AUInt64, rhs: AUInt64) -> AUInt64 {
     lock(lhs, rhs)
     let result = lhs.value * rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4673,7 +4673,7 @@ public func *(lhs: AUInt64, rhs: UInt64) -> AUInt64 {
 public func /(lhs: AUInt64, rhs: AUInt64) -> AUInt64 {
     lock(lhs, rhs)
     let result = lhs.value / rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4697,7 +4697,7 @@ public func /(lhs: AUInt64, rhs: UInt64) -> AUInt64 {
 public func %(lhs: AUInt64, rhs: AUInt64) -> AUInt64 {
     lock(lhs, rhs)
     let result = lhs.value % rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4721,7 +4721,7 @@ public func %(lhs: AUInt64, rhs: UInt64) -> AUInt64 {
 public func <<(lhs: AUInt64, rhs: AUInt64) -> AUInt64 {
     lock(lhs, rhs)
     let result = lhs.value << rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4745,7 +4745,7 @@ public func <<(lhs: AUInt64, rhs: UInt64) -> AUInt64 {
 public func >>(lhs: AUInt64, rhs: AUInt64) -> AUInt64 {
     lock(lhs, rhs)
     let result = lhs.value >> rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4769,7 +4769,7 @@ public func >>(lhs: AUInt64, rhs: UInt64) -> AUInt64 {
 public func ^(lhs: AUInt64, rhs: AUInt64) -> AUInt64 {
     lock(lhs, rhs)
     let result = lhs.value ^ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4793,7 +4793,7 @@ public func ^(lhs: AUInt64, rhs: UInt64) -> AUInt64 {
 public func |(lhs: AUInt64, rhs: AUInt64) -> AUInt64 {
     lock(lhs, rhs)
     let result = lhs.value | rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4817,7 +4817,7 @@ public func |(lhs: AUInt64, rhs: UInt64) -> AUInt64 {
 public func &(lhs: AUInt64, rhs: AUInt64) -> AUInt64 {
     lock(lhs, rhs)
     let result = lhs.value & rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4841,7 +4841,7 @@ public func &(lhs: AUInt64, rhs: UInt64) -> AUInt64 {
 public func &+(lhs: AUInt64, rhs: AUInt64) -> AUInt64 {
     lock(lhs, rhs)
     let result = lhs.value &+ rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4865,7 +4865,7 @@ public func &+(lhs: AUInt64, rhs: UInt64) -> AUInt64 {
 public func &-(lhs: AUInt64, rhs: AUInt64) -> AUInt64 {
     lock(lhs, rhs)
     let result = lhs.value &- rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4889,7 +4889,7 @@ public func &-(lhs: AUInt64, rhs: UInt64) -> AUInt64 {
 public func &*(lhs: AUInt64, rhs: AUInt64) -> AUInt64 {
     lock(lhs, rhs)
     let result = lhs.value &* rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -4913,7 +4913,7 @@ public func &*(lhs: AUInt64, rhs: UInt64) -> AUInt64 {
 public func +=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout UInt64, rhs: AUInt64) {
@@ -4931,7 +4931,7 @@ public func +=(lhs: inout AUInt64, rhs: UInt64) {
 public func -=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func -=(lhs: inout UInt64, rhs: AUInt64) {
@@ -4949,7 +4949,7 @@ public func -=(lhs: inout AUInt64, rhs: UInt64) {
 public func *=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func *=(lhs: inout UInt64, rhs: AUInt64) {
@@ -4967,7 +4967,7 @@ public func *=(lhs: inout AUInt64, rhs: UInt64) {
 public func /=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func /=(lhs: inout UInt64, rhs: AUInt64) {
@@ -4985,7 +4985,7 @@ public func /=(lhs: inout AUInt64, rhs: UInt64) {
 public func %=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value %= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func %=(lhs: inout UInt64, rhs: AUInt64) {
@@ -5003,7 +5003,7 @@ public func %=(lhs: inout AUInt64, rhs: UInt64) {
 public func <<=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value <<= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func <<=(lhs: inout UInt64, rhs: AUInt64) {
@@ -5021,7 +5021,7 @@ public func <<=(lhs: inout AUInt64, rhs: UInt64) {
 public func >>=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value >>= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func >>=(lhs: inout UInt64, rhs: AUInt64) {
@@ -5039,7 +5039,7 @@ public func >>=(lhs: inout AUInt64, rhs: UInt64) {
 public func ^=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value ^= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func ^=(lhs: inout UInt64, rhs: AUInt64) {
@@ -5057,7 +5057,7 @@ public func ^=(lhs: inout AUInt64, rhs: UInt64) {
 public func |=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value |= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func |=(lhs: inout UInt64, rhs: AUInt64) {
@@ -5075,7 +5075,7 @@ public func |=(lhs: inout AUInt64, rhs: UInt64) {
 public func &=(lhs: inout AUInt64, rhs: AUInt64) {
     lock(lhs, rhs)
     lhs.value &= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func &=(lhs: inout UInt64, rhs: AUInt64) {
@@ -5096,7 +5096,7 @@ public typealias ADouble = Atomic<Double>
 public func +(lhs: ADouble, rhs: ADouble) -> ADouble {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -5120,7 +5120,7 @@ public func +(lhs: ADouble, rhs: Double) -> ADouble {
 public func -(lhs: ADouble, rhs: ADouble) -> ADouble {
     lock(lhs, rhs)
     let result = lhs.value - rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -5144,7 +5144,7 @@ public func -(lhs: ADouble, rhs: Double) -> ADouble {
 public func *(lhs: ADouble, rhs: ADouble) -> ADouble {
     lock(lhs, rhs)
     let result = lhs.value * rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -5168,7 +5168,7 @@ public func *(lhs: ADouble, rhs: Double) -> ADouble {
 public func /(lhs: ADouble, rhs: ADouble) -> ADouble {
     lock(lhs, rhs)
     let result = lhs.value / rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -5192,7 +5192,7 @@ public func /(lhs: ADouble, rhs: Double) -> ADouble {
 public func +=(lhs: inout ADouble, rhs: ADouble) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout Double, rhs: ADouble) {
@@ -5210,7 +5210,7 @@ public func +=(lhs: inout ADouble, rhs: Double) {
 public func -=(lhs: inout ADouble, rhs: ADouble) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func -=(lhs: inout Double, rhs: ADouble) {
@@ -5228,7 +5228,7 @@ public func -=(lhs: inout ADouble, rhs: Double) {
 public func *=(lhs: inout ADouble, rhs: ADouble) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func *=(lhs: inout Double, rhs: ADouble) {
@@ -5246,7 +5246,7 @@ public func *=(lhs: inout ADouble, rhs: Double) {
 public func /=(lhs: inout ADouble, rhs: ADouble) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func /=(lhs: inout Double, rhs: ADouble) {
@@ -5283,7 +5283,7 @@ public typealias AFloat = Atomic<Float>
 public func +(lhs: AFloat, rhs: AFloat) -> AFloat {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -5307,7 +5307,7 @@ public func +(lhs: AFloat, rhs: Float) -> AFloat {
 public func -(lhs: AFloat, rhs: AFloat) -> AFloat {
     lock(lhs, rhs)
     let result = lhs.value - rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -5331,7 +5331,7 @@ public func -(lhs: AFloat, rhs: Float) -> AFloat {
 public func *(lhs: AFloat, rhs: AFloat) -> AFloat {
     lock(lhs, rhs)
     let result = lhs.value * rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -5355,7 +5355,7 @@ public func *(lhs: AFloat, rhs: Float) -> AFloat {
 public func /(lhs: AFloat, rhs: AFloat) -> AFloat {
     lock(lhs, rhs)
     let result = lhs.value / rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -5379,7 +5379,7 @@ public func /(lhs: AFloat, rhs: Float) -> AFloat {
 public func +=(lhs: inout AFloat, rhs: AFloat) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout Float, rhs: AFloat) {
@@ -5397,7 +5397,7 @@ public func +=(lhs: inout AFloat, rhs: Float) {
 public func -=(lhs: inout AFloat, rhs: AFloat) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func -=(lhs: inout Float, rhs: AFloat) {
@@ -5415,7 +5415,7 @@ public func -=(lhs: inout AFloat, rhs: Float) {
 public func *=(lhs: inout AFloat, rhs: AFloat) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func *=(lhs: inout Float, rhs: AFloat) {
@@ -5433,7 +5433,7 @@ public func *=(lhs: inout AFloat, rhs: Float) {
 public func /=(lhs: inout AFloat, rhs: AFloat) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func /=(lhs: inout Float, rhs: AFloat) {
@@ -5470,7 +5470,7 @@ public typealias AFloat80 = Atomic<Float80>
 public func +(lhs: AFloat80, rhs: AFloat80) -> AFloat80 {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -5494,7 +5494,7 @@ public func +(lhs: AFloat80, rhs: Float80) -> AFloat80 {
 public func -(lhs: AFloat80, rhs: AFloat80) -> AFloat80 {
     lock(lhs, rhs)
     let result = lhs.value - rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -5518,7 +5518,7 @@ public func -(lhs: AFloat80, rhs: Float80) -> AFloat80 {
 public func *(lhs: AFloat80, rhs: AFloat80) -> AFloat80 {
     lock(lhs, rhs)
     let result = lhs.value * rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -5542,7 +5542,7 @@ public func *(lhs: AFloat80, rhs: Float80) -> AFloat80 {
 public func /(lhs: AFloat80, rhs: AFloat80) -> AFloat80 {
     lock(lhs, rhs)
     let result = lhs.value / rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -5566,7 +5566,7 @@ public func /(lhs: AFloat80, rhs: Float80) -> AFloat80 {
 public func +=(lhs: inout AFloat80, rhs: AFloat80) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout Float80, rhs: AFloat80) {
@@ -5584,7 +5584,7 @@ public func +=(lhs: inout AFloat80, rhs: Float80) {
 public func -=(lhs: inout AFloat80, rhs: AFloat80) {
     lock(lhs, rhs)
     lhs.value -= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func -=(lhs: inout Float80, rhs: AFloat80) {
@@ -5602,7 +5602,7 @@ public func -=(lhs: inout AFloat80, rhs: Float80) {
 public func *=(lhs: inout AFloat80, rhs: AFloat80) {
     lock(lhs, rhs)
     lhs.value *= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func *=(lhs: inout Float80, rhs: AFloat80) {
@@ -5620,7 +5620,7 @@ public func *=(lhs: inout AFloat80, rhs: Float80) {
 public func /=(lhs: inout AFloat80, rhs: AFloat80) {
     lock(lhs, rhs)
     lhs.value /= rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func /=(lhs: inout Float80, rhs: AFloat80) {
@@ -5657,7 +5657,7 @@ public typealias AString = Atomic<String>
 public func +(lhs: AString, rhs: AString) -> AString {
     lock(lhs, rhs)
     let result = lhs.value + rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return Atomic(result)
 }
@@ -5681,7 +5681,7 @@ public func +(lhs: AString, rhs: String) -> AString {
 public func +=(lhs: inout AString, rhs: AString) {
     lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout String, rhs: AString) {
@@ -5702,7 +5702,7 @@ public typealias ABool = Atomic<Bool>
 public func &&(lhs: Atomic<Bool>, rhs: Atomic<Bool>) -> Bool {
     lock(lhs, rhs)
     let result = (lhs.value && rhs.value)
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return result
 }
@@ -5710,7 +5710,7 @@ public func &&(lhs: Atomic<Bool>, rhs: Atomic<Bool>) -> Bool {
 public func ||(lhs: Atomic<Bool>, rhs: Atomic<Bool>) -> Bool {
     lock(lhs, rhs)
     let result = (lhs.value || rhs.value)
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return result
 }

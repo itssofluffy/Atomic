@@ -23,7 +23,7 @@
 public func <<T: Comparable>(lhs: Atomic<T>, rhs: Atomic<T>) -> Bool {
     lock(lhs, rhs)
     let result = (lhs.value < rhs.value)
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return result
 }
@@ -47,7 +47,7 @@ public func <<T: Comparable>(lhs: Atomic<T>, rhs: T) -> Bool {
 public func ><T: Comparable>(lhs: Atomic<T>, rhs: Atomic<T>) -> Bool {
     lock(lhs, rhs)
     let result = (lhs.value > rhs.value)
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return result
 }
@@ -71,7 +71,7 @@ public func ><T: Comparable>(lhs: Atomic<T>, rhs: T) -> Bool {
 public func <=<T: Comparable>(lhs: Atomic<T>, rhs: Atomic<T>) -> Bool {
     lock(lhs, rhs)
     let result = (lhs.value <= rhs.value)
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return result
 }
@@ -95,7 +95,7 @@ public func <=<T: Comparable>(lhs: Atomic<T>, rhs: T) -> Bool {
 public func >=<T: Comparable>(lhs: Atomic<T>, rhs: Atomic<T>) -> Bool {
     lock(lhs, rhs)
     let result = (lhs.value >= rhs.value)
-    unlock(lhs, rhs)
+    unlock(rhs, lhs)
 
     return result
 }

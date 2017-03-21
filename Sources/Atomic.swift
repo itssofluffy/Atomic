@@ -33,7 +33,7 @@ public class Atomic<T> {
                                  try Mutex()
                              },
                              catch: { failure in
-                                 atomicLogger(failure)
+                                 atomicErrorLogger(failure)
                              })!
         self.value = value
     }
@@ -57,7 +57,7 @@ extension Atomic {
                         try self.mutex.unlock()
                     },
                     catch: { failure in
-                        atomicLogger(failure)
+                        atomicErrorLogger(failure)
                     })
         }
 
@@ -90,7 +90,7 @@ extension Atomic {
                         try self.mutex.unlock()
                     },
                     catch: { failure in
-                        atomicLogger(failure)
+                        atomicErrorLogger(failure)
                     })
         }
 
@@ -110,7 +110,7 @@ extension Atomic {
                         try self.mutex.unlock()
                     },
                     catch: { failure in
-                        atomicLogger(failure)
+                        atomicErrorLogger(failure)
                     })
         }
 
@@ -130,7 +130,7 @@ extension Atomic: CustomStringConvertible {
                            }
                        },
                        catch: { failure in
-                           atomicLogger(failure)
+                           atomicErrorLogger(failure)
                        })!
     }
 }

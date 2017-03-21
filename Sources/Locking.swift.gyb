@@ -35,7 +35,7 @@ internal func ${function}<T>(_ lhs: Atomic<T>, _ rhs: Atomic<T>) {
                 }
             },
             catch: { failure in
-                atomicLogger(failure)
+                atomicErrorLogger(failure)
             })
 }
 
@@ -45,7 +45,7 @@ internal func ${function}<T>(_ lhs: Atomic<T>) {
                 try lhs.mutex.${function}()
             },
             catch: { failure in
-                atomicLogger(failure)
+                atomicErrorLogger(failure)
             })
 }
 % end

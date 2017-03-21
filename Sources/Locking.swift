@@ -34,7 +34,7 @@ internal func lock<T>(_ lhs: Atomic<T>, _ rhs: Atomic<T>) {
                 }
             },
             catch: { failure in
-                atomicLogger(failure)
+                atomicErrorLogger(failure)
             })
 }
 
@@ -44,7 +44,7 @@ internal func lock<T>(_ lhs: Atomic<T>) {
                 try lhs.mutex.lock()
             },
             catch: { failure in
-                atomicLogger(failure)
+                atomicErrorLogger(failure)
             })
 }
 
@@ -60,7 +60,7 @@ internal func unlock<T>(_ lhs: Atomic<T>, _ rhs: Atomic<T>) {
                 }
             },
             catch: { failure in
-                atomicLogger(failure)
+                atomicErrorLogger(failure)
             })
 }
 
@@ -70,6 +70,6 @@ internal func unlock<T>(_ lhs: Atomic<T>) {
                 try lhs.mutex.unlock()
             },
             catch: { failure in
-                atomicLogger(failure)
+                atomicErrorLogger(failure)
             })
 }

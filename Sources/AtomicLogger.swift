@@ -23,5 +23,5 @@
 import ISFLibrary
 
 /// The logger to use for un-throwable errors, this can be overriden with the
-/// same signature as ISFLibrary.logger
-public var atomicLogger = logger
+/// same signature as ISFLibrary.errorLogger
+public var atomicErrorLogger = errorLogger

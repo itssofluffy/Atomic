@@ -45,16 +45,16 @@ class ${type}Tests: XCTestCase {
         do {
             var atomic1 = A${type}(42)
             let atomic2 = A${type}(2)
-            var type = try atomic1.get()
+            var type = atomic1.value
 
             atomic1 = atomic1 ${operator} atomic2
             type = type ${operator} 2
 
-            XCTAssert(atomic1 == atomic1, "A${type} A${type} with ${operator}")
+            % if (operator != '&'):
+            XCTAssert(atomic1 != atomic2, "A${type} A${type} with ${operator}")
+            % end
             XCTAssert(atomic1 == type, "A${type} ${type} with ${operator}")
             XCTAssert(type == atomic1, "${type} A${type} with ${operator}")
-        } catch {
-            XCTAssert(false, "\(error)")
         }
         do {
             var (atomic, type) = (A${type}(42), ${type}(42))
@@ -137,7 +137,7 @@ class StringTests: XCTestCase {
         do {
             var atomic1 = AString("42")
             let atomic2 = AString("2")
-            var type = try atomic1.get()
+            var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + "2"
@@ -145,8 +145,6 @@ class StringTests: XCTestCase {
             XCTAssert(atomic1 == atomic1, "AString AString with +")
             XCTAssert(atomic1 == type, "AString String with +")
             XCTAssert(type == atomic1, "String AString with +")
-        } catch {
-            XCTAssert(false, "\(error)")
         }
         do {
             var (atomic, type) = (AString("42"), String("42")!)
@@ -250,16 +248,16 @@ class AtomicTypeTests: XCTestCase {
         var completed = false
 
         do {
-            try XCTAssert(atomic1.get() == 1 && atomic2.get() == 2, "values not initialised correctly")
+            XCTAssert(atomic1.value == 1 && atomic2.value == 2, "values not initialised correctly")
 
             try atomic1.swap(&atomic2)
 
-            try XCTAssert(atomic1.get() == 2 && atomic2.get() == 1, "atomic.swap value not swapped")
+            XCTAssert(atomic1.value == 2 && atomic2.value == 1, "atomic.swap value not swapped")
 
-            try atomic1.set(1)
-            try atomic2.set(2)
+            atomic1.value = 1
+            atomic2.value = 2
 
-            try XCTAssert(atomic1.get() == 1 && atomic2.get() == 2, "atomic.set value not swapped")
+            XCTAssert(atomic1.value == 1 && atomic2.value == 2, "atomic.set value not swapped")
 
             completed = true
         } catch {
@@ -281,25 +279,19 @@ class AtomicTypeTests: XCTestCase {
         var completed = false
 
         do {
-            try XCTAssert(atomic.get().value1 == 1 && atomic.get().value2 == 2, "not initialised correctly")
+            XCTAssert(atomic.value.value1 == 1 && atomic.value.value2 == 2, "not initialised correctly")
 
-            try atomic.set(testStruct)
+            atomic.value = testStruct
 
-            try XCTAssert(atomic.get().value1 == 1 && atomic.get().value2 == 2, "set() not initialised correctly")
+            XCTAssert(atomic.value.value1 == 1 && atomic.value.value2 == 2, "set() not initialised correctly")
 
-            try atomic.set { object in
+            try atomic.mutate { object in
                 var tempObject = object
 
                 swap(&tempObject.value1, &tempObject.value2)
-
-                return tempObject
             }
 
-            let tempStruct = try atomic.get { object in
-                XCTAssert(object.value1 == 2 && object.value2 == 1, "values not swapped")
-            }
-
-            try XCTAssert(tempStruct.value1 == atomic.get().value1 && tempStruct.value2 == atomic.get().value2, "tempStruct not the same as atomic")
+            XCTAssert(testStruct.value1 == atomic.value.value1 && testStruct.value2 == atomic.value.value2, "tempStruct not the same as atomic")
 
             completed = true
         } catch {

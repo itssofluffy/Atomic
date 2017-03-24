@@ -22,26 +22,14 @@
 % for operator in ['<', '>', '<=', '>=']:
 
 public func ${operator}<T: Comparable>(lhs: Atomic<T>, rhs: Atomic<T>) -> Bool {
-    lock(lhs, rhs)
-    let result = (lhs.value ${operator} rhs.value)
-    unlock(rhs, lhs)
-
-    return result
+    return (lhs.value ${operator} rhs.value)
 }
 
 public func ${operator}<T: Comparable>(lhs: T, rhs: Atomic<T>) -> Bool {
-    lock(rhs)
-    let result = (lhs ${operator} rhs.value)
-    unlock(rhs)
-
-    return result
+    return (lhs ${operator} rhs.value)
 }
 
 public func ${operator}<T: Comparable>(lhs: Atomic<T>, rhs: T) -> Bool {
-    lock(lhs)
-    let result = (lhs.value ${operator} rhs)
-    unlock(lhs)
-
-    return result
+    return (lhs.value ${operator} rhs)
 }
 %end

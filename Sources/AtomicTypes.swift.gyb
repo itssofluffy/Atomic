@@ -29,27 +29,15 @@ public typealias A${type} = Atomic<${type}>
         % if not (re.search(floatsRE, type) and re.search('%|<<|>>|\^|\||&|&\+|&-|&\*', operator)):
 
 public func ${operator}(lhs: A${type}, rhs: A${type}) -> A${type} {
-    lock(lhs, rhs)
-    let result = lhs.value ${operator} rhs.value
-    unlock(rhs, lhs)
-
-    return Atomic(result)
+    return Atomic(lhs.value ${operator} rhs.value)
 }
 
 public func ${operator}(lhs: ${type}, rhs: A${type}) -> A${type} {
-    lock(rhs)
-    let result = lhs ${operator} rhs.value
-    unlock(rhs)
-
-    return Atomic(result)
+    return Atomic(lhs ${operator} rhs.value)
 }
 
 public func ${operator}(lhs: A${type}, rhs: ${type}) -> A${type} {
-    lock(lhs)
-    let result = lhs.value ${operator} rhs
-    unlock(lhs)
-
-    return Atomic(result)
+    return Atomic(lhs.value ${operator} rhs)
 }
         % end
     % end
@@ -57,21 +45,15 @@ public func ${operator}(lhs: A${type}, rhs: ${type}) -> A${type} {
         % if not (re.search(floatsRE, type) and re.search('%=|<<=|>>=|\^=|\|=|\&=', operator)):
 
 public func ${operator}(lhs: inout A${type}, rhs: A${type}) {
-    lock(lhs, rhs)
     lhs.value ${operator} rhs.value
-    unlock(rhs, lhs)
 }
 
 public func ${operator}(lhs: inout ${type}, rhs: A${type}) {
-    lock(rhs)
     lhs ${operator} rhs.value
-    unlock(rhs)
 }
 
 public func ${operator}(lhs: inout A${type}, rhs: ${type}) {
-    lock(lhs)
     lhs.value ${operator} rhs
-    unlock(lhs)
 }
         % end
     % end
@@ -80,11 +62,7 @@ public func ${operator}(lhs: inout A${type}, rhs: ${type}) {
             % if not (re.search(floatsRE, type) and prefix == '~'):
 
 public prefix func ${prefix}(x: A${type}) -> A${type} {
-    lock(x)
-    let result = ${prefix}x.value
-    unlock(x)
-
-    return Atomic(result)
+    return Atomic(${prefix}x.value)
 }
             % end
         % end
@@ -95,45 +73,27 @@ public prefix func ${prefix}(x: A${type}) -> A${type} {
 public typealias AString = Atomic<String>
 
 public func +(lhs: AString, rhs: AString) -> AString {
-    lock(lhs, rhs)
-    let result = lhs.value + rhs.value
-    unlock(rhs, lhs)
-
-    return Atomic(result)
+    return Atomic(lhs.value + rhs.value)
 }
 
 public func +(lhs: String, rhs: AString) -> AString {
-    lock(rhs)
-    let result = lhs + rhs.value
-    unlock(rhs)
-
-    return Atomic(result)
+    return Atomic(lhs + rhs.value)
 }
 
 public func +(lhs: AString, rhs: String) -> AString {
-    lock(lhs)
-    let result = lhs.value + rhs
-    unlock(lhs)
-
-    return Atomic(result)
+    return Atomic(lhs.value + rhs)
 }
 
 public func +=(lhs: inout AString, rhs: AString) {
-    lock(lhs, rhs)
     lhs.value += rhs.value
-    unlock(rhs, lhs)
 }
 
 public func +=(lhs: inout String, rhs: AString) {
-    lock(rhs)
     lhs += rhs.value
-    unlock(rhs)
 }
 
 public func +=(lhs: inout AString, rhs: String) {
-    lock(lhs)
     lhs.value += rhs
-    unlock(lhs)
 }
 
 // Atomic typealias for 'Bool'
@@ -141,20 +101,12 @@ public typealias ABool = Atomic<Bool>
 % for operator in ['&&', '||']:
 
 public func ${operator}(lhs: Atomic<Bool>, rhs: Atomic<Bool>) -> Bool {
-    lock(lhs, rhs)
-    let result = (lhs.value ${operator} rhs.value)
-    unlock(rhs, lhs)
-
-    return result
+    return (lhs.value ${operator} rhs.value)
 }
 % end
 
 public prefix func !(x: Atomic<Bool>) -> Atomic<Bool> {
-    lock(x)
-    let result = !x.value
-    unlock(x)
-
-    return Atomic(result)
+    return Atomic(!x.value)
 }
 % for type in ['Character', 'UnicodeScalar']:
 

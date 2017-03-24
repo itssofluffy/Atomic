@@ -24,110 +24,68 @@ import ISFLibrary
 import Mutex
 
 public class Atomic<T> {
-    internal var mutex: Mutex
-    internal var value: T
+    fileprivate var _mutex: Mutex
+    fileprivate var _value: T
 
     /// Returns an atomic object.
     public init(_ value: T) {
-        self.mutex = wrapper(do: {
-                                 try Mutex()
-                             },
-                             catch: { failure in
-                                 atomicErrorLogger(failure)
-                             })!
-        self.value = value
+        self._mutex = wrapper(do: {
+                                  try Mutex(type: .Recursive)
+                              },
+                              catch: { failure in
+                                  atomicErrorLogger(failure)
+                              })!
+        self._value = value
     }
 }
 
 extension Atomic {
-    /// Get the value atomically.
-    public func get() throws -> T {
-        return try mutex.lock {
-            return self.value
+    public var value: T {
+        get {
+            return wrapper(do: {
+                               return try self._mutex.lock {
+                                   return self._value
+                               }
+                           },
+                           catch: { failure in
+                               mutexErrorLogger(failure)
+                           })!
         }
-    }
-
-    /// Get a value atomically using a closure.
-    @discardableResult
-    public func get(_ closure: @escaping (T) throws -> Void) throws -> T {
-        try mutex.lock()
-
-        defer {
+        set {
             wrapper(do: {
-                        try self.mutex.unlock()
+                        try self._mutex.lock {
+                            self._value = newValue
+                        }
                     },
                     catch: { failure in
-                        atomicErrorLogger(failure)
+                        mutexErrorLogger(failure)
                     })
         }
-
-        try closure(self.value)
-
-        return self.value
-    }
-
-    /// Sets a value atomically.
-    @discardableResult
-    public func set(_ value: T) throws -> T {
-        var returnValue: T?
-
-        try mutex.lock {
-            returnValue = self.value
-
-            self.value = value
-        }
-
-        return returnValue!
     }
 
     /// Sets a value atomically using a closure.
     @discardableResult
-    public func set(_ closure: @escaping (T) throws -> T) throws -> T {
-        try mutex.lock()
-
-        defer {
-            wrapper(do: {
-                        try self.mutex.unlock()
-                    },
-                    catch: { failure in
-                        atomicErrorLogger(failure)
-                    })
+    public func mutate(_ closure: @escaping (inout T) throws -> Void) throws -> T {
+        try _mutex.lock {
+            try closure(&self._value)
         }
 
-        let returnValue = self.value
-
-        self.value = try closure(self.value)
-
-        return returnValue
+        return _value
     }
 
     /// Swaps values atomically.
-    public func swap(_ atomic: inout Atomic<T>) throws {
-        try mutex.lock()
-
-        defer {
-            wrapper(do: {
-                        try self.mutex.unlock()
-                    },
-                    catch: { failure in
-                        atomicErrorLogger(failure)
-                    })
-        }
-
-        try atomic.mutex.lock()
-
+    @discardableResult
+    public func swap(_ atomic: inout Atomic<T>) throws -> T {
         ISFLibrary.swap(&self.value, &atomic.value)
 
-        try atomic.mutex.unlock()
+        return _value
     }
 }
 
 extension Atomic: CustomStringConvertible {
     public var description: String {
         return wrapper(do: {
-                           return try self.mutex.lock {
-                               return "\(self.value)"
-                           }
+                           return "\(self.value)"
                        },
                        catch: { failure in
                            atomicErrorLogger(failure)

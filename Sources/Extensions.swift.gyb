@@ -31,7 +31,7 @@ public extension ${extension} {
 
         % end
     public init(_ atomic: A${type}) throws {
-        self = try ${extension}(atomic.get())
+        self = ${extension}(atomic.value)
     }
     % end
 }
@@ -41,80 +41,61 @@ public extension ${extension} {
 // Extension for '${type}'
 public extension ${type} {
     public init(_ atomic: A${type}) throws {
-        self = try ${type}(atomic.get())
+        self = ${type}(atomic.value)
     }
 }
 % end
 
 // Extension for 'Bool'
 public extension Bool {
-    public static func &&(lhs: Bool, rhs: Atomic<Bool>) -> Bool {
-        lock(rhs)
-        let result = (lhs && rhs.value)
-        unlock(rhs)
+% for operation in ['&&', '||']:
+    % if (operation != '&&'):
 
-        return result
+    % end
+    public static func ${operation}(lhs: Bool, rhs: Atomic<Bool>) -> Bool {
+        return (lhs ${operation} rhs.value)
     }
 
-    public static func &&(lhs: Atomic<Bool>, rhs: Bool) -> Bool {
-        lock(lhs)
-        let result = (lhs.value && rhs)
-        unlock(lhs)
-
-        return result
+    public static func ${operation}(lhs: Atomic<Bool>, rhs: Bool) -> Bool {
+        return (lhs.value ${operation} rhs)
     }
-
-    public static func ||(lhs: Bool, rhs: Atomic<Bool>) -> Bool {
-        lock(rhs)
-        let result = (lhs || rhs.value)
-        unlock(rhs)
-
-        return result
-    }
-
-    public static func ||(lhs: Atomic<Bool>, rhs: Bool) -> Bool {
-        lock(lhs)
-        let result = (lhs.value || rhs)
-        unlock(lhs)
-
-        return result
-    }
+% end
 }
 
 // Extension for 'Character'
 public extension Character {
     public init(_ atomic: AString) throws {
-        self = try Character(atomic.get())
+        self = Character(atomic.value)
     }
 
     public init(_ atomic: AUnicodeScalar) throws {
-        self = try Character(atomic.get())
+        self = Character(atomic.value)
     }
 }
 
 // Extension for 'UnicodeScalar'
 public extension UnicodeScalar {
     public init(_ atomic: AUInt8) throws {
-        self = try UnicodeScalar(atomic.get())
+        self = UnicodeScalar(atomic.value)
     }
 
     public init(_ atomic: AUnicodeScalar) throws {
-        self = try UnicodeScalar(atomic.get())
+        self = UnicodeScalar(atomic.value)
     }
 
     public init?(_ atomic: AInt) throws {
-        self = try UnicodeScalar(atomic.get())!
+        self = UnicodeScalar(atomic.value)!
     }
 
     public init?(_ atomic: AString) throws {
-        self = try UnicodeScalar(atomic.get())!
+        self = UnicodeScalar(atomic.value)!
     }
 
     public init?(_ atomic: AUInt16) throws {
-        self = try UnicodeScalar(atomic.get())!
+        self = UnicodeScalar(atomic.value)!
     }
 
     public init?(_ atomic: AUInt32) throws {
-        self = try UnicodeScalar(atomic.get())!
+        self = UnicodeScalar(atomic.value)!
     }
 }

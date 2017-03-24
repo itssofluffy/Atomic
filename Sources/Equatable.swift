@@ -21,49 +21,25 @@
 */
 
 public func ==<T: Equatable>(lhs: Atomic<T>, rhs: Atomic<T>) -> Bool {
-    lock(lhs, rhs)
-    let result = (lhs.value == rhs.value)
-    unlock(rhs, lhs)
-
-    return result
+    return (lhs.value == rhs.value)
 }
 
 public func ==<T: Equatable>(lhs: T, rhs: Atomic<T>) -> Bool {
-    lock(rhs)
-    let result = (lhs == rhs.value)
-    unlock(rhs)
-
-    return result
+    return (lhs == rhs.value)
 }
 
 public func ==<T: Equatable>(lhs: Atomic<T>, rhs: T) -> Bool {
-    lock(lhs)
-    let result = (lhs.value == rhs)
-    unlock(lhs)
-
-    return result
+    return (lhs.value == rhs)
 }
 
 public func !=<T: Equatable>(lhs: Atomic<T>, rhs: Atomic<T>) -> Bool {
-    lock(lhs, rhs)
-    let result = (lhs.value != rhs.value)
-    unlock(rhs, lhs)
-
-    return result
+    return (lhs.value != rhs.value)
 }
 
 public func !=<T: Equatable>(lhs: T, rhs: Atomic<T>) -> Bool {
-    lock(rhs)
-    let result = (lhs != rhs.value)
-    unlock(rhs)
-
-    return result
+    return (lhs != rhs.value)
 }
 
 public func !=<T: Equatable>(lhs: Atomic<T>, rhs: T) -> Bool {
-    lock(lhs)
-    let result = (lhs.value != rhs)
-    unlock(lhs)
-
-    return result
+    return (lhs.value != rhs)
 }

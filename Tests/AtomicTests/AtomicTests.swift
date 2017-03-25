@@ -38,497 +38,497 @@ class IntTests: XCTestCase {
 
     func testAtomicInt() {
         do {
-            var atomic1 = AInt(42)
-            let atomic2 = AInt(2)
+            var atomic1 = AtomicInt(42)
+            let atomic2 = AtomicInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + 2
 
-            XCTAssert(atomic1 != atomic2, "AInt AInt with +")
-            XCTAssert(atomic1 == type, "AInt Int with +")
-            XCTAssert(type == atomic1, "Int AInt with +")
+            XCTAssert(atomic1 != atomic2, "AtomicInt AtomicInt with +")
+            XCTAssert(atomic1 == type, "AtomicInt Int with +")
+            XCTAssert(type == atomic1, "Int AtomicInt with +")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = atomic + 2
             type = type + 2
 
-            XCTAssert(atomic == type, "AInt Int with +")
-            XCTAssert(type == atomic, "Int AInt with +")
+            XCTAssert(atomic == type, "AtomicInt Int with +")
+            XCTAssert(type == atomic, "Int AtomicInt with +")
         }
         do {
-            var atomic1 = AInt(42)
-            let atomic2 = AInt(2)
+            var atomic1 = AtomicInt(42)
+            let atomic2 = AtomicInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 - atomic2
             type = type - 2
 
-            XCTAssert(atomic1 != atomic2, "AInt AInt with -")
-            XCTAssert(atomic1 == type, "AInt Int with -")
-            XCTAssert(type == atomic1, "Int AInt with -")
+            XCTAssert(atomic1 != atomic2, "AtomicInt AtomicInt with -")
+            XCTAssert(atomic1 == type, "AtomicInt Int with -")
+            XCTAssert(type == atomic1, "Int AtomicInt with -")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = atomic - 2
             type = type - 2
 
-            XCTAssert(atomic == type, "AInt Int with -")
-            XCTAssert(type == atomic, "Int AInt with -")
+            XCTAssert(atomic == type, "AtomicInt Int with -")
+            XCTAssert(type == atomic, "Int AtomicInt with -")
         }
         do {
-            var atomic1 = AInt(42)
-            let atomic2 = AInt(2)
+            var atomic1 = AtomicInt(42)
+            let atomic2 = AtomicInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 * atomic2
             type = type * 2
 
-            XCTAssert(atomic1 != atomic2, "AInt AInt with *")
-            XCTAssert(atomic1 == type, "AInt Int with *")
-            XCTAssert(type == atomic1, "Int AInt with *")
+            XCTAssert(atomic1 != atomic2, "AtomicInt AtomicInt with *")
+            XCTAssert(atomic1 == type, "AtomicInt Int with *")
+            XCTAssert(type == atomic1, "Int AtomicInt with *")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = atomic * 2
             type = type * 2
 
-            XCTAssert(atomic == type, "AInt Int with *")
-            XCTAssert(type == atomic, "Int AInt with *")
+            XCTAssert(atomic == type, "AtomicInt Int with *")
+            XCTAssert(type == atomic, "Int AtomicInt with *")
         }
         do {
-            var atomic1 = AInt(42)
-            let atomic2 = AInt(2)
+            var atomic1 = AtomicInt(42)
+            let atomic2 = AtomicInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 / atomic2
             type = type / 2
 
-            XCTAssert(atomic1 != atomic2, "AInt AInt with /")
-            XCTAssert(atomic1 == type, "AInt Int with /")
-            XCTAssert(type == atomic1, "Int AInt with /")
+            XCTAssert(atomic1 != atomic2, "AtomicInt AtomicInt with /")
+            XCTAssert(atomic1 == type, "AtomicInt Int with /")
+            XCTAssert(type == atomic1, "Int AtomicInt with /")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = atomic / 2
             type = type / 2
 
-            XCTAssert(atomic == type, "AInt Int with /")
-            XCTAssert(type == atomic, "Int AInt with /")
+            XCTAssert(atomic == type, "AtomicInt Int with /")
+            XCTAssert(type == atomic, "Int AtomicInt with /")
         }
         do {
-            var atomic1 = AInt(42)
-            let atomic2 = AInt(2)
+            var atomic1 = AtomicInt(42)
+            let atomic2 = AtomicInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 % atomic2
             type = type % 2
 
-            XCTAssert(atomic1 != atomic2, "AInt AInt with %")
-            XCTAssert(atomic1 == type, "AInt Int with %")
-            XCTAssert(type == atomic1, "Int AInt with %")
+            XCTAssert(atomic1 != atomic2, "AtomicInt AtomicInt with %")
+            XCTAssert(atomic1 == type, "AtomicInt Int with %")
+            XCTAssert(type == atomic1, "Int AtomicInt with %")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = atomic % 2
             type = type % 2
 
-            XCTAssert(atomic == type, "AInt Int with %")
-            XCTAssert(type == atomic, "Int AInt with %")
+            XCTAssert(atomic == type, "AtomicInt Int with %")
+            XCTAssert(type == atomic, "Int AtomicInt with %")
         }
         do {
-            var atomic1 = AInt(42)
-            let atomic2 = AInt(2)
+            var atomic1 = AtomicInt(42)
+            let atomic2 = AtomicInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 << atomic2
             type = type << 2
 
-            XCTAssert(atomic1 != atomic2, "AInt AInt with <<")
-            XCTAssert(atomic1 == type, "AInt Int with <<")
-            XCTAssert(type == atomic1, "Int AInt with <<")
+            XCTAssert(atomic1 != atomic2, "AtomicInt AtomicInt with <<")
+            XCTAssert(atomic1 == type, "AtomicInt Int with <<")
+            XCTAssert(type == atomic1, "Int AtomicInt with <<")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = atomic << 2
             type = type << 2
 
-            XCTAssert(atomic == type, "AInt Int with <<")
-            XCTAssert(type == atomic, "Int AInt with <<")
+            XCTAssert(atomic == type, "AtomicInt Int with <<")
+            XCTAssert(type == atomic, "Int AtomicInt with <<")
         }
         do {
-            var atomic1 = AInt(42)
-            let atomic2 = AInt(2)
+            var atomic1 = AtomicInt(42)
+            let atomic2 = AtomicInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 >> atomic2
             type = type >> 2
 
-            XCTAssert(atomic1 != atomic2, "AInt AInt with >>")
-            XCTAssert(atomic1 == type, "AInt Int with >>")
-            XCTAssert(type == atomic1, "Int AInt with >>")
+            XCTAssert(atomic1 != atomic2, "AtomicInt AtomicInt with >>")
+            XCTAssert(atomic1 == type, "AtomicInt Int with >>")
+            XCTAssert(type == atomic1, "Int AtomicInt with >>")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = atomic >> 2
             type = type >> 2
 
-            XCTAssert(atomic == type, "AInt Int with >>")
-            XCTAssert(type == atomic, "Int AInt with >>")
+            XCTAssert(atomic == type, "AtomicInt Int with >>")
+            XCTAssert(type == atomic, "Int AtomicInt with >>")
         }
         do {
-            var atomic1 = AInt(42)
-            let atomic2 = AInt(2)
+            var atomic1 = AtomicInt(42)
+            let atomic2 = AtomicInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 ^ atomic2
             type = type ^ 2
 
-            XCTAssert(atomic1 != atomic2, "AInt AInt with ^")
-            XCTAssert(atomic1 == type, "AInt Int with ^")
-            XCTAssert(type == atomic1, "Int AInt with ^")
+            XCTAssert(atomic1 != atomic2, "AtomicInt AtomicInt with ^")
+            XCTAssert(atomic1 == type, "AtomicInt Int with ^")
+            XCTAssert(type == atomic1, "Int AtomicInt with ^")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = atomic ^ 2
             type = type ^ 2
 
-            XCTAssert(atomic == type, "AInt Int with ^")
-            XCTAssert(type == atomic, "Int AInt with ^")
+            XCTAssert(atomic == type, "AtomicInt Int with ^")
+            XCTAssert(type == atomic, "Int AtomicInt with ^")
         }
         do {
-            var atomic1 = AInt(42)
-            let atomic2 = AInt(2)
+            var atomic1 = AtomicInt(42)
+            let atomic2 = AtomicInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 | atomic2
             type = type | 2
 
-            XCTAssert(atomic1 != atomic2, "AInt AInt with |")
-            XCTAssert(atomic1 == type, "AInt Int with |")
-            XCTAssert(type == atomic1, "Int AInt with |")
+            XCTAssert(atomic1 != atomic2, "AtomicInt AtomicInt with |")
+            XCTAssert(atomic1 == type, "AtomicInt Int with |")
+            XCTAssert(type == atomic1, "Int AtomicInt with |")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = atomic | 2
             type = type | 2
 
-            XCTAssert(atomic == type, "AInt Int with |")
-            XCTAssert(type == atomic, "Int AInt with |")
+            XCTAssert(atomic == type, "AtomicInt Int with |")
+            XCTAssert(type == atomic, "Int AtomicInt with |")
         }
         do {
-            var atomic1 = AInt(42)
-            let atomic2 = AInt(2)
+            var atomic1 = AtomicInt(42)
+            let atomic2 = AtomicInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 & atomic2
             type = type & 2
 
-            XCTAssert(atomic1 == type, "AInt Int with &")
-            XCTAssert(type == atomic1, "Int AInt with &")
+            XCTAssert(atomic1 == type, "AtomicInt Int with &")
+            XCTAssert(type == atomic1, "Int AtomicInt with &")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = atomic & 2
             type = type & 2
 
-            XCTAssert(atomic == type, "AInt Int with &")
-            XCTAssert(type == atomic, "Int AInt with &")
+            XCTAssert(atomic == type, "AtomicInt Int with &")
+            XCTAssert(type == atomic, "Int AtomicInt with &")
         }
         do {
-            var atomic1 = AInt(42)
-            let atomic2 = AInt(2)
+            var atomic1 = AtomicInt(42)
+            let atomic2 = AtomicInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &+ atomic2
             type = type &+ 2
 
-            XCTAssert(atomic1 != atomic2, "AInt AInt with &+")
-            XCTAssert(atomic1 == type, "AInt Int with &+")
-            XCTAssert(type == atomic1, "Int AInt with &+")
+            XCTAssert(atomic1 != atomic2, "AtomicInt AtomicInt with &+")
+            XCTAssert(atomic1 == type, "AtomicInt Int with &+")
+            XCTAssert(type == atomic1, "Int AtomicInt with &+")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = atomic &+ 2
             type = type &+ 2
 
-            XCTAssert(atomic == type, "AInt Int with &+")
-            XCTAssert(type == atomic, "Int AInt with &+")
+            XCTAssert(atomic == type, "AtomicInt Int with &+")
+            XCTAssert(type == atomic, "Int AtomicInt with &+")
         }
         do {
-            var atomic1 = AInt(42)
-            let atomic2 = AInt(2)
+            var atomic1 = AtomicInt(42)
+            let atomic2 = AtomicInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &- atomic2
             type = type &- 2
 
-            XCTAssert(atomic1 != atomic2, "AInt AInt with &-")
-            XCTAssert(atomic1 == type, "AInt Int with &-")
-            XCTAssert(type == atomic1, "Int AInt with &-")
+            XCTAssert(atomic1 != atomic2, "AtomicInt AtomicInt with &-")
+            XCTAssert(atomic1 == type, "AtomicInt Int with &-")
+            XCTAssert(type == atomic1, "Int AtomicInt with &-")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = atomic &- 2
             type = type &- 2
 
-            XCTAssert(atomic == type, "AInt Int with &-")
-            XCTAssert(type == atomic, "Int AInt with &-")
+            XCTAssert(atomic == type, "AtomicInt Int with &-")
+            XCTAssert(type == atomic, "Int AtomicInt with &-")
         }
         do {
-            var atomic1 = AInt(42)
-            let atomic2 = AInt(2)
+            var atomic1 = AtomicInt(42)
+            let atomic2 = AtomicInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &* atomic2
             type = type &* 2
 
-            XCTAssert(atomic1 != atomic2, "AInt AInt with &*")
-            XCTAssert(atomic1 == type, "AInt Int with &*")
-            XCTAssert(type == atomic1, "Int AInt with &*")
+            XCTAssert(atomic1 != atomic2, "AtomicInt AtomicInt with &*")
+            XCTAssert(atomic1 == type, "AtomicInt Int with &*")
+            XCTAssert(type == atomic1, "Int AtomicInt with &*")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = atomic &* 2
             type = type &* 2
 
-            XCTAssert(atomic == type, "AInt Int with &*")
-            XCTAssert(type == atomic, "Int AInt with &*")
+            XCTAssert(atomic == type, "AtomicInt Int with &*")
+            XCTAssert(type == atomic, "Int AtomicInt with &*")
         }
         do {
-            var (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AtomicInt(42), AtomicInt(42))
 
             atomic1 += 2
             atomic2 += 2
 
-            XCTAssert(atomic1 == atomic2, "AInt AInt with +=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt AtomicInt with +=")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic += 2
             type += 2
 
-            XCTAssert(atomic == type, "AInt Int with +=")
-            XCTAssert(type == atomic, "Int AInt with +=")
+            XCTAssert(atomic == type, "AtomicInt Int with +=")
+            XCTAssert(type == atomic, "Int AtomicInt with +=")
         }
         do {
-            var (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AtomicInt(42), AtomicInt(42))
 
             atomic1 -= 2
             atomic2 -= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt AInt with -=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt AtomicInt with -=")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic -= 2
             type -= 2
 
-            XCTAssert(atomic == type, "AInt Int with -=")
-            XCTAssert(type == atomic, "Int AInt with -=")
+            XCTAssert(atomic == type, "AtomicInt Int with -=")
+            XCTAssert(type == atomic, "Int AtomicInt with -=")
         }
         do {
-            var (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AtomicInt(42), AtomicInt(42))
 
             atomic1 *= 2
             atomic2 *= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt AInt with *=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt AtomicInt with *=")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic *= 2
             type *= 2
 
-            XCTAssert(atomic == type, "AInt Int with *=")
-            XCTAssert(type == atomic, "Int AInt with *=")
+            XCTAssert(atomic == type, "AtomicInt Int with *=")
+            XCTAssert(type == atomic, "Int AtomicInt with *=")
         }
         do {
-            var (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AtomicInt(42), AtomicInt(42))
 
             atomic1 /= 2
             atomic2 /= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt AInt with /=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt AtomicInt with /=")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic /= 2
             type /= 2
 
-            XCTAssert(atomic == type, "AInt Int with /=")
-            XCTAssert(type == atomic, "Int AInt with /=")
+            XCTAssert(atomic == type, "AtomicInt Int with /=")
+            XCTAssert(type == atomic, "Int AtomicInt with /=")
         }
         do {
-            var (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AtomicInt(42), AtomicInt(42))
 
             atomic1 %= 2
             atomic2 %= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt AInt with %=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt AtomicInt with %=")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic %= 2
             type %= 2
 
-            XCTAssert(atomic == type, "AInt Int with %=")
-            XCTAssert(type == atomic, "Int AInt with %=")
+            XCTAssert(atomic == type, "AtomicInt Int with %=")
+            XCTAssert(type == atomic, "Int AtomicInt with %=")
         }
         do {
-            var (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AtomicInt(42), AtomicInt(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt AInt with <<=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt AtomicInt with <<=")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic <<= 2
             type <<= 2
 
-            XCTAssert(atomic == type, "AInt Int with <<=")
-            XCTAssert(type == atomic, "Int AInt with <<=")
+            XCTAssert(atomic == type, "AtomicInt Int with <<=")
+            XCTAssert(type == atomic, "Int AtomicInt with <<=")
         }
         do {
-            var (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AtomicInt(42), AtomicInt(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt AInt with >>=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt AtomicInt with >>=")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic >>= 2
             type >>= 2
 
-            XCTAssert(atomic == type, "AInt Int with >>=")
-            XCTAssert(type == atomic, "Int AInt with >>=")
+            XCTAssert(atomic == type, "AtomicInt Int with >>=")
+            XCTAssert(type == atomic, "Int AtomicInt with >>=")
         }
         do {
-            var (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AtomicInt(42), AtomicInt(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt AInt with ^=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt AtomicInt with ^=")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic ^= 2
             type ^= 2
 
-            XCTAssert(atomic == type, "AInt Int with ^=")
-            XCTAssert(type == atomic, "Int AInt with ^=")
+            XCTAssert(atomic == type, "AtomicInt Int with ^=")
+            XCTAssert(type == atomic, "Int AtomicInt with ^=")
         }
         do {
-            var (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AtomicInt(42), AtomicInt(42))
 
             atomic1 |= 2
             atomic2 |= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt AInt with |=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt AtomicInt with |=")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic |= 2
             type |= 2
 
-            XCTAssert(atomic == type, "AInt Int with |=")
-            XCTAssert(type == atomic, "Int AInt with |=")
+            XCTAssert(atomic == type, "AtomicInt Int with |=")
+            XCTAssert(type == atomic, "Int AtomicInt with |=")
         }
         do {
-            var (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AtomicInt(42), AtomicInt(42))
 
             atomic1 &= 2
             atomic2 &= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt AInt with &=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt AtomicInt with &=")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic &= 2
             type &= 2
 
-            XCTAssert(atomic == type, "AInt Int with &=")
-            XCTAssert(type == atomic, "Int AInt with &=")
+            XCTAssert(atomic == type, "AtomicInt Int with &=")
+            XCTAssert(type == atomic, "Int AtomicInt with &=")
         }
         do {
-            var (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AtomicInt(42), AtomicInt(42))
 
             atomic1 = +atomic1
             atomic2 = +atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt AInt with +")
+            XCTAssert(atomic1 == atomic2, "AtomicInt AtomicInt with +")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = +atomic
             type = +type
 
-            XCTAssert(atomic == type, "AInt Int with +")
-            XCTAssert(type == atomic, "Int AInt with +")
+            XCTAssert(atomic == type, "AtomicInt Int with +")
+            XCTAssert(type == atomic, "Int AtomicInt with +")
         }
         do {
-            var (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AtomicInt(42), AtomicInt(42))
 
             atomic1 = -atomic1
             atomic2 = -atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt AInt with -")
+            XCTAssert(atomic1 == atomic2, "AtomicInt AtomicInt with -")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = -atomic
             type = -type
 
-            XCTAssert(atomic == type, "AInt Int with -")
-            XCTAssert(type == atomic, "Int AInt with -")
+            XCTAssert(atomic == type, "AtomicInt Int with -")
+            XCTAssert(type == atomic, "Int AtomicInt with -")
         }
         do {
-            var (atomic1, atomic2) = (AInt(42), AInt(42))
+            var (atomic1, atomic2) = (AtomicInt(42), AtomicInt(42))
 
             atomic1 = ~atomic1
             atomic2 = ~atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt AInt with ~")
+            XCTAssert(atomic1 == atomic2, "AtomicInt AtomicInt with ~")
         }
         do {
-            var (atomic, type) = (AInt(42), Int(42))
+            var (atomic, type) = (AtomicInt(42), Int(42))
 
             atomic = ~atomic
             type = ~type
 
-            XCTAssert(atomic == type, "AInt Int with ~")
-            XCTAssert(type == atomic, "Int AInt with ~")
+            XCTAssert(atomic == type, "AtomicInt Int with ~")
+            XCTAssert(type == atomic, "Int AtomicInt with ~")
         }
     }
 
@@ -553,497 +553,497 @@ class Int8Tests: XCTestCase {
 
     func testAtomicInt8() {
         do {
-            var atomic1 = AInt8(42)
-            let atomic2 = AInt8(2)
+            var atomic1 = AtomicInt8(42)
+            let atomic2 = AtomicInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + 2
 
-            XCTAssert(atomic1 != atomic2, "AInt8 AInt8 with +")
-            XCTAssert(atomic1 == type, "AInt8 Int8 with +")
-            XCTAssert(type == atomic1, "Int8 AInt8 with +")
+            XCTAssert(atomic1 != atomic2, "AtomicInt8 AtomicInt8 with +")
+            XCTAssert(atomic1 == type, "AtomicInt8 Int8 with +")
+            XCTAssert(type == atomic1, "Int8 AtomicInt8 with +")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = atomic + 2
             type = type + 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with +")
-            XCTAssert(type == atomic, "Int8 AInt8 with +")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with +")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with +")
         }
         do {
-            var atomic1 = AInt8(42)
-            let atomic2 = AInt8(2)
+            var atomic1 = AtomicInt8(42)
+            let atomic2 = AtomicInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 - atomic2
             type = type - 2
 
-            XCTAssert(atomic1 != atomic2, "AInt8 AInt8 with -")
-            XCTAssert(atomic1 == type, "AInt8 Int8 with -")
-            XCTAssert(type == atomic1, "Int8 AInt8 with -")
+            XCTAssert(atomic1 != atomic2, "AtomicInt8 AtomicInt8 with -")
+            XCTAssert(atomic1 == type, "AtomicInt8 Int8 with -")
+            XCTAssert(type == atomic1, "Int8 AtomicInt8 with -")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = atomic - 2
             type = type - 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with -")
-            XCTAssert(type == atomic, "Int8 AInt8 with -")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with -")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with -")
         }
         do {
-            var atomic1 = AInt8(42)
-            let atomic2 = AInt8(2)
+            var atomic1 = AtomicInt8(42)
+            let atomic2 = AtomicInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 * atomic2
             type = type * 2
 
-            XCTAssert(atomic1 != atomic2, "AInt8 AInt8 with *")
-            XCTAssert(atomic1 == type, "AInt8 Int8 with *")
-            XCTAssert(type == atomic1, "Int8 AInt8 with *")
+            XCTAssert(atomic1 != atomic2, "AtomicInt8 AtomicInt8 with *")
+            XCTAssert(atomic1 == type, "AtomicInt8 Int8 with *")
+            XCTAssert(type == atomic1, "Int8 AtomicInt8 with *")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = atomic * 2
             type = type * 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with *")
-            XCTAssert(type == atomic, "Int8 AInt8 with *")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with *")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with *")
         }
         do {
-            var atomic1 = AInt8(42)
-            let atomic2 = AInt8(2)
+            var atomic1 = AtomicInt8(42)
+            let atomic2 = AtomicInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 / atomic2
             type = type / 2
 
-            XCTAssert(atomic1 != atomic2, "AInt8 AInt8 with /")
-            XCTAssert(atomic1 == type, "AInt8 Int8 with /")
-            XCTAssert(type == atomic1, "Int8 AInt8 with /")
+            XCTAssert(atomic1 != atomic2, "AtomicInt8 AtomicInt8 with /")
+            XCTAssert(atomic1 == type, "AtomicInt8 Int8 with /")
+            XCTAssert(type == atomic1, "Int8 AtomicInt8 with /")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = atomic / 2
             type = type / 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with /")
-            XCTAssert(type == atomic, "Int8 AInt8 with /")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with /")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with /")
         }
         do {
-            var atomic1 = AInt8(42)
-            let atomic2 = AInt8(2)
+            var atomic1 = AtomicInt8(42)
+            let atomic2 = AtomicInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 % atomic2
             type = type % 2
 
-            XCTAssert(atomic1 != atomic2, "AInt8 AInt8 with %")
-            XCTAssert(atomic1 == type, "AInt8 Int8 with %")
-            XCTAssert(type == atomic1, "Int8 AInt8 with %")
+            XCTAssert(atomic1 != atomic2, "AtomicInt8 AtomicInt8 with %")
+            XCTAssert(atomic1 == type, "AtomicInt8 Int8 with %")
+            XCTAssert(type == atomic1, "Int8 AtomicInt8 with %")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = atomic % 2
             type = type % 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with %")
-            XCTAssert(type == atomic, "Int8 AInt8 with %")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with %")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with %")
         }
         do {
-            var atomic1 = AInt8(42)
-            let atomic2 = AInt8(2)
+            var atomic1 = AtomicInt8(42)
+            let atomic2 = AtomicInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 << atomic2
             type = type << 2
 
-            XCTAssert(atomic1 != atomic2, "AInt8 AInt8 with <<")
-            XCTAssert(atomic1 == type, "AInt8 Int8 with <<")
-            XCTAssert(type == atomic1, "Int8 AInt8 with <<")
+            XCTAssert(atomic1 != atomic2, "AtomicInt8 AtomicInt8 with <<")
+            XCTAssert(atomic1 == type, "AtomicInt8 Int8 with <<")
+            XCTAssert(type == atomic1, "Int8 AtomicInt8 with <<")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = atomic << 2
             type = type << 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with <<")
-            XCTAssert(type == atomic, "Int8 AInt8 with <<")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with <<")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with <<")
         }
         do {
-            var atomic1 = AInt8(42)
-            let atomic2 = AInt8(2)
+            var atomic1 = AtomicInt8(42)
+            let atomic2 = AtomicInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 >> atomic2
             type = type >> 2
 
-            XCTAssert(atomic1 != atomic2, "AInt8 AInt8 with >>")
-            XCTAssert(atomic1 == type, "AInt8 Int8 with >>")
-            XCTAssert(type == atomic1, "Int8 AInt8 with >>")
+            XCTAssert(atomic1 != atomic2, "AtomicInt8 AtomicInt8 with >>")
+            XCTAssert(atomic1 == type, "AtomicInt8 Int8 with >>")
+            XCTAssert(type == atomic1, "Int8 AtomicInt8 with >>")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = atomic >> 2
             type = type >> 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with >>")
-            XCTAssert(type == atomic, "Int8 AInt8 with >>")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with >>")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with >>")
         }
         do {
-            var atomic1 = AInt8(42)
-            let atomic2 = AInt8(2)
+            var atomic1 = AtomicInt8(42)
+            let atomic2 = AtomicInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 ^ atomic2
             type = type ^ 2
 
-            XCTAssert(atomic1 != atomic2, "AInt8 AInt8 with ^")
-            XCTAssert(atomic1 == type, "AInt8 Int8 with ^")
-            XCTAssert(type == atomic1, "Int8 AInt8 with ^")
+            XCTAssert(atomic1 != atomic2, "AtomicInt8 AtomicInt8 with ^")
+            XCTAssert(atomic1 == type, "AtomicInt8 Int8 with ^")
+            XCTAssert(type == atomic1, "Int8 AtomicInt8 with ^")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = atomic ^ 2
             type = type ^ 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with ^")
-            XCTAssert(type == atomic, "Int8 AInt8 with ^")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with ^")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with ^")
         }
         do {
-            var atomic1 = AInt8(42)
-            let atomic2 = AInt8(2)
+            var atomic1 = AtomicInt8(42)
+            let atomic2 = AtomicInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 | atomic2
             type = type | 2
 
-            XCTAssert(atomic1 != atomic2, "AInt8 AInt8 with |")
-            XCTAssert(atomic1 == type, "AInt8 Int8 with |")
-            XCTAssert(type == atomic1, "Int8 AInt8 with |")
+            XCTAssert(atomic1 != atomic2, "AtomicInt8 AtomicInt8 with |")
+            XCTAssert(atomic1 == type, "AtomicInt8 Int8 with |")
+            XCTAssert(type == atomic1, "Int8 AtomicInt8 with |")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = atomic | 2
             type = type | 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with |")
-            XCTAssert(type == atomic, "Int8 AInt8 with |")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with |")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with |")
         }
         do {
-            var atomic1 = AInt8(42)
-            let atomic2 = AInt8(2)
+            var atomic1 = AtomicInt8(42)
+            let atomic2 = AtomicInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 & atomic2
             type = type & 2
 
-            XCTAssert(atomic1 == type, "AInt8 Int8 with &")
-            XCTAssert(type == atomic1, "Int8 AInt8 with &")
+            XCTAssert(atomic1 == type, "AtomicInt8 Int8 with &")
+            XCTAssert(type == atomic1, "Int8 AtomicInt8 with &")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = atomic & 2
             type = type & 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with &")
-            XCTAssert(type == atomic, "Int8 AInt8 with &")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with &")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with &")
         }
         do {
-            var atomic1 = AInt8(42)
-            let atomic2 = AInt8(2)
+            var atomic1 = AtomicInt8(42)
+            let atomic2 = AtomicInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &+ atomic2
             type = type &+ 2
 
-            XCTAssert(atomic1 != atomic2, "AInt8 AInt8 with &+")
-            XCTAssert(atomic1 == type, "AInt8 Int8 with &+")
-            XCTAssert(type == atomic1, "Int8 AInt8 with &+")
+            XCTAssert(atomic1 != atomic2, "AtomicInt8 AtomicInt8 with &+")
+            XCTAssert(atomic1 == type, "AtomicInt8 Int8 with &+")
+            XCTAssert(type == atomic1, "Int8 AtomicInt8 with &+")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = atomic &+ 2
             type = type &+ 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with &+")
-            XCTAssert(type == atomic, "Int8 AInt8 with &+")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with &+")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with &+")
         }
         do {
-            var atomic1 = AInt8(42)
-            let atomic2 = AInt8(2)
+            var atomic1 = AtomicInt8(42)
+            let atomic2 = AtomicInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &- atomic2
             type = type &- 2
 
-            XCTAssert(atomic1 != atomic2, "AInt8 AInt8 with &-")
-            XCTAssert(atomic1 == type, "AInt8 Int8 with &-")
-            XCTAssert(type == atomic1, "Int8 AInt8 with &-")
+            XCTAssert(atomic1 != atomic2, "AtomicInt8 AtomicInt8 with &-")
+            XCTAssert(atomic1 == type, "AtomicInt8 Int8 with &-")
+            XCTAssert(type == atomic1, "Int8 AtomicInt8 with &-")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = atomic &- 2
             type = type &- 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with &-")
-            XCTAssert(type == atomic, "Int8 AInt8 with &-")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with &-")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with &-")
         }
         do {
-            var atomic1 = AInt8(42)
-            let atomic2 = AInt8(2)
+            var atomic1 = AtomicInt8(42)
+            let atomic2 = AtomicInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &* atomic2
             type = type &* 2
 
-            XCTAssert(atomic1 != atomic2, "AInt8 AInt8 with &*")
-            XCTAssert(atomic1 == type, "AInt8 Int8 with &*")
-            XCTAssert(type == atomic1, "Int8 AInt8 with &*")
+            XCTAssert(atomic1 != atomic2, "AtomicInt8 AtomicInt8 with &*")
+            XCTAssert(atomic1 == type, "AtomicInt8 Int8 with &*")
+            XCTAssert(type == atomic1, "Int8 AtomicInt8 with &*")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = atomic &* 2
             type = type &* 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with &*")
-            XCTAssert(type == atomic, "Int8 AInt8 with &*")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with &*")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with &*")
         }
         do {
-            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AtomicInt8(42), AtomicInt8(42))
 
             atomic1 += 2
             atomic2 += 2
 
-            XCTAssert(atomic1 == atomic2, "AInt8 AInt8 with +=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt8 AtomicInt8 with +=")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic += 2
             type += 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with +=")
-            XCTAssert(type == atomic, "Int8 AInt8 with +=")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with +=")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with +=")
         }
         do {
-            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AtomicInt8(42), AtomicInt8(42))
 
             atomic1 -= 2
             atomic2 -= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt8 AInt8 with -=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt8 AtomicInt8 with -=")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic -= 2
             type -= 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with -=")
-            XCTAssert(type == atomic, "Int8 AInt8 with -=")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with -=")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with -=")
         }
         do {
-            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AtomicInt8(42), AtomicInt8(42))
 
             atomic1 *= 2
             atomic2 *= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt8 AInt8 with *=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt8 AtomicInt8 with *=")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic *= 2
             type *= 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with *=")
-            XCTAssert(type == atomic, "Int8 AInt8 with *=")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with *=")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with *=")
         }
         do {
-            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AtomicInt8(42), AtomicInt8(42))
 
             atomic1 /= 2
             atomic2 /= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt8 AInt8 with /=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt8 AtomicInt8 with /=")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic /= 2
             type /= 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with /=")
-            XCTAssert(type == atomic, "Int8 AInt8 with /=")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with /=")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with /=")
         }
         do {
-            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AtomicInt8(42), AtomicInt8(42))
 
             atomic1 %= 2
             atomic2 %= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt8 AInt8 with %=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt8 AtomicInt8 with %=")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic %= 2
             type %= 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with %=")
-            XCTAssert(type == atomic, "Int8 AInt8 with %=")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with %=")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with %=")
         }
         do {
-            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AtomicInt8(42), AtomicInt8(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt8 AInt8 with <<=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt8 AtomicInt8 with <<=")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic <<= 2
             type <<= 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with <<=")
-            XCTAssert(type == atomic, "Int8 AInt8 with <<=")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with <<=")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with <<=")
         }
         do {
-            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AtomicInt8(42), AtomicInt8(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt8 AInt8 with >>=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt8 AtomicInt8 with >>=")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic >>= 2
             type >>= 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with >>=")
-            XCTAssert(type == atomic, "Int8 AInt8 with >>=")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with >>=")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with >>=")
         }
         do {
-            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AtomicInt8(42), AtomicInt8(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt8 AInt8 with ^=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt8 AtomicInt8 with ^=")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic ^= 2
             type ^= 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with ^=")
-            XCTAssert(type == atomic, "Int8 AInt8 with ^=")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with ^=")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with ^=")
         }
         do {
-            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AtomicInt8(42), AtomicInt8(42))
 
             atomic1 |= 2
             atomic2 |= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt8 AInt8 with |=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt8 AtomicInt8 with |=")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic |= 2
             type |= 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with |=")
-            XCTAssert(type == atomic, "Int8 AInt8 with |=")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with |=")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with |=")
         }
         do {
-            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AtomicInt8(42), AtomicInt8(42))
 
             atomic1 &= 2
             atomic2 &= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt8 AInt8 with &=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt8 AtomicInt8 with &=")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic &= 2
             type &= 2
 
-            XCTAssert(atomic == type, "AInt8 Int8 with &=")
-            XCTAssert(type == atomic, "Int8 AInt8 with &=")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with &=")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with &=")
         }
         do {
-            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AtomicInt8(42), AtomicInt8(42))
 
             atomic1 = +atomic1
             atomic2 = +atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt8 AInt8 with +")
+            XCTAssert(atomic1 == atomic2, "AtomicInt8 AtomicInt8 with +")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = +atomic
             type = +type
 
-            XCTAssert(atomic == type, "AInt8 Int8 with +")
-            XCTAssert(type == atomic, "Int8 AInt8 with +")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with +")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with +")
         }
         do {
-            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AtomicInt8(42), AtomicInt8(42))
 
             atomic1 = -atomic1
             atomic2 = -atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt8 AInt8 with -")
+            XCTAssert(atomic1 == atomic2, "AtomicInt8 AtomicInt8 with -")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = -atomic
             type = -type
 
-            XCTAssert(atomic == type, "AInt8 Int8 with -")
-            XCTAssert(type == atomic, "Int8 AInt8 with -")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with -")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with -")
         }
         do {
-            var (atomic1, atomic2) = (AInt8(42), AInt8(42))
+            var (atomic1, atomic2) = (AtomicInt8(42), AtomicInt8(42))
 
             atomic1 = ~atomic1
             atomic2 = ~atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt8 AInt8 with ~")
+            XCTAssert(atomic1 == atomic2, "AtomicInt8 AtomicInt8 with ~")
         }
         do {
-            var (atomic, type) = (AInt8(42), Int8(42))
+            var (atomic, type) = (AtomicInt8(42), Int8(42))
 
             atomic = ~atomic
             type = ~type
 
-            XCTAssert(atomic == type, "AInt8 Int8 with ~")
-            XCTAssert(type == atomic, "Int8 AInt8 with ~")
+            XCTAssert(atomic == type, "AtomicInt8 Int8 with ~")
+            XCTAssert(type == atomic, "Int8 AtomicInt8 with ~")
         }
     }
 
@@ -1068,497 +1068,497 @@ class Int16Tests: XCTestCase {
 
     func testAtomicInt16() {
         do {
-            var atomic1 = AInt16(42)
-            let atomic2 = AInt16(2)
+            var atomic1 = AtomicInt16(42)
+            let atomic2 = AtomicInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + 2
 
-            XCTAssert(atomic1 != atomic2, "AInt16 AInt16 with +")
-            XCTAssert(atomic1 == type, "AInt16 Int16 with +")
-            XCTAssert(type == atomic1, "Int16 AInt16 with +")
+            XCTAssert(atomic1 != atomic2, "AtomicInt16 AtomicInt16 with +")
+            XCTAssert(atomic1 == type, "AtomicInt16 Int16 with +")
+            XCTAssert(type == atomic1, "Int16 AtomicInt16 with +")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = atomic + 2
             type = type + 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with +")
-            XCTAssert(type == atomic, "Int16 AInt16 with +")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with +")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with +")
         }
         do {
-            var atomic1 = AInt16(42)
-            let atomic2 = AInt16(2)
+            var atomic1 = AtomicInt16(42)
+            let atomic2 = AtomicInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 - atomic2
             type = type - 2
 
-            XCTAssert(atomic1 != atomic2, "AInt16 AInt16 with -")
-            XCTAssert(atomic1 == type, "AInt16 Int16 with -")
-            XCTAssert(type == atomic1, "Int16 AInt16 with -")
+            XCTAssert(atomic1 != atomic2, "AtomicInt16 AtomicInt16 with -")
+            XCTAssert(atomic1 == type, "AtomicInt16 Int16 with -")
+            XCTAssert(type == atomic1, "Int16 AtomicInt16 with -")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = atomic - 2
             type = type - 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with -")
-            XCTAssert(type == atomic, "Int16 AInt16 with -")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with -")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with -")
         }
         do {
-            var atomic1 = AInt16(42)
-            let atomic2 = AInt16(2)
+            var atomic1 = AtomicInt16(42)
+            let atomic2 = AtomicInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 * atomic2
             type = type * 2
 
-            XCTAssert(atomic1 != atomic2, "AInt16 AInt16 with *")
-            XCTAssert(atomic1 == type, "AInt16 Int16 with *")
-            XCTAssert(type == atomic1, "Int16 AInt16 with *")
+            XCTAssert(atomic1 != atomic2, "AtomicInt16 AtomicInt16 with *")
+            XCTAssert(atomic1 == type, "AtomicInt16 Int16 with *")
+            XCTAssert(type == atomic1, "Int16 AtomicInt16 with *")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = atomic * 2
             type = type * 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with *")
-            XCTAssert(type == atomic, "Int16 AInt16 with *")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with *")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with *")
         }
         do {
-            var atomic1 = AInt16(42)
-            let atomic2 = AInt16(2)
+            var atomic1 = AtomicInt16(42)
+            let atomic2 = AtomicInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 / atomic2
             type = type / 2
 
-            XCTAssert(atomic1 != atomic2, "AInt16 AInt16 with /")
-            XCTAssert(atomic1 == type, "AInt16 Int16 with /")
-            XCTAssert(type == atomic1, "Int16 AInt16 with /")
+            XCTAssert(atomic1 != atomic2, "AtomicInt16 AtomicInt16 with /")
+            XCTAssert(atomic1 == type, "AtomicInt16 Int16 with /")
+            XCTAssert(type == atomic1, "Int16 AtomicInt16 with /")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = atomic / 2
             type = type / 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with /")
-            XCTAssert(type == atomic, "Int16 AInt16 with /")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with /")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with /")
         }
         do {
-            var atomic1 = AInt16(42)
-            let atomic2 = AInt16(2)
+            var atomic1 = AtomicInt16(42)
+            let atomic2 = AtomicInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 % atomic2
             type = type % 2
 
-            XCTAssert(atomic1 != atomic2, "AInt16 AInt16 with %")
-            XCTAssert(atomic1 == type, "AInt16 Int16 with %")
-            XCTAssert(type == atomic1, "Int16 AInt16 with %")
+            XCTAssert(atomic1 != atomic2, "AtomicInt16 AtomicInt16 with %")
+            XCTAssert(atomic1 == type, "AtomicInt16 Int16 with %")
+            XCTAssert(type == atomic1, "Int16 AtomicInt16 with %")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = atomic % 2
             type = type % 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with %")
-            XCTAssert(type == atomic, "Int16 AInt16 with %")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with %")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with %")
         }
         do {
-            var atomic1 = AInt16(42)
-            let atomic2 = AInt16(2)
+            var atomic1 = AtomicInt16(42)
+            let atomic2 = AtomicInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 << atomic2
             type = type << 2
 
-            XCTAssert(atomic1 != atomic2, "AInt16 AInt16 with <<")
-            XCTAssert(atomic1 == type, "AInt16 Int16 with <<")
-            XCTAssert(type == atomic1, "Int16 AInt16 with <<")
+            XCTAssert(atomic1 != atomic2, "AtomicInt16 AtomicInt16 with <<")
+            XCTAssert(atomic1 == type, "AtomicInt16 Int16 with <<")
+            XCTAssert(type == atomic1, "Int16 AtomicInt16 with <<")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = atomic << 2
             type = type << 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with <<")
-            XCTAssert(type == atomic, "Int16 AInt16 with <<")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with <<")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with <<")
         }
         do {
-            var atomic1 = AInt16(42)
-            let atomic2 = AInt16(2)
+            var atomic1 = AtomicInt16(42)
+            let atomic2 = AtomicInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 >> atomic2
             type = type >> 2
 
-            XCTAssert(atomic1 != atomic2, "AInt16 AInt16 with >>")
-            XCTAssert(atomic1 == type, "AInt16 Int16 with >>")
-            XCTAssert(type == atomic1, "Int16 AInt16 with >>")
+            XCTAssert(atomic1 != atomic2, "AtomicInt16 AtomicInt16 with >>")
+            XCTAssert(atomic1 == type, "AtomicInt16 Int16 with >>")
+            XCTAssert(type == atomic1, "Int16 AtomicInt16 with >>")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = atomic >> 2
             type = type >> 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with >>")
-            XCTAssert(type == atomic, "Int16 AInt16 with >>")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with >>")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with >>")
         }
         do {
-            var atomic1 = AInt16(42)
-            let atomic2 = AInt16(2)
+            var atomic1 = AtomicInt16(42)
+            let atomic2 = AtomicInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 ^ atomic2
             type = type ^ 2
 
-            XCTAssert(atomic1 != atomic2, "AInt16 AInt16 with ^")
-            XCTAssert(atomic1 == type, "AInt16 Int16 with ^")
-            XCTAssert(type == atomic1, "Int16 AInt16 with ^")
+            XCTAssert(atomic1 != atomic2, "AtomicInt16 AtomicInt16 with ^")
+            XCTAssert(atomic1 == type, "AtomicInt16 Int16 with ^")
+            XCTAssert(type == atomic1, "Int16 AtomicInt16 with ^")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = atomic ^ 2
             type = type ^ 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with ^")
-            XCTAssert(type == atomic, "Int16 AInt16 with ^")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with ^")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with ^")
         }
         do {
-            var atomic1 = AInt16(42)
-            let atomic2 = AInt16(2)
+            var atomic1 = AtomicInt16(42)
+            let atomic2 = AtomicInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 | atomic2
             type = type | 2
 
-            XCTAssert(atomic1 != atomic2, "AInt16 AInt16 with |")
-            XCTAssert(atomic1 == type, "AInt16 Int16 with |")
-            XCTAssert(type == atomic1, "Int16 AInt16 with |")
+            XCTAssert(atomic1 != atomic2, "AtomicInt16 AtomicInt16 with |")
+            XCTAssert(atomic1 == type, "AtomicInt16 Int16 with |")
+            XCTAssert(type == atomic1, "Int16 AtomicInt16 with |")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = atomic | 2
             type = type | 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with |")
-            XCTAssert(type == atomic, "Int16 AInt16 with |")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with |")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with |")
         }
         do {
-            var atomic1 = AInt16(42)
-            let atomic2 = AInt16(2)
+            var atomic1 = AtomicInt16(42)
+            let atomic2 = AtomicInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 & atomic2
             type = type & 2
 
-            XCTAssert(atomic1 == type, "AInt16 Int16 with &")
-            XCTAssert(type == atomic1, "Int16 AInt16 with &")
+            XCTAssert(atomic1 == type, "AtomicInt16 Int16 with &")
+            XCTAssert(type == atomic1, "Int16 AtomicInt16 with &")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = atomic & 2
             type = type & 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with &")
-            XCTAssert(type == atomic, "Int16 AInt16 with &")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with &")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with &")
         }
         do {
-            var atomic1 = AInt16(42)
-            let atomic2 = AInt16(2)
+            var atomic1 = AtomicInt16(42)
+            let atomic2 = AtomicInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &+ atomic2
             type = type &+ 2
 
-            XCTAssert(atomic1 != atomic2, "AInt16 AInt16 with &+")
-            XCTAssert(atomic1 == type, "AInt16 Int16 with &+")
-            XCTAssert(type == atomic1, "Int16 AInt16 with &+")
+            XCTAssert(atomic1 != atomic2, "AtomicInt16 AtomicInt16 with &+")
+            XCTAssert(atomic1 == type, "AtomicInt16 Int16 with &+")
+            XCTAssert(type == atomic1, "Int16 AtomicInt16 with &+")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = atomic &+ 2
             type = type &+ 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with &+")
-            XCTAssert(type == atomic, "Int16 AInt16 with &+")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with &+")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with &+")
         }
         do {
-            var atomic1 = AInt16(42)
-            let atomic2 = AInt16(2)
+            var atomic1 = AtomicInt16(42)
+            let atomic2 = AtomicInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &- atomic2
             type = type &- 2
 
-            XCTAssert(atomic1 != atomic2, "AInt16 AInt16 with &-")
-            XCTAssert(atomic1 == type, "AInt16 Int16 with &-")
-            XCTAssert(type == atomic1, "Int16 AInt16 with &-")
+            XCTAssert(atomic1 != atomic2, "AtomicInt16 AtomicInt16 with &-")
+            XCTAssert(atomic1 == type, "AtomicInt16 Int16 with &-")
+            XCTAssert(type == atomic1, "Int16 AtomicInt16 with &-")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = atomic &- 2
             type = type &- 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with &-")
-            XCTAssert(type == atomic, "Int16 AInt16 with &-")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with &-")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with &-")
         }
         do {
-            var atomic1 = AInt16(42)
-            let atomic2 = AInt16(2)
+            var atomic1 = AtomicInt16(42)
+            let atomic2 = AtomicInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &* atomic2
             type = type &* 2
 
-            XCTAssert(atomic1 != atomic2, "AInt16 AInt16 with &*")
-            XCTAssert(atomic1 == type, "AInt16 Int16 with &*")
-            XCTAssert(type == atomic1, "Int16 AInt16 with &*")
+            XCTAssert(atomic1 != atomic2, "AtomicInt16 AtomicInt16 with &*")
+            XCTAssert(atomic1 == type, "AtomicInt16 Int16 with &*")
+            XCTAssert(type == atomic1, "Int16 AtomicInt16 with &*")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = atomic &* 2
             type = type &* 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with &*")
-            XCTAssert(type == atomic, "Int16 AInt16 with &*")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with &*")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with &*")
         }
         do {
-            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AtomicInt16(42), AtomicInt16(42))
 
             atomic1 += 2
             atomic2 += 2
 
-            XCTAssert(atomic1 == atomic2, "AInt16 AInt16 with +=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt16 AtomicInt16 with +=")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic += 2
             type += 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with +=")
-            XCTAssert(type == atomic, "Int16 AInt16 with +=")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with +=")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with +=")
         }
         do {
-            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AtomicInt16(42), AtomicInt16(42))
 
             atomic1 -= 2
             atomic2 -= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt16 AInt16 with -=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt16 AtomicInt16 with -=")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic -= 2
             type -= 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with -=")
-            XCTAssert(type == atomic, "Int16 AInt16 with -=")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with -=")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with -=")
         }
         do {
-            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AtomicInt16(42), AtomicInt16(42))
 
             atomic1 *= 2
             atomic2 *= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt16 AInt16 with *=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt16 AtomicInt16 with *=")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic *= 2
             type *= 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with *=")
-            XCTAssert(type == atomic, "Int16 AInt16 with *=")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with *=")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with *=")
         }
         do {
-            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AtomicInt16(42), AtomicInt16(42))
 
             atomic1 /= 2
             atomic2 /= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt16 AInt16 with /=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt16 AtomicInt16 with /=")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic /= 2
             type /= 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with /=")
-            XCTAssert(type == atomic, "Int16 AInt16 with /=")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with /=")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with /=")
         }
         do {
-            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AtomicInt16(42), AtomicInt16(42))
 
             atomic1 %= 2
             atomic2 %= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt16 AInt16 with %=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt16 AtomicInt16 with %=")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic %= 2
             type %= 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with %=")
-            XCTAssert(type == atomic, "Int16 AInt16 with %=")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with %=")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with %=")
         }
         do {
-            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AtomicInt16(42), AtomicInt16(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt16 AInt16 with <<=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt16 AtomicInt16 with <<=")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic <<= 2
             type <<= 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with <<=")
-            XCTAssert(type == atomic, "Int16 AInt16 with <<=")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with <<=")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with <<=")
         }
         do {
-            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AtomicInt16(42), AtomicInt16(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt16 AInt16 with >>=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt16 AtomicInt16 with >>=")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic >>= 2
             type >>= 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with >>=")
-            XCTAssert(type == atomic, "Int16 AInt16 with >>=")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with >>=")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with >>=")
         }
         do {
-            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AtomicInt16(42), AtomicInt16(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt16 AInt16 with ^=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt16 AtomicInt16 with ^=")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic ^= 2
             type ^= 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with ^=")
-            XCTAssert(type == atomic, "Int16 AInt16 with ^=")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with ^=")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with ^=")
         }
         do {
-            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AtomicInt16(42), AtomicInt16(42))
 
             atomic1 |= 2
             atomic2 |= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt16 AInt16 with |=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt16 AtomicInt16 with |=")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic |= 2
             type |= 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with |=")
-            XCTAssert(type == atomic, "Int16 AInt16 with |=")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with |=")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with |=")
         }
         do {
-            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AtomicInt16(42), AtomicInt16(42))
 
             atomic1 &= 2
             atomic2 &= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt16 AInt16 with &=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt16 AtomicInt16 with &=")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic &= 2
             type &= 2
 
-            XCTAssert(atomic == type, "AInt16 Int16 with &=")
-            XCTAssert(type == atomic, "Int16 AInt16 with &=")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with &=")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with &=")
         }
         do {
-            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AtomicInt16(42), AtomicInt16(42))
 
             atomic1 = +atomic1
             atomic2 = +atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt16 AInt16 with +")
+            XCTAssert(atomic1 == atomic2, "AtomicInt16 AtomicInt16 with +")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = +atomic
             type = +type
 
-            XCTAssert(atomic == type, "AInt16 Int16 with +")
-            XCTAssert(type == atomic, "Int16 AInt16 with +")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with +")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with +")
         }
         do {
-            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AtomicInt16(42), AtomicInt16(42))
 
             atomic1 = -atomic1
             atomic2 = -atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt16 AInt16 with -")
+            XCTAssert(atomic1 == atomic2, "AtomicInt16 AtomicInt16 with -")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = -atomic
             type = -type
 
-            XCTAssert(atomic == type, "AInt16 Int16 with -")
-            XCTAssert(type == atomic, "Int16 AInt16 with -")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with -")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with -")
         }
         do {
-            var (atomic1, atomic2) = (AInt16(42), AInt16(42))
+            var (atomic1, atomic2) = (AtomicInt16(42), AtomicInt16(42))
 
             atomic1 = ~atomic1
             atomic2 = ~atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt16 AInt16 with ~")
+            XCTAssert(atomic1 == atomic2, "AtomicInt16 AtomicInt16 with ~")
         }
         do {
-            var (atomic, type) = (AInt16(42), Int16(42))
+            var (atomic, type) = (AtomicInt16(42), Int16(42))
 
             atomic = ~atomic
             type = ~type
 
-            XCTAssert(atomic == type, "AInt16 Int16 with ~")
-            XCTAssert(type == atomic, "Int16 AInt16 with ~")
+            XCTAssert(atomic == type, "AtomicInt16 Int16 with ~")
+            XCTAssert(type == atomic, "Int16 AtomicInt16 with ~")
         }
     }
 
@@ -1583,497 +1583,497 @@ class Int32Tests: XCTestCase {
 
     func testAtomicInt32() {
         do {
-            var atomic1 = AInt32(42)
-            let atomic2 = AInt32(2)
+            var atomic1 = AtomicInt32(42)
+            let atomic2 = AtomicInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + 2
 
-            XCTAssert(atomic1 != atomic2, "AInt32 AInt32 with +")
-            XCTAssert(atomic1 == type, "AInt32 Int32 with +")
-            XCTAssert(type == atomic1, "Int32 AInt32 with +")
+            XCTAssert(atomic1 != atomic2, "AtomicInt32 AtomicInt32 with +")
+            XCTAssert(atomic1 == type, "AtomicInt32 Int32 with +")
+            XCTAssert(type == atomic1, "Int32 AtomicInt32 with +")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = atomic + 2
             type = type + 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with +")
-            XCTAssert(type == atomic, "Int32 AInt32 with +")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with +")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with +")
         }
         do {
-            var atomic1 = AInt32(42)
-            let atomic2 = AInt32(2)
+            var atomic1 = AtomicInt32(42)
+            let atomic2 = AtomicInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 - atomic2
             type = type - 2
 
-            XCTAssert(atomic1 != atomic2, "AInt32 AInt32 with -")
-            XCTAssert(atomic1 == type, "AInt32 Int32 with -")
-            XCTAssert(type == atomic1, "Int32 AInt32 with -")
+            XCTAssert(atomic1 != atomic2, "AtomicInt32 AtomicInt32 with -")
+            XCTAssert(atomic1 == type, "AtomicInt32 Int32 with -")
+            XCTAssert(type == atomic1, "Int32 AtomicInt32 with -")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = atomic - 2
             type = type - 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with -")
-            XCTAssert(type == atomic, "Int32 AInt32 with -")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with -")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with -")
         }
         do {
-            var atomic1 = AInt32(42)
-            let atomic2 = AInt32(2)
+            var atomic1 = AtomicInt32(42)
+            let atomic2 = AtomicInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 * atomic2
             type = type * 2
 
-            XCTAssert(atomic1 != atomic2, "AInt32 AInt32 with *")
-            XCTAssert(atomic1 == type, "AInt32 Int32 with *")
-            XCTAssert(type == atomic1, "Int32 AInt32 with *")
+            XCTAssert(atomic1 != atomic2, "AtomicInt32 AtomicInt32 with *")
+            XCTAssert(atomic1 == type, "AtomicInt32 Int32 with *")
+            XCTAssert(type == atomic1, "Int32 AtomicInt32 with *")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = atomic * 2
             type = type * 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with *")
-            XCTAssert(type == atomic, "Int32 AInt32 with *")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with *")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with *")
         }
         do {
-            var atomic1 = AInt32(42)
-            let atomic2 = AInt32(2)
+            var atomic1 = AtomicInt32(42)
+            let atomic2 = AtomicInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 / atomic2
             type = type / 2
 
-            XCTAssert(atomic1 != atomic2, "AInt32 AInt32 with /")
-            XCTAssert(atomic1 == type, "AInt32 Int32 with /")
-            XCTAssert(type == atomic1, "Int32 AInt32 with /")
+            XCTAssert(atomic1 != atomic2, "AtomicInt32 AtomicInt32 with /")
+            XCTAssert(atomic1 == type, "AtomicInt32 Int32 with /")
+            XCTAssert(type == atomic1, "Int32 AtomicInt32 with /")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = atomic / 2
             type = type / 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with /")
-            XCTAssert(type == atomic, "Int32 AInt32 with /")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with /")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with /")
         }
         do {
-            var atomic1 = AInt32(42)
-            let atomic2 = AInt32(2)
+            var atomic1 = AtomicInt32(42)
+            let atomic2 = AtomicInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 % atomic2
             type = type % 2
 
-            XCTAssert(atomic1 != atomic2, "AInt32 AInt32 with %")
-            XCTAssert(atomic1 == type, "AInt32 Int32 with %")
-            XCTAssert(type == atomic1, "Int32 AInt32 with %")
+            XCTAssert(atomic1 != atomic2, "AtomicInt32 AtomicInt32 with %")
+            XCTAssert(atomic1 == type, "AtomicInt32 Int32 with %")
+            XCTAssert(type == atomic1, "Int32 AtomicInt32 with %")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = atomic % 2
             type = type % 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with %")
-            XCTAssert(type == atomic, "Int32 AInt32 with %")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with %")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with %")
         }
         do {
-            var atomic1 = AInt32(42)
-            let atomic2 = AInt32(2)
+            var atomic1 = AtomicInt32(42)
+            let atomic2 = AtomicInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 << atomic2
             type = type << 2
 
-            XCTAssert(atomic1 != atomic2, "AInt32 AInt32 with <<")
-            XCTAssert(atomic1 == type, "AInt32 Int32 with <<")
-            XCTAssert(type == atomic1, "Int32 AInt32 with <<")
+            XCTAssert(atomic1 != atomic2, "AtomicInt32 AtomicInt32 with <<")
+            XCTAssert(atomic1 == type, "AtomicInt32 Int32 with <<")
+            XCTAssert(type == atomic1, "Int32 AtomicInt32 with <<")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = atomic << 2
             type = type << 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with <<")
-            XCTAssert(type == atomic, "Int32 AInt32 with <<")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with <<")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with <<")
         }
         do {
-            var atomic1 = AInt32(42)
-            let atomic2 = AInt32(2)
+            var atomic1 = AtomicInt32(42)
+            let atomic2 = AtomicInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 >> atomic2
             type = type >> 2
 
-            XCTAssert(atomic1 != atomic2, "AInt32 AInt32 with >>")
-            XCTAssert(atomic1 == type, "AInt32 Int32 with >>")
-            XCTAssert(type == atomic1, "Int32 AInt32 with >>")
+            XCTAssert(atomic1 != atomic2, "AtomicInt32 AtomicInt32 with >>")
+            XCTAssert(atomic1 == type, "AtomicInt32 Int32 with >>")
+            XCTAssert(type == atomic1, "Int32 AtomicInt32 with >>")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = atomic >> 2
             type = type >> 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with >>")
-            XCTAssert(type == atomic, "Int32 AInt32 with >>")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with >>")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with >>")
         }
         do {
-            var atomic1 = AInt32(42)
-            let atomic2 = AInt32(2)
+            var atomic1 = AtomicInt32(42)
+            let atomic2 = AtomicInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 ^ atomic2
             type = type ^ 2
 
-            XCTAssert(atomic1 != atomic2, "AInt32 AInt32 with ^")
-            XCTAssert(atomic1 == type, "AInt32 Int32 with ^")
-            XCTAssert(type == atomic1, "Int32 AInt32 with ^")
+            XCTAssert(atomic1 != atomic2, "AtomicInt32 AtomicInt32 with ^")
+            XCTAssert(atomic1 == type, "AtomicInt32 Int32 with ^")
+            XCTAssert(type == atomic1, "Int32 AtomicInt32 with ^")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = atomic ^ 2
             type = type ^ 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with ^")
-            XCTAssert(type == atomic, "Int32 AInt32 with ^")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with ^")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with ^")
         }
         do {
-            var atomic1 = AInt32(42)
-            let atomic2 = AInt32(2)
+            var atomic1 = AtomicInt32(42)
+            let atomic2 = AtomicInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 | atomic2
             type = type | 2
 
-            XCTAssert(atomic1 != atomic2, "AInt32 AInt32 with |")
-            XCTAssert(atomic1 == type, "AInt32 Int32 with |")
-            XCTAssert(type == atomic1, "Int32 AInt32 with |")
+            XCTAssert(atomic1 != atomic2, "AtomicInt32 AtomicInt32 with |")
+            XCTAssert(atomic1 == type, "AtomicInt32 Int32 with |")
+            XCTAssert(type == atomic1, "Int32 AtomicInt32 with |")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = atomic | 2
             type = type | 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with |")
-            XCTAssert(type == atomic, "Int32 AInt32 with |")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with |")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with |")
         }
         do {
-            var atomic1 = AInt32(42)
-            let atomic2 = AInt32(2)
+            var atomic1 = AtomicInt32(42)
+            let atomic2 = AtomicInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 & atomic2
             type = type & 2
 
-            XCTAssert(atomic1 == type, "AInt32 Int32 with &")
-            XCTAssert(type == atomic1, "Int32 AInt32 with &")
+            XCTAssert(atomic1 == type, "AtomicInt32 Int32 with &")
+            XCTAssert(type == atomic1, "Int32 AtomicInt32 with &")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = atomic & 2
             type = type & 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with &")
-            XCTAssert(type == atomic, "Int32 AInt32 with &")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with &")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with &")
         }
         do {
-            var atomic1 = AInt32(42)
-            let atomic2 = AInt32(2)
+            var atomic1 = AtomicInt32(42)
+            let atomic2 = AtomicInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &+ atomic2
             type = type &+ 2
 
-            XCTAssert(atomic1 != atomic2, "AInt32 AInt32 with &+")
-            XCTAssert(atomic1 == type, "AInt32 Int32 with &+")
-            XCTAssert(type == atomic1, "Int32 AInt32 with &+")
+            XCTAssert(atomic1 != atomic2, "AtomicInt32 AtomicInt32 with &+")
+            XCTAssert(atomic1 == type, "AtomicInt32 Int32 with &+")
+            XCTAssert(type == atomic1, "Int32 AtomicInt32 with &+")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = atomic &+ 2
             type = type &+ 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with &+")
-            XCTAssert(type == atomic, "Int32 AInt32 with &+")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with &+")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with &+")
         }
         do {
-            var atomic1 = AInt32(42)
-            let atomic2 = AInt32(2)
+            var atomic1 = AtomicInt32(42)
+            let atomic2 = AtomicInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &- atomic2
             type = type &- 2
 
-            XCTAssert(atomic1 != atomic2, "AInt32 AInt32 with &-")
-            XCTAssert(atomic1 == type, "AInt32 Int32 with &-")
-            XCTAssert(type == atomic1, "Int32 AInt32 with &-")
+            XCTAssert(atomic1 != atomic2, "AtomicInt32 AtomicInt32 with &-")
+            XCTAssert(atomic1 == type, "AtomicInt32 Int32 with &-")
+            XCTAssert(type == atomic1, "Int32 AtomicInt32 with &-")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = atomic &- 2
             type = type &- 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with &-")
-            XCTAssert(type == atomic, "Int32 AInt32 with &-")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with &-")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with &-")
         }
         do {
-            var atomic1 = AInt32(42)
-            let atomic2 = AInt32(2)
+            var atomic1 = AtomicInt32(42)
+            let atomic2 = AtomicInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &* atomic2
             type = type &* 2
 
-            XCTAssert(atomic1 != atomic2, "AInt32 AInt32 with &*")
-            XCTAssert(atomic1 == type, "AInt32 Int32 with &*")
-            XCTAssert(type == atomic1, "Int32 AInt32 with &*")
+            XCTAssert(atomic1 != atomic2, "AtomicInt32 AtomicInt32 with &*")
+            XCTAssert(atomic1 == type, "AtomicInt32 Int32 with &*")
+            XCTAssert(type == atomic1, "Int32 AtomicInt32 with &*")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = atomic &* 2
             type = type &* 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with &*")
-            XCTAssert(type == atomic, "Int32 AInt32 with &*")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with &*")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with &*")
         }
         do {
-            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AtomicInt32(42), AtomicInt32(42))
 
             atomic1 += 2
             atomic2 += 2
 
-            XCTAssert(atomic1 == atomic2, "AInt32 AInt32 with +=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt32 AtomicInt32 with +=")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic += 2
             type += 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with +=")
-            XCTAssert(type == atomic, "Int32 AInt32 with +=")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with +=")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with +=")
         }
         do {
-            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AtomicInt32(42), AtomicInt32(42))
 
             atomic1 -= 2
             atomic2 -= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt32 AInt32 with -=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt32 AtomicInt32 with -=")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic -= 2
             type -= 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with -=")
-            XCTAssert(type == atomic, "Int32 AInt32 with -=")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with -=")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with -=")
         }
         do {
-            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AtomicInt32(42), AtomicInt32(42))
 
             atomic1 *= 2
             atomic2 *= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt32 AInt32 with *=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt32 AtomicInt32 with *=")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic *= 2
             type *= 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with *=")
-            XCTAssert(type == atomic, "Int32 AInt32 with *=")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with *=")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with *=")
         }
         do {
-            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AtomicInt32(42), AtomicInt32(42))
 
             atomic1 /= 2
             atomic2 /= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt32 AInt32 with /=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt32 AtomicInt32 with /=")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic /= 2
             type /= 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with /=")
-            XCTAssert(type == atomic, "Int32 AInt32 with /=")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with /=")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with /=")
         }
         do {
-            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AtomicInt32(42), AtomicInt32(42))
 
             atomic1 %= 2
             atomic2 %= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt32 AInt32 with %=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt32 AtomicInt32 with %=")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic %= 2
             type %= 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with %=")
-            XCTAssert(type == atomic, "Int32 AInt32 with %=")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with %=")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with %=")
         }
         do {
-            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AtomicInt32(42), AtomicInt32(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt32 AInt32 with <<=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt32 AtomicInt32 with <<=")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic <<= 2
             type <<= 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with <<=")
-            XCTAssert(type == atomic, "Int32 AInt32 with <<=")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with <<=")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with <<=")
         }
         do {
-            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AtomicInt32(42), AtomicInt32(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt32 AInt32 with >>=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt32 AtomicInt32 with >>=")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic >>= 2
             type >>= 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with >>=")
-            XCTAssert(type == atomic, "Int32 AInt32 with >>=")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with >>=")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with >>=")
         }
         do {
-            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AtomicInt32(42), AtomicInt32(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt32 AInt32 with ^=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt32 AtomicInt32 with ^=")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic ^= 2
             type ^= 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with ^=")
-            XCTAssert(type == atomic, "Int32 AInt32 with ^=")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with ^=")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with ^=")
         }
         do {
-            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AtomicInt32(42), AtomicInt32(42))
 
             atomic1 |= 2
             atomic2 |= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt32 AInt32 with |=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt32 AtomicInt32 with |=")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic |= 2
             type |= 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with |=")
-            XCTAssert(type == atomic, "Int32 AInt32 with |=")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with |=")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with |=")
         }
         do {
-            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AtomicInt32(42), AtomicInt32(42))
 
             atomic1 &= 2
             atomic2 &= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt32 AInt32 with &=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt32 AtomicInt32 with &=")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic &= 2
             type &= 2
 
-            XCTAssert(atomic == type, "AInt32 Int32 with &=")
-            XCTAssert(type == atomic, "Int32 AInt32 with &=")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with &=")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with &=")
         }
         do {
-            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AtomicInt32(42), AtomicInt32(42))
 
             atomic1 = +atomic1
             atomic2 = +atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt32 AInt32 with +")
+            XCTAssert(atomic1 == atomic2, "AtomicInt32 AtomicInt32 with +")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = +atomic
             type = +type
 
-            XCTAssert(atomic == type, "AInt32 Int32 with +")
-            XCTAssert(type == atomic, "Int32 AInt32 with +")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with +")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with +")
         }
         do {
-            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AtomicInt32(42), AtomicInt32(42))
 
             atomic1 = -atomic1
             atomic2 = -atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt32 AInt32 with -")
+            XCTAssert(atomic1 == atomic2, "AtomicInt32 AtomicInt32 with -")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = -atomic
             type = -type
 
-            XCTAssert(atomic == type, "AInt32 Int32 with -")
-            XCTAssert(type == atomic, "Int32 AInt32 with -")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with -")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with -")
         }
         do {
-            var (atomic1, atomic2) = (AInt32(42), AInt32(42))
+            var (atomic1, atomic2) = (AtomicInt32(42), AtomicInt32(42))
 
             atomic1 = ~atomic1
             atomic2 = ~atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt32 AInt32 with ~")
+            XCTAssert(atomic1 == atomic2, "AtomicInt32 AtomicInt32 with ~")
         }
         do {
-            var (atomic, type) = (AInt32(42), Int32(42))
+            var (atomic, type) = (AtomicInt32(42), Int32(42))
 
             atomic = ~atomic
             type = ~type
 
-            XCTAssert(atomic == type, "AInt32 Int32 with ~")
-            XCTAssert(type == atomic, "Int32 AInt32 with ~")
+            XCTAssert(atomic == type, "AtomicInt32 Int32 with ~")
+            XCTAssert(type == atomic, "Int32 AtomicInt32 with ~")
         }
     }
 
@@ -2098,497 +2098,497 @@ class Int64Tests: XCTestCase {
 
     func testAtomicInt64() {
         do {
-            var atomic1 = AInt64(42)
-            let atomic2 = AInt64(2)
+            var atomic1 = AtomicInt64(42)
+            let atomic2 = AtomicInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + 2
 
-            XCTAssert(atomic1 != atomic2, "AInt64 AInt64 with +")
-            XCTAssert(atomic1 == type, "AInt64 Int64 with +")
-            XCTAssert(type == atomic1, "Int64 AInt64 with +")
+            XCTAssert(atomic1 != atomic2, "AtomicInt64 AtomicInt64 with +")
+            XCTAssert(atomic1 == type, "AtomicInt64 Int64 with +")
+            XCTAssert(type == atomic1, "Int64 AtomicInt64 with +")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = atomic + 2
             type = type + 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with +")
-            XCTAssert(type == atomic, "Int64 AInt64 with +")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with +")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with +")
         }
         do {
-            var atomic1 = AInt64(42)
-            let atomic2 = AInt64(2)
+            var atomic1 = AtomicInt64(42)
+            let atomic2 = AtomicInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 - atomic2
             type = type - 2
 
-            XCTAssert(atomic1 != atomic2, "AInt64 AInt64 with -")
-            XCTAssert(atomic1 == type, "AInt64 Int64 with -")
-            XCTAssert(type == atomic1, "Int64 AInt64 with -")
+            XCTAssert(atomic1 != atomic2, "AtomicInt64 AtomicInt64 with -")
+            XCTAssert(atomic1 == type, "AtomicInt64 Int64 with -")
+            XCTAssert(type == atomic1, "Int64 AtomicInt64 with -")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = atomic - 2
             type = type - 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with -")
-            XCTAssert(type == atomic, "Int64 AInt64 with -")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with -")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with -")
         }
         do {
-            var atomic1 = AInt64(42)
-            let atomic2 = AInt64(2)
+            var atomic1 = AtomicInt64(42)
+            let atomic2 = AtomicInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 * atomic2
             type = type * 2
 
-            XCTAssert(atomic1 != atomic2, "AInt64 AInt64 with *")
-            XCTAssert(atomic1 == type, "AInt64 Int64 with *")
-            XCTAssert(type == atomic1, "Int64 AInt64 with *")
+            XCTAssert(atomic1 != atomic2, "AtomicInt64 AtomicInt64 with *")
+            XCTAssert(atomic1 == type, "AtomicInt64 Int64 with *")
+            XCTAssert(type == atomic1, "Int64 AtomicInt64 with *")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = atomic * 2
             type = type * 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with *")
-            XCTAssert(type == atomic, "Int64 AInt64 with *")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with *")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with *")
         }
         do {
-            var atomic1 = AInt64(42)
-            let atomic2 = AInt64(2)
+            var atomic1 = AtomicInt64(42)
+            let atomic2 = AtomicInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 / atomic2
             type = type / 2
 
-            XCTAssert(atomic1 != atomic2, "AInt64 AInt64 with /")
-            XCTAssert(atomic1 == type, "AInt64 Int64 with /")
-            XCTAssert(type == atomic1, "Int64 AInt64 with /")
+            XCTAssert(atomic1 != atomic2, "AtomicInt64 AtomicInt64 with /")
+            XCTAssert(atomic1 == type, "AtomicInt64 Int64 with /")
+            XCTAssert(type == atomic1, "Int64 AtomicInt64 with /")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = atomic / 2
             type = type / 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with /")
-            XCTAssert(type == atomic, "Int64 AInt64 with /")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with /")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with /")
         }
         do {
-            var atomic1 = AInt64(42)
-            let atomic2 = AInt64(2)
+            var atomic1 = AtomicInt64(42)
+            let atomic2 = AtomicInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 % atomic2
             type = type % 2
 
-            XCTAssert(atomic1 != atomic2, "AInt64 AInt64 with %")
-            XCTAssert(atomic1 == type, "AInt64 Int64 with %")
-            XCTAssert(type == atomic1, "Int64 AInt64 with %")
+            XCTAssert(atomic1 != atomic2, "AtomicInt64 AtomicInt64 with %")
+            XCTAssert(atomic1 == type, "AtomicInt64 Int64 with %")
+            XCTAssert(type == atomic1, "Int64 AtomicInt64 with %")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = atomic % 2
             type = type % 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with %")
-            XCTAssert(type == atomic, "Int64 AInt64 with %")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with %")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with %")
         }
         do {
-            var atomic1 = AInt64(42)
-            let atomic2 = AInt64(2)
+            var atomic1 = AtomicInt64(42)
+            let atomic2 = AtomicInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 << atomic2
             type = type << 2
 
-            XCTAssert(atomic1 != atomic2, "AInt64 AInt64 with <<")
-            XCTAssert(atomic1 == type, "AInt64 Int64 with <<")
-            XCTAssert(type == atomic1, "Int64 AInt64 with <<")
+            XCTAssert(atomic1 != atomic2, "AtomicInt64 AtomicInt64 with <<")
+            XCTAssert(atomic1 == type, "AtomicInt64 Int64 with <<")
+            XCTAssert(type == atomic1, "Int64 AtomicInt64 with <<")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = atomic << 2
             type = type << 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with <<")
-            XCTAssert(type == atomic, "Int64 AInt64 with <<")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with <<")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with <<")
         }
         do {
-            var atomic1 = AInt64(42)
-            let atomic2 = AInt64(2)
+            var atomic1 = AtomicInt64(42)
+            let atomic2 = AtomicInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 >> atomic2
             type = type >> 2
 
-            XCTAssert(atomic1 != atomic2, "AInt64 AInt64 with >>")
-            XCTAssert(atomic1 == type, "AInt64 Int64 with >>")
-            XCTAssert(type == atomic1, "Int64 AInt64 with >>")
+            XCTAssert(atomic1 != atomic2, "AtomicInt64 AtomicInt64 with >>")
+            XCTAssert(atomic1 == type, "AtomicInt64 Int64 with >>")
+            XCTAssert(type == atomic1, "Int64 AtomicInt64 with >>")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = atomic >> 2
             type = type >> 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with >>")
-            XCTAssert(type == atomic, "Int64 AInt64 with >>")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with >>")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with >>")
         }
         do {
-            var atomic1 = AInt64(42)
-            let atomic2 = AInt64(2)
+            var atomic1 = AtomicInt64(42)
+            let atomic2 = AtomicInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 ^ atomic2
             type = type ^ 2
 
-            XCTAssert(atomic1 != atomic2, "AInt64 AInt64 with ^")
-            XCTAssert(atomic1 == type, "AInt64 Int64 with ^")
-            XCTAssert(type == atomic1, "Int64 AInt64 with ^")
+            XCTAssert(atomic1 != atomic2, "AtomicInt64 AtomicInt64 with ^")
+            XCTAssert(atomic1 == type, "AtomicInt64 Int64 with ^")
+            XCTAssert(type == atomic1, "Int64 AtomicInt64 with ^")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = atomic ^ 2
             type = type ^ 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with ^")
-            XCTAssert(type == atomic, "Int64 AInt64 with ^")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with ^")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with ^")
         }
         do {
-            var atomic1 = AInt64(42)
-            let atomic2 = AInt64(2)
+            var atomic1 = AtomicInt64(42)
+            let atomic2 = AtomicInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 | atomic2
             type = type | 2
 
-            XCTAssert(atomic1 != atomic2, "AInt64 AInt64 with |")
-            XCTAssert(atomic1 == type, "AInt64 Int64 with |")
-            XCTAssert(type == atomic1, "Int64 AInt64 with |")
+            XCTAssert(atomic1 != atomic2, "AtomicInt64 AtomicInt64 with |")
+            XCTAssert(atomic1 == type, "AtomicInt64 Int64 with |")
+            XCTAssert(type == atomic1, "Int64 AtomicInt64 with |")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = atomic | 2
             type = type | 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with |")
-            XCTAssert(type == atomic, "Int64 AInt64 with |")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with |")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with |")
         }
         do {
-            var atomic1 = AInt64(42)
-            let atomic2 = AInt64(2)
+            var atomic1 = AtomicInt64(42)
+            let atomic2 = AtomicInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 & atomic2
             type = type & 2
 
-            XCTAssert(atomic1 == type, "AInt64 Int64 with &")
-            XCTAssert(type == atomic1, "Int64 AInt64 with &")
+            XCTAssert(atomic1 == type, "AtomicInt64 Int64 with &")
+            XCTAssert(type == atomic1, "Int64 AtomicInt64 with &")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = atomic & 2
             type = type & 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with &")
-            XCTAssert(type == atomic, "Int64 AInt64 with &")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with &")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with &")
         }
         do {
-            var atomic1 = AInt64(42)
-            let atomic2 = AInt64(2)
+            var atomic1 = AtomicInt64(42)
+            let atomic2 = AtomicInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &+ atomic2
             type = type &+ 2
 
-            XCTAssert(atomic1 != atomic2, "AInt64 AInt64 with &+")
-            XCTAssert(atomic1 == type, "AInt64 Int64 with &+")
-            XCTAssert(type == atomic1, "Int64 AInt64 with &+")
+            XCTAssert(atomic1 != atomic2, "AtomicInt64 AtomicInt64 with &+")
+            XCTAssert(atomic1 == type, "AtomicInt64 Int64 with &+")
+            XCTAssert(type == atomic1, "Int64 AtomicInt64 with &+")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = atomic &+ 2
             type = type &+ 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with &+")
-            XCTAssert(type == atomic, "Int64 AInt64 with &+")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with &+")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with &+")
         }
         do {
-            var atomic1 = AInt64(42)
-            let atomic2 = AInt64(2)
+            var atomic1 = AtomicInt64(42)
+            let atomic2 = AtomicInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &- atomic2
             type = type &- 2
 
-            XCTAssert(atomic1 != atomic2, "AInt64 AInt64 with &-")
-            XCTAssert(atomic1 == type, "AInt64 Int64 with &-")
-            XCTAssert(type == atomic1, "Int64 AInt64 with &-")
+            XCTAssert(atomic1 != atomic2, "AtomicInt64 AtomicInt64 with &-")
+            XCTAssert(atomic1 == type, "AtomicInt64 Int64 with &-")
+            XCTAssert(type == atomic1, "Int64 AtomicInt64 with &-")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = atomic &- 2
             type = type &- 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with &-")
-            XCTAssert(type == atomic, "Int64 AInt64 with &-")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with &-")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with &-")
         }
         do {
-            var atomic1 = AInt64(42)
-            let atomic2 = AInt64(2)
+            var atomic1 = AtomicInt64(42)
+            let atomic2 = AtomicInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &* atomic2
             type = type &* 2
 
-            XCTAssert(atomic1 != atomic2, "AInt64 AInt64 with &*")
-            XCTAssert(atomic1 == type, "AInt64 Int64 with &*")
-            XCTAssert(type == atomic1, "Int64 AInt64 with &*")
+            XCTAssert(atomic1 != atomic2, "AtomicInt64 AtomicInt64 with &*")
+            XCTAssert(atomic1 == type, "AtomicInt64 Int64 with &*")
+            XCTAssert(type == atomic1, "Int64 AtomicInt64 with &*")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = atomic &* 2
             type = type &* 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with &*")
-            XCTAssert(type == atomic, "Int64 AInt64 with &*")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with &*")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with &*")
         }
         do {
-            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AtomicInt64(42), AtomicInt64(42))
 
             atomic1 += 2
             atomic2 += 2
 
-            XCTAssert(atomic1 == atomic2, "AInt64 AInt64 with +=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt64 AtomicInt64 with +=")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic += 2
             type += 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with +=")
-            XCTAssert(type == atomic, "Int64 AInt64 with +=")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with +=")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with +=")
         }
         do {
-            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AtomicInt64(42), AtomicInt64(42))
 
             atomic1 -= 2
             atomic2 -= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt64 AInt64 with -=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt64 AtomicInt64 with -=")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic -= 2
             type -= 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with -=")
-            XCTAssert(type == atomic, "Int64 AInt64 with -=")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with -=")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with -=")
         }
         do {
-            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AtomicInt64(42), AtomicInt64(42))
 
             atomic1 *= 2
             atomic2 *= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt64 AInt64 with *=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt64 AtomicInt64 with *=")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic *= 2
             type *= 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with *=")
-            XCTAssert(type == atomic, "Int64 AInt64 with *=")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with *=")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with *=")
         }
         do {
-            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AtomicInt64(42), AtomicInt64(42))
 
             atomic1 /= 2
             atomic2 /= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt64 AInt64 with /=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt64 AtomicInt64 with /=")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic /= 2
             type /= 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with /=")
-            XCTAssert(type == atomic, "Int64 AInt64 with /=")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with /=")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with /=")
         }
         do {
-            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AtomicInt64(42), AtomicInt64(42))
 
             atomic1 %= 2
             atomic2 %= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt64 AInt64 with %=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt64 AtomicInt64 with %=")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic %= 2
             type %= 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with %=")
-            XCTAssert(type == atomic, "Int64 AInt64 with %=")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with %=")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with %=")
         }
         do {
-            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AtomicInt64(42), AtomicInt64(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt64 AInt64 with <<=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt64 AtomicInt64 with <<=")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic <<= 2
             type <<= 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with <<=")
-            XCTAssert(type == atomic, "Int64 AInt64 with <<=")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with <<=")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with <<=")
         }
         do {
-            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AtomicInt64(42), AtomicInt64(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt64 AInt64 with >>=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt64 AtomicInt64 with >>=")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic >>= 2
             type >>= 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with >>=")
-            XCTAssert(type == atomic, "Int64 AInt64 with >>=")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with >>=")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with >>=")
         }
         do {
-            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AtomicInt64(42), AtomicInt64(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt64 AInt64 with ^=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt64 AtomicInt64 with ^=")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic ^= 2
             type ^= 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with ^=")
-            XCTAssert(type == atomic, "Int64 AInt64 with ^=")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with ^=")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with ^=")
         }
         do {
-            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AtomicInt64(42), AtomicInt64(42))
 
             atomic1 |= 2
             atomic2 |= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt64 AInt64 with |=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt64 AtomicInt64 with |=")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic |= 2
             type |= 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with |=")
-            XCTAssert(type == atomic, "Int64 AInt64 with |=")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with |=")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with |=")
         }
         do {
-            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AtomicInt64(42), AtomicInt64(42))
 
             atomic1 &= 2
             atomic2 &= 2
 
-            XCTAssert(atomic1 == atomic2, "AInt64 AInt64 with &=")
+            XCTAssert(atomic1 == atomic2, "AtomicInt64 AtomicInt64 with &=")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic &= 2
             type &= 2
 
-            XCTAssert(atomic == type, "AInt64 Int64 with &=")
-            XCTAssert(type == atomic, "Int64 AInt64 with &=")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with &=")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with &=")
         }
         do {
-            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AtomicInt64(42), AtomicInt64(42))
 
             atomic1 = +atomic1
             atomic2 = +atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt64 AInt64 with +")
+            XCTAssert(atomic1 == atomic2, "AtomicInt64 AtomicInt64 with +")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = +atomic
             type = +type
 
-            XCTAssert(atomic == type, "AInt64 Int64 with +")
-            XCTAssert(type == atomic, "Int64 AInt64 with +")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with +")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with +")
         }
         do {
-            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AtomicInt64(42), AtomicInt64(42))
 
             atomic1 = -atomic1
             atomic2 = -atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt64 AInt64 with -")
+            XCTAssert(atomic1 == atomic2, "AtomicInt64 AtomicInt64 with -")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = -atomic
             type = -type
 
-            XCTAssert(atomic == type, "AInt64 Int64 with -")
-            XCTAssert(type == atomic, "Int64 AInt64 with -")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with -")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with -")
         }
         do {
-            var (atomic1, atomic2) = (AInt64(42), AInt64(42))
+            var (atomic1, atomic2) = (AtomicInt64(42), AtomicInt64(42))
 
             atomic1 = ~atomic1
             atomic2 = ~atomic2
 
-            XCTAssert(atomic1 == atomic2, "AInt64 AInt64 with ~")
+            XCTAssert(atomic1 == atomic2, "AtomicInt64 AtomicInt64 with ~")
         }
         do {
-            var (atomic, type) = (AInt64(42), Int64(42))
+            var (atomic, type) = (AtomicInt64(42), Int64(42))
 
             atomic = ~atomic
             type = ~type
 
-            XCTAssert(atomic == type, "AInt64 Int64 with ~")
-            XCTAssert(type == atomic, "Int64 AInt64 with ~")
+            XCTAssert(atomic == type, "AtomicInt64 Int64 with ~")
+            XCTAssert(type == atomic, "Int64 AtomicInt64 with ~")
         }
     }
 
@@ -2613,446 +2613,446 @@ class UIntTests: XCTestCase {
 
     func testAtomicUInt() {
         do {
-            var atomic1 = AUInt(42)
-            let atomic2 = AUInt(2)
+            var atomic1 = AtomicUInt(42)
+            let atomic2 = AtomicUInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt AUInt with +")
-            XCTAssert(atomic1 == type, "AUInt UInt with +")
-            XCTAssert(type == atomic1, "UInt AUInt with +")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt AtomicUInt with +")
+            XCTAssert(atomic1 == type, "AtomicUInt UInt with +")
+            XCTAssert(type == atomic1, "UInt AtomicUInt with +")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic = atomic + 2
             type = type + 2
 
-            XCTAssert(atomic == type, "AUInt UInt with +")
-            XCTAssert(type == atomic, "UInt AUInt with +")
+            XCTAssert(atomic == type, "AtomicUInt UInt with +")
+            XCTAssert(type == atomic, "UInt AtomicUInt with +")
         }
         do {
-            var atomic1 = AUInt(42)
-            let atomic2 = AUInt(2)
+            var atomic1 = AtomicUInt(42)
+            let atomic2 = AtomicUInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 - atomic2
             type = type - 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt AUInt with -")
-            XCTAssert(atomic1 == type, "AUInt UInt with -")
-            XCTAssert(type == atomic1, "UInt AUInt with -")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt AtomicUInt with -")
+            XCTAssert(atomic1 == type, "AtomicUInt UInt with -")
+            XCTAssert(type == atomic1, "UInt AtomicUInt with -")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic = atomic - 2
             type = type - 2
 
-            XCTAssert(atomic == type, "AUInt UInt with -")
-            XCTAssert(type == atomic, "UInt AUInt with -")
+            XCTAssert(atomic == type, "AtomicUInt UInt with -")
+            XCTAssert(type == atomic, "UInt AtomicUInt with -")
         }
         do {
-            var atomic1 = AUInt(42)
-            let atomic2 = AUInt(2)
+            var atomic1 = AtomicUInt(42)
+            let atomic2 = AtomicUInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 * atomic2
             type = type * 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt AUInt with *")
-            XCTAssert(atomic1 == type, "AUInt UInt with *")
-            XCTAssert(type == atomic1, "UInt AUInt with *")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt AtomicUInt with *")
+            XCTAssert(atomic1 == type, "AtomicUInt UInt with *")
+            XCTAssert(type == atomic1, "UInt AtomicUInt with *")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic = atomic * 2
             type = type * 2
 
-            XCTAssert(atomic == type, "AUInt UInt with *")
-            XCTAssert(type == atomic, "UInt AUInt with *")
+            XCTAssert(atomic == type, "AtomicUInt UInt with *")
+            XCTAssert(type == atomic, "UInt AtomicUInt with *")
         }
         do {
-            var atomic1 = AUInt(42)
-            let atomic2 = AUInt(2)
+            var atomic1 = AtomicUInt(42)
+            let atomic2 = AtomicUInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 / atomic2
             type = type / 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt AUInt with /")
-            XCTAssert(atomic1 == type, "AUInt UInt with /")
-            XCTAssert(type == atomic1, "UInt AUInt with /")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt AtomicUInt with /")
+            XCTAssert(atomic1 == type, "AtomicUInt UInt with /")
+            XCTAssert(type == atomic1, "UInt AtomicUInt with /")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic = atomic / 2
             type = type / 2
 
-            XCTAssert(atomic == type, "AUInt UInt with /")
-            XCTAssert(type == atomic, "UInt AUInt with /")
+            XCTAssert(atomic == type, "AtomicUInt UInt with /")
+            XCTAssert(type == atomic, "UInt AtomicUInt with /")
         }
         do {
-            var atomic1 = AUInt(42)
-            let atomic2 = AUInt(2)
+            var atomic1 = AtomicUInt(42)
+            let atomic2 = AtomicUInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 % atomic2
             type = type % 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt AUInt with %")
-            XCTAssert(atomic1 == type, "AUInt UInt with %")
-            XCTAssert(type == atomic1, "UInt AUInt with %")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt AtomicUInt with %")
+            XCTAssert(atomic1 == type, "AtomicUInt UInt with %")
+            XCTAssert(type == atomic1, "UInt AtomicUInt with %")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic = atomic % 2
             type = type % 2
 
-            XCTAssert(atomic == type, "AUInt UInt with %")
-            XCTAssert(type == atomic, "UInt AUInt with %")
+            XCTAssert(atomic == type, "AtomicUInt UInt with %")
+            XCTAssert(type == atomic, "UInt AtomicUInt with %")
         }
         do {
-            var atomic1 = AUInt(42)
-            let atomic2 = AUInt(2)
+            var atomic1 = AtomicUInt(42)
+            let atomic2 = AtomicUInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 << atomic2
             type = type << 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt AUInt with <<")
-            XCTAssert(atomic1 == type, "AUInt UInt with <<")
-            XCTAssert(type == atomic1, "UInt AUInt with <<")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt AtomicUInt with <<")
+            XCTAssert(atomic1 == type, "AtomicUInt UInt with <<")
+            XCTAssert(type == atomic1, "UInt AtomicUInt with <<")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic = atomic << 2
             type = type << 2
 
-            XCTAssert(atomic == type, "AUInt UInt with <<")
-            XCTAssert(type == atomic, "UInt AUInt with <<")
+            XCTAssert(atomic == type, "AtomicUInt UInt with <<")
+            XCTAssert(type == atomic, "UInt AtomicUInt with <<")
         }
         do {
-            var atomic1 = AUInt(42)
-            let atomic2 = AUInt(2)
+            var atomic1 = AtomicUInt(42)
+            let atomic2 = AtomicUInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 >> atomic2
             type = type >> 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt AUInt with >>")
-            XCTAssert(atomic1 == type, "AUInt UInt with >>")
-            XCTAssert(type == atomic1, "UInt AUInt with >>")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt AtomicUInt with >>")
+            XCTAssert(atomic1 == type, "AtomicUInt UInt with >>")
+            XCTAssert(type == atomic1, "UInt AtomicUInt with >>")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic = atomic >> 2
             type = type >> 2
 
-            XCTAssert(atomic == type, "AUInt UInt with >>")
-            XCTAssert(type == atomic, "UInt AUInt with >>")
+            XCTAssert(atomic == type, "AtomicUInt UInt with >>")
+            XCTAssert(type == atomic, "UInt AtomicUInt with >>")
         }
         do {
-            var atomic1 = AUInt(42)
-            let atomic2 = AUInt(2)
+            var atomic1 = AtomicUInt(42)
+            let atomic2 = AtomicUInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 ^ atomic2
             type = type ^ 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt AUInt with ^")
-            XCTAssert(atomic1 == type, "AUInt UInt with ^")
-            XCTAssert(type == atomic1, "UInt AUInt with ^")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt AtomicUInt with ^")
+            XCTAssert(atomic1 == type, "AtomicUInt UInt with ^")
+            XCTAssert(type == atomic1, "UInt AtomicUInt with ^")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic = atomic ^ 2
             type = type ^ 2
 
-            XCTAssert(atomic == type, "AUInt UInt with ^")
-            XCTAssert(type == atomic, "UInt AUInt with ^")
+            XCTAssert(atomic == type, "AtomicUInt UInt with ^")
+            XCTAssert(type == atomic, "UInt AtomicUInt with ^")
         }
         do {
-            var atomic1 = AUInt(42)
-            let atomic2 = AUInt(2)
+            var atomic1 = AtomicUInt(42)
+            let atomic2 = AtomicUInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 | atomic2
             type = type | 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt AUInt with |")
-            XCTAssert(atomic1 == type, "AUInt UInt with |")
-            XCTAssert(type == atomic1, "UInt AUInt with |")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt AtomicUInt with |")
+            XCTAssert(atomic1 == type, "AtomicUInt UInt with |")
+            XCTAssert(type == atomic1, "UInt AtomicUInt with |")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic = atomic | 2
             type = type | 2
 
-            XCTAssert(atomic == type, "AUInt UInt with |")
-            XCTAssert(type == atomic, "UInt AUInt with |")
+            XCTAssert(atomic == type, "AtomicUInt UInt with |")
+            XCTAssert(type == atomic, "UInt AtomicUInt with |")
         }
         do {
-            var atomic1 = AUInt(42)
-            let atomic2 = AUInt(2)
+            var atomic1 = AtomicUInt(42)
+            let atomic2 = AtomicUInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 & atomic2
             type = type & 2
 
-            XCTAssert(atomic1 == type, "AUInt UInt with &")
-            XCTAssert(type == atomic1, "UInt AUInt with &")
+            XCTAssert(atomic1 == type, "AtomicUInt UInt with &")
+            XCTAssert(type == atomic1, "UInt AtomicUInt with &")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic = atomic & 2
             type = type & 2
 
-            XCTAssert(atomic == type, "AUInt UInt with &")
-            XCTAssert(type == atomic, "UInt AUInt with &")
+            XCTAssert(atomic == type, "AtomicUInt UInt with &")
+            XCTAssert(type == atomic, "UInt AtomicUInt with &")
         }
         do {
-            var atomic1 = AUInt(42)
-            let atomic2 = AUInt(2)
+            var atomic1 = AtomicUInt(42)
+            let atomic2 = AtomicUInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &+ atomic2
             type = type &+ 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt AUInt with &+")
-            XCTAssert(atomic1 == type, "AUInt UInt with &+")
-            XCTAssert(type == atomic1, "UInt AUInt with &+")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt AtomicUInt with &+")
+            XCTAssert(atomic1 == type, "AtomicUInt UInt with &+")
+            XCTAssert(type == atomic1, "UInt AtomicUInt with &+")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic = atomic &+ 2
             type = type &+ 2
 
-            XCTAssert(atomic == type, "AUInt UInt with &+")
-            XCTAssert(type == atomic, "UInt AUInt with &+")
+            XCTAssert(atomic == type, "AtomicUInt UInt with &+")
+            XCTAssert(type == atomic, "UInt AtomicUInt with &+")
         }
         do {
-            var atomic1 = AUInt(42)
-            let atomic2 = AUInt(2)
+            var atomic1 = AtomicUInt(42)
+            let atomic2 = AtomicUInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &- atomic2
             type = type &- 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt AUInt with &-")
-            XCTAssert(atomic1 == type, "AUInt UInt with &-")
-            XCTAssert(type == atomic1, "UInt AUInt with &-")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt AtomicUInt with &-")
+            XCTAssert(atomic1 == type, "AtomicUInt UInt with &-")
+            XCTAssert(type == atomic1, "UInt AtomicUInt with &-")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic = atomic &- 2
             type = type &- 2
 
-            XCTAssert(atomic == type, "AUInt UInt with &-")
-            XCTAssert(type == atomic, "UInt AUInt with &-")
+            XCTAssert(atomic == type, "AtomicUInt UInt with &-")
+            XCTAssert(type == atomic, "UInt AtomicUInt with &-")
         }
         do {
-            var atomic1 = AUInt(42)
-            let atomic2 = AUInt(2)
+            var atomic1 = AtomicUInt(42)
+            let atomic2 = AtomicUInt(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &* atomic2
             type = type &* 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt AUInt with &*")
-            XCTAssert(atomic1 == type, "AUInt UInt with &*")
-            XCTAssert(type == atomic1, "UInt AUInt with &*")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt AtomicUInt with &*")
+            XCTAssert(atomic1 == type, "AtomicUInt UInt with &*")
+            XCTAssert(type == atomic1, "UInt AtomicUInt with &*")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic = atomic &* 2
             type = type &* 2
 
-            XCTAssert(atomic == type, "AUInt UInt with &*")
-            XCTAssert(type == atomic, "UInt AUInt with &*")
+            XCTAssert(atomic == type, "AtomicUInt UInt with &*")
+            XCTAssert(type == atomic, "UInt AtomicUInt with &*")
         }
         do {
-            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AtomicUInt(42), AtomicUInt(42))
 
             atomic1 += 2
             atomic2 += 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt AUInt with +=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt AtomicUInt with +=")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic += 2
             type += 2
 
-            XCTAssert(atomic == type, "AUInt UInt with +=")
-            XCTAssert(type == atomic, "UInt AUInt with +=")
+            XCTAssert(atomic == type, "AtomicUInt UInt with +=")
+            XCTAssert(type == atomic, "UInt AtomicUInt with +=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AtomicUInt(42), AtomicUInt(42))
 
             atomic1 -= 2
             atomic2 -= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt AUInt with -=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt AtomicUInt with -=")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic -= 2
             type -= 2
 
-            XCTAssert(atomic == type, "AUInt UInt with -=")
-            XCTAssert(type == atomic, "UInt AUInt with -=")
+            XCTAssert(atomic == type, "AtomicUInt UInt with -=")
+            XCTAssert(type == atomic, "UInt AtomicUInt with -=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AtomicUInt(42), AtomicUInt(42))
 
             atomic1 *= 2
             atomic2 *= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt AUInt with *=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt AtomicUInt with *=")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic *= 2
             type *= 2
 
-            XCTAssert(atomic == type, "AUInt UInt with *=")
-            XCTAssert(type == atomic, "UInt AUInt with *=")
+            XCTAssert(atomic == type, "AtomicUInt UInt with *=")
+            XCTAssert(type == atomic, "UInt AtomicUInt with *=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AtomicUInt(42), AtomicUInt(42))
 
             atomic1 /= 2
             atomic2 /= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt AUInt with /=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt AtomicUInt with /=")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic /= 2
             type /= 2
 
-            XCTAssert(atomic == type, "AUInt UInt with /=")
-            XCTAssert(type == atomic, "UInt AUInt with /=")
+            XCTAssert(atomic == type, "AtomicUInt UInt with /=")
+            XCTAssert(type == atomic, "UInt AtomicUInt with /=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AtomicUInt(42), AtomicUInt(42))
 
             atomic1 %= 2
             atomic2 %= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt AUInt with %=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt AtomicUInt with %=")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic %= 2
             type %= 2
 
-            XCTAssert(atomic == type, "AUInt UInt with %=")
-            XCTAssert(type == atomic, "UInt AUInt with %=")
+            XCTAssert(atomic == type, "AtomicUInt UInt with %=")
+            XCTAssert(type == atomic, "UInt AtomicUInt with %=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AtomicUInt(42), AtomicUInt(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt AUInt with <<=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt AtomicUInt with <<=")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic <<= 2
             type <<= 2
 
-            XCTAssert(atomic == type, "AUInt UInt with <<=")
-            XCTAssert(type == atomic, "UInt AUInt with <<=")
+            XCTAssert(atomic == type, "AtomicUInt UInt with <<=")
+            XCTAssert(type == atomic, "UInt AtomicUInt with <<=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AtomicUInt(42), AtomicUInt(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt AUInt with >>=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt AtomicUInt with >>=")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic >>= 2
             type >>= 2
 
-            XCTAssert(atomic == type, "AUInt UInt with >>=")
-            XCTAssert(type == atomic, "UInt AUInt with >>=")
+            XCTAssert(atomic == type, "AtomicUInt UInt with >>=")
+            XCTAssert(type == atomic, "UInt AtomicUInt with >>=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AtomicUInt(42), AtomicUInt(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt AUInt with ^=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt AtomicUInt with ^=")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic ^= 2
             type ^= 2
 
-            XCTAssert(atomic == type, "AUInt UInt with ^=")
-            XCTAssert(type == atomic, "UInt AUInt with ^=")
+            XCTAssert(atomic == type, "AtomicUInt UInt with ^=")
+            XCTAssert(type == atomic, "UInt AtomicUInt with ^=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AtomicUInt(42), AtomicUInt(42))
 
             atomic1 |= 2
             atomic2 |= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt AUInt with |=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt AtomicUInt with |=")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic |= 2
             type |= 2
 
-            XCTAssert(atomic == type, "AUInt UInt with |=")
-            XCTAssert(type == atomic, "UInt AUInt with |=")
+            XCTAssert(atomic == type, "AtomicUInt UInt with |=")
+            XCTAssert(type == atomic, "UInt AtomicUInt with |=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt(42), AUInt(42))
+            var (atomic1, atomic2) = (AtomicUInt(42), AtomicUInt(42))
 
             atomic1 &= 2
             atomic2 &= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt AUInt with &=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt AtomicUInt with &=")
         }
         do {
-            var (atomic, type) = (AUInt(42), UInt(42))
+            var (atomic, type) = (AtomicUInt(42), UInt(42))
 
             atomic &= 2
             type &= 2
 
-            XCTAssert(atomic == type, "AUInt UInt with &=")
-            XCTAssert(type == atomic, "UInt AUInt with &=")
+            XCTAssert(atomic == type, "AtomicUInt UInt with &=")
+            XCTAssert(type == atomic, "UInt AtomicUInt with &=")
         }
     }
 
@@ -3077,446 +3077,446 @@ class UInt8Tests: XCTestCase {
 
     func testAtomicUInt8() {
         do {
-            var atomic1 = AUInt8(42)
-            let atomic2 = AUInt8(2)
+            var atomic1 = AtomicUInt8(42)
+            let atomic2 = AtomicUInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt8 AUInt8 with +")
-            XCTAssert(atomic1 == type, "AUInt8 UInt8 with +")
-            XCTAssert(type == atomic1, "UInt8 AUInt8 with +")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt8 AtomicUInt8 with +")
+            XCTAssert(atomic1 == type, "AtomicUInt8 UInt8 with +")
+            XCTAssert(type == atomic1, "UInt8 AtomicUInt8 with +")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic = atomic + 2
             type = type + 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with +")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with +")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with +")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with +")
         }
         do {
-            var atomic1 = AUInt8(42)
-            let atomic2 = AUInt8(2)
+            var atomic1 = AtomicUInt8(42)
+            let atomic2 = AtomicUInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 - atomic2
             type = type - 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt8 AUInt8 with -")
-            XCTAssert(atomic1 == type, "AUInt8 UInt8 with -")
-            XCTAssert(type == atomic1, "UInt8 AUInt8 with -")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt8 AtomicUInt8 with -")
+            XCTAssert(atomic1 == type, "AtomicUInt8 UInt8 with -")
+            XCTAssert(type == atomic1, "UInt8 AtomicUInt8 with -")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic = atomic - 2
             type = type - 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with -")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with -")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with -")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with -")
         }
         do {
-            var atomic1 = AUInt8(42)
-            let atomic2 = AUInt8(2)
+            var atomic1 = AtomicUInt8(42)
+            let atomic2 = AtomicUInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 * atomic2
             type = type * 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt8 AUInt8 with *")
-            XCTAssert(atomic1 == type, "AUInt8 UInt8 with *")
-            XCTAssert(type == atomic1, "UInt8 AUInt8 with *")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt8 AtomicUInt8 with *")
+            XCTAssert(atomic1 == type, "AtomicUInt8 UInt8 with *")
+            XCTAssert(type == atomic1, "UInt8 AtomicUInt8 with *")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic = atomic * 2
             type = type * 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with *")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with *")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with *")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with *")
         }
         do {
-            var atomic1 = AUInt8(42)
-            let atomic2 = AUInt8(2)
+            var atomic1 = AtomicUInt8(42)
+            let atomic2 = AtomicUInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 / atomic2
             type = type / 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt8 AUInt8 with /")
-            XCTAssert(atomic1 == type, "AUInt8 UInt8 with /")
-            XCTAssert(type == atomic1, "UInt8 AUInt8 with /")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt8 AtomicUInt8 with /")
+            XCTAssert(atomic1 == type, "AtomicUInt8 UInt8 with /")
+            XCTAssert(type == atomic1, "UInt8 AtomicUInt8 with /")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic = atomic / 2
             type = type / 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with /")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with /")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with /")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with /")
         }
         do {
-            var atomic1 = AUInt8(42)
-            let atomic2 = AUInt8(2)
+            var atomic1 = AtomicUInt8(42)
+            let atomic2 = AtomicUInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 % atomic2
             type = type % 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt8 AUInt8 with %")
-            XCTAssert(atomic1 == type, "AUInt8 UInt8 with %")
-            XCTAssert(type == atomic1, "UInt8 AUInt8 with %")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt8 AtomicUInt8 with %")
+            XCTAssert(atomic1 == type, "AtomicUInt8 UInt8 with %")
+            XCTAssert(type == atomic1, "UInt8 AtomicUInt8 with %")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic = atomic % 2
             type = type % 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with %")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with %")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with %")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with %")
         }
         do {
-            var atomic1 = AUInt8(42)
-            let atomic2 = AUInt8(2)
+            var atomic1 = AtomicUInt8(42)
+            let atomic2 = AtomicUInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 << atomic2
             type = type << 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt8 AUInt8 with <<")
-            XCTAssert(atomic1 == type, "AUInt8 UInt8 with <<")
-            XCTAssert(type == atomic1, "UInt8 AUInt8 with <<")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt8 AtomicUInt8 with <<")
+            XCTAssert(atomic1 == type, "AtomicUInt8 UInt8 with <<")
+            XCTAssert(type == atomic1, "UInt8 AtomicUInt8 with <<")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic = atomic << 2
             type = type << 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with <<")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with <<")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with <<")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with <<")
         }
         do {
-            var atomic1 = AUInt8(42)
-            let atomic2 = AUInt8(2)
+            var atomic1 = AtomicUInt8(42)
+            let atomic2 = AtomicUInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 >> atomic2
             type = type >> 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt8 AUInt8 with >>")
-            XCTAssert(atomic1 == type, "AUInt8 UInt8 with >>")
-            XCTAssert(type == atomic1, "UInt8 AUInt8 with >>")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt8 AtomicUInt8 with >>")
+            XCTAssert(atomic1 == type, "AtomicUInt8 UInt8 with >>")
+            XCTAssert(type == atomic1, "UInt8 AtomicUInt8 with >>")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic = atomic >> 2
             type = type >> 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with >>")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with >>")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with >>")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with >>")
         }
         do {
-            var atomic1 = AUInt8(42)
-            let atomic2 = AUInt8(2)
+            var atomic1 = AtomicUInt8(42)
+            let atomic2 = AtomicUInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 ^ atomic2
             type = type ^ 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt8 AUInt8 with ^")
-            XCTAssert(atomic1 == type, "AUInt8 UInt8 with ^")
-            XCTAssert(type == atomic1, "UInt8 AUInt8 with ^")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt8 AtomicUInt8 with ^")
+            XCTAssert(atomic1 == type, "AtomicUInt8 UInt8 with ^")
+            XCTAssert(type == atomic1, "UInt8 AtomicUInt8 with ^")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic = atomic ^ 2
             type = type ^ 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with ^")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with ^")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with ^")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with ^")
         }
         do {
-            var atomic1 = AUInt8(42)
-            let atomic2 = AUInt8(2)
+            var atomic1 = AtomicUInt8(42)
+            let atomic2 = AtomicUInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 | atomic2
             type = type | 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt8 AUInt8 with |")
-            XCTAssert(atomic1 == type, "AUInt8 UInt8 with |")
-            XCTAssert(type == atomic1, "UInt8 AUInt8 with |")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt8 AtomicUInt8 with |")
+            XCTAssert(atomic1 == type, "AtomicUInt8 UInt8 with |")
+            XCTAssert(type == atomic1, "UInt8 AtomicUInt8 with |")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic = atomic | 2
             type = type | 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with |")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with |")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with |")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with |")
         }
         do {
-            var atomic1 = AUInt8(42)
-            let atomic2 = AUInt8(2)
+            var atomic1 = AtomicUInt8(42)
+            let atomic2 = AtomicUInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 & atomic2
             type = type & 2
 
-            XCTAssert(atomic1 == type, "AUInt8 UInt8 with &")
-            XCTAssert(type == atomic1, "UInt8 AUInt8 with &")
+            XCTAssert(atomic1 == type, "AtomicUInt8 UInt8 with &")
+            XCTAssert(type == atomic1, "UInt8 AtomicUInt8 with &")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic = atomic & 2
             type = type & 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with &")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with &")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with &")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with &")
         }
         do {
-            var atomic1 = AUInt8(42)
-            let atomic2 = AUInt8(2)
+            var atomic1 = AtomicUInt8(42)
+            let atomic2 = AtomicUInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &+ atomic2
             type = type &+ 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt8 AUInt8 with &+")
-            XCTAssert(atomic1 == type, "AUInt8 UInt8 with &+")
-            XCTAssert(type == atomic1, "UInt8 AUInt8 with &+")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt8 AtomicUInt8 with &+")
+            XCTAssert(atomic1 == type, "AtomicUInt8 UInt8 with &+")
+            XCTAssert(type == atomic1, "UInt8 AtomicUInt8 with &+")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic = atomic &+ 2
             type = type &+ 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with &+")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with &+")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with &+")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with &+")
         }
         do {
-            var atomic1 = AUInt8(42)
-            let atomic2 = AUInt8(2)
+            var atomic1 = AtomicUInt8(42)
+            let atomic2 = AtomicUInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &- atomic2
             type = type &- 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt8 AUInt8 with &-")
-            XCTAssert(atomic1 == type, "AUInt8 UInt8 with &-")
-            XCTAssert(type == atomic1, "UInt8 AUInt8 with &-")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt8 AtomicUInt8 with &-")
+            XCTAssert(atomic1 == type, "AtomicUInt8 UInt8 with &-")
+            XCTAssert(type == atomic1, "UInt8 AtomicUInt8 with &-")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic = atomic &- 2
             type = type &- 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with &-")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with &-")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with &-")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with &-")
         }
         do {
-            var atomic1 = AUInt8(42)
-            let atomic2 = AUInt8(2)
+            var atomic1 = AtomicUInt8(42)
+            let atomic2 = AtomicUInt8(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &* atomic2
             type = type &* 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt8 AUInt8 with &*")
-            XCTAssert(atomic1 == type, "AUInt8 UInt8 with &*")
-            XCTAssert(type == atomic1, "UInt8 AUInt8 with &*")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt8 AtomicUInt8 with &*")
+            XCTAssert(atomic1 == type, "AtomicUInt8 UInt8 with &*")
+            XCTAssert(type == atomic1, "UInt8 AtomicUInt8 with &*")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic = atomic &* 2
             type = type &* 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with &*")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with &*")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with &*")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with &*")
         }
         do {
-            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AtomicUInt8(42), AtomicUInt8(42))
 
             atomic1 += 2
             atomic2 += 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt8 AUInt8 with +=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt8 AtomicUInt8 with +=")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic += 2
             type += 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with +=")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with +=")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with +=")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with +=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AtomicUInt8(42), AtomicUInt8(42))
 
             atomic1 -= 2
             atomic2 -= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt8 AUInt8 with -=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt8 AtomicUInt8 with -=")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic -= 2
             type -= 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with -=")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with -=")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with -=")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with -=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AtomicUInt8(42), AtomicUInt8(42))
 
             atomic1 *= 2
             atomic2 *= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt8 AUInt8 with *=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt8 AtomicUInt8 with *=")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic *= 2
             type *= 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with *=")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with *=")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with *=")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with *=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AtomicUInt8(42), AtomicUInt8(42))
 
             atomic1 /= 2
             atomic2 /= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt8 AUInt8 with /=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt8 AtomicUInt8 with /=")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic /= 2
             type /= 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with /=")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with /=")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with /=")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with /=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AtomicUInt8(42), AtomicUInt8(42))
 
             atomic1 %= 2
             atomic2 %= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt8 AUInt8 with %=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt8 AtomicUInt8 with %=")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic %= 2
             type %= 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with %=")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with %=")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with %=")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with %=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AtomicUInt8(42), AtomicUInt8(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt8 AUInt8 with <<=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt8 AtomicUInt8 with <<=")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic <<= 2
             type <<= 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with <<=")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with <<=")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with <<=")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with <<=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AtomicUInt8(42), AtomicUInt8(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt8 AUInt8 with >>=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt8 AtomicUInt8 with >>=")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic >>= 2
             type >>= 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with >>=")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with >>=")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with >>=")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with >>=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AtomicUInt8(42), AtomicUInt8(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt8 AUInt8 with ^=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt8 AtomicUInt8 with ^=")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic ^= 2
             type ^= 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with ^=")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with ^=")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with ^=")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with ^=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AtomicUInt8(42), AtomicUInt8(42))
 
             atomic1 |= 2
             atomic2 |= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt8 AUInt8 with |=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt8 AtomicUInt8 with |=")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic |= 2
             type |= 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with |=")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with |=")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with |=")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with |=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt8(42), AUInt8(42))
+            var (atomic1, atomic2) = (AtomicUInt8(42), AtomicUInt8(42))
 
             atomic1 &= 2
             atomic2 &= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt8 AUInt8 with &=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt8 AtomicUInt8 with &=")
         }
         do {
-            var (atomic, type) = (AUInt8(42), UInt8(42))
+            var (atomic, type) = (AtomicUInt8(42), UInt8(42))
 
             atomic &= 2
             type &= 2
 
-            XCTAssert(atomic == type, "AUInt8 UInt8 with &=")
-            XCTAssert(type == atomic, "UInt8 AUInt8 with &=")
+            XCTAssert(atomic == type, "AtomicUInt8 UInt8 with &=")
+            XCTAssert(type == atomic, "UInt8 AtomicUInt8 with &=")
         }
     }
 
@@ -3541,446 +3541,446 @@ class UInt16Tests: XCTestCase {
 
     func testAtomicUInt16() {
         do {
-            var atomic1 = AUInt16(42)
-            let atomic2 = AUInt16(2)
+            var atomic1 = AtomicUInt16(42)
+            let atomic2 = AtomicUInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt16 AUInt16 with +")
-            XCTAssert(atomic1 == type, "AUInt16 UInt16 with +")
-            XCTAssert(type == atomic1, "UInt16 AUInt16 with +")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt16 AtomicUInt16 with +")
+            XCTAssert(atomic1 == type, "AtomicUInt16 UInt16 with +")
+            XCTAssert(type == atomic1, "UInt16 AtomicUInt16 with +")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic = atomic + 2
             type = type + 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with +")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with +")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with +")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with +")
         }
         do {
-            var atomic1 = AUInt16(42)
-            let atomic2 = AUInt16(2)
+            var atomic1 = AtomicUInt16(42)
+            let atomic2 = AtomicUInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 - atomic2
             type = type - 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt16 AUInt16 with -")
-            XCTAssert(atomic1 == type, "AUInt16 UInt16 with -")
-            XCTAssert(type == atomic1, "UInt16 AUInt16 with -")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt16 AtomicUInt16 with -")
+            XCTAssert(atomic1 == type, "AtomicUInt16 UInt16 with -")
+            XCTAssert(type == atomic1, "UInt16 AtomicUInt16 with -")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic = atomic - 2
             type = type - 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with -")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with -")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with -")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with -")
         }
         do {
-            var atomic1 = AUInt16(42)
-            let atomic2 = AUInt16(2)
+            var atomic1 = AtomicUInt16(42)
+            let atomic2 = AtomicUInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 * atomic2
             type = type * 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt16 AUInt16 with *")
-            XCTAssert(atomic1 == type, "AUInt16 UInt16 with *")
-            XCTAssert(type == atomic1, "UInt16 AUInt16 with *")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt16 AtomicUInt16 with *")
+            XCTAssert(atomic1 == type, "AtomicUInt16 UInt16 with *")
+            XCTAssert(type == atomic1, "UInt16 AtomicUInt16 with *")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic = atomic * 2
             type = type * 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with *")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with *")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with *")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with *")
         }
         do {
-            var atomic1 = AUInt16(42)
-            let atomic2 = AUInt16(2)
+            var atomic1 = AtomicUInt16(42)
+            let atomic2 = AtomicUInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 / atomic2
             type = type / 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt16 AUInt16 with /")
-            XCTAssert(atomic1 == type, "AUInt16 UInt16 with /")
-            XCTAssert(type == atomic1, "UInt16 AUInt16 with /")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt16 AtomicUInt16 with /")
+            XCTAssert(atomic1 == type, "AtomicUInt16 UInt16 with /")
+            XCTAssert(type == atomic1, "UInt16 AtomicUInt16 with /")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic = atomic / 2
             type = type / 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with /")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with /")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with /")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with /")
         }
         do {
-            var atomic1 = AUInt16(42)
-            let atomic2 = AUInt16(2)
+            var atomic1 = AtomicUInt16(42)
+            let atomic2 = AtomicUInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 % atomic2
             type = type % 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt16 AUInt16 with %")
-            XCTAssert(atomic1 == type, "AUInt16 UInt16 with %")
-            XCTAssert(type == atomic1, "UInt16 AUInt16 with %")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt16 AtomicUInt16 with %")
+            XCTAssert(atomic1 == type, "AtomicUInt16 UInt16 with %")
+            XCTAssert(type == atomic1, "UInt16 AtomicUInt16 with %")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic = atomic % 2
             type = type % 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with %")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with %")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with %")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with %")
         }
         do {
-            var atomic1 = AUInt16(42)
-            let atomic2 = AUInt16(2)
+            var atomic1 = AtomicUInt16(42)
+            let atomic2 = AtomicUInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 << atomic2
             type = type << 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt16 AUInt16 with <<")
-            XCTAssert(atomic1 == type, "AUInt16 UInt16 with <<")
-            XCTAssert(type == atomic1, "UInt16 AUInt16 with <<")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt16 AtomicUInt16 with <<")
+            XCTAssert(atomic1 == type, "AtomicUInt16 UInt16 with <<")
+            XCTAssert(type == atomic1, "UInt16 AtomicUInt16 with <<")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic = atomic << 2
             type = type << 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with <<")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with <<")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with <<")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with <<")
         }
         do {
-            var atomic1 = AUInt16(42)
-            let atomic2 = AUInt16(2)
+            var atomic1 = AtomicUInt16(42)
+            let atomic2 = AtomicUInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 >> atomic2
             type = type >> 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt16 AUInt16 with >>")
-            XCTAssert(atomic1 == type, "AUInt16 UInt16 with >>")
-            XCTAssert(type == atomic1, "UInt16 AUInt16 with >>")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt16 AtomicUInt16 with >>")
+            XCTAssert(atomic1 == type, "AtomicUInt16 UInt16 with >>")
+            XCTAssert(type == atomic1, "UInt16 AtomicUInt16 with >>")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic = atomic >> 2
             type = type >> 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with >>")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with >>")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with >>")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with >>")
         }
         do {
-            var atomic1 = AUInt16(42)
-            let atomic2 = AUInt16(2)
+            var atomic1 = AtomicUInt16(42)
+            let atomic2 = AtomicUInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 ^ atomic2
             type = type ^ 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt16 AUInt16 with ^")
-            XCTAssert(atomic1 == type, "AUInt16 UInt16 with ^")
-            XCTAssert(type == atomic1, "UInt16 AUInt16 with ^")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt16 AtomicUInt16 with ^")
+            XCTAssert(atomic1 == type, "AtomicUInt16 UInt16 with ^")
+            XCTAssert(type == atomic1, "UInt16 AtomicUInt16 with ^")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic = atomic ^ 2
             type = type ^ 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with ^")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with ^")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with ^")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with ^")
         }
         do {
-            var atomic1 = AUInt16(42)
-            let atomic2 = AUInt16(2)
+            var atomic1 = AtomicUInt16(42)
+            let atomic2 = AtomicUInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 | atomic2
             type = type | 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt16 AUInt16 with |")
-            XCTAssert(atomic1 == type, "AUInt16 UInt16 with |")
-            XCTAssert(type == atomic1, "UInt16 AUInt16 with |")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt16 AtomicUInt16 with |")
+            XCTAssert(atomic1 == type, "AtomicUInt16 UInt16 with |")
+            XCTAssert(type == atomic1, "UInt16 AtomicUInt16 with |")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic = atomic | 2
             type = type | 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with |")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with |")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with |")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with |")
         }
         do {
-            var atomic1 = AUInt16(42)
-            let atomic2 = AUInt16(2)
+            var atomic1 = AtomicUInt16(42)
+            let atomic2 = AtomicUInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 & atomic2
             type = type & 2
 
-            XCTAssert(atomic1 == type, "AUInt16 UInt16 with &")
-            XCTAssert(type == atomic1, "UInt16 AUInt16 with &")
+            XCTAssert(atomic1 == type, "AtomicUInt16 UInt16 with &")
+            XCTAssert(type == atomic1, "UInt16 AtomicUInt16 with &")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic = atomic & 2
             type = type & 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with &")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with &")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with &")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with &")
         }
         do {
-            var atomic1 = AUInt16(42)
-            let atomic2 = AUInt16(2)
+            var atomic1 = AtomicUInt16(42)
+            let atomic2 = AtomicUInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &+ atomic2
             type = type &+ 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt16 AUInt16 with &+")
-            XCTAssert(atomic1 == type, "AUInt16 UInt16 with &+")
-            XCTAssert(type == atomic1, "UInt16 AUInt16 with &+")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt16 AtomicUInt16 with &+")
+            XCTAssert(atomic1 == type, "AtomicUInt16 UInt16 with &+")
+            XCTAssert(type == atomic1, "UInt16 AtomicUInt16 with &+")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic = atomic &+ 2
             type = type &+ 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with &+")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with &+")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with &+")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with &+")
         }
         do {
-            var atomic1 = AUInt16(42)
-            let atomic2 = AUInt16(2)
+            var atomic1 = AtomicUInt16(42)
+            let atomic2 = AtomicUInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &- atomic2
             type = type &- 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt16 AUInt16 with &-")
-            XCTAssert(atomic1 == type, "AUInt16 UInt16 with &-")
-            XCTAssert(type == atomic1, "UInt16 AUInt16 with &-")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt16 AtomicUInt16 with &-")
+            XCTAssert(atomic1 == type, "AtomicUInt16 UInt16 with &-")
+            XCTAssert(type == atomic1, "UInt16 AtomicUInt16 with &-")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic = atomic &- 2
             type = type &- 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with &-")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with &-")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with &-")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with &-")
         }
         do {
-            var atomic1 = AUInt16(42)
-            let atomic2 = AUInt16(2)
+            var atomic1 = AtomicUInt16(42)
+            let atomic2 = AtomicUInt16(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &* atomic2
             type = type &* 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt16 AUInt16 with &*")
-            XCTAssert(atomic1 == type, "AUInt16 UInt16 with &*")
-            XCTAssert(type == atomic1, "UInt16 AUInt16 with &*")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt16 AtomicUInt16 with &*")
+            XCTAssert(atomic1 == type, "AtomicUInt16 UInt16 with &*")
+            XCTAssert(type == atomic1, "UInt16 AtomicUInt16 with &*")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic = atomic &* 2
             type = type &* 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with &*")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with &*")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with &*")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with &*")
         }
         do {
-            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AtomicUInt16(42), AtomicUInt16(42))
 
             atomic1 += 2
             atomic2 += 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt16 AUInt16 with +=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt16 AtomicUInt16 with +=")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic += 2
             type += 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with +=")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with +=")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with +=")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with +=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AtomicUInt16(42), AtomicUInt16(42))
 
             atomic1 -= 2
             atomic2 -= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt16 AUInt16 with -=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt16 AtomicUInt16 with -=")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic -= 2
             type -= 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with -=")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with -=")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with -=")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with -=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AtomicUInt16(42), AtomicUInt16(42))
 
             atomic1 *= 2
             atomic2 *= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt16 AUInt16 with *=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt16 AtomicUInt16 with *=")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic *= 2
             type *= 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with *=")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with *=")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with *=")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with *=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AtomicUInt16(42), AtomicUInt16(42))
 
             atomic1 /= 2
             atomic2 /= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt16 AUInt16 with /=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt16 AtomicUInt16 with /=")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic /= 2
             type /= 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with /=")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with /=")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with /=")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with /=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AtomicUInt16(42), AtomicUInt16(42))
 
             atomic1 %= 2
             atomic2 %= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt16 AUInt16 with %=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt16 AtomicUInt16 with %=")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic %= 2
             type %= 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with %=")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with %=")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with %=")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with %=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AtomicUInt16(42), AtomicUInt16(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt16 AUInt16 with <<=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt16 AtomicUInt16 with <<=")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic <<= 2
             type <<= 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with <<=")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with <<=")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with <<=")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with <<=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AtomicUInt16(42), AtomicUInt16(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt16 AUInt16 with >>=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt16 AtomicUInt16 with >>=")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic >>= 2
             type >>= 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with >>=")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with >>=")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with >>=")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with >>=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AtomicUInt16(42), AtomicUInt16(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt16 AUInt16 with ^=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt16 AtomicUInt16 with ^=")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic ^= 2
             type ^= 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with ^=")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with ^=")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with ^=")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with ^=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AtomicUInt16(42), AtomicUInt16(42))
 
             atomic1 |= 2
             atomic2 |= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt16 AUInt16 with |=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt16 AtomicUInt16 with |=")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic |= 2
             type |= 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with |=")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with |=")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with |=")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with |=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt16(42), AUInt16(42))
+            var (atomic1, atomic2) = (AtomicUInt16(42), AtomicUInt16(42))
 
             atomic1 &= 2
             atomic2 &= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt16 AUInt16 with &=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt16 AtomicUInt16 with &=")
         }
         do {
-            var (atomic, type) = (AUInt16(42), UInt16(42))
+            var (atomic, type) = (AtomicUInt16(42), UInt16(42))
 
             atomic &= 2
             type &= 2
 
-            XCTAssert(atomic == type, "AUInt16 UInt16 with &=")
-            XCTAssert(type == atomic, "UInt16 AUInt16 with &=")
+            XCTAssert(atomic == type, "AtomicUInt16 UInt16 with &=")
+            XCTAssert(type == atomic, "UInt16 AtomicUInt16 with &=")
         }
     }
 
@@ -4005,446 +4005,446 @@ class UInt32Tests: XCTestCase {
 
     func testAtomicUInt32() {
         do {
-            var atomic1 = AUInt32(42)
-            let atomic2 = AUInt32(2)
+            var atomic1 = AtomicUInt32(42)
+            let atomic2 = AtomicUInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt32 AUInt32 with +")
-            XCTAssert(atomic1 == type, "AUInt32 UInt32 with +")
-            XCTAssert(type == atomic1, "UInt32 AUInt32 with +")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt32 AtomicUInt32 with +")
+            XCTAssert(atomic1 == type, "AtomicUInt32 UInt32 with +")
+            XCTAssert(type == atomic1, "UInt32 AtomicUInt32 with +")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic = atomic + 2
             type = type + 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with +")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with +")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with +")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with +")
         }
         do {
-            var atomic1 = AUInt32(42)
-            let atomic2 = AUInt32(2)
+            var atomic1 = AtomicUInt32(42)
+            let atomic2 = AtomicUInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 - atomic2
             type = type - 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt32 AUInt32 with -")
-            XCTAssert(atomic1 == type, "AUInt32 UInt32 with -")
-            XCTAssert(type == atomic1, "UInt32 AUInt32 with -")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt32 AtomicUInt32 with -")
+            XCTAssert(atomic1 == type, "AtomicUInt32 UInt32 with -")
+            XCTAssert(type == atomic1, "UInt32 AtomicUInt32 with -")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic = atomic - 2
             type = type - 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with -")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with -")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with -")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with -")
         }
         do {
-            var atomic1 = AUInt32(42)
-            let atomic2 = AUInt32(2)
+            var atomic1 = AtomicUInt32(42)
+            let atomic2 = AtomicUInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 * atomic2
             type = type * 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt32 AUInt32 with *")
-            XCTAssert(atomic1 == type, "AUInt32 UInt32 with *")
-            XCTAssert(type == atomic1, "UInt32 AUInt32 with *")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt32 AtomicUInt32 with *")
+            XCTAssert(atomic1 == type, "AtomicUInt32 UInt32 with *")
+            XCTAssert(type == atomic1, "UInt32 AtomicUInt32 with *")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic = atomic * 2
             type = type * 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with *")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with *")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with *")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with *")
         }
         do {
-            var atomic1 = AUInt32(42)
-            let atomic2 = AUInt32(2)
+            var atomic1 = AtomicUInt32(42)
+            let atomic2 = AtomicUInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 / atomic2
             type = type / 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt32 AUInt32 with /")
-            XCTAssert(atomic1 == type, "AUInt32 UInt32 with /")
-            XCTAssert(type == atomic1, "UInt32 AUInt32 with /")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt32 AtomicUInt32 with /")
+            XCTAssert(atomic1 == type, "AtomicUInt32 UInt32 with /")
+            XCTAssert(type == atomic1, "UInt32 AtomicUInt32 with /")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic = atomic / 2
             type = type / 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with /")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with /")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with /")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with /")
         }
         do {
-            var atomic1 = AUInt32(42)
-            let atomic2 = AUInt32(2)
+            var atomic1 = AtomicUInt32(42)
+            let atomic2 = AtomicUInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 % atomic2
             type = type % 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt32 AUInt32 with %")
-            XCTAssert(atomic1 == type, "AUInt32 UInt32 with %")
-            XCTAssert(type == atomic1, "UInt32 AUInt32 with %")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt32 AtomicUInt32 with %")
+            XCTAssert(atomic1 == type, "AtomicUInt32 UInt32 with %")
+            XCTAssert(type == atomic1, "UInt32 AtomicUInt32 with %")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic = atomic % 2
             type = type % 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with %")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with %")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with %")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with %")
         }
         do {
-            var atomic1 = AUInt32(42)
-            let atomic2 = AUInt32(2)
+            var atomic1 = AtomicUInt32(42)
+            let atomic2 = AtomicUInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 << atomic2
             type = type << 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt32 AUInt32 with <<")
-            XCTAssert(atomic1 == type, "AUInt32 UInt32 with <<")
-            XCTAssert(type == atomic1, "UInt32 AUInt32 with <<")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt32 AtomicUInt32 with <<")
+            XCTAssert(atomic1 == type, "AtomicUInt32 UInt32 with <<")
+            XCTAssert(type == atomic1, "UInt32 AtomicUInt32 with <<")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic = atomic << 2
             type = type << 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with <<")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with <<")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with <<")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with <<")
         }
         do {
-            var atomic1 = AUInt32(42)
-            let atomic2 = AUInt32(2)
+            var atomic1 = AtomicUInt32(42)
+            let atomic2 = AtomicUInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 >> atomic2
             type = type >> 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt32 AUInt32 with >>")
-            XCTAssert(atomic1 == type, "AUInt32 UInt32 with >>")
-            XCTAssert(type == atomic1, "UInt32 AUInt32 with >>")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt32 AtomicUInt32 with >>")
+            XCTAssert(atomic1 == type, "AtomicUInt32 UInt32 with >>")
+            XCTAssert(type == atomic1, "UInt32 AtomicUInt32 with >>")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic = atomic >> 2
             type = type >> 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with >>")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with >>")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with >>")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with >>")
         }
         do {
-            var atomic1 = AUInt32(42)
-            let atomic2 = AUInt32(2)
+            var atomic1 = AtomicUInt32(42)
+            let atomic2 = AtomicUInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 ^ atomic2
             type = type ^ 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt32 AUInt32 with ^")
-            XCTAssert(atomic1 == type, "AUInt32 UInt32 with ^")
-            XCTAssert(type == atomic1, "UInt32 AUInt32 with ^")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt32 AtomicUInt32 with ^")
+            XCTAssert(atomic1 == type, "AtomicUInt32 UInt32 with ^")
+            XCTAssert(type == atomic1, "UInt32 AtomicUInt32 with ^")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic = atomic ^ 2
             type = type ^ 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with ^")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with ^")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with ^")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with ^")
         }
         do {
-            var atomic1 = AUInt32(42)
-            let atomic2 = AUInt32(2)
+            var atomic1 = AtomicUInt32(42)
+            let atomic2 = AtomicUInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 | atomic2
             type = type | 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt32 AUInt32 with |")
-            XCTAssert(atomic1 == type, "AUInt32 UInt32 with |")
-            XCTAssert(type == atomic1, "UInt32 AUInt32 with |")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt32 AtomicUInt32 with |")
+            XCTAssert(atomic1 == type, "AtomicUInt32 UInt32 with |")
+            XCTAssert(type == atomic1, "UInt32 AtomicUInt32 with |")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic = atomic | 2
             type = type | 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with |")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with |")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with |")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with |")
         }
         do {
-            var atomic1 = AUInt32(42)
-            let atomic2 = AUInt32(2)
+            var atomic1 = AtomicUInt32(42)
+            let atomic2 = AtomicUInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 & atomic2
             type = type & 2
 
-            XCTAssert(atomic1 == type, "AUInt32 UInt32 with &")
-            XCTAssert(type == atomic1, "UInt32 AUInt32 with &")
+            XCTAssert(atomic1 == type, "AtomicUInt32 UInt32 with &")
+            XCTAssert(type == atomic1, "UInt32 AtomicUInt32 with &")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic = atomic & 2
             type = type & 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with &")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with &")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with &")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with &")
         }
         do {
-            var atomic1 = AUInt32(42)
-            let atomic2 = AUInt32(2)
+            var atomic1 = AtomicUInt32(42)
+            let atomic2 = AtomicUInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &+ atomic2
             type = type &+ 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt32 AUInt32 with &+")
-            XCTAssert(atomic1 == type, "AUInt32 UInt32 with &+")
-            XCTAssert(type == atomic1, "UInt32 AUInt32 with &+")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt32 AtomicUInt32 with &+")
+            XCTAssert(atomic1 == type, "AtomicUInt32 UInt32 with &+")
+            XCTAssert(type == atomic1, "UInt32 AtomicUInt32 with &+")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic = atomic &+ 2
             type = type &+ 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with &+")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with &+")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with &+")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with &+")
         }
         do {
-            var atomic1 = AUInt32(42)
-            let atomic2 = AUInt32(2)
+            var atomic1 = AtomicUInt32(42)
+            let atomic2 = AtomicUInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &- atomic2
             type = type &- 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt32 AUInt32 with &-")
-            XCTAssert(atomic1 == type, "AUInt32 UInt32 with &-")
-            XCTAssert(type == atomic1, "UInt32 AUInt32 with &-")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt32 AtomicUInt32 with &-")
+            XCTAssert(atomic1 == type, "AtomicUInt32 UInt32 with &-")
+            XCTAssert(type == atomic1, "UInt32 AtomicUInt32 with &-")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic = atomic &- 2
             type = type &- 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with &-")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with &-")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with &-")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with &-")
         }
         do {
-            var atomic1 = AUInt32(42)
-            let atomic2 = AUInt32(2)
+            var atomic1 = AtomicUInt32(42)
+            let atomic2 = AtomicUInt32(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &* atomic2
             type = type &* 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt32 AUInt32 with &*")
-            XCTAssert(atomic1 == type, "AUInt32 UInt32 with &*")
-            XCTAssert(type == atomic1, "UInt32 AUInt32 with &*")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt32 AtomicUInt32 with &*")
+            XCTAssert(atomic1 == type, "AtomicUInt32 UInt32 with &*")
+            XCTAssert(type == atomic1, "UInt32 AtomicUInt32 with &*")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic = atomic &* 2
             type = type &* 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with &*")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with &*")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with &*")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with &*")
         }
         do {
-            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AtomicUInt32(42), AtomicUInt32(42))
 
             atomic1 += 2
             atomic2 += 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt32 AUInt32 with +=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt32 AtomicUInt32 with +=")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic += 2
             type += 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with +=")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with +=")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with +=")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with +=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AtomicUInt32(42), AtomicUInt32(42))
 
             atomic1 -= 2
             atomic2 -= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt32 AUInt32 with -=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt32 AtomicUInt32 with -=")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic -= 2
             type -= 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with -=")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with -=")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with -=")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with -=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AtomicUInt32(42), AtomicUInt32(42))
 
             atomic1 *= 2
             atomic2 *= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt32 AUInt32 with *=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt32 AtomicUInt32 with *=")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic *= 2
             type *= 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with *=")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with *=")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with *=")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with *=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AtomicUInt32(42), AtomicUInt32(42))
 
             atomic1 /= 2
             atomic2 /= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt32 AUInt32 with /=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt32 AtomicUInt32 with /=")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic /= 2
             type /= 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with /=")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with /=")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with /=")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with /=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AtomicUInt32(42), AtomicUInt32(42))
 
             atomic1 %= 2
             atomic2 %= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt32 AUInt32 with %=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt32 AtomicUInt32 with %=")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic %= 2
             type %= 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with %=")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with %=")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with %=")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with %=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AtomicUInt32(42), AtomicUInt32(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt32 AUInt32 with <<=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt32 AtomicUInt32 with <<=")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic <<= 2
             type <<= 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with <<=")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with <<=")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with <<=")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with <<=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AtomicUInt32(42), AtomicUInt32(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt32 AUInt32 with >>=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt32 AtomicUInt32 with >>=")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic >>= 2
             type >>= 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with >>=")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with >>=")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with >>=")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with >>=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AtomicUInt32(42), AtomicUInt32(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt32 AUInt32 with ^=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt32 AtomicUInt32 with ^=")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic ^= 2
             type ^= 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with ^=")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with ^=")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with ^=")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with ^=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AtomicUInt32(42), AtomicUInt32(42))
 
             atomic1 |= 2
             atomic2 |= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt32 AUInt32 with |=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt32 AtomicUInt32 with |=")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic |= 2
             type |= 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with |=")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with |=")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with |=")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with |=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt32(42), AUInt32(42))
+            var (atomic1, atomic2) = (AtomicUInt32(42), AtomicUInt32(42))
 
             atomic1 &= 2
             atomic2 &= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt32 AUInt32 with &=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt32 AtomicUInt32 with &=")
         }
         do {
-            var (atomic, type) = (AUInt32(42), UInt32(42))
+            var (atomic, type) = (AtomicUInt32(42), UInt32(42))
 
             atomic &= 2
             type &= 2
 
-            XCTAssert(atomic == type, "AUInt32 UInt32 with &=")
-            XCTAssert(type == atomic, "UInt32 AUInt32 with &=")
+            XCTAssert(atomic == type, "AtomicUInt32 UInt32 with &=")
+            XCTAssert(type == atomic, "UInt32 AtomicUInt32 with &=")
         }
     }
 
@@ -4469,446 +4469,446 @@ class UInt64Tests: XCTestCase {
 
     func testAtomicUInt64() {
         do {
-            var atomic1 = AUInt64(42)
-            let atomic2 = AUInt64(2)
+            var atomic1 = AtomicUInt64(42)
+            let atomic2 = AtomicUInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt64 AUInt64 with +")
-            XCTAssert(atomic1 == type, "AUInt64 UInt64 with +")
-            XCTAssert(type == atomic1, "UInt64 AUInt64 with +")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt64 AtomicUInt64 with +")
+            XCTAssert(atomic1 == type, "AtomicUInt64 UInt64 with +")
+            XCTAssert(type == atomic1, "UInt64 AtomicUInt64 with +")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic = atomic + 2
             type = type + 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with +")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with +")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with +")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with +")
         }
         do {
-            var atomic1 = AUInt64(42)
-            let atomic2 = AUInt64(2)
+            var atomic1 = AtomicUInt64(42)
+            let atomic2 = AtomicUInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 - atomic2
             type = type - 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt64 AUInt64 with -")
-            XCTAssert(atomic1 == type, "AUInt64 UInt64 with -")
-            XCTAssert(type == atomic1, "UInt64 AUInt64 with -")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt64 AtomicUInt64 with -")
+            XCTAssert(atomic1 == type, "AtomicUInt64 UInt64 with -")
+            XCTAssert(type == atomic1, "UInt64 AtomicUInt64 with -")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic = atomic - 2
             type = type - 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with -")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with -")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with -")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with -")
         }
         do {
-            var atomic1 = AUInt64(42)
-            let atomic2 = AUInt64(2)
+            var atomic1 = AtomicUInt64(42)
+            let atomic2 = AtomicUInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 * atomic2
             type = type * 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt64 AUInt64 with *")
-            XCTAssert(atomic1 == type, "AUInt64 UInt64 with *")
-            XCTAssert(type == atomic1, "UInt64 AUInt64 with *")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt64 AtomicUInt64 with *")
+            XCTAssert(atomic1 == type, "AtomicUInt64 UInt64 with *")
+            XCTAssert(type == atomic1, "UInt64 AtomicUInt64 with *")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic = atomic * 2
             type = type * 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with *")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with *")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with *")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with *")
         }
         do {
-            var atomic1 = AUInt64(42)
-            let atomic2 = AUInt64(2)
+            var atomic1 = AtomicUInt64(42)
+            let atomic2 = AtomicUInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 / atomic2
             type = type / 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt64 AUInt64 with /")
-            XCTAssert(atomic1 == type, "AUInt64 UInt64 with /")
-            XCTAssert(type == atomic1, "UInt64 AUInt64 with /")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt64 AtomicUInt64 with /")
+            XCTAssert(atomic1 == type, "AtomicUInt64 UInt64 with /")
+            XCTAssert(type == atomic1, "UInt64 AtomicUInt64 with /")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic = atomic / 2
             type = type / 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with /")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with /")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with /")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with /")
         }
         do {
-            var atomic1 = AUInt64(42)
-            let atomic2 = AUInt64(2)
+            var atomic1 = AtomicUInt64(42)
+            let atomic2 = AtomicUInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 % atomic2
             type = type % 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt64 AUInt64 with %")
-            XCTAssert(atomic1 == type, "AUInt64 UInt64 with %")
-            XCTAssert(type == atomic1, "UInt64 AUInt64 with %")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt64 AtomicUInt64 with %")
+            XCTAssert(atomic1 == type, "AtomicUInt64 UInt64 with %")
+            XCTAssert(type == atomic1, "UInt64 AtomicUInt64 with %")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic = atomic % 2
             type = type % 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with %")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with %")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with %")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with %")
         }
         do {
-            var atomic1 = AUInt64(42)
-            let atomic2 = AUInt64(2)
+            var atomic1 = AtomicUInt64(42)
+            let atomic2 = AtomicUInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 << atomic2
             type = type << 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt64 AUInt64 with <<")
-            XCTAssert(atomic1 == type, "AUInt64 UInt64 with <<")
-            XCTAssert(type == atomic1, "UInt64 AUInt64 with <<")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt64 AtomicUInt64 with <<")
+            XCTAssert(atomic1 == type, "AtomicUInt64 UInt64 with <<")
+            XCTAssert(type == atomic1, "UInt64 AtomicUInt64 with <<")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic = atomic << 2
             type = type << 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with <<")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with <<")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with <<")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with <<")
         }
         do {
-            var atomic1 = AUInt64(42)
-            let atomic2 = AUInt64(2)
+            var atomic1 = AtomicUInt64(42)
+            let atomic2 = AtomicUInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 >> atomic2
             type = type >> 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt64 AUInt64 with >>")
-            XCTAssert(atomic1 == type, "AUInt64 UInt64 with >>")
-            XCTAssert(type == atomic1, "UInt64 AUInt64 with >>")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt64 AtomicUInt64 with >>")
+            XCTAssert(atomic1 == type, "AtomicUInt64 UInt64 with >>")
+            XCTAssert(type == atomic1, "UInt64 AtomicUInt64 with >>")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic = atomic >> 2
             type = type >> 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with >>")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with >>")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with >>")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with >>")
         }
         do {
-            var atomic1 = AUInt64(42)
-            let atomic2 = AUInt64(2)
+            var atomic1 = AtomicUInt64(42)
+            let atomic2 = AtomicUInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 ^ atomic2
             type = type ^ 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt64 AUInt64 with ^")
-            XCTAssert(atomic1 == type, "AUInt64 UInt64 with ^")
-            XCTAssert(type == atomic1, "UInt64 AUInt64 with ^")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt64 AtomicUInt64 with ^")
+            XCTAssert(atomic1 == type, "AtomicUInt64 UInt64 with ^")
+            XCTAssert(type == atomic1, "UInt64 AtomicUInt64 with ^")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic = atomic ^ 2
             type = type ^ 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with ^")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with ^")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with ^")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with ^")
         }
         do {
-            var atomic1 = AUInt64(42)
-            let atomic2 = AUInt64(2)
+            var atomic1 = AtomicUInt64(42)
+            let atomic2 = AtomicUInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 | atomic2
             type = type | 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt64 AUInt64 with |")
-            XCTAssert(atomic1 == type, "AUInt64 UInt64 with |")
-            XCTAssert(type == atomic1, "UInt64 AUInt64 with |")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt64 AtomicUInt64 with |")
+            XCTAssert(atomic1 == type, "AtomicUInt64 UInt64 with |")
+            XCTAssert(type == atomic1, "UInt64 AtomicUInt64 with |")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic = atomic | 2
             type = type | 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with |")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with |")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with |")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with |")
         }
         do {
-            var atomic1 = AUInt64(42)
-            let atomic2 = AUInt64(2)
+            var atomic1 = AtomicUInt64(42)
+            let atomic2 = AtomicUInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 & atomic2
             type = type & 2
 
-            XCTAssert(atomic1 == type, "AUInt64 UInt64 with &")
-            XCTAssert(type == atomic1, "UInt64 AUInt64 with &")
+            XCTAssert(atomic1 == type, "AtomicUInt64 UInt64 with &")
+            XCTAssert(type == atomic1, "UInt64 AtomicUInt64 with &")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic = atomic & 2
             type = type & 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with &")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with &")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with &")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with &")
         }
         do {
-            var atomic1 = AUInt64(42)
-            let atomic2 = AUInt64(2)
+            var atomic1 = AtomicUInt64(42)
+            let atomic2 = AtomicUInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &+ atomic2
             type = type &+ 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt64 AUInt64 with &+")
-            XCTAssert(atomic1 == type, "AUInt64 UInt64 with &+")
-            XCTAssert(type == atomic1, "UInt64 AUInt64 with &+")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt64 AtomicUInt64 with &+")
+            XCTAssert(atomic1 == type, "AtomicUInt64 UInt64 with &+")
+            XCTAssert(type == atomic1, "UInt64 AtomicUInt64 with &+")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic = atomic &+ 2
             type = type &+ 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with &+")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with &+")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with &+")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with &+")
         }
         do {
-            var atomic1 = AUInt64(42)
-            let atomic2 = AUInt64(2)
+            var atomic1 = AtomicUInt64(42)
+            let atomic2 = AtomicUInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &- atomic2
             type = type &- 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt64 AUInt64 with &-")
-            XCTAssert(atomic1 == type, "AUInt64 UInt64 with &-")
-            XCTAssert(type == atomic1, "UInt64 AUInt64 with &-")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt64 AtomicUInt64 with &-")
+            XCTAssert(atomic1 == type, "AtomicUInt64 UInt64 with &-")
+            XCTAssert(type == atomic1, "UInt64 AtomicUInt64 with &-")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic = atomic &- 2
             type = type &- 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with &-")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with &-")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with &-")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with &-")
         }
         do {
-            var atomic1 = AUInt64(42)
-            let atomic2 = AUInt64(2)
+            var atomic1 = AtomicUInt64(42)
+            let atomic2 = AtomicUInt64(2)
             var type = atomic1.value
 
             atomic1 = atomic1 &* atomic2
             type = type &* 2
 
-            XCTAssert(atomic1 != atomic2, "AUInt64 AUInt64 with &*")
-            XCTAssert(atomic1 == type, "AUInt64 UInt64 with &*")
-            XCTAssert(type == atomic1, "UInt64 AUInt64 with &*")
+            XCTAssert(atomic1 != atomic2, "AtomicUInt64 AtomicUInt64 with &*")
+            XCTAssert(atomic1 == type, "AtomicUInt64 UInt64 with &*")
+            XCTAssert(type == atomic1, "UInt64 AtomicUInt64 with &*")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic = atomic &* 2
             type = type &* 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with &*")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with &*")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with &*")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with &*")
         }
         do {
-            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AtomicUInt64(42), AtomicUInt64(42))
 
             atomic1 += 2
             atomic2 += 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt64 AUInt64 with +=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt64 AtomicUInt64 with +=")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic += 2
             type += 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with +=")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with +=")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with +=")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with +=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AtomicUInt64(42), AtomicUInt64(42))
 
             atomic1 -= 2
             atomic2 -= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt64 AUInt64 with -=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt64 AtomicUInt64 with -=")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic -= 2
             type -= 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with -=")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with -=")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with -=")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with -=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AtomicUInt64(42), AtomicUInt64(42))
 
             atomic1 *= 2
             atomic2 *= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt64 AUInt64 with *=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt64 AtomicUInt64 with *=")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic *= 2
             type *= 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with *=")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with *=")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with *=")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with *=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AtomicUInt64(42), AtomicUInt64(42))
 
             atomic1 /= 2
             atomic2 /= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt64 AUInt64 with /=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt64 AtomicUInt64 with /=")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic /= 2
             type /= 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with /=")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with /=")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with /=")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with /=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AtomicUInt64(42), AtomicUInt64(42))
 
             atomic1 %= 2
             atomic2 %= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt64 AUInt64 with %=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt64 AtomicUInt64 with %=")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic %= 2
             type %= 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with %=")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with %=")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with %=")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with %=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AtomicUInt64(42), AtomicUInt64(42))
 
             atomic1 <<= 2
             atomic2 <<= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt64 AUInt64 with <<=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt64 AtomicUInt64 with <<=")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic <<= 2
             type <<= 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with <<=")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with <<=")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with <<=")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with <<=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AtomicUInt64(42), AtomicUInt64(42))
 
             atomic1 >>= 2
             atomic2 >>= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt64 AUInt64 with >>=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt64 AtomicUInt64 with >>=")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic >>= 2
             type >>= 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with >>=")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with >>=")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with >>=")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with >>=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AtomicUInt64(42), AtomicUInt64(42))
 
             atomic1 ^= 2
             atomic2 ^= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt64 AUInt64 with ^=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt64 AtomicUInt64 with ^=")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic ^= 2
             type ^= 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with ^=")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with ^=")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with ^=")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with ^=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AtomicUInt64(42), AtomicUInt64(42))
 
             atomic1 |= 2
             atomic2 |= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt64 AUInt64 with |=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt64 AtomicUInt64 with |=")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic |= 2
             type |= 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with |=")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with |=")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with |=")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with |=")
         }
         do {
-            var (atomic1, atomic2) = (AUInt64(42), AUInt64(42))
+            var (atomic1, atomic2) = (AtomicUInt64(42), AtomicUInt64(42))
 
             atomic1 &= 2
             atomic2 &= 2
 
-            XCTAssert(atomic1 == atomic2, "AUInt64 AUInt64 with &=")
+            XCTAssert(atomic1 == atomic2, "AtomicUInt64 AtomicUInt64 with &=")
         }
         do {
-            var (atomic, type) = (AUInt64(42), UInt64(42))
+            var (atomic, type) = (AtomicUInt64(42), UInt64(42))
 
             atomic &= 2
             type &= 2
 
-            XCTAssert(atomic == type, "AUInt64 UInt64 with &=")
-            XCTAssert(type == atomic, "UInt64 AUInt64 with &=")
+            XCTAssert(atomic == type, "AtomicUInt64 UInt64 with &=")
+            XCTAssert(type == atomic, "UInt64 AtomicUInt64 with &=")
         }
     }
 
@@ -4933,190 +4933,190 @@ class DoubleTests: XCTestCase {
 
     func testAtomicDouble() {
         do {
-            var atomic1 = ADouble(42)
-            let atomic2 = ADouble(2)
+            var atomic1 = AtomicDouble(42)
+            let atomic2 = AtomicDouble(2)
             var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + 2
 
-            XCTAssert(atomic1 != atomic2, "ADouble ADouble with +")
-            XCTAssert(atomic1 == type, "ADouble Double with +")
-            XCTAssert(type == atomic1, "Double ADouble with +")
+            XCTAssert(atomic1 != atomic2, "AtomicDouble AtomicDouble with +")
+            XCTAssert(atomic1 == type, "AtomicDouble Double with +")
+            XCTAssert(type == atomic1, "Double AtomicDouble with +")
         }
         do {
-            var (atomic, type) = (ADouble(42), Double(42))
+            var (atomic, type) = (AtomicDouble(42), Double(42))
 
             atomic = atomic + 2
             type = type + 2
 
-            XCTAssert(atomic == type, "ADouble Double with +")
-            XCTAssert(type == atomic, "Double ADouble with +")
+            XCTAssert(atomic == type, "AtomicDouble Double with +")
+            XCTAssert(type == atomic, "Double AtomicDouble with +")
         }
         do {
-            var atomic1 = ADouble(42)
-            let atomic2 = ADouble(2)
+            var atomic1 = AtomicDouble(42)
+            let atomic2 = AtomicDouble(2)
             var type = atomic1.value
 
             atomic1 = atomic1 - atomic2
             type = type - 2
 
-            XCTAssert(atomic1 != atomic2, "ADouble ADouble with -")
-            XCTAssert(atomic1 == type, "ADouble Double with -")
-            XCTAssert(type == atomic1, "Double ADouble with -")
+            XCTAssert(atomic1 != atomic2, "AtomicDouble AtomicDouble with -")
+            XCTAssert(atomic1 == type, "AtomicDouble Double with -")
+            XCTAssert(type == atomic1, "Double AtomicDouble with -")
         }
         do {
-            var (atomic, type) = (ADouble(42), Double(42))
+            var (atomic, type) = (AtomicDouble(42), Double(42))
 
             atomic = atomic - 2
             type = type - 2
 
-            XCTAssert(atomic == type, "ADouble Double with -")
-            XCTAssert(type == atomic, "Double ADouble with -")
+            XCTAssert(atomic == type, "AtomicDouble Double with -")
+            XCTAssert(type == atomic, "Double AtomicDouble with -")
         }
         do {
-            var atomic1 = ADouble(42)
-            let atomic2 = ADouble(2)
+            var atomic1 = AtomicDouble(42)
+            let atomic2 = AtomicDouble(2)
             var type = atomic1.value
 
             atomic1 = atomic1 * atomic2
             type = type * 2
 
-            XCTAssert(atomic1 != atomic2, "ADouble ADouble with *")
-            XCTAssert(atomic1 == type, "ADouble Double with *")
-            XCTAssert(type == atomic1, "Double ADouble with *")
+            XCTAssert(atomic1 != atomic2, "AtomicDouble AtomicDouble with *")
+            XCTAssert(atomic1 == type, "AtomicDouble Double with *")
+            XCTAssert(type == atomic1, "Double AtomicDouble with *")
         }
         do {
-            var (atomic, type) = (ADouble(42), Double(42))
+            var (atomic, type) = (AtomicDouble(42), Double(42))
 
             atomic = atomic * 2
             type = type * 2
 
-            XCTAssert(atomic == type, "ADouble Double with *")
-            XCTAssert(type == atomic, "Double ADouble with *")
+            XCTAssert(atomic == type, "AtomicDouble Double with *")
+            XCTAssert(type == atomic, "Double AtomicDouble with *")
         }
         do {
-            var atomic1 = ADouble(42)
-            let atomic2 = ADouble(2)
+            var atomic1 = AtomicDouble(42)
+            let atomic2 = AtomicDouble(2)
             var type = atomic1.value
 
             atomic1 = atomic1 / atomic2
             type = type / 2
 
-            XCTAssert(atomic1 != atomic2, "ADouble ADouble with /")
-            XCTAssert(atomic1 == type, "ADouble Double with /")
-            XCTAssert(type == atomic1, "Double ADouble with /")
+            XCTAssert(atomic1 != atomic2, "AtomicDouble AtomicDouble with /")
+            XCTAssert(atomic1 == type, "AtomicDouble Double with /")
+            XCTAssert(type == atomic1, "Double AtomicDouble with /")
         }
         do {
-            var (atomic, type) = (ADouble(42), Double(42))
+            var (atomic, type) = (AtomicDouble(42), Double(42))
 
             atomic = atomic / 2
             type = type / 2
 
-            XCTAssert(atomic == type, "ADouble Double with /")
-            XCTAssert(type == atomic, "Double ADouble with /")
+            XCTAssert(atomic == type, "AtomicDouble Double with /")
+            XCTAssert(type == atomic, "Double AtomicDouble with /")
         }
         do {
-            var (atomic1, atomic2) = (ADouble(42), ADouble(42))
+            var (atomic1, atomic2) = (AtomicDouble(42), AtomicDouble(42))
 
             atomic1 += 2
             atomic2 += 2
 
-            XCTAssert(atomic1 == atomic2, "ADouble ADouble with +=")
+            XCTAssert(atomic1 == atomic2, "AtomicDouble AtomicDouble with +=")
         }
         do {
-            var (atomic, type) = (ADouble(42), Double(42))
+            var (atomic, type) = (AtomicDouble(42), Double(42))
 
             atomic += 2
             type += 2
 
-            XCTAssert(atomic == type, "ADouble Double with +=")
-            XCTAssert(type == atomic, "Double ADouble with +=")
+            XCTAssert(atomic == type, "AtomicDouble Double with +=")
+            XCTAssert(type == atomic, "Double AtomicDouble with +=")
         }
         do {
-            var (atomic1, atomic2) = (ADouble(42), ADouble(42))
+            var (atomic1, atomic2) = (AtomicDouble(42), AtomicDouble(42))
 
             atomic1 -= 2
             atomic2 -= 2
 
-            XCTAssert(atomic1 == atomic2, "ADouble ADouble with -=")
+            XCTAssert(atomic1 == atomic2, "AtomicDouble AtomicDouble with -=")
         }
         do {
-            var (atomic, type) = (ADouble(42), Double(42))
+            var (atomic, type) = (AtomicDouble(42), Double(42))
 
             atomic -= 2
             type -= 2
 
-            XCTAssert(atomic == type, "ADouble Double with -=")
-            XCTAssert(type == atomic, "Double ADouble with -=")
+            XCTAssert(atomic == type, "AtomicDouble Double with -=")
+            XCTAssert(type == atomic, "Double AtomicDouble with -=")
         }
         do {
-            var (atomic1, atomic2) = (ADouble(42), ADouble(42))
+            var (atomic1, atomic2) = (AtomicDouble(42), AtomicDouble(42))
 
             atomic1 *= 2
             atomic2 *= 2
 
-            XCTAssert(atomic1 == atomic2, "ADouble ADouble with *=")
+            XCTAssert(atomic1 == atomic2, "AtomicDouble AtomicDouble with *=")
         }
         do {
-            var (atomic, type) = (ADouble(42), Double(42))
+            var (atomic, type) = (AtomicDouble(42), Double(42))
 
             atomic *= 2
             type *= 2
 
-            XCTAssert(atomic == type, "ADouble Double with *=")
-            XCTAssert(type == atomic, "Double ADouble with *=")
+            XCTAssert(atomic == type, "AtomicDouble Double with *=")
+            XCTAssert(type == atomic, "Double AtomicDouble with *=")
         }
         do {
-            var (atomic1, atomic2) = (ADouble(42), ADouble(42))
+            var (atomic1, atomic2) = (AtomicDouble(42), AtomicDouble(42))
 
             atomic1 /= 2
             atomic2 /= 2
 
-            XCTAssert(atomic1 == atomic2, "ADouble ADouble with /=")
+            XCTAssert(atomic1 == atomic2, "AtomicDouble AtomicDouble with /=")
         }
         do {
-            var (atomic, type) = (ADouble(42), Double(42))
+            var (atomic, type) = (AtomicDouble(42), Double(42))
 
             atomic /= 2
             type /= 2
 
-            XCTAssert(atomic == type, "ADouble Double with /=")
-            XCTAssert(type == atomic, "Double ADouble with /=")
+            XCTAssert(atomic == type, "AtomicDouble Double with /=")
+            XCTAssert(type == atomic, "Double AtomicDouble with /=")
         }
         do {
-            var (atomic1, atomic2) = (ADouble(42), ADouble(42))
+            var (atomic1, atomic2) = (AtomicDouble(42), AtomicDouble(42))
 
             atomic1 = +atomic1
             atomic2 = +atomic2
 
-            XCTAssert(atomic1 == atomic2, "ADouble ADouble with +")
+            XCTAssert(atomic1 == atomic2, "AtomicDouble AtomicDouble with +")
         }
         do {
-            var (atomic, type) = (ADouble(42), Double(42))
+            var (atomic, type) = (AtomicDouble(42), Double(42))
 
             atomic = +atomic
             type = +type
 
-            XCTAssert(atomic == type, "ADouble Double with +")
-            XCTAssert(type == atomic, "Double ADouble with +")
+            XCTAssert(atomic == type, "AtomicDouble Double with +")
+            XCTAssert(type == atomic, "Double AtomicDouble with +")
         }
         do {
-            var (atomic1, atomic2) = (ADouble(42), ADouble(42))
+            var (atomic1, atomic2) = (AtomicDouble(42), AtomicDouble(42))
 
             atomic1 = -atomic1
             atomic2 = -atomic2
 
-            XCTAssert(atomic1 == atomic2, "ADouble ADouble with -")
+            XCTAssert(atomic1 == atomic2, "AtomicDouble AtomicDouble with -")
         }
         do {
-            var (atomic, type) = (ADouble(42), Double(42))
+            var (atomic, type) = (AtomicDouble(42), Double(42))
 
             atomic = -atomic
             type = -type
 
-            XCTAssert(atomic == type, "ADouble Double with -")
-            XCTAssert(type == atomic, "Double ADouble with -")
+            XCTAssert(atomic == type, "AtomicDouble Double with -")
+            XCTAssert(type == atomic, "Double AtomicDouble with -")
         }
     }
 
@@ -5141,190 +5141,190 @@ class FloatTests: XCTestCase {
 
     func testAtomicFloat() {
         do {
-            var atomic1 = AFloat(42)
-            let atomic2 = AFloat(2)
+            var atomic1 = AtomicFloat(42)
+            let atomic2 = AtomicFloat(2)
             var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + 2
 
-            XCTAssert(atomic1 != atomic2, "AFloat AFloat with +")
-            XCTAssert(atomic1 == type, "AFloat Float with +")
-            XCTAssert(type == atomic1, "Float AFloat with +")
+            XCTAssert(atomic1 != atomic2, "AtomicFloat AtomicFloat with +")
+            XCTAssert(atomic1 == type, "AtomicFloat Float with +")
+            XCTAssert(type == atomic1, "Float AtomicFloat with +")
         }
         do {
-            var (atomic, type) = (AFloat(42), Float(42))
+            var (atomic, type) = (AtomicFloat(42), Float(42))
 
             atomic = atomic + 2
             type = type + 2
 
-            XCTAssert(atomic == type, "AFloat Float with +")
-            XCTAssert(type == atomic, "Float AFloat with +")
+            XCTAssert(atomic == type, "AtomicFloat Float with +")
+            XCTAssert(type == atomic, "Float AtomicFloat with +")
         }
         do {
-            var atomic1 = AFloat(42)
-            let atomic2 = AFloat(2)
+            var atomic1 = AtomicFloat(42)
+            let atomic2 = AtomicFloat(2)
             var type = atomic1.value
 
             atomic1 = atomic1 - atomic2
             type = type - 2
 
-            XCTAssert(atomic1 != atomic2, "AFloat AFloat with -")
-            XCTAssert(atomic1 == type, "AFloat Float with -")
-            XCTAssert(type == atomic1, "Float AFloat with -")
+            XCTAssert(atomic1 != atomic2, "AtomicFloat AtomicFloat with -")
+            XCTAssert(atomic1 == type, "AtomicFloat Float with -")
+            XCTAssert(type == atomic1, "Float AtomicFloat with -")
         }
         do {
-            var (atomic, type) = (AFloat(42), Float(42))
+            var (atomic, type) = (AtomicFloat(42), Float(42))
 
             atomic = atomic - 2
             type = type - 2
 
-            XCTAssert(atomic == type, "AFloat Float with -")
-            XCTAssert(type == atomic, "Float AFloat with -")
+            XCTAssert(atomic == type, "AtomicFloat Float with -")
+            XCTAssert(type == atomic, "Float AtomicFloat with -")
         }
         do {
-            var atomic1 = AFloat(42)
-            let atomic2 = AFloat(2)
+            var atomic1 = AtomicFloat(42)
+            let atomic2 = AtomicFloat(2)
             var type = atomic1.value
 
             atomic1 = atomic1 * atomic2
             type = type * 2
 
-            XCTAssert(atomic1 != atomic2, "AFloat AFloat with *")
-            XCTAssert(atomic1 == type, "AFloat Float with *")
-            XCTAssert(type == atomic1, "Float AFloat with *")
+            XCTAssert(atomic1 != atomic2, "AtomicFloat AtomicFloat with *")
+            XCTAssert(atomic1 == type, "AtomicFloat Float with *")
+            XCTAssert(type == atomic1, "Float AtomicFloat with *")
         }
         do {
-            var (atomic, type) = (AFloat(42), Float(42))
+            var (atomic, type) = (AtomicFloat(42), Float(42))
 
             atomic = atomic * 2
             type = type * 2
 
-            XCTAssert(atomic == type, "AFloat Float with *")
-            XCTAssert(type == atomic, "Float AFloat with *")
+            XCTAssert(atomic == type, "AtomicFloat Float with *")
+            XCTAssert(type == atomic, "Float AtomicFloat with *")
         }
         do {
-            var atomic1 = AFloat(42)
-            let atomic2 = AFloat(2)
+            var atomic1 = AtomicFloat(42)
+            let atomic2 = AtomicFloat(2)
             var type = atomic1.value
 
             atomic1 = atomic1 / atomic2
             type = type / 2
 
-            XCTAssert(atomic1 != atomic2, "AFloat AFloat with /")
-            XCTAssert(atomic1 == type, "AFloat Float with /")
-            XCTAssert(type == atomic1, "Float AFloat with /")
+            XCTAssert(atomic1 != atomic2, "AtomicFloat AtomicFloat with /")
+            XCTAssert(atomic1 == type, "AtomicFloat Float with /")
+            XCTAssert(type == atomic1, "Float AtomicFloat with /")
         }
         do {
-            var (atomic, type) = (AFloat(42), Float(42))
+            var (atomic, type) = (AtomicFloat(42), Float(42))
 
             atomic = atomic / 2
             type = type / 2
 
-            XCTAssert(atomic == type, "AFloat Float with /")
-            XCTAssert(type == atomic, "Float AFloat with /")
+            XCTAssert(atomic == type, "AtomicFloat Float with /")
+            XCTAssert(type == atomic, "Float AtomicFloat with /")
         }
         do {
-            var (atomic1, atomic2) = (AFloat(42), AFloat(42))
+            var (atomic1, atomic2) = (AtomicFloat(42), AtomicFloat(42))
 
             atomic1 += 2
             atomic2 += 2
 
-            XCTAssert(atomic1 == atomic2, "AFloat AFloat with +=")
+            XCTAssert(atomic1 == atomic2, "AtomicFloat AtomicFloat with +=")
         }
         do {
-            var (atomic, type) = (AFloat(42), Float(42))
+            var (atomic, type) = (AtomicFloat(42), Float(42))
 
             atomic += 2
             type += 2
 
-            XCTAssert(atomic == type, "AFloat Float with +=")
-            XCTAssert(type == atomic, "Float AFloat with +=")
+            XCTAssert(atomic == type, "AtomicFloat Float with +=")
+            XCTAssert(type == atomic, "Float AtomicFloat with +=")
         }
         do {
-            var (atomic1, atomic2) = (AFloat(42), AFloat(42))
+            var (atomic1, atomic2) = (AtomicFloat(42), AtomicFloat(42))
 
             atomic1 -= 2
             atomic2 -= 2
 
-            XCTAssert(atomic1 == atomic2, "AFloat AFloat with -=")
+            XCTAssert(atomic1 == atomic2, "AtomicFloat AtomicFloat with -=")
         }
         do {
-            var (atomic, type) = (AFloat(42), Float(42))
+            var (atomic, type) = (AtomicFloat(42), Float(42))
 
             atomic -= 2
             type -= 2
 
-            XCTAssert(atomic == type, "AFloat Float with -=")
-            XCTAssert(type == atomic, "Float AFloat with -=")
+            XCTAssert(atomic == type, "AtomicFloat Float with -=")
+            XCTAssert(type == atomic, "Float AtomicFloat with -=")
         }
         do {
-            var (atomic1, atomic2) = (AFloat(42), AFloat(42))
+            var (atomic1, atomic2) = (AtomicFloat(42), AtomicFloat(42))
 
             atomic1 *= 2
             atomic2 *= 2
 
-            XCTAssert(atomic1 == atomic2, "AFloat AFloat with *=")
+            XCTAssert(atomic1 == atomic2, "AtomicFloat AtomicFloat with *=")
         }
         do {
-            var (atomic, type) = (AFloat(42), Float(42))
+            var (atomic, type) = (AtomicFloat(42), Float(42))
 
             atomic *= 2
             type *= 2
 
-            XCTAssert(atomic == type, "AFloat Float with *=")
-            XCTAssert(type == atomic, "Float AFloat with *=")
+            XCTAssert(atomic == type, "AtomicFloat Float with *=")
+            XCTAssert(type == atomic, "Float AtomicFloat with *=")
         }
         do {
-            var (atomic1, atomic2) = (AFloat(42), AFloat(42))
+            var (atomic1, atomic2) = (AtomicFloat(42), AtomicFloat(42))
 
             atomic1 /= 2
             atomic2 /= 2
 
-            XCTAssert(atomic1 == atomic2, "AFloat AFloat with /=")
+            XCTAssert(atomic1 == atomic2, "AtomicFloat AtomicFloat with /=")
         }
         do {
-            var (atomic, type) = (AFloat(42), Float(42))
+            var (atomic, type) = (AtomicFloat(42), Float(42))
 
             atomic /= 2
             type /= 2
 
-            XCTAssert(atomic == type, "AFloat Float with /=")
-            XCTAssert(type == atomic, "Float AFloat with /=")
+            XCTAssert(atomic == type, "AtomicFloat Float with /=")
+            XCTAssert(type == atomic, "Float AtomicFloat with /=")
         }
         do {
-            var (atomic1, atomic2) = (AFloat(42), AFloat(42))
+            var (atomic1, atomic2) = (AtomicFloat(42), AtomicFloat(42))
 
             atomic1 = +atomic1
             atomic2 = +atomic2
 
-            XCTAssert(atomic1 == atomic2, "AFloat AFloat with +")
+            XCTAssert(atomic1 == atomic2, "AtomicFloat AtomicFloat with +")
         }
         do {
-            var (atomic, type) = (AFloat(42), Float(42))
+            var (atomic, type) = (AtomicFloat(42), Float(42))
 
             atomic = +atomic
             type = +type
 
-            XCTAssert(atomic == type, "AFloat Float with +")
-            XCTAssert(type == atomic, "Float AFloat with +")
+            XCTAssert(atomic == type, "AtomicFloat Float with +")
+            XCTAssert(type == atomic, "Float AtomicFloat with +")
         }
         do {
-            var (atomic1, atomic2) = (AFloat(42), AFloat(42))
+            var (atomic1, atomic2) = (AtomicFloat(42), AtomicFloat(42))
 
             atomic1 = -atomic1
             atomic2 = -atomic2
 
-            XCTAssert(atomic1 == atomic2, "AFloat AFloat with -")
+            XCTAssert(atomic1 == atomic2, "AtomicFloat AtomicFloat with -")
         }
         do {
-            var (atomic, type) = (AFloat(42), Float(42))
+            var (atomic, type) = (AtomicFloat(42), Float(42))
 
             atomic = -atomic
             type = -type
 
-            XCTAssert(atomic == type, "AFloat Float with -")
-            XCTAssert(type == atomic, "Float AFloat with -")
+            XCTAssert(atomic == type, "AtomicFloat Float with -")
+            XCTAssert(type == atomic, "Float AtomicFloat with -")
         }
     }
 
@@ -5349,190 +5349,190 @@ class Float80Tests: XCTestCase {
 
     func testAtomicFloat80() {
         do {
-            var atomic1 = AFloat80(42)
-            let atomic2 = AFloat80(2)
+            var atomic1 = AtomicFloat80(42)
+            let atomic2 = AtomicFloat80(2)
             var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + 2
 
-            XCTAssert(atomic1 != atomic2, "AFloat80 AFloat80 with +")
-            XCTAssert(atomic1 == type, "AFloat80 Float80 with +")
-            XCTAssert(type == atomic1, "Float80 AFloat80 with +")
+            XCTAssert(atomic1 != atomic2, "AtomicFloat80 AtomicFloat80 with +")
+            XCTAssert(atomic1 == type, "AtomicFloat80 Float80 with +")
+            XCTAssert(type == atomic1, "Float80 AtomicFloat80 with +")
         }
         do {
-            var (atomic, type) = (AFloat80(42), Float80(42))
+            var (atomic, type) = (AtomicFloat80(42), Float80(42))
 
             atomic = atomic + 2
             type = type + 2
 
-            XCTAssert(atomic == type, "AFloat80 Float80 with +")
-            XCTAssert(type == atomic, "Float80 AFloat80 with +")
+            XCTAssert(atomic == type, "AtomicFloat80 Float80 with +")
+            XCTAssert(type == atomic, "Float80 AtomicFloat80 with +")
         }
         do {
-            var atomic1 = AFloat80(42)
-            let atomic2 = AFloat80(2)
+            var atomic1 = AtomicFloat80(42)
+            let atomic2 = AtomicFloat80(2)
             var type = atomic1.value
 
             atomic1 = atomic1 - atomic2
             type = type - 2
 
-            XCTAssert(atomic1 != atomic2, "AFloat80 AFloat80 with -")
-            XCTAssert(atomic1 == type, "AFloat80 Float80 with -")
-            XCTAssert(type == atomic1, "Float80 AFloat80 with -")
+            XCTAssert(atomic1 != atomic2, "AtomicFloat80 AtomicFloat80 with -")
+            XCTAssert(atomic1 == type, "AtomicFloat80 Float80 with -")
+            XCTAssert(type == atomic1, "Float80 AtomicFloat80 with -")
         }
         do {
-            var (atomic, type) = (AFloat80(42), Float80(42))
+            var (atomic, type) = (AtomicFloat80(42), Float80(42))
 
             atomic = atomic - 2
             type = type - 2
 
-            XCTAssert(atomic == type, "AFloat80 Float80 with -")
-            XCTAssert(type == atomic, "Float80 AFloat80 with -")
+            XCTAssert(atomic == type, "AtomicFloat80 Float80 with -")
+            XCTAssert(type == atomic, "Float80 AtomicFloat80 with -")
         }
         do {
-            var atomic1 = AFloat80(42)
-            let atomic2 = AFloat80(2)
+            var atomic1 = AtomicFloat80(42)
+            let atomic2 = AtomicFloat80(2)
             var type = atomic1.value
 
             atomic1 = atomic1 * atomic2
             type = type * 2
 
-            XCTAssert(atomic1 != atomic2, "AFloat80 AFloat80 with *")
-            XCTAssert(atomic1 == type, "AFloat80 Float80 with *")
-            XCTAssert(type == atomic1, "Float80 AFloat80 with *")
+            XCTAssert(atomic1 != atomic2, "AtomicFloat80 AtomicFloat80 with *")
+            XCTAssert(atomic1 == type, "AtomicFloat80 Float80 with *")
+            XCTAssert(type == atomic1, "Float80 AtomicFloat80 with *")
         }
         do {
-            var (atomic, type) = (AFloat80(42), Float80(42))
+            var (atomic, type) = (AtomicFloat80(42), Float80(42))
 
             atomic = atomic * 2
             type = type * 2
 
-            XCTAssert(atomic == type, "AFloat80 Float80 with *")
-            XCTAssert(type == atomic, "Float80 AFloat80 with *")
+            XCTAssert(atomic == type, "AtomicFloat80 Float80 with *")
+            XCTAssert(type == atomic, "Float80 AtomicFloat80 with *")
         }
         do {
-            var atomic1 = AFloat80(42)
-            let atomic2 = AFloat80(2)
+            var atomic1 = AtomicFloat80(42)
+            let atomic2 = AtomicFloat80(2)
             var type = atomic1.value
 
             atomic1 = atomic1 / atomic2
             type = type / 2
 
-            XCTAssert(atomic1 != atomic2, "AFloat80 AFloat80 with /")
-            XCTAssert(atomic1 == type, "AFloat80 Float80 with /")
-            XCTAssert(type == atomic1, "Float80 AFloat80 with /")
+            XCTAssert(atomic1 != atomic2, "AtomicFloat80 AtomicFloat80 with /")
+            XCTAssert(atomic1 == type, "AtomicFloat80 Float80 with /")
+            XCTAssert(type == atomic1, "Float80 AtomicFloat80 with /")
         }
         do {
-            var (atomic, type) = (AFloat80(42), Float80(42))
+            var (atomic, type) = (AtomicFloat80(42), Float80(42))
 
             atomic = atomic / 2
             type = type / 2
 
-            XCTAssert(atomic == type, "AFloat80 Float80 with /")
-            XCTAssert(type == atomic, "Float80 AFloat80 with /")
+            XCTAssert(atomic == type, "AtomicFloat80 Float80 with /")
+            XCTAssert(type == atomic, "Float80 AtomicFloat80 with /")
         }
         do {
-            var (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
+            var (atomic1, atomic2) = (AtomicFloat80(42), AtomicFloat80(42))
 
             atomic1 += 2
             atomic2 += 2
 
-            XCTAssert(atomic1 == atomic2, "AFloat80 AFloat80 with +=")
+            XCTAssert(atomic1 == atomic2, "AtomicFloat80 AtomicFloat80 with +=")
         }
         do {
-            var (atomic, type) = (AFloat80(42), Float80(42))
+            var (atomic, type) = (AtomicFloat80(42), Float80(42))
 
             atomic += 2
             type += 2
 
-            XCTAssert(atomic == type, "AFloat80 Float80 with +=")
-            XCTAssert(type == atomic, "Float80 AFloat80 with +=")
+            XCTAssert(atomic == type, "AtomicFloat80 Float80 with +=")
+            XCTAssert(type == atomic, "Float80 AtomicFloat80 with +=")
         }
         do {
-            var (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
+            var (atomic1, atomic2) = (AtomicFloat80(42), AtomicFloat80(42))
 
             atomic1 -= 2
             atomic2 -= 2
 
-            XCTAssert(atomic1 == atomic2, "AFloat80 AFloat80 with -=")
+            XCTAssert(atomic1 == atomic2, "AtomicFloat80 AtomicFloat80 with -=")
         }
         do {
-            var (atomic, type) = (AFloat80(42), Float80(42))
+            var (atomic, type) = (AtomicFloat80(42), Float80(42))
 
             atomic -= 2
             type -= 2
 
-            XCTAssert(atomic == type, "AFloat80 Float80 with -=")
-            XCTAssert(type == atomic, "Float80 AFloat80 with -=")
+            XCTAssert(atomic == type, "AtomicFloat80 Float80 with -=")
+            XCTAssert(type == atomic, "Float80 AtomicFloat80 with -=")
         }
         do {
-            var (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
+            var (atomic1, atomic2) = (AtomicFloat80(42), AtomicFloat80(42))
 
             atomic1 *= 2
             atomic2 *= 2
 
-            XCTAssert(atomic1 == atomic2, "AFloat80 AFloat80 with *=")
+            XCTAssert(atomic1 == atomic2, "AtomicFloat80 AtomicFloat80 with *=")
         }
         do {
-            var (atomic, type) = (AFloat80(42), Float80(42))
+            var (atomic, type) = (AtomicFloat80(42), Float80(42))
 
             atomic *= 2
             type *= 2
 
-            XCTAssert(atomic == type, "AFloat80 Float80 with *=")
-            XCTAssert(type == atomic, "Float80 AFloat80 with *=")
+            XCTAssert(atomic == type, "AtomicFloat80 Float80 with *=")
+            XCTAssert(type == atomic, "Float80 AtomicFloat80 with *=")
         }
         do {
-            var (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
+            var (atomic1, atomic2) = (AtomicFloat80(42), AtomicFloat80(42))
 
             atomic1 /= 2
             atomic2 /= 2
 
-            XCTAssert(atomic1 == atomic2, "AFloat80 AFloat80 with /=")
+            XCTAssert(atomic1 == atomic2, "AtomicFloat80 AtomicFloat80 with /=")
         }
         do {
-            var (atomic, type) = (AFloat80(42), Float80(42))
+            var (atomic, type) = (AtomicFloat80(42), Float80(42))
 
             atomic /= 2
             type /= 2
 
-            XCTAssert(atomic == type, "AFloat80 Float80 with /=")
-            XCTAssert(type == atomic, "Float80 AFloat80 with /=")
+            XCTAssert(atomic == type, "AtomicFloat80 Float80 with /=")
+            XCTAssert(type == atomic, "Float80 AtomicFloat80 with /=")
         }
         do {
-            var (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
+            var (atomic1, atomic2) = (AtomicFloat80(42), AtomicFloat80(42))
 
             atomic1 = +atomic1
             atomic2 = +atomic2
 
-            XCTAssert(atomic1 == atomic2, "AFloat80 AFloat80 with +")
+            XCTAssert(atomic1 == atomic2, "AtomicFloat80 AtomicFloat80 with +")
         }
         do {
-            var (atomic, type) = (AFloat80(42), Float80(42))
+            var (atomic, type) = (AtomicFloat80(42), Float80(42))
 
             atomic = +atomic
             type = +type
 
-            XCTAssert(atomic == type, "AFloat80 Float80 with +")
-            XCTAssert(type == atomic, "Float80 AFloat80 with +")
+            XCTAssert(atomic == type, "AtomicFloat80 Float80 with +")
+            XCTAssert(type == atomic, "Float80 AtomicFloat80 with +")
         }
         do {
-            var (atomic1, atomic2) = (AFloat80(42), AFloat80(42))
+            var (atomic1, atomic2) = (AtomicFloat80(42), AtomicFloat80(42))
 
             atomic1 = -atomic1
             atomic2 = -atomic2
 
-            XCTAssert(atomic1 == atomic2, "AFloat80 AFloat80 with -")
+            XCTAssert(atomic1 == atomic2, "AtomicFloat80 AtomicFloat80 with -")
         }
         do {
-            var (atomic, type) = (AFloat80(42), Float80(42))
+            var (atomic, type) = (AtomicFloat80(42), Float80(42))
 
             atomic = -atomic
             type = -type
 
-            XCTAssert(atomic == type, "AFloat80 Float80 with -")
-            XCTAssert(type == atomic, "Float80 AFloat80 with -")
+            XCTAssert(atomic == type, "AtomicFloat80 Float80 with -")
+            XCTAssert(type == atomic, "Float80 AtomicFloat80 with -")
         }
     }
 
@@ -5557,42 +5557,42 @@ class StringTests: XCTestCase {
 
     func testAtomicString() {
         do {
-            var atomic1 = AString("42")
-            let atomic2 = AString("2")
+            var atomic1 = AtomicString("42")
+            let atomic2 = AtomicString("2")
             var type = atomic1.value
 
             atomic1 = atomic1 + atomic2
             type = type + "2"
 
-            XCTAssert(atomic1 == atomic1, "AString AString with +")
-            XCTAssert(atomic1 == type, "AString String with +")
-            XCTAssert(type == atomic1, "String AString with +")
+            XCTAssert(atomic1 == atomic1, "AtomicString AtomicString with +")
+            XCTAssert(atomic1 == type, "AtomicString String with +")
+            XCTAssert(type == atomic1, "String AtomicString with +")
         }
         do {
-            var (atomic, type) = (AString("42"), String("42")!)
+            var (atomic, type) = (AtomicString("42"), String("42")!)
 
             atomic = atomic + "2"
             type = type + "2"
 
-            XCTAssert(atomic == type, "AString String with +")
-            XCTAssert(type == atomic, "String AString with +")
+            XCTAssert(atomic == type, "AtomicString String with +")
+            XCTAssert(type == atomic, "String AtomicString with +")
         }
         do {
-            var (atomic1, atomic2) = (AString("42"), AString("42"))
+            var (atomic1, atomic2) = (AtomicString("42"), AtomicString("42"))
 
             atomic1 += "2"
             atomic2 += "2"
 
-            XCTAssert(atomic1 == atomic2, "AString AString with +=")
+            XCTAssert(atomic1 == atomic2, "AtomicString AtomicString with +=")
         }
         do {
-            var (atomic, type) = (AString("42"), String("42")!)
+            var (atomic, type) = (AtomicString("42"), String("42")!)
 
             atomic += "2"
             type += "2"
 
-            XCTAssert(atomic == type, "AString String with +=")
-            XCTAssert(type == atomic, "String AString with +=")
+            XCTAssert(atomic == type, "AtomicString String with +=")
+            XCTAssert(type == atomic, "String AtomicString with +=")
         }
     }
 
@@ -5617,31 +5617,31 @@ class BoolTests: XCTestCase {
 
     func testAtomicBool() {
         do {
-            var (atomic1, atomic2) = (ABool(false), ABool(false))
+            var (atomic1, atomic2) = (AtomicBool(false), AtomicBool(false))
 
             atomic1 = !atomic1
             atomic2 = !atomic2
 
-            XCTAssert(atomic1 == atomic2, "ABool ABool with !")
+            XCTAssert(atomic1 == atomic2, "AtomicBool AtomicBool with !")
         }
         do {
-            var (atomic, type) = (ABool(false), Bool(false))
+            var (atomic, type) = (AtomicBool(false), Bool(false))
 
             atomic = !atomic
             type = !type
 
-            XCTAssert(atomic == type, "ABool Bool with !")
-            XCTAssert(type == atomic, "Bool ABool with !")
+            XCTAssert(atomic == type, "AtomicBool Bool with !")
+            XCTAssert(type == atomic, "Bool AtomicBool with !")
         }
         do {
-            let (atomic1, atomic2) = (ABool(true), ABool(true))
+            let (atomic1, atomic2) = (AtomicBool(true), AtomicBool(true))
 
-            XCTAssertTrue(atomic1 && atomic2, "ABool ABool with &&")
+            XCTAssertTrue(atomic1 && atomic2, "AtomicBool AtomicBool with &&")
         }
         do {
-            let (atomic1, atomic2) = (ABool(true), ABool(false))
+            let (atomic1, atomic2) = (AtomicBool(true), AtomicBool(false))
 
-            XCTAssertTrue(atomic1 || atomic2, "ABool ABool with ||")
+            XCTAssertTrue(atomic1 || atomic2, "AtomicBool AtomicBool with ||")
         }
     }
 
@@ -5665,7 +5665,7 @@ class AtomicTypeTests: XCTestCase {
     }
 
     func testAtomicType() {
-        var (atomic1, atomic2) = (AInt(1), AInt(2))
+        var (atomic1, atomic2) = (AtomicInt(1), AtomicInt(2))
 
         var completed = false
 

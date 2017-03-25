@@ -30,7 +30,7 @@ public extension ${extension} {
         % if (type != 'Int'):
 
         % end
-    public init(_ atomic: A${type}) throws {
+    public init(_ atomic: Atomic${type}) throws {
         self = ${extension}(atomic.value)
     }
     % end
@@ -40,7 +40,7 @@ public extension ${extension} {
 
 // Extension for '${type}'
 public extension ${type} {
-    public init(_ atomic: A${type}) throws {
+    public init(_ atomic: Atomic${type}) throws {
         self = ${type}(atomic.value)
     }
 }
@@ -52,11 +52,11 @@ public extension Bool {
     % if (operation != '&&'):
 
     % end
-    public static func ${operation}(lhs: Bool, rhs: Atomic<Bool>) -> Bool {
+    public static func ${operation}(lhs: Bool, rhs: AtomicBool) -> Bool {
         return (lhs ${operation} rhs.value)
     }
 
-    public static func ${operation}(lhs: Atomic<Bool>, rhs: Bool) -> Bool {
+    public static func ${operation}(lhs: AtomicBool, rhs: Bool) -> Bool {
         return (lhs.value ${operation} rhs)
     }
 % end
@@ -64,38 +64,38 @@ public extension Bool {
 
 // Extension for 'Character'
 public extension Character {
-    public init(_ atomic: AString) throws {
+    public init(_ atomic: AtomicString) throws {
         self = Character(atomic.value)
     }
 
-    public init(_ atomic: AUnicodeScalar) throws {
+    public init(_ atomic: AtomicUnicodeScalar) throws {
         self = Character(atomic.value)
     }
 }
 
 // Extension for 'UnicodeScalar'
 public extension UnicodeScalar {
-    public init(_ atomic: AUInt8) throws {
+    public init(_ atomic: AtomicUInt8) throws {
         self = UnicodeScalar(atomic.value)
     }
 
-    public init(_ atomic: AUnicodeScalar) throws {
+    public init(_ atomic: AtomicUnicodeScalar) throws {
         self = UnicodeScalar(atomic.value)
     }
 
-    public init?(_ atomic: AInt) throws {
+    public init?(_ atomic: AtomicInt) throws {
         self = UnicodeScalar(atomic.value)!
     }
 
-    public init?(_ atomic: AString) throws {
+    public init?(_ atomic: AtomicString) throws {
         self = UnicodeScalar(atomic.value)!
     }
 
-    public init?(_ atomic: AUInt16) throws {
+    public init?(_ atomic: AtomicUInt16) throws {
         self = UnicodeScalar(atomic.value)!
     }
 
-    public init?(_ atomic: AUInt32) throws {
+    public init?(_ atomic: AtomicUInt32) throws {
         self = UnicodeScalar(atomic.value)!
     }
 }

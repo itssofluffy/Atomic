@@ -23,20 +23,20 @@
 */
 % for type in ['Int', 'Int8', 'Int16', 'Int32', 'Int64', 'UInt', 'UInt8', 'UInt16', 'UInt32', 'UInt64', 'Double', 'Float', 'Float80']:
 
-// Atomic typealias for '${type}'
-public typealias A${type} = Atomic<${type}>
+// typealias for atomic '${type}'
+public typealias Atomic${type} = Atomic<${type}>
     % for operator in ['+', '-', '*', '/', '%', '<<', '>>', '^', '|', '&', '&+', '&-', '&*']:
         % if not (re.search(floatsRE, type) and re.search('%|<<|>>|\^|\||&|&\+|&-|&\*', operator)):
 
-public func ${operator}(lhs: A${type}, rhs: A${type}) -> A${type} {
+public func ${operator}(lhs: Atomic${type}, rhs: Atomic${type}) -> Atomic${type} {
     return Atomic(lhs.value ${operator} rhs.value)
 }
 
-public func ${operator}(lhs: ${type}, rhs: A${type}) -> A${type} {
+public func ${operator}(lhs: ${type}, rhs: Atomic${type}) -> Atomic${type} {
     return Atomic(lhs ${operator} rhs.value)
 }
 
-public func ${operator}(lhs: A${type}, rhs: ${type}) -> A${type} {
+public func ${operator}(lhs: Atomic${type}, rhs: ${type}) -> Atomic${type} {
     return Atomic(lhs.value ${operator} rhs)
 }
         % end
@@ -44,15 +44,15 @@ public func ${operator}(lhs: A${type}, rhs: ${type}) -> A${type} {
     % for operator in ['+=', '-=', '*=', '/=', '%=', '<<=', '>>=', '^=', '|=', '&=']:
         % if not (re.search(floatsRE, type) and re.search('%=|<<=|>>=|\^=|\|=|\&=', operator)):
 
-public func ${operator}(lhs: inout A${type}, rhs: A${type}) {
+public func ${operator}(lhs: inout Atomic${type}, rhs: Atomic${type}) {
     lhs.value ${operator} rhs.value
 }
 
-public func ${operator}(lhs: inout ${type}, rhs: A${type}) {
+public func ${operator}(lhs: inout ${type}, rhs: Atomic${type}) {
     lhs ${operator} rhs.value
 }
 
-public func ${operator}(lhs: inout A${type}, rhs: ${type}) {
+public func ${operator}(lhs: inout Atomic${type}, rhs: ${type}) {
     lhs.value ${operator} rhs
 }
         % end
@@ -61,7 +61,7 @@ public func ${operator}(lhs: inout A${type}, rhs: ${type}) {
         % for prefix in ['+', '-', '~']:
             % if not (re.search(floatsRE, type) and prefix == '~'):
 
-public prefix func ${prefix}(x: A${type}) -> A${type} {
+public prefix func ${prefix}(x: Atomic${type}) -> Atomic${type} {
     return Atomic(${prefix}x.value)
 }
             % end
@@ -70,51 +70,51 @@ public prefix func ${prefix}(x: A${type}) -> A${type} {
 % end
 
 // Atomic typealias for 'String'
-public typealias AString = Atomic<String>
+public typealias AtomicString = Atomic<String>
 
-public func +(lhs: AString, rhs: AString) -> AString {
+public func +(lhs: AtomicString, rhs: AtomicString) -> AtomicString {
     return Atomic(lhs.value + rhs.value)
 }
 
-public func +(lhs: String, rhs: AString) -> AString {
+public func +(lhs: String, rhs: AtomicString) -> AtomicString {
     return Atomic(lhs + rhs.value)
 }
 
-public func +(lhs: AString, rhs: String) -> AString {
+public func +(lhs: AtomicString, rhs: String) -> AtomicString {
     return Atomic(lhs.value + rhs)
 }
 
-public func +=(lhs: inout AString, rhs: AString) {
+public func +=(lhs: inout AtomicString, rhs: AtomicString) {
     lhs.value += rhs.value
 }
 
-public func +=(lhs: inout String, rhs: AString) {
+public func +=(lhs: inout String, rhs: AtomicString) {
     lhs += rhs.value
 }
 
-public func +=(lhs: inout AString, rhs: String) {
+public func +=(lhs: inout AtomicString, rhs: String) {
     lhs.value += rhs
 }
 
 // Atomic typealias for 'Bool'
-public typealias ABool = Atomic<Bool>
+public typealias AtomicBool = Atomic<Bool>
 % for operator in ['&&', '||']:
 
-public func ${operator}(lhs: Atomic<Bool>, rhs: Atomic<Bool>) -> Bool {
+public func ${operator}(lhs: AtomicBool, rhs: AtomicBool) -> Bool {
     return (lhs.value ${operator} rhs.value)
 }
 % end
 
-public prefix func !(x: Atomic<Bool>) -> Atomic<Bool> {
+public prefix func !(x: AtomicBool) -> AtomicBool {
     return Atomic(!x.value)
 }
 % for type in ['Character', 'UnicodeScalar']:
 
 // Atomic typealias for '${type}'
-public typealias A${type} = Atomic<${type}>
+public typealias Atomic${type} = Atomic<${type}>
 % end
 
 // Atomic typealias for 'C' types
 % for ctype in ['CBool', 'CChar', 'CChar16', 'CChar32', 'CDouble', 'CFloat', 'CInt', 'CLong', 'CLongLong', 'CShort', 'CSignedChar', 'CUnsignedChar', 'CUnsignedInt', 'CUnsignedLong', 'CUnsignedLongLong', 'CUnsignedShort', 'CWideChar']:
-public typealias A${ctype} = Atomic<${ctype}>
+public typealias Atomic${ctype} = Atomic<${ctype}>
 % end

@@ -30,6 +30,7 @@
 */
 
 import ISFLibrary
+import Collections
 import Mutex
 
 public class AtomicQueue<T>: AtomicSequentialCollection {

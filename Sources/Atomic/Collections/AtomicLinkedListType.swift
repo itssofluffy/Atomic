@@ -23,9 +23,10 @@
 import Mutex
 
 public protocol AtomicLinkedListType {
-    var mutex: Mutex { get }
     associatedtype T: Equatable
     associatedtype NodeType
+
+    var mutex: Mutex { get }
 
     init() throws
 

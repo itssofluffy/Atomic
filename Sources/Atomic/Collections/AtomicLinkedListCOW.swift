@@ -21,6 +21,7 @@
 */
 
 import ISFLibrary
+import Collections
 import Mutex
 
 public final class AtomicLinkedListCOW<T: Equatable>: AtomicLinkedListType {
@@ -35,7 +36,9 @@ public final class AtomicLinkedListCOW<T: Equatable>: AtomicLinkedListType {
     public convenience init<S: Sequence>(_ elements: S) throws where S.Iterator.Element == T {
         try self.init()
 
-        self._linkedList = LinkedListCOW(elements)
+        for element in elements {
+            self._linkedList.append(value: element)
+        }
     }
 
     public var count: Int {

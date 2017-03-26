@@ -27,6 +27,7 @@
 */
 
 import ISFLibrary
+import Collections
 import Mutex
 
 public class AtomicStack<T>: AtomicSequentialCollection {

@@ -21,12 +21,14 @@
 */
 
 import ISFLibrary
+import Collections
 import Mutex
 
 public final class AtomicLinkedList<T: Equatable>: AtomicLinkedListType {
-    public let mutex: Mutex
     public typealias NodeType = Node<T>
-    private var _linkedList = LinkedList<T>()
+
+    public let mutex: Mutex
+    fileprivate var _linkedList = LinkedList<T>()
 
     public init() throws {
         try self.mutex = Mutex(type: .Recursive)
@@ -35,7 +37,9 @@ public final class AtomicLinkedList<T: Equatable>: AtomicLinkedListType {
     public convenience init<S: Sequence>(_ elements: S) throws where S.Iterator.Element == T {
         try self.init()
 
-        self._linkedList = LinkedList(elements)
+        for element in elements {
+            self._linkedList.append(value: element)
+        }
     }
 
     public convenience init(_ linkedList: LinkedList<T>) throws {
@@ -84,7 +88,9 @@ public final class AtomicLinkedList<T: Equatable>: AtomicLinkedListType {
             try self._linkedList.remove(atIndex: index)
         }
     }
+}
 
+extension AtomicLinkedList {
     public func copy() throws -> AtomicLinkedList<T> {
         return try mutex.lock {
             return try AtomicLinkedList(self._linkedList.copy())

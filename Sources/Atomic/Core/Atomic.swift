@@ -24,17 +24,17 @@ import ISFLibrary
 import Mutex
 
 public class Atomic<T> {
-    fileprivate var _mutex: Mutex
+    public var mutex: Mutex
     fileprivate var _value: T
 
     /// Returns an atomic object.
     public init(_ value: T) {
-        self._mutex = wrapper(do: {
-                                  try Mutex(type: .Recursive)
-                              },
-                              catch: { failure in
-                                  atomicErrorLogger(failure)
-                              })!
+        self.mutex = wrapper(do: {
+                                 try Mutex(type: .Recursive)
+                             },
+                             catch: { failure in
+                                 atomicErrorLogger(failure)
+                             })!
         self._value = value
     }
 }
@@ -43,22 +43,22 @@ extension Atomic {
     public var value: T {
         get {
             return wrapper(do: {
-                               return try self._mutex.lock {
+                               return try self.mutex.lock {
                                    return self._value
                                }
                            },
                            catch: { failure in
-                               mutexErrorLogger(failure)
+                               atomicErrorLogger(failure)
                            })!
         }
         set {
             wrapper(do: {
-                        try self._mutex.lock {
+                        try self.mutex.lock {
                             self._value = newValue
                         }
                     },
                     catch: { failure in
-                        mutexErrorLogger(failure)
+                        atomicErrorLogger(failure)
                     })
         }
     }
@@ -66,26 +66,25 @@ extension Atomic {
     /// Sets a value atomically using a closure.
     @discardableResult
     public func mutate(_ closure: @escaping (inout T) throws -> Void) throws -> T {
-        try _mutex.lock {
+        return try mutex.lock {
             try closure(&self._value)
-        }
 
-        return _value
+            return self._value
+        }
     }
 
     /// Swaps values atomically.
-    @discardableResult
-    public func swap(_ atomic: inout Atomic<T>) throws -> T {
-        ISFLibrary.swap(&self.value, &atomic.value)
-
-        return _value
+    public func swap(_ atomic: inout Atomic<T>) throws {
+        Swift.swap(&self.value, &atomic.value)
     }
 }
 
 extension Atomic: CustomStringConvertible {
     public var description: String {
         return wrapper(do: {
-                           return "\(self.value)"
+                           return try self.mutex.lock {
+                               return "\(self.value)"
+                           }
                        },
                        catch: { failure in
                            atomicErrorLogger(failure)

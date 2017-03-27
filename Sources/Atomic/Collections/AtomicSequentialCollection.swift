@@ -35,6 +35,7 @@ public protocol AtomicSequentialCollection: Sequence {
     func push(_ element: T) throws
     func pop() throws -> T?
     func peek() throws -> T?
+    func removeAll(keepingCapacity keep: Bool) throws
 }
 
 extension AtomicSequentialCollection {

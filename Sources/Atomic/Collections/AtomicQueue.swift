@@ -69,4 +69,10 @@ public class AtomicQueue<T>: AtomicSequentialCollection {
             return self._queue.peek()
         }
     }
+
+    public func removeAll(keepingCapacity keep: Bool = false) throws {
+        try mutex.lock {
+            self._queue.removeAll(keepingCapacity:keep)
+        }
+    }
 }

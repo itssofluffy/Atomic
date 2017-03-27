@@ -66,4 +66,10 @@ public class AtomicStack<T>: AtomicSequentialCollection {
             return self._stack.peek()
         }
     }
+
+    public func removeAll(keepingCapacity keep: Bool = false) throws {
+        try mutex.lock {
+            self._stack.removeAll(keepingCapacity:keep)
+        }
+    }
 }

@@ -30,8 +30,6 @@ public protocol AtomicSequentialCollection: Sequence {
     var isEmpty: Bool { get }
     var count: Int { get }
 
-    init() throws
-
     func push(_ element: T) throws
     func pop() throws -> T?
     func peek() throws -> T?

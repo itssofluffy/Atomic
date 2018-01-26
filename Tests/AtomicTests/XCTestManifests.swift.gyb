@@ -1,7 +1,7 @@
 /*
     XCTestManifests.swift
 
-    Copyright (c) 2017 Stephen Whittle  All rights reserved.
+    Copyright (c) 2017, 2018 Stephen Whittle  All rights reserved.
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"),
@@ -24,7 +24,7 @@ import XCTest
 
 @testable import Atomic
 
-#if !os(OSX)
+#if os(Linux)
 public let allTests = [
 % for type in ['Int', 'Int8', 'Int16', 'Int32', 'Int64', 'UInt', 'UInt8', 'UInt16', 'UInt32', 'UInt64', 'Double', 'Float', 'Float80', 'String', 'Bool']:
     testCase(${type}Tests.allTests),

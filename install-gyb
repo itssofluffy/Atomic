@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 #  install-gyb
 #
-#  Copyright (c) 2016 Stephen Whittle  All rights reserved.
+#  Copyright (c) 2016, 2018 Stephen Whittle  All rights reserved.
 #
 #  Permission is hereby granted, free of charge, to any person obtaining a copy
 #  of this software and associated documentation files (the "Software"),
@@ -25,7 +25,9 @@ swift_install_dir() {
 ##################################################
     local dir=""
 
-    for dir in $(printf "$PATH" | tr ':' ' ')
+    for dir in $(printf "$PATH" | \
+                 tr ':' \
+                    ' ')
     do
         if [[ -x "$dir/swift" ]] ; then
             dir="$dir"
@@ -53,38 +55,61 @@ if [[ -z "$install_dir" ]] || [[ ! -d "$install_dir" ]] ; then
     exit 2
 fi
 
+apt-get update
+rc=$?
+
+[[ $rc -ne 0 ]] && exit $rc
+
+apt-get install -y wget
+rc=$?
+
+[[ $rc -ne 0 ]] && exit $rc
+
 for fname in "gyb" "gyb.py"
 do
     if [[ ! -f "$install_dir/$fname" ]] ; then
         wget "$url/$fname"
+        rc=$?
+
+        [[ $rc -ne 0 ]] && exit $rc
+
         mv "$fname" "$install_dir"
+        rc=$?
+
+        [[ $rc -ne 0 ]] && exit $rc
     fi
 done
 
 chmod 755 "$install_dir/gyb"
+rc=$?
+
+[[ $rc -ne 0 ]] && exit $rc
 
 gyb_source_file="$install_dir/gyb-source"
 if [[ ! -x "$gyb_source_file" ]] ; then
-    cat << @@ >"$gyb_source_file"
-#!/bin/bash
-
-gyb_extension=".gyb"
-
-for gyb_file in \$(find "." -name "*\$gyb_extension" | sort)
-do
-    src_file="\$(printf "%s/%s" "\$(dirname "\$gyb_file")" "\$(basename "\$gyb_file" "\$gyb_extension")")"
-
-    if [[ "\$gyb_file" -nt "\$src_file" ]] ; then
-        printf "%s -> %s\n" "\$gyb_file" "\$src_file" >&1
-
-        gyb --line-directive '' -o "\$src_file" "\$gyb_file"
-    fi
-done
-
-exit 0
-@@
+    (
+        printf "#!/usr/bin/env bash\n"
+        printf "\n"
+        printf "gyb_extension=\".gyb\"\n"
+        printf "\n"
+        printf "for gyb_file in \$(find \".\" -name \"*\$gyb_extension\" | sort)\n"
+        printf "do\n"
+        printf "    src_file=\"\$(printf \"%s/%s\" \"\$(dirname \"\$gyb_file\")\" \"\$(basename \"\$gyb_file\" \"\$gyb_extension\")\")\"\n"
+        printf "\n"
+        printf "    if [[ \"\$gyb_file\" -nt \"\$src_file\" ]] ; then\n"
+        printf "        printf \"%s -> %s\n\" \"\$gyb_file\" \"\$src_file\" >&1\n"
+        printf "\n"
+        printf "        gyb --line-directive '' -o \"\$src_file\" \"\$gyb_file\"\n"
+        printf "    fi\n"
+        printf "done\n"
+        printf "\n"
+        printf "exit 0\n"
+    ) >"$gyb_source_file"
 
     chmod 755 "$gyb_source_file"
+    rc=$?
+
+    [[ $rc -ne 0 ]] && exit $rc
 fi
 
 ##################################################
